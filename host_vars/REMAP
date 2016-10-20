@@ -1,0 +1,12 @@
+---
+
+# file: host_vars/REMAP
+ansible_host: 128.97.98.7
+site: /edu/ucla
+default_prefix: /ndn/edu/ucla/remap 
+advertised_prefixes: [/ndn/edu/ucla/remap]
+router_name: cs/aleph 
+neighbors: [ARIZONA,UCLA,CSU]
+network_regions: [/ndn/edu/ucla/remap]
+hr_radius: 123.456
+hr_angle: 1.45

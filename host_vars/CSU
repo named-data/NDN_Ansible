@@ -1,0 +1,12 @@
+---
+
+# file: host_vars/CSU
+ansible_host: ndn.netsec.colostate.edu
+site: /edu/colostate
+default_prefix: /ndn/edu/colostate 
+advertised_prefixes: [/ndn/edu/colostate]
+router_name: mccoy 
+neighbors: [ARIZONA,UCLA,REMAP]
+network_regions: [/ndn/edu/colostate]
+hr_radius: 123.456
+hr_angle: 1.45

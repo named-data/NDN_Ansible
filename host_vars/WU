@@ -4,7 +4,7 @@
 ansible_host: wundngw.arl.wustl.edu
 site: /edu/wustl
 default_prefix: /ndn/edu/wustl 
-advertised_prefixes: /ndn/edu/wustl 
+advertised_prefixes: [/ndn/edu/wustl]
 router_name: wundngw 
 neighbors: [MEMPHIS,ARIZONA]
 network_regions: [/ndn/edu/wustl]

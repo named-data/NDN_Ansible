@@ -6,7 +6,7 @@ general
 
   network {{ ndnNetwork }}         ; name of the network the router belongs to in ndn URI format
   site {{ site }}    ; name of the site the router belongs to in ndn URI format
-  router /%C1.Router/wundngw    ; name of the router in ndn URI format
+  router /%C1.Router/{{router_name}}    ; name of the router in ndn URI format
 
   ; lsa-refresh-time is the time in seconds, after which router will refresh its LSAs
   lsa-refresh-time 1080      ; default value 1800. Valid values 240-7200
@@ -67,46 +67,16 @@ neighbors
   ; neighbor command is used to configure router's neighbor. Each neighbor will need
   ; one block of neighbor command
 
-;  ; WU has 4 neighbors: URJC, ARIZONA, MEMPHIS, UIUC
-;   neighbor   ; URJC
-;   {
-;       name /ndn/es/urjc/%C1.Router/insula        ; name prefix of the neighbor router consists
-;                                            ; of network, site-name and router-name
-;       face-uri  udp4://insula.gsyc.es                 ; face id of the face connected to the neighbor
-;       link-cost  86                         ; cost of the connecting link to neighbor
-;   }
-;   neighbor   ; ARIZONA
-;   {
-;       name /ndn/edu/arizona/%C1.Router/hobo        ; name prefix of the neighbor router consists
-;                                            ; of network, site-name and router-name
-;       face-uri  udp4://hobo.cs.arizona.edu                 ; face id of the face connected to the neighbor
-;       link-cost 33                         ; cost of the connecting link to neighbor
-;   }
-;   neighbor   ; MEMPHIS
-;   {
-;       name /ndn/edu/memphis/%C1.Router/titan        ; name prefix of the neighbor router consists
-;                                            ; of network, site-name and router-name
-;       face-uri  udp4://titan.cs.memphis.edu                 ; face id of the face connected to the neighbor
-;       link-cost 17                         ; cost of the connecting link to neighbor
-;   }
-;   neighbor   ; UIUC
-;   {
-;       name /ndn/edu/illinois/%C1.Router/ndnx        ; name prefix of the neighbor router consists
-;                                            ; of network, site-name and router-name
-;       face-uri  udp4://ndnx.cs.illinois.edu                 ; face id of the face connected to the neighbor
-;       link-cost  9                         ; cost of the connecting link to neighbor
-;   }
-;
   ; {{ inventory_hostname}}  Neighbors: {{ neighbors }}
-  {% for neighbor in neighbors %}
-     ; {{ neighbor }} {{ hostvars[neighbor].ansible_host }}
-     neighbor   ; {{ neighbor }}
-     {
-       name {{ hostvars[neighbor].default_prefix }}/%C1.Router/{{ hostvars[neighbor].router_name }}
-       face-uri udp4://{{ hostvars[neighbor].ansible_host }}
-       cost 
-     }
-  {% endfor %}
+{% for neighbor in neighbors %}
+   ; {{ neighbor }} {{ hostvars[neighbor].ansible_host }}
+   neighbor   ; {{ neighbor }}
+   {
+       name {{ ndnNetwork }}{{hostvars[neighbor].site }}/%C1.Router/{{ hostvars[neighbor].router_name }}
+       face-uri  udp4://{{ hostvars[neighbor].ansible_host }}
+       link-cost 
+   }
+{% endfor %}
 }
 
 ; the hyperbolic section contains the configuration settings of enabling a router to calculate
@@ -152,7 +122,9 @@ advertising
   ; the ndnname is used to advertised name from the router. To advertise each name prefix
   ; configure one block of ndnname configuration command for every name prefix.
 
-  prefix {{ advertised_prefixes }}           ; name in ndn URI format
+  {% for prefix in advertised_prefixes %}
+  prefix   {{ prefix }}
+  {% endfor %}
 }
 
 security

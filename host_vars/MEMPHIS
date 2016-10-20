@@ -4,7 +4,7 @@
 ansible_host: titan.cs.memphis.edu
 site: /edu/memphis
 default_prefix: /ndn/edu/memphis 
-advertised_prefixes: /ndn/edu/memphis 
+advertised_prefixes: [/ndn/edu/memphis]
 router_name: titan 
 neighbors: [WU,ARIZONA]
 network_regions: [/ndn/edu/memphis]
