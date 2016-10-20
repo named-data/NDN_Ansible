@@ -1,0 +1,9 @@
+---
+- name: install ndn gateway
+  hosts: ndngateways
+  remote_user: ndnops
+  become: yes
+
+  tasks: 
+  - name: install nfd
+    apt: name=nfd state=present

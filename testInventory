@@ -1,0 +1,22 @@
+[ndngateways]
+
+# We need to get link costs for neighbors from somewhere but we want to make
+# sure that the cost is same for both endpoints. i.e. the WU/MEMPHIS link should
+# have the same cost on the WU end as on the MEMPHIS end.
+# Hyperbolic Routing params (hr_radius, hr_angle) need updating
+# WU needs extra strategy for ndndemo added in nfd-init.sh
+
+#WU ansible_host=wundngw.arl.wustl.edu site=/edu/wustl default_prefix="/ndn/edu/wustl" advertised_prefixes="/ndn/edu/wustl" router_name="wundngw" neighbors='["MEMPHIS","ARIZONA"]' hr_radius=123.456 hr_angle=1.45 
+
+#WU neighbors='["MEMPHIS","ARIZONA"]' 
+
+WU 
+MEMPHIS ansible_host=titan.cs.memphis.edu site=/edu/memphis default_prefix="/ndn/edu/memphis" advertised_prefixes="/ndn/edu/memphis" router_name="titan" neighbors='["WU","ARIZONA"]' hr_radius=123.456 hr_angle=1.45 
+ARIZONA ansible_host=hobo.cs.arizona.edu site=/edu/arizona default_prefix="/ndn/edu/arizona" advertised_prefixes="/ndn/edu/arizona" router_name="hobo" neighbors='["MEMPHIS","WU"]' hr_radius=123.456 hr_angle=1.45 
+
+
+[all:vars]
+ansible_user=ndnops
+ansible_ssh_private_key_file=~/.ssh/id_rsa
+ndnNetwork=/ndn/
+

@@ -1,0 +1,4 @@
+---
+# tasks file for nlsr
+  - template: src=nlsr.conf.j2 dest=/etc/ndn/nlsr/ansible_nlsr.conf owner=nlsr group=nlsr mode="u=rw,g=r,o=r"
+

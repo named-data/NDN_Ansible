@@ -1,0 +1,35 @@
+---
+# need to add NDN repository
+
+# tasks file for NOC
+
+  -- name: install general ubuntu packages 
+     apt: name={{item}} state=present
+     with_items:
+     - build-essential
+     - git
+     - openssl 
+     - python-openssl 
+     - libssl-dev 
+     - expat 
+     - libexpat-dev 
+     - libpcap-dev
+     - gawk 
+     - texinfo 
+     - asciidoc 
+     - finger
+     - python-software-properties
+     - software-properties-common
+     - ntp
+     - autoconf 
+     - libtool
+     - python-dev
+     - g++ 
+     - autotools-dev 
+     - libicu-dev 
+     - libbz2-dev  
+     - sqlite3
+     - pkg-config
+     - libssl-dev 
+     - libsqlite3-dev 
+     - libcrypto++-dev
