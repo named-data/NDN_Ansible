@@ -7,4 +7,5 @@
   roles: 
   - nfd
   - nlsr
+  - ndn-autoconfig-server
 
