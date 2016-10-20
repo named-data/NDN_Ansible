@@ -7,12 +7,15 @@
 # WU needs extra strategy for ndndemo added in nfd-init.sh
 
 #WU ansible_host=wundngw.arl.wustl.edu site=/edu/wustl default_prefix="/ndn/edu/wustl" advertised_prefixes="/ndn/edu/wustl" router_name="wundngw" neighbors='["MEMPHIS","ARIZONA"]' hr_radius=123.456 hr_angle=1.45 
+#MEMPHIS ansible_host=titan.cs.memphis.edu site=/edu/memphis default_prefix="/ndn/edu/memphis" advertised_prefixes="/ndn/edu/memphis" router_name="titan" neighbors='["WU","ARIZONA"]' hr_radius=123.456 hr_angle=1.45 
+#ARIZONA ansible_host=hobo.cs.arizona.edu site=/edu/arizona default_prefix="/ndn/edu/arizona" advertised_prefixes="/ndn/edu/arizona" router_name="hobo" neighbors='["MEMPHIS","WU"]' hr_radius=123.456 hr_angle=1.45 
 
 #WU neighbors='["MEMPHIS","ARIZONA"]' 
 
+# Everything defined in host_vars/{name}, e.g. host_vars/WU contains all variables for node WU
 WU 
-MEMPHIS ansible_host=titan.cs.memphis.edu site=/edu/memphis default_prefix="/ndn/edu/memphis" advertised_prefixes="/ndn/edu/memphis" router_name="titan" neighbors='["WU","ARIZONA"]' hr_radius=123.456 hr_angle=1.45 
-ARIZONA ansible_host=hobo.cs.arizona.edu site=/edu/arizona default_prefix="/ndn/edu/arizona" advertised_prefixes="/ndn/edu/arizona" router_name="hobo" neighbors='["MEMPHIS","WU"]' hr_radius=123.456 hr_angle=1.45 
+MEMPHIS
+ARIZONA
 
 
 [all:vars]

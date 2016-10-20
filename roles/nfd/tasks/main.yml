@@ -1,2 +1,4 @@
 ---
 # tasks file for nfd
+  - template: src=nfd.conf.j2 dest=/etc/ndn/ansible_nfd.conf owner=root group=root mode="u=rw,g=r,o=r"
+  - template: src=nfd-init.sh.j2 dest=/etc/ndn/ansible_nfd-init.sh  owner=root group=root mode="u=rwx,g=rx,o=rx"

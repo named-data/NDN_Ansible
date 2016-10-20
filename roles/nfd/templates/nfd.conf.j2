@@ -63,8 +63,10 @@ tables
 
   network_region
   {
-    ; /ndn/edu/wustl
-    {{ network_regions }}
+  ; Network regions: {{ network_regions }}
+{% for region in network_regions %}
+    {{region}}
+{% endfor %}
   }
 }
 
