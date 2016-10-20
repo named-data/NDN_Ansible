@@ -286,7 +286,11 @@ security
   }
    ; optional, a file containing the root certificate. only the router
      ; that is designated to publish root cert needs to specify this
+{% if inventory_hostname == "UCLA" %}
+   cert-to-publish "/etc/ndn/nlsr/keys/root.cert"  
+{% else %}
    ;cert-to-publish "/etc/ndn/nlsr/keys/root.cert"  
+{% endif %}
 
    ; optional, a file containing the site certificate. only the router
      ; that is designated to publish site cert need to specify this
