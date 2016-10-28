@@ -6,7 +6,10 @@ site: /edu/ucla
 default_prefix: /ndn/edu/ucla/remap 
 advertised_prefixes: [/ndn/edu/ucla/remap]
 router_name: cs/aleph 
-neighbors: [ARIZONA,UCLA,CSU]
+neighbors:
+  ARIZONA: {link_cost: 25}
+  UCLA: {link_cost: 1}
+  CSU: {link_cost: 16}
 network_regions: [/ndn/edu/ucla/remap]
 hr_radius: 123.456
 hr_angle: 1.45

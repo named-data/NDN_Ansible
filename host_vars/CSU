@@ -6,7 +6,10 @@ site: /edu/colostate
 default_prefix: /ndn/edu/colostate 
 advertised_prefixes: [/ndn/edu/colostate]
 router_name: mccoy 
-neighbors: [ARIZONA,UCLA,REMAP]
+neighbors: 
+  ARIZONA: {link_cost: 18}
+  UCLA: {link_cost: 16}
+  REMAP: {link_cost: 16}
 network_regions: [/ndn/edu/colostate]
 hr_radius: 123.456
 hr_angle: 1.45

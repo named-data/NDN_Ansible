@@ -68,13 +68,13 @@ neighbors
   ; one block of neighbor command
 
   ; {{ inventory_hostname}}  Neighbors: {{ neighbors }}
-{% for neighbor in neighbors %}
+{% for neighbor, data in neighbors.items() %}
    ; {{ neighbor }} {{ hostvars[neighbor].ansible_host }}
    neighbor   ; {{ neighbor }}
    {
        name {{ ndnNetwork }}{{hostvars[neighbor].site }}/%C1.Router/{{ hostvars[neighbor].router_name }}
        face-uri  udp4://{{ hostvars[neighbor].ansible_host }}
-       link-cost 
+       link-cost {{ data['link_cost'] }}
    }
 {% endfor %}
 }
