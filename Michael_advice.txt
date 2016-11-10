@@ -1,0 +1,48 @@
+I think there are a few options for expressing the link costs and getting them picked up as you'd like. The first is a bit easier to get going with but would require you to define the cost in two spots (i.e. you'd have to define WU->MEMPHIS cost in the host_vars/WU file and host_vars/MEMPHIS). For that approach, I think a few tweaks would suffice:
+
+In the host_vars/WU file you could change like so:
+
+advertised_prefixes: [/ndn/edu/wustl]
+router_name: wundngw 
+neighbors:
+  MEMPHIS: {link_cost: 17}
+  ARIZONA: {link_cost: 33}
+network_regions: [/ndn/edu/wustl]
+hr_radius: 123.456
+
+This makes the `neighbors` more like an object then you could modify the `nslr.conf.j2` loop a bit to be like:
+
+  ; {{ inventory_hostname}}  Neighbors: {{ neighbors }}
+{% for neighbor, data in neighbors.items() %}
+   ; {{ neighbor }} {{ hostvars[neighbor].ansible_host }}
+   neighbor   ; {{ neighbor }}
+   {
+       name {{ ndnNetwork }}{{hostvars[neighbor].site }}/%C1.Router/{{ hostvars[neighbor].router_name }}
+       face-uri  udp4://{{ hostvars[neighbor].ansible_host }}
+       link-cost {{ data['link_cost'] }}
+   }
+{% endfor %}
+
+You can define other neighbor properties in the host_vars file and access them similarly if needed.
+
+The other option is a bit more complicated, but more powerful ultimately. That would be to create a dynamic inventory script that defines the host_vars for the link_costs on the fly. For this you'd probably have a single file that defines half the link costs and then when it runs would fill in the other half and put them into the host_vars object for access. I've attached a quick example of these two files with ndn.py and ndn.yml. The .yml file defines half the link costs by hostname, then the script reads that file and creates the other half and then they'd be available for the template file (as the `link_costs` variable). In this case the template would just be something like:
+
+  ; {{ inventory_hostname}}  Neighbors: {{ neighbors }}
+{% for neighbor in neighbors %}
+   ; {{ neighbor }} {{ hostvars[neighbor].ansible_host }}
+   neighbor   ; {{ neighbor }}
+   {
+       name {{ ndnNetwork }}{{hostvars[neighbor].site }}/%C1.Router/{{ hostvars[neighbor].router_name }}
+       face-uri  udp4://{{ hostvars[neighbor].ansible_host }}
+       link-cost {{ link_costs[neighbor] }}
+   }
+{% endfor %}
+
+If you don't already know, you can specify a directory for the inventory and any executable in that directory will be run and the output is used to generate the inventory ansible uses. We do something like `-i hosts/` and it runs two dynamic inventory scripts and picks up one static inventory file.
+
+Like I said, the second option is more complicated but also more powerful. As such I'm sure I didn't explain it terribly well, so if you end up going that route feel free to pester me more for clarification.
+
+Hope that helps, let me know if you have any more questions,
+
+--michael
+
