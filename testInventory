@@ -25,4 +25,5 @@ CSU
 ansible_user=ndnops
 ansible_ssh_private_key_file=~/.ssh/id_rsa
 ndnNetwork=/ndn
+hyperbolic_state=off
 
