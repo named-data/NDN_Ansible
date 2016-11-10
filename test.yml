@@ -5,6 +5,7 @@
   become: yes
 
   roles: 
+  - NOC
   - nfd
   - nlsr
   - ndn-autoconfig-server

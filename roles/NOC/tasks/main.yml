@@ -2,34 +2,55 @@
 # need to add NDN repository
 
 # tasks file for NOC
+# apt: name={{ item }} state=present
 
-  -- name: install general ubuntu packages 
-     apt: name={{item}} state=present
-     with_items:
-     - build-essential
-     - git
-     - openssl 
-     - python-openssl 
-     - libssl-dev 
-     - expat 
-     - libexpat-dev 
-     - libpcap-dev
-     - gawk 
-     - texinfo 
-     - asciidoc 
-     - finger
-     - python-software-properties
-     - software-properties-common
-     - ntp
-     - autoconf 
-     - libtool
-     - python-dev
-     - g++ 
-     - autotools-dev 
-     - libicu-dev 
-     - libbz2-dev  
-     - sqlite3
-     - pkg-config
-     - libssl-dev 
-     - libsqlite3-dev 
-     - libcrypto++-dev
+- name: add ndn repository
+  apt_repository: repo='ppa:named-data/ppa' state=present
+
+- name: install general ubuntu packages 
+  action: >
+       {{ ansible_pkg_mgr }} name={{ item }} state=present update_cache=yes
+  with_items:
+       - build-essential
+       - git
+       - openssl 
+       - python-openssl 
+       - libssl-dev 
+       - expat 
+       - libexpat-dev 
+       - libpcap-dev
+       - gawk 
+       - texinfo 
+       - asciidoc 
+       - finger
+       - python-software-properties
+       - software-properties-common
+       - ntp
+       - autoconf 
+       - libtool
+       - python-dev
+       - g++ 
+       - autotools-dev 
+       - libicu-dev 
+       - libbz2-dev  
+       - sqlite3
+       - pkg-config
+       - libssl-dev 
+       - libsqlite3-dev 
+       - libcrypto++-dev
+
+- name: install ndn packages 
+  action: >
+       {{ ansible_pkg_mgr }} name={{ item }} state=present update_cache=yes
+  with_items:
+       - ndn-cxx
+       - nfd
+       - nlsr
+       - ndn-cxx-dev
+       - ndndump
+       - ndn-tools
+       - repo-ng
+       - ndn-autoconfig-server
+       - nfd-status-http-server
+       - nfd-autoreg
+       - ndnmap-data-collector
