@@ -7,6 +7,8 @@ default_prefix: /ndn/edu/arizona
 advertised_prefixes: [/ndn/edu/arizona]
 router_name: hobo 
 neighbors: 
+  REMAP: {link_cost: 25}
+  CSU: {link_cost: 18}
   MEMPHIS: {link_cost: 17}
   WU: {link_cost: 33}
 network_regions: [/ndn/edu/arizona]
