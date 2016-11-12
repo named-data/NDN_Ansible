@@ -1,4 +1,14 @@
 ---
 # tasks file for nfd
+  - user: name=ndn state=present shell=/bin/false createhome=no
+  - user: name=ndnsec state=present shell=/bin/bash password=LrVkOUM1s16xE
+  - file: path=/etc/ndn state=directory owner=ndn group=ndn mode=0755
+  - file: path=/etc/ndn/keys state=directory owner=ndn group=ndn mode=0755
+  - copy: dest=/etc/ndn/keys/ndn-testbed-root.ndncert.base64 src=roles/nfd/files/ndn-testbed-root.ndncert.base64 owner=ndn group=root mode=0644
+  - file: path=/var/lib/ndn state=directory owner=ndn group=ndn mode=0755
+  - file: path=/var/lib/ndn/nfd-autoreg state=directory owner=ndn group=ndn mode=0755
+  - file: path=/var/log/ndn state=directory owner=ndn group=ndn mode=0755
   - template: src=nfd.conf.j2 dest=/etc/ndn/ansible_nfd.conf owner=root group=root mode="u=rw,g=r,o=r"
+  #- template: src=nfd.conf.j2 dest=/etc/ndn/nfd.conf owner=root group=root mode="u=rw,g=r,o=r"
   - template: src=nfd-init.sh.j2 dest=/etc/ndn/ansible_nfd-init.sh  owner=root group=root mode="u=rwx,g=rx,o=rx"
+  #- template: src=nfd-init.sh.j2 dest=/etc/ndn/nfd-init.sh  owner=root group=root mode="u=rwx,g=rx,o=rx"

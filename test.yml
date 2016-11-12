@@ -7,6 +7,7 @@
   roles: 
   - NOC
   - nfd
+  - ndnping
   - nlsr
   - ndn-autoconfig-server
 

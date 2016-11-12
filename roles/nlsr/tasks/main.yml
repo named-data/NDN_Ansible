@@ -1,4 +1,8 @@
 ---
 # tasks file for nlsr
+  - user: name=nlsr state=present shell=/bin/bash createhome=yes home=/home/nlsr
+  - file: path=/etc/ndn/nlsr/keys state=directory owner=nlsr group=nlsr mode=0755
+  - file: path=/var/lib/ndn/nlsr state=directory owner=nlsr group=nlsr mode=0755
+  - file: path=/var/log/ndn/nlsr state=directory owner=nlsr group=nlsr mode=0755
   - template: src=nlsr.conf.j2 dest=/etc/ndn/nlsr/ansible_nlsr.conf owner=nlsr group=nlsr mode="u=rw,g=r,o=r"
 

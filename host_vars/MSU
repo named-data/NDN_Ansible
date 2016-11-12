@@ -7,8 +7,7 @@ default_prefix: /ndn/th/ac/msu
 advertised_prefixes: [/ndn/th/ac/msu]
 router_name: isan-ndn 
 neighbors: 
-  #MEMPHIS: {link_cost: 17}
-  #ARIZONA: {link_cost: 33}
+  SRRU: {link_cost: 3}
 network_regions: [/ndn/th/ac/msu]
 hr_radius: 123.456
 hr_angle: 1.45
