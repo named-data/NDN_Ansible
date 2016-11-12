@@ -1,0 +1,13 @@
+---
+
+# file: host_vars/SRRU
+ansible_host: comsci2.srru.ac.th
+site: /th/ac/srru
+default_prefix: /ndn/th/ac/srru 
+advertised_prefixes: [/ndn/th/ac/srru]
+router_name: comsci2
+neighbors: 
+  MSU: {link_cost: 3}
+network_regions: [/ndn/th/ac/srru]
+hr_radius: 123.456
+hr_angle: 1.45
