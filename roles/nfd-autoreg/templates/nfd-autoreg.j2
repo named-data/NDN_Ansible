@@ -1,0 +1,17 @@
+# nfd-autoreg defaults
+
+# Blacklisted networks
+#BLACKLIST="-b 128.196.203.36/32 -b 141.225.11.173/32 -b 72.36.112.82/32 -b 193.147.51.186/32 "
+BLACKLIST="{% for neighbor, data in neighbors.items() %} -b {{ lookup('dig',  hostvars[neighbor].ansible_host) }}/32 {% endfor %}"
+
+# Whitelisted networks
+WHITELIST=""
+
+# Prefixes to register on All faces:
+ALL_FACES_PREFIXES="--all-faces-prefix /ndn/broadcast --all-faces-prefix /ndn/multicast"
+
+# Prefixes to register just on on-demand faces:
+ON_DEMAND_FACES_PREFIXES=""
+
+# Flags
+FLAGS=""
