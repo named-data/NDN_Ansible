@@ -4,7 +4,8 @@
   - user: name=ndnsec state=present shell=/bin/bash password=LrVkOUM1s16xE
   - file: path=/etc/ndn state=directory owner=ndn group=ndn mode=0755
   - file: path=/etc/ndn/keys state=directory owner=ndn group=ndn mode=0755
-  - copy: dest=/etc/ndn/keys/ndn-testbed-root.ndncert.base64 src=roles/nfd/files/ndn-testbed-root.ndncert.base64 owner=ndn group=root mode=0644
+  #- copy: dest=/etc/ndn/keys/ndn-testbed-root.ndncert.base64 src=roles/nfd/files/ndn-testbed-root.ndncert.base64 owner=ndn group=root mode=0644
+  - copy: dest=/etc/ndn/keys/ansible_ndn-testbed-root.ndncert.base64 src=roles/nfd/files/ndn-testbed-root.ndncert.base64 owner=ndn group=root mode=0644
   - file: path=/var/lib/ndn state=directory owner=ndn group=ndn mode=0755
   - file: path=/var/lib/ndn/nfd-autoreg state=directory owner=ndn group=ndn mode=0755
   - file: path=/var/log/ndn state=directory owner=ndn group=ndn mode=0755
