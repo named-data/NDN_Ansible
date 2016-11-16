@@ -10,6 +10,7 @@
 #  - ndnping
 #  - nlsr
 #  - ndn-autoconfig-server
-  - repo-ng
+#  - repo-ng
+  - ndnmap-data-collector
 #  - nfd-autoreg
 
