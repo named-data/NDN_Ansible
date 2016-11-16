@@ -2,7 +2,13 @@
 
 # Blacklisted networks
 #BLACKLIST="-b 128.196.203.36/32 -b 141.225.11.173/32 -b 72.36.112.82/32 -b 193.147.51.186/32 "
-BLACKLIST="{% for neighbor, data in neighbors.items() %} -b {{ lookup('dig',  hostvars[neighbor].ansible_host) }}/32 {% endfor %}"
+BLACKLIST="{% for neighbor, data in neighbors.items() -%} 
+{% if hostvars[neighbor].ansible_host | ipv4 -%}
+-b {{ hostvars[neighbor].ansible_host }}/32 {{' '}}
+{%- else -%}
+-b {{ lookup('dig',  hostvars[neighbor].ansible_host) }}/32 {{' '}}
+{%- endif %}
+{%- endfor %}"
 
 # Whitelisted networks
 WHITELIST=""
