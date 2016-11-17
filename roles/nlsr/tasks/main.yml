@@ -14,6 +14,9 @@
 - name: create nlsr.conf
   #template: src=nlsr.conf.j2 dest=/etc/ndn/nlsr/ansible_nlsr.conf owner=nlsr group=nlsr mode="u=rw,g=r,o=r"
   template: src=nlsr.conf.j2 dest=/etc/ndn/nlsr/nlsr.conf owner=nlsr group=nlsr mode="u=rw,g=r,o=r"
+  notify: restart nlsr
+
+- name: create log4cxx.conf
   copy: dest=/etc/ndn/nlsr/log4cxx.conf src=roles/nlsr/files/log4cxx.conf owner=root group=root mode=0644
   notify: restart nlsr
 
