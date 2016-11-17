@@ -13,6 +13,9 @@
   file: path=/var/lib/ndn state=directory owner=ndn group=ndn mode=0755
   file: path=/var/log/ndn state=directory owner=ndn group=ndn mode=0755
 
+- name: install nfd
+  apt: name=nfd state=present
+
 - name: copy root key
   copy: dest=/etc/ndn/keys/ansible_ndn-testbed-root.ndncert.base64 src=roles/nfd/files/ndn-testbed-root.ndncert.base64 owner=ndn group=root mode=0644
 
@@ -23,3 +26,6 @@
 - name: create nfd-init.sh
   template: src=nfd-init.sh.j2 dest=/etc/ndn/ansible_nfd-init.sh  owner=root group=root mode="u=rwx,g=rx,o=rx"
   #template: src=nfd-init.sh.j2 dest=/etc/ndn/nfd-init.sh  owner=root group=root mode="u=rwx,g=rx,o=rx"
+
+- name: start nfd
+  service: name=nfd state=started enabled=yes

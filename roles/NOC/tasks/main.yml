@@ -39,18 +39,18 @@
        - libsqlite3-dev 
        - libcrypto++-dev
 
-- name: install ndn packages 
+- name: install base ndn packages 
   action: >
        {{ ansible_pkg_mgr }} name={{ item }} state=present update_cache=yes
   with_items:
        - ndn-cxx
-       - nfd
-       - nlsr
+#       - nfd
+#       - nlsr
        - ndn-cxx-dev
        - ndndump
        - ndn-tools
-       - repo-ng
-       - ndn-autoconfig-server
+#       - repo-ng
+#       - ndn-autoconfig-server
        - nfd-status-http-server
-       - nfd-autoreg
-       - ndnmap-data-collector
+#       - nfd-autoreg
+#       - ndnmap-data-collector

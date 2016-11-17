@@ -1,5 +1,8 @@
 ---
 # tasks file for nlsr
+- name: install nlsr
+  apt: name=nlsr state=present
+
 - name: create nlsr user
   user: name=nlsr state=present shell=/bin/bash createhome=yes home=/home/nlsr
 
@@ -11,3 +14,5 @@
 - name: create nlsr.conf
   template: src=nlsr.conf.j2 dest=/etc/ndn/nlsr/ansible_nlsr.conf owner=nlsr group=nlsr mode="u=rw,g=r,o=r"
 
+- name: start nlsr
+  service: name=nlsr state=started enabled=yes
