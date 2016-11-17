@@ -12,6 +12,6 @@
   - ndn-autoconfig-server
   - repo-ng
   - ndnmap-data-collector
-  - ndnTestbedDataCollector
+#  - ndnTestbedDataCollector
   - nfd-autoreg
 
