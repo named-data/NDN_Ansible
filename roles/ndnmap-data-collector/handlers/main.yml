@@ -1,2 +1,4 @@
 ---
 # handlers file for ndnmap-data-collector
+- name: restart ndnmap-data-collector
+  service: name=ndnmap-data-collector state=restarted

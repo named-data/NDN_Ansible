@@ -5,13 +5,13 @@
   become: yes
 
   roles: 
-#  - NOC
-#  - nfd
-#  - ndnping
-#  - nlsr
-#  - ndn-autoconfig-server
-#  - repo-ng
-#  - ndnmap-data-collector
+  - NOC
+  - nfd
+  - ndnping
+  - nlsr
+  - ndn-autoconfig-server
+  - repo-ng
+  - ndnmap-data-collector
   - ndnTestbedDataCollector
-#  - nfd-autoreg
+  - nfd-autoreg
 

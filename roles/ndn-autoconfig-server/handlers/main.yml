@@ -1,2 +1,4 @@
 ---
 # handlers file for ndn-autoconfig-server
+- name: restart ndn-autoconfig-server
+  service: name=ndn-autoconfig-server state=restarted

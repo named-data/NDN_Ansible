@@ -1,2 +1,4 @@
 ---
 # handlers file for ndnTestbedDataCollector
+- name: restart ndnTestbedDataCollector
+  service: name=ndnTestbedDataCollector state=restarted

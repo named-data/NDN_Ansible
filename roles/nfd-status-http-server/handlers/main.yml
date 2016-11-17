@@ -1,2 +1,4 @@
 ---
 # handlers file for nfd-status-http-server
+- name: restart nfd-status-http-server
+  service: name=nfd-status-http-server state=restarted

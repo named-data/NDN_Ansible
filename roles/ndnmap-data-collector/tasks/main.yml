@@ -6,6 +6,7 @@
 - name: create /etc/default/ndnmap-data-collector
   #template: src=ndnmap-data-collector.j2 dest=/etc/default/ansible_ndnmap-data-collector owner=root group=root mode="u=rw,g=r,o=r"
   template: src=ndnmap-data-collector.j2 dest=/etc/default/ndnmap-data-collector owner=root group=root mode="u=rw,g=r,o=r"
+  notify: restart ndnmap-data-collector
 
 - name: start ndnmap-data-collector
   service: name=ndnmap-data-collector state=started enabled=yes

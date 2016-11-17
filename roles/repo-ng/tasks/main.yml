@@ -6,6 +6,7 @@
 - name: create repo-ng configuration file
   #template: src=repo-ng.conf.j2 dest=/etc/ndn/ansible_repo-ng.conf owner=root group=root mode="u=rw,g=r,o=r"
   template: src=repo-ng.conf.j2 dest=/etc/ndn/repo-ng.conf owner=root group=root mode="u=rw,g=r,o=r"
+  notify: restart repo-ng
 
 - name: start repo-ng
   service: name=repo-ng state=started enabled=yes

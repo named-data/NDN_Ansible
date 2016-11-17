@@ -6,6 +6,7 @@
 - name: create /etc/default/ndnping
   #template: src=ndnping.j2 dest=/etc/default/ansible_ndnping  owner=root group=root mode="u=rw,g=r,o=r"
   template: src=ndnping.j2 dest=/etc/default/ndnping  owner=root group=root mode="u=rw,g=r,o=r"
+  notify: restart ndnping
 
 - name: start ndnping
   service: name=ndnping state=started enabled=yes

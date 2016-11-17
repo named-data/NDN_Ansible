@@ -9,6 +9,7 @@
 - name: create /etc/default/nfd-autoreg
   #template: src=nfd-autoreg.j2 dest=/etc/default/ansible_nfd-autoreg owner=root group=root mode="u=rw,g=r,o=r"
   template: src=nfd-autoreg.j2 dest=/etc/default/nfd-autoreg owner=root group=root mode="u=rw,g=r,o=r"
+  notify: restart nfd-autoreg
 
 - name: start nfd-autoreg
   service: name=nfd-autoreg state=started enabled=yes

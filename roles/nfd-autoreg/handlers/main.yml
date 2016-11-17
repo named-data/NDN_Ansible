@@ -1,2 +1,4 @@
 ---
 # handlers file for nfd-autoreg
+- name: restart nfd-autoreg
+  service: name=nfd-autoreg state=restarted

@@ -6,6 +6,7 @@
 - name: create /etc/default/ndn-autoconfig-server
   #template: src=ndn-autoconfig-server.j2 dest=/etc/default/ansible_ndn-autoconfig-server owner=root group=root mode="u=rw,g=r,o=r"
   template: src=ndn-autoconfig-server.j2 dest=/etc/default/ndn-autoconfig-server owner=root group=root mode="u=rw,g=r,o=r"
+  notify: restart ndn-autoconfig-server
 
 - name: start ndn-autoconfig-server
   service: name=ndn-autoconfig-server state=started enabled=yes
