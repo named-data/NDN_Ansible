@@ -8,6 +8,11 @@ advertised_prefixes: [/ndn/th/ac/srru]
 router_name: comsci2
 neighbors: 
   MSU: {link_cost: 3}
+  BUPT: {link_cost: 72}
+  ANYANG: {link_cost: 72}
+  OSAKA: {link_cost: 67}
+  INDONESIA: {link_cost: 50}
+  PADUA: {link_cost: 126}
 network_regions: [/ndn/th/ac/srru]
 hr_radius: 123.456
 hr_angle: 1.45

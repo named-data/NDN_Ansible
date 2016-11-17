@@ -7,8 +7,12 @@ default_prefix: /ndn/edu/memphis
 advertised_prefixes: [/ndn/edu/memphis]
 router_name: titan 
 neighbors:
-  WU: {link_cost: 17}
+  UFPA: {link_cost: 115}
   ARIZONA: {link_cost: 17}
+  WU: {link_cost: 17}
+  MICHIGAN: {link_cost: 12}
+  NEU: {link_cost: 21}
+  ORANGE: {link_cost: 56}
 network_regions: [/ndn/edu/memphis]
 hr_radius: 123.456
 hr_angle: 1.45
