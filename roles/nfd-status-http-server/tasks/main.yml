@@ -1,0 +1,7 @@
+---
+# tasks file for nfd-status-http-server
+- name: install nfd-status-http-server
+  apt: name=nfd-status-http-server state=present
+
+- name: start nfd-status-http-server
+  service: name=nfd-status-http-server state=started enabled=yes
