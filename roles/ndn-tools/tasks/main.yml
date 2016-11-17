@@ -1,0 +1,8 @@
+---
+# tasks file for ndn-tools
+- name: install ndn-tools
+  apt: name=ndn-tools state=present
+
+- name: install ndndump
+  apt: name=ndndump state=present
+
