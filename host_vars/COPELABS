@@ -1,0 +1,17 @@
+---
+
+# file: host_vars/COPELABS
+ansible_host: 193.137.75.171
+site: /pt/ulusofona/copelabs
+default_prefix: /ndn/pt/ulusofona/copelabs
+advertised_prefixes: [/ndn/pt/ulusofona/copelabs]
+router_name: ndn 
+neighbors: 
+  UFPA: {link_cost: 145}
+  MINHO: {link_cost: 4}
+  LIP6: {link_cost: 22}
+  URJC: {link_cost: 13}
+  PADUA: {link_cost: 24}
+network_regions: [/ndn/pt/ulusofona/copelabs]
+hr_radius: 123.456
+hr_angle: 1.45

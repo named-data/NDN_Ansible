@@ -1,0 +1,18 @@
+---
+
+# file: host_vars/ANYANG
+ansible_host: 210.114.89.49
+site: /kr/anyang
+default_prefix: /ndn/kr/anynag 
+advertised_prefixes: [/ndn/kr/anyang]
+router_name: anyanghub 
+neighbors: 
+  SRRU: {link_cost: 72}
+  OSAKA: {link_cost: 36}
+  KISTI: {link_cost: 38}
+  WASEDA: {link_cost: 22}
+  BUPT: {link_cost: 33}
+  TONGJI: {link_cost: 54}
+network_regions: [/ndn/kr/anyang]
+hr_radius: 123.456
+hr_angle: 1.45

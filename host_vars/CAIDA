@@ -1,0 +1,17 @@
+---
+
+# file: host_vars/CAIDA
+ansible_host: click.caida.org
+site: /org/caida
+default_prefix: /ndn/org/caida 
+advertised_prefixes: [/ndn/org/caida]
+router_name: hobo 
+neighbors: 
+  UFPA: {link_cost: 155}
+  UCLA: {link_cost: 3}
+  UCI: {link_cost: 3}
+  ARIZONA: {link_cost: 25}
+  TONGJI: {link_cost: 93}
+network_regions: [/ndn/org/caida]
+hr_radius: 123.456
+hr_angle: 1.45

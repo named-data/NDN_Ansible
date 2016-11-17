@@ -1,0 +1,3 @@
+---
+# tasks file for nfd-autoreg
+  - template: src=nfd-autoreg.j2 dest=/etc/default/ansible_nfd-autoreg owner=root group=root mode="u=rw,g=r,o=r"

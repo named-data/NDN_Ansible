@@ -1,0 +1,15 @@
+---
+
+# file: host_vars/BYU
+ansible_host: pasta10.cs.byu.edu
+site: /edu/byu
+default_prefix: /ndn/edu/byu 
+advertised_prefixes: [/ndn/edu/byu]
+router_name: pasta10 
+neighbors: 
+  REMAP: {link_cost: 9}
+  CSU: {link_cost: 8}
+  ARIZONA: {link_cost: 30}
+network_regions: [/ndn/edu/byu]
+hr_radius: 123.456
+hr_angle: 1.45
