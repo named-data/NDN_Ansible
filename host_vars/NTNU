@@ -1,0 +1,17 @@
+---
+
+# file: host_vars/NTNU
+ansible_host: 129.241.209.52
+site: /no/ntnu
+default_prefix: /ndn/no/ntnu 
+advertised_prefixes: [/ndn/no/ntnu]
+router_name: ndnnode 
+neighbors: 
+  GOETTINGEN: {link_cost: 26}
+  NEU: {link_cost: 69}
+  SYSTEMX: {link_cost: 24}
+  BASEL: {link_cost: 30}
+  LIP6: {link_cost: 25}
+network_regions: [/ndn/no/ntnu]
+hr_radius: 123.456
+hr_angle: 1.45

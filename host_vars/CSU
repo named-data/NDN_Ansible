@@ -10,6 +10,10 @@ neighbors:
   ARIZONA: {link_cost: 18}
   UCLA: {link_cost: 16}
   REMAP: {link_cost: 16}
+  KISTI: {link_cost: 89}
+  BYU: {link_cost: 8}
+  MICHIGAN: {link_cost: 15}
+  UIUC: {link_cost: 14}
 network_regions: [/ndn/edu/colostate]
 hr_radius: 123.456
 hr_angle: 1.45

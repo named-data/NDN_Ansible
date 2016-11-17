@@ -1,0 +1,17 @@
+---
+
+# file: host_vars/OSAKA
+ansible_host: 133.1.17.51
+site: /jp/ac/osaka-u
+default_prefix: /ndn/jp/ac/osaka-u 
+advertised_prefixes: [/ndn/jp/ac/osaka-u]
+router_name: NDNtestbed 
+neighbors: 
+  SRRU: {link_cost: 67}
+  ANYANG: {link_cost: 36}
+  TONGJI: {link_cost: 63}
+  GOETTINGEN: {link_cost: 136}
+  WASEDA: {link_cost: 5}
+network_regions: [/ndn/jp/ac/osaka-u]
+hr_radius: 123.456
+hr_angle: 1.45

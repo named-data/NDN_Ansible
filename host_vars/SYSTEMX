@@ -1,0 +1,17 @@
+---
+
+# file: host_vars/SYSTEMX
+ansible_host: systemx-ndn-1.enst.fr
+site: /fr/irt-systemx
+default_prefix: /ndn/fr/irt-systemx 
+advertised_prefixes: [/ndn/fr/irt-systemx]
+router_name: systemx-ndn-1 
+neighbors: 
+  GOETTINGEN: {link_cost: 10}
+  NTNU: {link_cost: 24}
+  LIP6: {link_cost: 9}
+  BASEL: {link_cost: 9}
+  ORANGE: {link_cost: 3}
+network_regions: [/ndn/fr/irt-systemx]
+hr_radius: 123.456
+hr_angle: 1.45

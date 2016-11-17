@@ -1,0 +1,16 @@
+---
+
+# file: host_vars/UIUC
+ansible_host: ndnx.cs.illinois.edu
+site: /edu/illinois
+default_prefix: /ndn/edu/illinois 
+advertised_prefixes: [/ndn/edu/illinois,/ndn/edu/uiuc]
+router_name: ndnx 
+neighbors: 
+  REMAP: {link_cost: 25}
+  CSU: {link_cost: 18}
+  MEMPHIS: {link_cost: 17}
+  WU: {link_cost: 33}
+network_regions: [/ndn/edu/illinois]
+hr_radius: 123.456
+hr_angle: 1.45

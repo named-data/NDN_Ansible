@@ -1,0 +1,18 @@
+---
+
+# file: host_vars/INDONESIA
+ansible_host: 152.118.148.103
+site: /id/ac/ui
+default_prefix: /ndn/id/ac/ui
+advertised_prefixes: [/ndn/id/ac/ui]
+router_name: ndnlab-s5-1420d 
+neighbors: 
+  UFPA: {link_cost: 235}
+  KISTI: {link_cost: 38}
+  SRRU: {link_cost: 50}
+  WASEDA: {link_cost: 22}
+  BUPT: {link_cost: 54}
+  TONGJI: {link_cost: 33}
+network_regions: [/ndn/id/ac/ui]
+hr_radius: 123.456
+hr_angle: 1.45

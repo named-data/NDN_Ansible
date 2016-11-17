@@ -1,0 +1,20 @@
+---
+
+# file: host_vars/WASEDA
+ansible_host: 133.9.73.66
+site: /jp/waseda
+default_prefix: /ndn/jp/waseda 
+advertised_prefixes: [/ndn/jp/waseda]
+router_name: parklab 
+neighbors: 
+  OSAKA: {link_cost: 5}
+  INDONESIA: {link_cost: 22}
+  KISTI: {link_cost: 22}
+  ANYANG: {link_cost: 22}
+  ARIZONA: {link_cost: 75}
+  TONGJI: {link_cost: 98}
+  BUPT: {link_cost: 48}
+  ORANGE: {link_cost: 144}
+network_regions: [/ndn/jp/waseda]
+hr_radius: 123.456
+hr_angle: 1.45

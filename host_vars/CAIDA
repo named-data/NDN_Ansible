@@ -5,7 +5,7 @@ ansible_host: click.caida.org
 site: /org/caida
 default_prefix: /ndn/org/caida 
 advertised_prefixes: [/ndn/org/caida]
-router_name: hobo 
+router_name: click 
 neighbors: 
   UFPA: {link_cost: 155}
   UCLA: {link_cost: 3}

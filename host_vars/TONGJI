@@ -1,0 +1,18 @@
+---
+
+# file: host_vars/TONGJI
+ansible_host: cnlab.tongji.edu.cn
+site: /cn/edu/tongji
+default_prefix: /ndn/cn/edu/tongji 
+advertised_prefixes: [/ndn/cn/edu/tongji]
+router_name: cnlab 
+neighbors: 
+  OSAKA: {link_cost: 63}
+  INDONESIA: {link_cost: 54}
+  ANYANG: {link_cost: 54}
+  WASEDA: {link_cost: 98}
+  CAIDA: {link_cost: 93}
+  BUPT: {link_cost: 18}
+network_regions: [/ndn/cn/edu/tongji]
+hr_radius: 123.456
+hr_angle: 1.45

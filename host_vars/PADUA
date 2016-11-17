@@ -1,0 +1,20 @@
+---
+
+# file: host_vars/PADUA
+ansible_host: ndnnode.math.unipd.it
+site: /it/unipd
+default_prefix: /ndn/it/unipd 
+advertised_prefixes: [/ndn/it/unipd]
+router_name: ndnnode 
+neighbors: 
+  SRRU: {link_cost: 126}
+  MINHO: {link_cost: 26}
+  GOETTINGEN: {link_cost: 21}
+  COPELABS: {link_cost: 24}
+  URJC: {link_cost: 15}
+  UIUC: {link_cost: 80}
+  BASEL: {link_cost: 9}
+  ORANGE: {link_cost: 15}
+network_regions: [/ndn/it/unipd]
+hr_radius: 123.456
+hr_angle: 1.45

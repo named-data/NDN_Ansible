@@ -1,0 +1,15 @@
+---
+
+# file: host_vars/NIST
+ansible_host: ndn-01.antd.nist.gov
+site: /gov/nist
+default_prefix: /ndn/gov/nist 
+advertised_prefixes: [/ndn/gov/nist]
+router_name: hostname 
+neighbors: 
+  NEU: {link_cost: 12}
+  MICHIGAN: {link_cost: 13}
+  UIUC: {link_cost: 12}
+network_regions: [/ndn/gov/nist]
+hr_radius: 123.456
+hr_angle: 1.45

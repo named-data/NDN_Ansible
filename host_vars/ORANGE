@@ -1,0 +1,19 @@
+---
+
+# file: host_vars/ORANGE
+ansible_host: 193.253.72.45
+site: /com/orange
+default_prefix: /ndn/com/orange 
+advertised_prefixes: [/ndn/com/orange]
+router_name: orange-ndn-1 
+neighbors: 
+  PADUA: {link_cost: 15}
+  SYSTEMX: {link_cost: 3}
+  WASEDA: {link_cost: 144}
+  BASEL: {link_cost: 18}
+  URJC: {link_cost: 15}
+  MEMPHIS: {link_cost: 56}
+  LIP6: {link_cost: 3}
+network_regions: [/ndn/com/orange]
+hr_radius: 123.456
+hr_angle: 1.45

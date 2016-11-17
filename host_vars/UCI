@@ -1,0 +1,15 @@
+---
+
+# file: host_vars/UCI
+ansible_host: ndnhub.ics.uci.edu
+site: /edu/uci
+default_prefix: /ndn/edu/uci 
+advertised_prefixes: [/ndn/edu/uci]
+router_name: ndnhub 
+neighbors: 
+  UCLA: {link_cost: 1}
+  REMAP: {link_cost: 1}
+  CAIDA: {link_cost: 3}
+network_regions: [/ndn/edu/uci]
+hr_radius: 123.456
+hr_angle: 1.45

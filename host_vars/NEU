@@ -1,0 +1,16 @@
+---
+
+# file: host_vars/NEU
+ansible_host: 129.10.52.193
+site: /edu/neu
+default_prefix: /ndn/edu/neu 
+advertised_prefixes: [/ndn/edu/neu]
+router_name: ndnrtr 
+neighbors: 
+  NIST: {link_cost: 12}
+  NTNU: {link_cost: 69}
+  MICHIGAN: {link_cost: 14}
+  MEMPHIS: {link_cost: 21}
+network_regions: [/ndn/edu/neu]
+hr_radius: 123.456
+hr_angle: 1.45

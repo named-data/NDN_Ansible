@@ -1,0 +1,15 @@
+---
+
+# file: host_vars/TNO
+ansible_host: 134.221.116.42
+site: /nl/tno
+default_prefix: /ndn/nl/tno 
+advertised_prefixes: [/ndn/nl/tno]
+router_name: tno-ndntestbed-bordernode 
+neighbors: 
+  GOETTINGEN: {link_cost: 12}
+  LIP6: {link_cost: 9}
+  BASEL: {link_cost: 14}
+network_regions: [/ndn/nl/tno]
+hr_radius: 123.456
+hr_angle: 1.45

@@ -1,0 +1,16 @@
+---
+
+# file: host_vars/UFPA
+ansible_host: 200.239.93.10
+site: /br/ufpa
+default_prefix: /ndn/br/ufpa 
+advertised_prefixes: [/ndn/br/ufpa]
+router_name: hostname 
+neighbors: 
+  CAIDA: {link_cost: 155}
+  MEMPHIS: {link_cost: 115}
+  COPELABS: {link_cost: 145}
+  INDONESIA: {link_cost: 235}
+network_regions: [/ndn/br/ufpa]
+hr_radius: 123.456
+hr_angle: 1.45
