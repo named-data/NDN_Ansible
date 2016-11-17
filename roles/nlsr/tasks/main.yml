@@ -16,6 +16,9 @@
   template: src=nlsr.conf.j2 dest=/etc/ndn/nlsr/nlsr.conf owner=nlsr group=nlsr mode="u=rw,g=r,o=r"
   notify: restart nlsr
 
+- name: create key_gen.sh
+  template: src=key_gen.j2 dest=/etc/ndn/nlsr/keys/key_gen.sh owner=nlsr group=nlsr mode="u=rw,g=r,o=r"
+
 - name: create log4cxx.conf
   copy: dest=/etc/ndn/nlsr/log4cxx.conf src=roles/nlsr/files/log4cxx.conf owner=root group=root mode=0644
   notify: restart nlsr
