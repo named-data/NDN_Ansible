@@ -1,3 +1,4 @@
 ---
 # tasks file for ndnping
-  - template: src=ndnping.j2 dest=/etc/default/ansible_ndnping  owner=root group=root mode="u=rw,g=r,o=r"
+- name: create /etc/default/ndnping
+  template: src=ndnping.j2 dest=/etc/default/ansible_ndnping  owner=root group=root mode="u=rw,g=r,o=r"
