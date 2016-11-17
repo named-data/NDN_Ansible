@@ -12,7 +12,8 @@
   file: path=/var/log/ndn/nlsr state=directory owner=nlsr group=nlsr mode=0755
 
 - name: create nlsr.conf
-  template: src=nlsr.conf.j2 dest=/etc/ndn/nlsr/ansible_nlsr.conf owner=nlsr group=nlsr mode="u=rw,g=r,o=r"
+  #template: src=nlsr.conf.j2 dest=/etc/ndn/nlsr/ansible_nlsr.conf owner=nlsr group=nlsr mode="u=rw,g=r,o=r"
+  template: src=nlsr.conf.j2 dest=/etc/ndn/nlsr/nlsr.conf owner=nlsr group=nlsr mode="u=rw,g=r,o=r"
 
 - name: start nlsr
   service: name=nlsr state=started enabled=yes

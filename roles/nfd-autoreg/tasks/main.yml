@@ -7,7 +7,8 @@
   file: path=/var/lib/ndn/nfd-autoreg state=directory owner=ndn group=ndn mode=0755
 
 - name: create /etc/default/nfd-autoreg
-  template: src=nfd-autoreg.j2 dest=/etc/default/ansible_nfd-autoreg owner=root group=root mode="u=rw,g=r,o=r"
+  #template: src=nfd-autoreg.j2 dest=/etc/default/ansible_nfd-autoreg owner=root group=root mode="u=rw,g=r,o=r"
+  template: src=nfd-autoreg.j2 dest=/etc/default/nfd-autoreg owner=root group=root mode="u=rw,g=r,o=r"
 
 - name: start nfd-autoreg
   service: name=nfd-autoreg state=started enabled=yes
