@@ -13,14 +13,40 @@
 #WU neighbors='["MEMPHIS","ARIZONA"]' 
 
 # Everything defined in host_vars/{name}, e.g. host_vars/WU contains all variables for node WU
+ANYANG
+ARIZONA
+BASEL
+BUPT
+BYU
+CAIDA
+COPELABS
+CSU
+GOETTINGEN
+INDONESIA
+KISTI
+LIP6
+MEMPHIS
+MICHIGAN
+MINHO
 MSU
+NEU
+NIST
+NTNU
+ORANGE
+OSAKA
+PADUA
+REMAP
 SRRU
-#WU 
-#MEMPHIS
-#ARIZONA
-#UCLA
-#REMAP
-#CSU
+SYSTEMX
+TNO
+TONGJI
+UCI
+UCLA
+UFPA
+UIUC
+URJC
+WASEDA
+WU
 
 
 [all:vars]
