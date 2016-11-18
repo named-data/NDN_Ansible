@@ -4,6 +4,15 @@
   remote_user: ndnops
   become: yes
 
-  tasks: 
-  - name: install nfd
-    apt: name=nfd state=present
+  roles: 
+  - NOC
+  - nfd
+  - ndnping
+  - nlsr
+  - nfd-status-http-server
+  - ndn-autoconfig-server
+  - repo-ng
+  - ndnmap-data-collector
+  - ndnTestbedDataCollector
+  - nfd-autoreg
+
