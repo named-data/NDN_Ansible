@@ -11,5 +11,5 @@ neighbors:
   CSU: {link_cost: 8}
   ARIZONA: {link_cost: 30}
 network_regions: [/ndn/edu/byu]
-hr_radius: 123.456
-hr_angle: 1.45
+hr_radius: 19.353845431776
+hr_angle: 3.77334112452928

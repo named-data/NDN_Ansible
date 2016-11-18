@@ -15,5 +15,5 @@ neighbors:
   LIP6: {link_cost: 15}
   ORANGE: {link_cost: 15}
 network_regions: [/ndn/es/urjc]
-hr_radius: 123.456
-hr_angle: 1.45
+hr_radius: 13.6888312671789
+hr_angle: 1.17169974115617

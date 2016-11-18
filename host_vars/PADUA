@@ -17,5 +17,5 @@ neighbors:
   BASEL: {link_cost: 9}
   ORANGE: {link_cost: 15}
 network_regions: [/ndn/it/unipd]
-hr_radius: 123.456
-hr_angle: 1.45
+hr_radius: 13.5903793306882
+hr_angle: 1.13934426229508

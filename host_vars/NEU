@@ -12,5 +12,5 @@ neighbors:
   MICHIGAN: {link_cost: 14}
   MEMPHIS: {link_cost: 21}
 network_regions: [/ndn/edu/neu]
-hr_radius: 123.456
-hr_angle: 1.45
+hr_radius: 19.9001283692128
+hr_angle: 2.13894230769231

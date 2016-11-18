@@ -11,5 +11,5 @@ neighbors:
   LIP6: {link_cost: 9}
   BASEL: {link_cost: 14}
 network_regions: [/ndn/nl/tno]
-hr_radius: 123.456
-hr_angle: 1.45
+hr_radius: 12.0148443703157
+hr_angle: 2.46031061259707

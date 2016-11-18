@@ -15,5 +15,5 @@ neighbors:
   MEMPHIS: {link_cost: 56}
   LIP6: {link_cost: 3}
 network_regions: [/ndn/com/orange]
-hr_radius: 123.456
-hr_angle: 1.45
+hr_radius: 11.939786808546
+hr_angle: 1.23943054357204

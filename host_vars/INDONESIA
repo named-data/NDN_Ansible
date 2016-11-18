@@ -14,5 +14,5 @@ neighbors:
   BUPT: {link_cost: 54}
   TONGJI: {link_cost: 33}
 network_regions: [/ndn/id/ac/ui]
-hr_radius: 123.456
-hr_angle: 1.45
+hr_radius: 29.2553552716
+hr_angle: 2.75021570319241

@@ -14,5 +14,5 @@ neighbors:
   BUPT: {link_cost: 33}
   TONGJI: {link_cost: 54}
 network_regions: [/ndn/kr/anyang]
-hr_radius: 123.456
-hr_angle: 1.45
+hr_radius: 14.3378634978013
+hr_angle: 2.99956859361519

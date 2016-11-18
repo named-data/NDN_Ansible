@@ -11,5 +11,5 @@ neighbors:
   REMAP: {link_cost: 1}
   CAIDA: {link_cost: 3}
 network_regions: [/ndn/edu/uci]
-hr_radius: 123.456
-hr_angle: 1.45
+hr_radius: 19.2697694366069
+hr_angle: 2.94186046511628

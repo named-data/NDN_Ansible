@@ -13,5 +13,5 @@ neighbors:
   URJC: {link_cost: 13}
   PADUA: {link_cost: 24}
 network_regions: [/ndn/pt/ulusofona/copelabs]
-hr_radius: 123.456
-hr_angle: 1.45
+hr_radius: 16.2060358549513
+hr_angle: 2.62082874954162

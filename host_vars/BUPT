@@ -14,5 +14,5 @@ neighbors:
   WASEDA: {link_cost: 48}
   TONGJI: {link_cost: 18}
 network_regions: [/ndn/cn/edu/bupt]
-hr_radius: 123.456
-hr_angle: 1.45
+hr_radius: 11.5095245566676
+hr_angle: 2.87230371009491

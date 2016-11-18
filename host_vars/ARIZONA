@@ -14,5 +14,5 @@ neighbors:
   WASEDA: {link_cost: 75}
   CAIDA: {link_cost: 25}
 network_regions: [/ndn/edu/arizona]
-hr_radius: 123.456
-hr_angle: 1.45
+hr_radius: 16.2305391313912
+hr_angle: 2.97033285094067

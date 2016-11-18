@@ -12,5 +12,5 @@ neighbors:
   MEMPHIS: {link_cost: 17}
   WU: {link_cost: 33}
 network_regions: [/ndn/edu/illinois]
-hr_radius: 123.456
-hr_angle: 1.45
+hr_radius: 29.2553552716
+hr_angle: 2.98231233822261

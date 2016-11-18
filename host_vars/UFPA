@@ -12,5 +12,5 @@ neighbors:
   COPELABS: {link_cost: 145}
   INDONESIA: {link_cost: 235}
 network_regions: [/ndn/br/ufpa]
-hr_radius: 123.456
-hr_angle: 1.45
+hr_radius: 29.2553552716
+hr_angle: 3.51898188093184

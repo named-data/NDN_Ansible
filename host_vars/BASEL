@@ -17,5 +17,5 @@ neighbors:
   LIP6: {link_cost: 9}
   URJC: {link_cost: 18}
 network_regions: [/ndn/ch/unibas]
-hr_radius: 123.456
-hr_angle: 1.45
+hr_radius: 13.2717666496574
+hr_angle: 2.41932700603969

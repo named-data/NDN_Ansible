@@ -14,5 +14,5 @@ neighbors:
   NEU: {link_cost: 21}
   ORANGE: {link_cost: 56}
 network_regions: [/ndn/edu/memphis]
-hr_radius: 123.456
-hr_angle: 1.45
+hr_radius: 15.2647735129845
+hr_angle: 2.98360655737705
