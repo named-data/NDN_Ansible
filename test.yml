@@ -9,9 +9,10 @@
   - nfd
   - ndnping
   - nlsr
+  - nfd-status-http-server
   - ndn-autoconfig-server
   - repo-ng
-  - ndnmap-data-collector
-#  - ndnTestbedDataCollector
+#  - ndnmap-data-collector
+  - ndnTestbedDataCollector
   - nfd-autoreg
 
