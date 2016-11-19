@@ -3,7 +3,7 @@
 # file: host_vars/ANYANG
 ansible_host: 210.114.89.49
 site: /kr/anyang
-default_prefix: /ndn/kr/anynag 
+default_prefix: /ndn/kr/anyang 
 advertised_prefixes: [/ndn/kr/anyang]
 router_name: anyanghub 
 neighbors: 

@@ -2,15 +2,15 @@
 
 # file: host_vars/MINHO
 ansible_host: vnetlab.gcom.di.uminho.pt
-site: /pt/minho
-default_prefix: /ndn/pt/minho 
-advertised_prefixes: [/ndn/pt/minho]
+site: /pt/uminho
+default_prefix: /ndn/pt/uminho 
+advertised_prefixes: [/ndn/pt/uminho]
 router_name: vnetlab 
 neighbors: 
   COPELABS: {link_cost: 4}
   BASEL: {link_cost: 23}
   URJC: {link_cost: 13}
   PADUA: {link_cost: 26}
-network_regions: [/ndn/pt/minho]
+network_regions: [/ndn/pt/uminho]
 hr_radius: 16.2060358549513
 hr_angle: 2.62082874954162
