@@ -10,7 +10,7 @@ neighbors:
   REMAP: {link_cost: 25}
   CSU: {link_cost: 18}
   MEMPHIS: {link_cost: 17}
-  WU: {link_cost: 33}
+  WU: {link_cost: 9}
 network_regions: [/ndn/edu/illinois]
 hr_radius: 29.2553552716
 hr_angle: 2.98231233822261
