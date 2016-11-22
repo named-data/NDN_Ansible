@@ -3,8 +3,8 @@
 - name: add ndn user
   user: name=ndn state=present shell=/bin/false createhome=no
 
-- name: add ndnsec user
-  user: name=ndnsec state=present shell=/bin/bash password=LrVkOUM1s16xE
+#- name: add ndnsec user
+#  user: name=ndnsec state=present shell=/bin/bash password=LrVkOUM1s16xE
 
 - name: make ndn required directories
   file: path=/etc/ndn state=directory owner=ndn group=ndn mode=0755

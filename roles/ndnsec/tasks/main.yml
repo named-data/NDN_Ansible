@@ -1,2 +1,8 @@
 ---
 # tasks file for ndnsec
+
+- name: add ndnsec user
+  user: name=ndnsec state=present shell=/bin/bash password=LrVkOUM1s16xE
+
+- cron: name="auto-approve guest certs" user="ndnsec" minute="*/5" job="/usr/local/bin/ndnop-process-requests --guest-only --auto-approve"
+
