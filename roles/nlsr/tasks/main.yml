@@ -1,7 +1,7 @@
 ---
 # tasks file for nlsr
 - name: install nlsr
-  apt: name=nlsr state=present update_cache=yes
+  apt: name=nlsr state=latest update_cache=yes
 
 - name: create nlsr user
   user: name=nlsr state=present shell=/bin/bash createhome=yes home=/home/nlsr

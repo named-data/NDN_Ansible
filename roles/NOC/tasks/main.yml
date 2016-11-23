@@ -9,7 +9,7 @@
 
 - name: install general ubuntu packages 
   action: >
-       {{ ansible_pkg_mgr }} name={{ item }} state=present update_cache=yes
+       {{ ansible_pkg_mgr }} name={{ item }} state=latest update_cache=yes
   with_items:
        - build-essential
        - git
@@ -44,7 +44,7 @@
 
 - name: install base ndn libraries 
   action: >
-       {{ ansible_pkg_mgr }} name={{ item }} state=present update_cache=yes
+       {{ ansible_pkg_mgr }} name={{ item }} state=latest update_cache=yes
   with_items:
        - ndn-cxx
        - ndn-cxx-dev
