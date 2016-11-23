@@ -1,0 +1,279 @@
+#!/usr/bin/env python3
+
+# Copyright (c) 2014  Regents of the University of California
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+import json
+import os,sys,getopt
+import urllib.request, urllib.parse, urllib.error
+import argparse
+
+# pip install requests
+# easy_install requests
+# port install py27-requests
+import requests
+
+import subprocess
+import base64
+import pyndn as ndn
+import time
+import datetime
+import re
+import socket
+
+import pyndn.security
+
+parser = argparse.ArgumentParser(description='Process NDNCERT requests')
+parser.add_argument('-g', '--guest-only', dest='guest_only', action='store_true',
+                    help='''Process only guest requests''')
+parser.add_argument('-a', '--auto-approve', dest='auto_approve', action='store_true',
+                    help='''Automatically approve requests''')
+parser.add_argument('site_prefix', metavar='site_prefix', type=str, nargs='?', default=ndn.security.KeyChain().getDefaultIdentity(),
+                    help='''Site prefix (will use the default identity if omitted)''')
+args = parser.parse_args()
+
+################################################################################
+###                                CONFIG                                    ###
+################################################################################
+
+URL = "http://ndncert.named-data.net"
+PUBLISH_REPO = True
+REPO_HOST = "localhost"
+REPO_PORT = 7376
+
+################################################################################
+################################################################################
+
+class RequestSkipped(Exception):
+    pass
+
+class Signer(object):
+    def __init__(self, site_prefix):
+        self.site_prefix = site_prefix
+
+    def run(self):
+        commandInterestName = ndn.Name('/cert-requests/get')
+        commandInterestName \
+          .append(str(int(time.mktime(time.gmtime())))) \
+          .append(self.site_prefix.wireEncode())
+
+        commandInterest = ndn.Interest(commandInterestName)
+        try:
+            keyChain = ndn.security.KeyChain()
+            keyChain.sign(commandInterest)
+        except:
+            print("ERROR: cannot generate signature, please submit your certification " \
+                  "request to NDN testbed root")
+            return
+
+        http_request = "%s/cert-requests/get/" % URL
+
+        try:
+            r = requests.post(
+                    http_request,
+                    data={
+                        'commandInterest': base64.b64encode(commandInterest.getName()
+                                                              .wireEncode()
+                                                              .toBuffer())
+                        }
+                )
+        except:
+            print("ERROR: error while communicating with the server")
+            return
+
+        if r.status_code != 200:
+            print("ERROR: request not authorized or system is temporarily down")
+            return
+
+        cert_requests = r.json()
+
+        count = 0
+        issued = 0
+        rejected = 0
+        for req in cert_requests:
+            count += 1
+            certData = ndn.Data()
+            # certData.wireDecode(ndn.Blob(buffer(base64.b64decode(req['cert_request']))))
+            certData.wireDecode(ndn.Blob(base64.b64decode(base64.b64decode(req['cert_request']['$binary']))))
+
+            if args.guest_only and certData.getName()[self.site_prefix.size()].toEscapedString() != "%40GUEST":
+                continue;
+
+            print(" >> Certificate request [%s] << " % certData.getName()[:-2].toUri())
+
+            if args.auto_approve:
+                cert = self.issueCertificate(req)
+                decision = "issue"
+                self.publishCertificate(cert)
+                issued += 1
+            else:
+                print(" >> Certificate request [%s] << " % certData.getName()[:-2].toUri())
+                print("    Full Name:    [%s]" % sanitize(req['fullname']))
+                print("    Organization: [%s]" % sanitize(req['organization']))
+                print("    Email:        [%s]" % sanitize(req['email']))
+                print("    Homepage:     [%s]" % sanitize(req['homeurl']))
+                print("    Group:        [%s]" % sanitize(req['group']))
+                print("    Advisor:      [%s]" % sanitize(req['advisor']))
+
+                try:
+                    if confirm("Do you certify the above information?", resp=False):
+                        cert = self.issueCertificate(req)
+                        decision = "issue"
+                        self.publishCertificate(cert)
+                        issued += 1
+                    else:
+                        cert = self.denyCertificate(req)
+                        decision = "reject"
+                        rejected += 1
+                except RequestSkipped:
+                    continue
+
+            http_request = "%s/cert/submit/" % URL
+            try:
+                r = requests.post(http_request,
+                                  data={
+                                      'id': req['_id']['$oid'],
+                                      'data': cert
+                                      })
+                if r.status_code != 200:
+                    print("ERROR: failed to upload decision to the server")
+                    print(r.text)
+                else:
+                    print("OK. Decision [%s] has been uploaded to the server" % decision)
+                    print(r.text)
+            except:
+                print("ERROR: error while communicating with the server")
+
+        if count == 0:
+            if not args.auto_approve:
+                print("DONE: No pending certificate requests")
+        else:
+            print("DONE: Processed %d requests, %d issued, %d rejected, %d skipped" % \
+              (count, issued, rejected, count - issued - rejected))
+
+    def issueCertificate(self, request):
+        today = datetime.datetime.utcnow()
+
+        not_before = (today - datetime.timedelta(days=1)  ).strftime('%Y%m%d%H%M%S')
+        not_after  = (today + datetime.timedelta(days=365)).strftime('%Y%m%d%H%M%S')
+
+        cmdline = ['ndnsec-certgen',
+                   '--not-before', not_before,
+                   '--not-after',  not_after,
+                   '--subject-name', sanitize(request['fullname']),
+
+                   '--signed-info', '%s %s' % ('1.2.840.113549.1.9.1', sanitize(request['email'])),
+                   '--signed-info', '%s %s' % ('2.5.4.11',             sanitize(request['organization'])),
+                   '--signed-info', '%s %s' % ('2.5.4.1',              sanitize(request['group'])),
+                   '--signed-info', '%s %s' % ('2.5.4.3',              sanitize(request['homeurl'])),
+                   '--signed-info', '%s %s' % ('2.5.4.80',             sanitize(request['advisor'])),
+
+                   '--sign-id', str(self.site_prefix),
+                   '--cert-prefix', str(self.site_prefix),
+                   '--request', '-'
+                   ]
+
+        p = subprocess.Popen(cmdline, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+        # cert, err = p.communicate(request['cert_request'])
+        cert, err = p.communicate(base64.b64decode(request['cert_request']['$binary']))
+        if p.returncode != 0:
+            raise RuntimeError("ndnsec-certgen error")
+        return cert.rstrip()
+
+    def denyCertificate(self, request):
+        cmdline = ['ndnsec-cert-revoke',
+                   '--sign-id', str(self.site_prefix),
+                   '--cert-prefix', str(self.site_prefix),
+                   '--request', '-'
+                   ]
+
+        p = subprocess.Popen(cmdline, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+        cert, err = p.communicate(base64.b64decode(request['cert_request']['$binary']))
+        return cert.rstrip()
+
+    def publishCertificate(self, certificate):
+        if PUBLISH_REPO:
+            try:
+                sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                sock.connect((REPO_HOST, int(REPO_PORT)))
+
+                sock.send(base64.b64decode(certificate))
+            except Exception as e:
+                print(e)
+                print("ERROR: an error occurred while publishing certificate")
+        else:
+            # block = ndn.Block(base64.b64decode(certificate))
+            data = ndn.Data()
+            data.wireDecode(ndn.Blob(base64.b64decode(certificate)))
+
+            updateName = ndn.Name(self.site_prefix) \
+                .append("NDNS") \
+                .append(data.wireEncode()) \
+                .append("UPDATE")
+
+            self.face = ndn.Face()
+
+            def onData(interest, data):
+                # TODO: check the result of response
+                print("Publishing succeeds: get response from NDNS name server")
+                self.waiting = False
+
+            def onTimeout(interest):
+                print("ERROR: error to publish certificate to NDNS. Update message timeout")
+                if confirm("try to publish certificate again?", resp=False):
+                    self.face.expressInterest(interest.getName(), onData, onTimeout)
+                else:
+                    self.waiting = False
+
+            self.waiting = True
+            self.face.expressInterest(updateName, onData, onTimeout)
+
+            while self.waiting:
+                self.face.processEvents()
+                time.sleep(0.01)
+
+            self.face.shutdown()
+
+def confirm(prompt, resp):
+    if resp:
+        prompt = '%s [%s]|%s|%s: ' % (prompt, 'y', 'n', 's')
+    else:
+        prompt = '%s [%s]|%s|%s: ' % (prompt, 'n', 'y', 's')
+
+    while True:
+        ans = input(prompt)
+        if not ans:
+            return resp
+        if ans not in ['y', 'Y', 'n', 'N', 's', 'S']:
+            print('please enter y, n, or s.')
+            continue
+        if ans == 'y' or ans == 'Y':
+            return True
+        if ans == 'n' or ans == 'N':
+            return False
+        if ans == 's' or ans == 'S':
+            raise RequestSkipped
+
+def sanitize(value):
+    # Allow only a very limited set of characters as a value
+    return re.sub(r'[^a-zA-Z0-9.,\-!@#$%&*()\\/<>{}[]\|:`~ ]', r'', value)
+
+if __name__ == "__main__":
+    try:
+        Signer(ndn.Name(args.site_prefix)).run()
+    except KeyboardInterrupt:
+        print("")
+        pass
