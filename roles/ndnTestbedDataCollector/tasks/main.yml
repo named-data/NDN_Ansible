@@ -1,5 +1,35 @@
 ---
 # tasks file for ndnTestbedDataCollector
+- name: git ndnTestbedDataCollector
+  git: repo=http://github.com/WU-ARL/ndnTestbedDataCollector
+       dest=/tmp/ndnTestbedDataCollector
+       update=yes
+
+#- name: configure ndnTestbedDataCollector
+- command: ./waf configure
+  args:
+    chdir: /tmp/ndnTestbedDataCollector
+
+#- name: build ndnTestbedDataCollector
+- command: ./waf 
+  args:
+    chdir: /tmp/ndnTestbedDataCollector
+
+#- name: install ndnTestbedDataCollector
+- command: ./waf  install
+  args:
+    chdir: /tmp/ndnTestbedDataCollector
+
+#- name: build ndnTestbedDataCollector
+#  command: ./waf configure; ./waf; sudo ./waf install 
+#    args:
+#      chdir: /tmp/ndnTestbedDataCollector
+#
+#- name: install ndnTestbedDataCollector
+#  command: ./waf configure; ./waf; sudo ./waf install 
+#    args:
+#      chdir: /tmp/ndnTestbedDataCollector
+
 - name: create /etc/default/ndnTestbedDataCollector
   #template: src=ndnTestbedDataCollector.j2 dest=/etc/default/ansible_ndnTestbedDataCollector owner=root group=root mode="u=rw,g=r,o=r"
   template: src=ndnTestbedDataCollector.j2 dest=/etc/default/ndnTestbedDataCollector owner=root group=root mode="u=rw,g=r,o=r"

@@ -1,7 +1,7 @@
 ---
 # tasks file for repo-ng
 - name: install repo-ng
-  apt: name=repo-ng state=present
+  apt: name=repo-ng state=present update_cache=yes
 
 - name: create repo-ng configuration file
   #template: src=repo-ng.conf.j2 dest=/etc/ndn/ansible_repo-ng.conf owner=root group=root mode="u=rw,g=r,o=r"

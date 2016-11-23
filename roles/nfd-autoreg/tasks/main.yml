@@ -1,7 +1,7 @@
 ---
 # tasks file for nfd-autoreg
 - name: install nfd-autoreg
-  apt: name=nfd-autoreg state=present
+  apt: name=nfd-autoreg state=present update_cache=yes
 
 - name: create /var/lib/ndn/nfd-autoreg
   file: path=/var/lib/ndn/nfd-autoreg state=directory owner=ndn group=ndn mode=0755

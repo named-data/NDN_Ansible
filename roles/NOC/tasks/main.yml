@@ -38,6 +38,9 @@
        - libssl-dev 
        - libsqlite3-dev 
        - libcrypto++-dev
+       - aptitude
+       - python3-dev 
+       - python3-setuptools
 
 - name: install base ndn libraries 
   action: >
@@ -45,12 +48,10 @@
   with_items:
        - ndn-cxx
        - ndn-cxx-dev
-#       - ndndump
-#       - ndn-tools
-#       - nfd-status-http-server
-#       - nfd
-#       - nlsr
-#       - repo-ng
-#       - ndn-autoconfig-server
-#       - nfd-autoreg
-#       - ndnmap-data-collector
+
+- command: easy_install3 pip
+
+- pip: name=requests,pyndn executable=/usr/local/bin/pip3
+
+#- pip: name=pyndn executable=/usr/local/bin/pip3
+
