@@ -70,7 +70,12 @@
 
 #- pip: name=pyndn executable=/usr/local/bin/pip3
 
-- name: copy ndnop-process-requests
-  copy: dest=/usr/local/bin/ndnop-process-requests src=roles/NOC/files/ndnop-process-requests owner=root group=root mode=0755
+- name: copy ndnop-process-requests to TESTBED
+  copy: dest=/usr/local/bin/ndnop-process-requests src=roles/NOC/files/ndnop-process-requests.testbed owner=root group=root mode=0755
+  when: inventory_hostname != "UCLA"
+
+- name: copy ndnop-process-requests to UCLA
+  copy: dest=/usr/local/bin/ndnop-process-requests src=roles/NOC/files/ndnop-process-requests.ucla owner=root group=root mode=0755
+  when: inventory_hostname == "UCLA"
 
 
