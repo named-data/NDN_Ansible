@@ -1,0 +1,9 @@
+
+add git clone of ndnTestbedDataCollector and build it
+  -- add it to PPA!
+add other MSU neighbors to host_vars files
+
+add support for cacti graphs
+
+add support for ndndemo and ndnmap(?)
+
