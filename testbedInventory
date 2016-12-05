@@ -1,3 +1,7 @@
+# ndndemo support.
+#[ndndemo]
+#NDNDEMO
+
 [ndngateways]
 
 # We need to get link costs for neighbors from somewhere but we want to make

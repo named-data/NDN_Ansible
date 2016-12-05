@@ -17,3 +17,12 @@
   - ndnTestbedDataCollector
   - nfd-autoreg
 
+
+#- name: install ndndemo
+#  hosts: ndndemo
+#  remote_user: jdd
+#  become: yes
+#
+#  roles:
+#  - nfd
+
