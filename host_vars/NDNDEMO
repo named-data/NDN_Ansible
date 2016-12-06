@@ -1,0 +1,16 @@
+---
+
+# file: host_vars/WU
+ansible_host: ndndemo.arl.wustl.edu
+#site: /edu/wustl
+#default_prefix: /ndn/edu/wustl 
+#advertised_prefixes: [/ndn/edu/wustl]
+#router_name: wundngw 
+#neighbors: 
+#  URJC: {link_cost: 86}
+#  ARIZONA: {link_cost: 33}
+#  MEMPHIS: {link_cost: 17}
+#  UIUC: {link_cost: 9}
+network_regions: [ ]
+#hr_radius: 19.426848571939
+#hr_angle: 4.31067173953721

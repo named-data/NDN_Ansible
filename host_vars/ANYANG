@@ -8,6 +8,7 @@ advertised_prefixes: [/ndn/kr/anyang]
 router_name: anyanghub 
 neighbors: 
   SRRU: {link_cost: 72}
+  MSU: {link_cost: 70}
   OSAKA: {link_cost: 36}
   KISTI: {link_cost: 38}
   WASEDA: {link_cost: 22}

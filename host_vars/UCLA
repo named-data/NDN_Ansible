@@ -11,6 +11,7 @@ neighbors:
   CSU: {link_cost: 16}
   CAIDA: {link_cost: 3}
   UCI: {link_cost: 1}
+  MSU: {link_cost: 150}
 network_regions: [/ndn/edu/ucla,/ndn/guest]
 hr_radius: 16.5866430024476
 hr_angle: 2.99910767400357

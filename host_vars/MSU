@@ -8,6 +8,9 @@ advertised_prefixes: [/ndn/th/ac/msu]
 router_name: isan-ndn 
 neighbors: 
   SRRU: {link_cost: 3}
+  UCLA: {link_cost: 150}
+  TNO: {link_cost: 120}
+  ANYANG: {link_cost: 70}
 network_regions: [/ndn/th/ac/msu]
 hr_radius: 123.456
 hr_angle: 1.45
