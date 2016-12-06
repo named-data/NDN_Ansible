@@ -1,7 +1,9 @@
 
-add git clone of ndnTestbedDataCollector and build it
-  -- add it to PPA!
-add other MSU neighbors to host_vars files
+DONE: add git clone of ndnTestbedDataCollector to Ansible playbook and build it
+
+add ndnTestbedDataCollector to PPA!
+
+DONE: add other MSU neighbors to host_vars files
 
 add support for cacti graphs
 
