@@ -46,6 +46,19 @@
     msg: "Found cert does NOT exist for default_prefix: {{ default_prefix }}"
   when: cert_present.rc != 0
 
+- script: roles/ndnsec/files/checkForValidCert.sh "{{ default_prefix }}"
+  register: cert_valid
+  when: cert_present.rc == 0
+  ignore_errors: yes
+
+- debug:
+    msg: "Found valid cert exists for default_prefix: {{ default_prefix }}"
+  when: cert_valid.rc == 0
+
+- debug:
+    msg: "Found valid cert does NOT exist for default_prefix: {{ default_prefix }}"
+  when: cert_valid.rc != 0
+
 # check that there is a key defined for default name
 # if not, generate a key for default_prefix (that will then need to be used to generate a cert by human action)
 
