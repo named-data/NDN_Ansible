@@ -15,3 +15,4 @@ neighbors:
 network_regions: [/ndn/pt/ulusofona/copelabs]
 hr_radius: 16.2060358549513
 hr_angle: 2.62082874954162
+cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fpt%2Fulusofona%2Fcopelabs%2Fksk-1449004419760%2FID-CERT%2F%25FD%2500%2500%2501S%250A%2580%25E4q

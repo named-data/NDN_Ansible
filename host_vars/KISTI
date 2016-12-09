@@ -15,3 +15,4 @@ neighbors:
 network_regions: [/ndn/kr/re/kisti]
 hr_radius: 11.5531281288249
 hr_angle: 2.98403796376186
+#cert_url: 

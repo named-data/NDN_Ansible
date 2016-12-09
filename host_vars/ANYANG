@@ -17,3 +17,4 @@ neighbors:
 network_regions: [/ndn/kr/anyang]
 hr_radius: 14.3378634978013
 hr_angle: 2.99956859361519
+cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fkr%2Fanyang%2Fksk-1418335884908%2FID-CERT%2F%25FD%2500%2500%2501Sgh%2527%25AE

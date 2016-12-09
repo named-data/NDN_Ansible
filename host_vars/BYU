@@ -13,3 +13,4 @@ neighbors:
 network_regions: [/ndn/edu/byu]
 hr_radius: 19.353845431776
 hr_angle: 3.77334112452928
+cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fedu%2Fbyu%2Fksk-1457391772989%2FID-CERT%2F%25FD%2500%2500%2501SS%25FE%25C70

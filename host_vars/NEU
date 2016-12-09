@@ -14,3 +14,4 @@ neighbors:
 network_regions: [/ndn/edu/neu]
 hr_radius: 19.9001283692128
 hr_angle: 2.13894230769231
+cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fedu%2Fneu%2Fksk-1413219498728%2FID-CERT%2F%25FD%2500%2500%2501SRal%257E

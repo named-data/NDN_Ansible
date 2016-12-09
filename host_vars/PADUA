@@ -19,3 +19,4 @@ neighbors:
 network_regions: [/ndn/it/unipd]
 hr_radius: 13.5903793306882
 hr_angle: 1.13934426229508
+cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fit%2Funipd%2Fksk-1457623884295%2FID-CERT%2F%25FD%2500%2500%2501Sgh-k
