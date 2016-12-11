@@ -20,6 +20,15 @@
     msg: "Found default name does NOT agree with default_prefix: {{ default_prefix }}"
   when: name_present.rc != 0
 
+- script: roles/ndnsec/files/setDefaultName.sh "{{ default_prefix }}"
+  when: name_present.rc != 0
+  register: name_present2
+  ignore_errors: yes
+
+- debug:
+    msg: "Tried setting default name. Default name still does NOT agree with default_prefix: {{ default_prefix }}"
+  when: name_present2 is defined and (name_present2.rc != 0)
+
 - script: roles/ndnsec/files/checkKey.sh "{{ default_prefix }}"
   register: key_present
   when: name_present.rc == 0
@@ -33,9 +42,22 @@
     msg: "Found key does NOT exists for default_prefix: {{ default_prefix }}"
   when: key_present.rc != 0
 
+- script: roles/ndnsec/files/generateKey.sh "{{ default_prefix }}"
+  when: key_present.rc != 0
+  ignore_errors: yes
+
+- script: roles/ndnsec/files/checkKey.sh "{{ default_prefix }}"
+  register: key_present2
+  when: key_present.rc != 0
+  ignore_errors: yes
+
+- debug:
+    msg: "Tried generating key, must have faild. Found key does NOT exists for default_prefix: {{ default_prefix }}"
+  when: key_present2 is defined and (key_present2.rc != 0)
+
 - script: roles/ndnsec/files/checkCert.sh "{{ default_prefix }}"
   register: cert_present
-  when: key_present.rc == 0
+  when: ((key_present is defined and key_present.rc == 0) or (key_presetn2 is defined and key_present2.rc == 0))
   ignore_errors: yes
 
 - debug:
