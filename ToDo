@@ -3,7 +3,11 @@ DONE: add git clone of ndnTestbedDataCollector to Ansible playbook and build it
 
 add ndnTestbedDataCollector to PPA!
 
+DONE: add ndnTestbedDataCollector /etc/init conf file
+
 DONE: add other MSU neighbors to host_vars files
+
+add nlsr key generation
 
 add support for cacti graphs
 
