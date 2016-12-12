@@ -62,11 +62,11 @@
 
 - debug:
     msg: "Found cert exists for default_prefix: {{ default_prefix }}"
-  when: cert_present.rc == 0
+  when: cert_present is defined and (cert_present.rc == 0)
 
 - debug:
     msg: "Found cert does NOT exist for default_prefix: {{ default_prefix }}"
-  when: cert_present.rc != 0
+  when: cert_present is defined and (cert_present.rc != 0)
 
 - script: roles/ndnsec/files/checkForValidCert.sh "{{ default_prefix }}"
   register: cert_valid
