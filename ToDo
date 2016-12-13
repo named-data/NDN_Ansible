@@ -7,10 +7,13 @@ DONE: add ndnTestbedDataCollector /etc/init conf file
 
 DONE: add other MSU neighbors to host_vars files
 
-add nlsr key generation
+DONE: add nlsr key generation
 
 add support for cacti graphs
 
 add support for ndndemo and ndnmap(?)
 
 add support for ndnstatus page on SEAS
+
+how to handle sites with multiple nodes like UCLA (UCLA and REMAP) and WU (WU and WU_EBONY), the nlsr keys are affected.
+   there is only one site key/cert then each has its own router and operator key/cert.

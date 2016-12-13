@@ -1,14 +1,14 @@
 ---
 
-# file: host_vars/WU_EBONY
+# file: host_vars/EBONY
 ansible_host: ebony.arl.wustl.edu
-site: /edu/wustl
-default_prefix: /ndn/edu/wustl/ebony 
-advertised_prefixes: [/ndn/edu/wustl/ebony]
+site: /edu/ebony
+default_prefix: /ndn/edu/ebony 
+advertised_prefixes: [/ndn/edu/ebony]
 router_name: ebony 
 neighbors: 
   WU: {link_cost: 1}
-network_regions: [/ndn/edu/wustl/ebony]
+network_regions: [/ndn/edu/ebony]
 hr_radius: 19.426848571939
 hr_angle: 4.31067173953721
 # certificate related variables

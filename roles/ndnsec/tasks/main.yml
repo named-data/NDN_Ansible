@@ -36,19 +36,19 @@
 
 - debug:
     msg: "Found key exists for default_prefix: {{ default_prefix }}"
-  when: key_present.rc == 0
+  when: key_present is defined and (key_present.rc == 0)
 
 - debug:
     msg: "Found key does NOT exists for default_prefix: {{ default_prefix }}"
-  when: key_present.rc != 0
+  when: key_present is defined and (key_present.rc != 0)
 
 - script: roles/ndnsec/files/generateKey.sh "{{ default_prefix }}"
-  when: key_present.rc != 0
+  when: key_present is not defined or key_present.rc != 0
   ignore_errors: yes
 
 - script: roles/ndnsec/files/checkKey.sh "{{ default_prefix }}"
   register: key_present2
-  when: key_present.rc != 0
+  when: key_present is not defined or key_present.rc != 0
   ignore_errors: yes
 
 - debug:
