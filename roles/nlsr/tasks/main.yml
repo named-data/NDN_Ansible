@@ -61,11 +61,12 @@
 
 - debug:
     msg: "approved_sites.stdout_lines: {{ approved_sites.stdout_lines }}"
+  when: inventory_hostname == "UCLA"
 
 # fetch approved site certs
 - fetch: src=/home/nlsr/{{ item }} dest=roles/nlsr/files/  flat=yes
-  with_items: "{{ approved_sites.stdout_lines }}"
   when: inventory_hostname == "UCLA"
+  with_items: "{{ (inventory_hostname == 'UCLA') | ternary(approved_sites.stdout_lines, '') }}"
 
 # clean up the approval info files, getting rid of any for which we have approved site certs
 - local_action: command roles/nlsr/files/clean_approval_info.sh \"{{ role_path }}\"
