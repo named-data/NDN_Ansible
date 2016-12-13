@@ -19,9 +19,12 @@
 #- debug:
 #    msg: "default_prefix: {{ default_prefix }}"
 
+# copy NLSR root cert
+- copy: src=roles/nlsr/files/root.cert dest=/etc/ndn/nlsr/keys/root.cert
+
 # generate site and nlsr keys for user nlsr if needed
 - script: roles/nlsr/files/key_gen1.sh "{{ default_prefix }}" "{{ inventory_hostname }}"
-  register: keygen1
+  #register: keygen1
   ignore_errors: yes
 
 # fetch unsigned keys back to here
@@ -49,7 +52,7 @@
 
 # approve any unsigned keys
 - script: roles/nlsr/files/key_approval.sh 
-  register: root_approved
+  #register: root_approved
   when: inventory_hostname == "UCLA"
   ignore_errors: yes
 
@@ -68,15 +71,29 @@
   when: inventory_hostname == "UCLA"
   with_items: "{{ (inventory_hostname == 'UCLA') | ternary(approved_sites.stdout_lines, '') }}"
 
+- name: check if <NAME>_site.cert exists
+  local_action: stat path=roles/nlsr/files/ANSIBLE_{{inventory_hostname}}_site.cert
+  #become_user: jdd
+  become: false
+  register: stat_result
+
+# copy approved site certs to sites
+- copy: src=roles/nlsr/files/ANSIBLE_{{inventory_hostname}}_site.cert dest=/etc/ndn/nlsr/keys/site.cert
+  when: stat_result|success
+  ignore_errors: yes
+
 # clean up the approval info files, getting rid of any for which we have approved site certs
 - local_action: command roles/nlsr/files/clean_approval_info.sh \"{{ role_path }}\"
-  become_user: jdd
+  #become_user: jdd
+  become: false
 
-## install approved certs and finish generating keys and certs for user nlsr
-#- script: roles/nlsr/files/key_gen2.sh " {{ default_prefix }} "
-#  register: keygen2
-#  when: root_approved is defined and (root_approved.rc == 0)
-#  ignore_errors: yes
+- debug:
+    msg: "about to do key_gen2.sh {{default_prefix}} ndnops {{inventory_hostname}} {{router_name}}"
+
+# finish generating keys and certs for user nlsr
+- script: roles/nlsr/files/key_gen2.sh "{{default_prefix}}" "ndnops"  "{{inventory_hostname}}" "{{router_name}}"
+  #register: keygen2
+  ignore_errors: yes
 
 
 - name: create log4cxx.conf

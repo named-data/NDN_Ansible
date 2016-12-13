@@ -25,5 +25,5 @@ do
   PREFIX=`cat $f | cut -d ' ' -f 2`
   cmd="export HOME=/var/lib/ndn/nlsr/; ndnsec-cert-gen -S $START_DATE -E $END_DATE -N ${HOSTNAME} -s /ndn -p ${PREFIX} -r /home/nlsr/ANSIBLE_${HOSTNAME}_unsigned_site.cert > /home/nlsr/ANSIBLE_${HOSTNAME}_site.cert"
   sudo su - nlsr -c "$cmd"
-  # rm -f $f
+  rm -f $f
 done
