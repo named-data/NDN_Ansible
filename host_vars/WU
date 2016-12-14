@@ -7,7 +7,6 @@ default_prefix: /ndn/edu/wustl
 advertised_prefixes: [/ndn/edu/wustl]
 router_name: wundngw 
 neighbors: 
-  EBONY: {link_cost: 1}
   URJC: {link_cost: 86}
   ARIZONA: {link_cost: 33}
   MEMPHIS: {link_cost: 17}
