@@ -1,8 +1,5 @@
 ---
 # tasks file for nlsr
-- name: install nlsr
-  apt: name=nlsr state=latest update_cache=yes
-
 - name: create nlsr user
   user: name=nlsr state=present shell=/bin/bash createhome=yes home=/home/nlsr
 
@@ -99,6 +96,9 @@
 - name: create log4cxx.conf
   copy: dest=/etc/ndn/nlsr/log4cxx.conf src=roles/nlsr/files/log4cxx.conf owner=root group=root mode=0644
   notify: restart nlsr
+
+- name: install nlsr
+  apt: name=nlsr state=latest update_cache=yes
 
 - name: start nlsr
   service: name=nlsr state=started enabled=yes
