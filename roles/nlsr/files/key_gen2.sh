@@ -11,10 +11,10 @@ ROUTER=$4
 # point home to /var/lib/ndn/nlsr so keys will be stored there.
 # seems that now we have to set a default identity:
 cmd="export HOME=/var/lib/ndn/nlsr/; ndnsec-set-default -n ${PREFIX}/nlsr "
-echo "$cmd" > /tmp/nlsr.cmd
+#echo "$cmd" > /tmp/nlsr.cmd
 sudo su - nlsr -c "$cmd"
 
-if [ ! -f /etc/ndn/nlsr/keys/operator.cert ]
+if [ ! -s /etc/ndn/nlsr/keys/operator.cert ]
 then
   cmd="export HOME=/var/lib/ndn/nlsr/; ndnsec-key-gen -n ${PREFIX}/%C1.Operator/${OPERATOR} > ~nlsr/unsigned_operator.cert"
   sudo su - nlsr -c "$cmd"
@@ -23,7 +23,7 @@ then
   sudo su - nlsr -c "$cmd"
 fi
 
-if [ ! -f /etc/ndn/nlsr/keys/router.cert ]
+if [ ! -s /etc/ndn/nlsr/keys/router.cert ]
 then
   cmd="export HOME=/var/lib/ndn/nlsr/; ndnsec-key-gen -n ${PREFIX}/%C1.Router/${ROUTER} > ~nlsr/unsigned_router.cert"
   sudo su - nlsr -c "$cmd"

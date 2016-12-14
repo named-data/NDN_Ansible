@@ -4,9 +4,10 @@ PREFIX=$1
 HOSTNAME=$2
 
 # point home to /var/lib/ndn/nlsr so keys will be stored there.
-if [ ! -f /home/nlsr/unsigned_site.cert ]
+if [ ! -s /home/nlsr/unsigned_site.cert ]
 then
   cmd="export HOME=/var/lib/ndn/nlsr/; ndnsec-key-gen -n $PREFIX  > /home/nlsr/unsigned_site.cert"
+  echo "$cmd" > /tmp/key_gen1.cmd
   sudo su - nlsr -c "$cmd"
   #sudo su - nlsr -c 'export HOME=/var/lib/ndn/nlsr/; ndnsec-key-gen -n $PREFIX  > /home/nlsr/unsigned_site.cert'
 
@@ -16,7 +17,7 @@ then
 fi
 
 # seems that now we have to set a default identity:
-if [ ! -f /home/nlsr/unsigned_nlsr.cert ]
+if [ ! -s /home/nlsr/unsigned_nlsr.cert ]
 then
   cmd="export HOME=/var/lib/ndn/nlsr/; ndnsec-key-gen -n ${PREFIX}/nlsr  > /home/nlsr/unsigned_nlsr.cert"
   sudo su - nlsr -c "$cmd"
