@@ -7,7 +7,8 @@ default_prefix: /ndn/edu/ebony
 advertised_prefixes: [/ndn/edu/ebony]
 router_name: ebony 
 neighbors: 
-  WU: {link_cost: 1}
+  IVORY: {link_cost: 1}
+  FOREST1: {link_cost: 1}
 network_regions: [/ndn/edu/ebony]
 hr_radius: 19.426848571939
 hr_angle: 4.31067173953721
