@@ -44,12 +44,12 @@
        - python3-pip
        - fail2ban
 
-- name: install base ndn libraries 
-  action: >
-       {{ ansible_pkg_mgr }} name={{ item }} state=latest update_cache=yes
-  with_items:
-       - ndn-cxx
-       - ndn-cxx-dev
+#- name: install base ndn libraries 
+#  action: >
+#       {{ ansible_pkg_mgr }} name={{ item }} state=latest update_cache=yes
+#  with_items:
+#       - ndn-cxx
+#       - ndn-cxx-dev
 
 #- name: remove python3 stuff
 #  apt: 

@@ -1,0 +1,4 @@
+---
+# handlers file for nfd-from-source
+- name: restart nfd
+  service: name=nfd state=restarted

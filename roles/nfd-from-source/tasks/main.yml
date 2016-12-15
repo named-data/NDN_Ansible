@@ -1,0 +1,59 @@
+---
+# tasks file for nfd-from-source
+- name: add ndn user
+  user: name=ndn state=present shell=/bin/false createhome=no
+
+#- name: add ndnsec user
+#  user: name=ndnsec state=present shell=/bin/bash password=LrVkOUM1s16xE
+
+- name: make ndn required directories
+  file: path=/etc/ndn state=directory owner=ndn group=ndn mode=0755
+- file: path=/etc/ndn/keys state=directory owner=ndn group=ndn mode=0755
+- file: path=/var/lib/ndn state=directory owner=ndn group=ndn mode=0755
+- file: path=/var/log/ndn state=directory owner=ndn group=ndn mode=0755
+
+- cron: name="log rotate" user="ndnops" hour="1" minute="1" job="/home/ndnops/ndn-ops/NOC/logRotation/rotateLogs.sh  "
+
+- name: install NFD from source
+  #apt: name=nfd state=latest update_cache=yes
+- name: git nfd
+  git: repo=http://github.com/named-data/NFD
+       dest=/tmp/NFD
+       update=yes
+
+#- name: configure NFD
+- command: ./waf configure
+  args:
+    chdir: /tmp/NFD
+
+#- name: build NFD
+- command: ./waf 
+  args:
+    chdir: /tmp/NFD
+
+#- name: install NFD
+- command: ./waf  install
+  args:
+    chdir: /tmp/NFD
+
+
+- name: copy root key
+  #copy: dest=/etc/ndn/keys/ansible_ndn-testbed-root.ndncert.base64 src=roles/nfd-from-source/files/ndn-testbed-root.ndncert.base64 owner=root group=root mode=0644
+  copy: dest=/etc/ndn/keys/ndn-testbed-root.ndncert.base64 src=roles/nfd-from-source/files/ndn-testbed-root.ndncert.base64 owner=root group=root mode=0644
+
+- name: create nfd.conf
+  #template: src=nfd.conf.j2 dest=/etc/ndn/ansible_nfd.conf owner=root group=root mode="u=rw,g=r,o=r"
+  template: src=nfd.conf.j2 dest=/etc/ndn/nfd.conf owner=root group=root mode="u=rw,g=r,o=r"
+  notify: restart nfd
+
+- name: create nfd-init.sh
+  #template: src=nfd-init.sh.j2 dest=/etc/ndn/ansible_nfd-init.sh  owner=root group=root mode="u=rwx,g=rx,o=rx"
+  template: src=nfd-init.sh.j2 dest=/etc/ndn/nfd-init.sh  owner=root group=root mode="u=rwx,g=rx,o=rx"
+  notify: restart nfd
+
+- name: start nfd
+  service: name=nfd state=started enabled=yes
+
+# restart nfd immediately, don't wait for end of playbook
+- meta: flush_handlers
+

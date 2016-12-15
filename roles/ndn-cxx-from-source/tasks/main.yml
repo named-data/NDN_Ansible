@@ -1,0 +1,22 @@
+---
+# tasks file for ndn-cxx-from-source
+- name: git ndn-cxx
+  git: repo=http://github.com/named-data/ndn-cxx
+       dest=/tmp/ndn-cxx
+       update=yes
+
+#- name: configure ndn-cxx
+- command: ./waf configure
+  args:
+    chdir: /tmp/ndn-cxx
+
+#- name: build ndn-cxx
+- command: ./waf 
+  args:
+    chdir: /tmp/ndn-cxx
+
+#- name: install ndn-cxx
+- command: ./waf  install
+  args:
+    chdir: /tmp/ndn-cxx
+
