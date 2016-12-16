@@ -43,6 +43,7 @@
        - python3-setuptools
        - python3-pip
        - fail2ban
+       - liblog4cxx10
 
 #- name: install base ndn libraries 
 #  action: >
