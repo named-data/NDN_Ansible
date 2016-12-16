@@ -5,19 +5,19 @@
 sleep 15
 
 # set default strategy to best-route (bestroute2)
-/usr/bin/nfdc set-strategy ndn:/ ndn:/localhost/nfd/strategy/best-route
+/usr/local/bin/nfdc set-strategy ndn:/ ndn:/localhost/nfd/strategy/best-route
 
 # set broadcast strategy
-/usr/bin/nfdc set-strategy /ndn/broadcast /localhost/nfd/strategy/multicast
-/usr/bin/nfdc set-strategy /localhost     /localhost/nfd/strategy/multicast
+/usr/local/bin/nfdc set-strategy /ndn/broadcast /localhost/nfd/strategy/multicast
+/usr/local/bin/nfdc set-strategy /localhost     /localhost/nfd/strategy/multicast
 
 # default local access strategy
-nfdc set-strategy ndn:{{ default_prefix }} ndn:/localhost/nfd/strategy/access
+/usr/local/bin/nfdc set-strategy ndn:{{ default_prefix }} ndn:/localhost/nfd/strategy/access
 
 {% if inventory_hostname == "UCLA" %}
-nfdc set-strategy ndn:/ndn/edu/ucla/remap ndn:/localhost/nfd/strategy/best-route
+/usr/local/bin/nfdc set-strategy ndn:/ndn/edu/ucla/remap ndn:/localhost/nfd/strategy/best-route
 {% endif %}
 {% if inventory_hostname == "WU" %}
 # Set up route for ndnstatus to get to ndndemo:
-nfdc register -o 255 /ndn/edu/wustl/ndnstatus udp4://128.252.153.28:6363
+/usr/local/bin/nfdc register -o 255 /ndn/edu/wustl/ndnstatus udp4://128.252.153.28:6363
 {% endif %}

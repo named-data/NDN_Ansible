@@ -1,9 +1,17 @@
 ---
 # tasks file for ndn-cxx-from-source
+- name: purge base ndn libraries 
+  action: >
+       {{ ansible_pkg_mgr }} name={{ item }} state=absent purge=yes update_cache=yes
+  with_items:
+       - ndn-cxx
+       - ndn-cxx-dev
+
 - name: git ndn-cxx
   git: repo=http://github.com/named-data/ndn-cxx
        dest=/tmp/ndn-cxx
        update=yes
+       version={{ndn_cxx_version}}
 
 #- name: configure ndn-cxx
 - command: ./waf configure
