@@ -4,6 +4,16 @@
 # tasks file for NOC
 # apt: name={{ item }} state=present
 
+- name: create NOC directories
+  file: path=/home/ndnops/ndn-ops/NOC/ping_delay_tests state=directory owner=ndnops group=ndnops mode=0755
+
+- name: copy ndnping parallel test script
+  copy: dest=/home/ndnops/ndn-ops/NOC/ping_delay_tests/./getTestbedDelays_ndnping_parallel.sh  src=roles/NOC/files/./getTestbedDelays_ndnping_parallel.sh owner=ndnops group=ndnops mode=0755
+
+#- cron: name="parallel ndn ping test" user="ndnops" state=present disabled=yes minute="15" job="cd /home/ndnops/ndn-ops/NOC/ping_delay_tests; ./getTestbedDelays_ndnping_parallel.sh -c 300 -n {{ inventory_hostname }} "
+
+- cron: name="parallel ndn ping test" user="ndnops" state=present disabled=no minute="15" job="cd /home/ndnops/ndn-ops/NOC/ping_delay_tests; ./getTestbedDelays_ndnping_parallel.sh -c 300 -n {{ inventory_hostname }} "
+
 - name: add ndn repository
   apt_repository: repo='ppa:named-data/ppa' state=present
 
