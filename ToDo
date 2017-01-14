@@ -24,3 +24,4 @@ DONE: add roles for build from source for ndn-cxx, nfd and nlsr
 
 DONE: open access to them like for other Testbed nodes.
 
+Add AWS support (need payment support first)
