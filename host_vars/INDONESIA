@@ -1,7 +1,7 @@
 ---
 
 # file: host_vars/INDONESIA
-ansible_host: 152.118.148.103
+ansible_host: 152.118.101.159
 site: /id/ac/ui
 default_prefix: /ndn/id/ac/ui
 advertised_prefixes: [/ndn/id/ac/ui]
