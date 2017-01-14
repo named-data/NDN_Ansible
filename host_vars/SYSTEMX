@@ -11,7 +11,7 @@ neighbors:
   NTNU: {link_cost: 24}
   LIP6: {link_cost: 9}
   BASEL: {link_cost: 9}
-  ORANGE: {link_cost: 3}
+  #ORANGE: {link_cost: 3}
 network_regions: [/ndn/fr/irt-systemx]
 hr_radius: 19.1697680538273
 hr_angle: 2.62274588691716
