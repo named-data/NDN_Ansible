@@ -5,3 +5,8 @@
 
 - name: start nfd-status-http-server
   service: name=nfd-status-http-server state=started enabled=yes
+
+- name: copy port 8080 default file to BUPT
+  copy: dest=/etc/default/nfd-status-http-server src=roles/nfd-status-http-server/files/nfd-status-http-server.default.8080 owner=root group=root mode=0644
+  when: inventory_hostname == "BUPT"
+

@@ -10,6 +10,11 @@
   args:
     chdir: /tmp/ndnTestbedDataCollector
 
+#- name: clean ndnTestbedDataCollector
+- command: ./waf clean
+  args:
+    chdir: /tmp/ndnTestbedDataCollector
+
 #- name: build ndnTestbedDataCollector
 - command: ./waf 
   args:
