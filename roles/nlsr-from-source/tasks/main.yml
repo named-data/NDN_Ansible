@@ -125,6 +125,11 @@
     chdir: /tmp/NLSR
 
 #- name: build NLSR
+- command: ./waf clean
+  args:
+    chdir: /tmp/NLSR
+
+#- name: clean NLSR
 - command: ./waf 
   args:
     chdir: /tmp/NLSR

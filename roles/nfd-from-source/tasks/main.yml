@@ -30,6 +30,11 @@
   args:
     chdir: /tmp/NFD
 
+#- name: clean NFD
+- command: ./waf clean
+  args:
+    chdir: /tmp/NFD
+
 #- name: build NFD
 - command: ./waf 
   args:
