@@ -114,7 +114,11 @@ face_system
     ;    sudo setcap cap_net_raw=eip /full/path/nfd
     ;
     mcast yes ; set to 'no' to disable UDP multicast, default 'yes'
+{% if inventory_hostname == "EBONY" or inventory_hostname == "IVORY" or inventory_hostname == "FOREST1"%}
+    mcast_port 56364 ; UDP multicast port number
+{% else %}
     mcast_port 56363 ; UDP multicast port number
+{% endif %}
     mcast_group 224.0.23.170 ; UDP multicast group (IPv4 only)
   }
 
