@@ -28,3 +28,6 @@
   args:
     chdir: /tmp/ndn-cxx
 
+#- name: ldconfig
+- command: ldconfig
+
