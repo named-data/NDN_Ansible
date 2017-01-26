@@ -73,7 +73,11 @@ neighbors
    neighbor   ; {{ neighbor }}
    {
        name {{ ndnNetwork }}{{hostvars[neighbor].site }}/%C1.Router/{{ hostvars[neighbor].router_name }}
+{% if (inventory_hostname == "BYU" or neighbor == "BYU") or (inventory_hostname == "INDONESIA" or neighbor == "INDONESIA") or  (inventory_hostname == "SRRU" or neighbor == "SRRU") or (inventory_hostname == "MSU" or neighbor == "MSU")%}
+       face-uri  tcp4://{{ hostvars[neighbor].ansible_host }}
+{% else %}
        face-uri  udp4://{{ hostvars[neighbor].ansible_host }}
+{% endif %}
        link-cost {{ data['link_cost'] }}
    }
 {% endfor %}
