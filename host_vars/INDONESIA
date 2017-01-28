@@ -7,8 +7,8 @@ default_prefix: /ndn/id/ac/ui
 advertised_prefixes: [/ndn/id/ac/ui]
 router_name: ndnlab-s5-1420d 
 neighbors: 
-  UFPA: {link_cost: 235}
-  KISTI: {link_cost: 38}
+  UFPA: {link_cost: 190}
+  KISTI: {link_cost: 150}
   SRRU: {link_cost: 50}
   WASEDA: {link_cost: 22}
   BUPT: {link_cost: 54}

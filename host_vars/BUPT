@@ -8,7 +8,7 @@ advertised_prefixes: [/ndn/cn/edu/bupt]
 router_name: bupthub 
 neighbors: 
   SRRU: {link_cost: 72}
-  INDONESIA: {link_cost: 33}
+  INDONESIA: {link_cost: 54}
   KISTI: {link_cost: 33}
   ANYANG: {link_cost: 33}
   WASEDA: {link_cost: 48}

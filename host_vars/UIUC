@@ -7,10 +7,11 @@ default_prefix: /ndn/edu/illinois
 advertised_prefixes: [/ndn/edu/illinois,/ndn/edu/uiuc]
 router_name: ndnx 
 neighbors: 
-  REMAP: {link_cost: 25}
-  CSU: {link_cost: 18}
-  MEMPHIS: {link_cost: 17}
+  MICHIGAN: {link_cost: 5}
+  CSU: {link_cost: 14}
+  NIST: {link_cost: 12}
   WU: {link_cost: 9}
+  PADUA: {link_cost: 80}
 network_regions: [/ndn/edu/illinois]
 hr_radius: 29.2553552716
 hr_angle: 2.98231233822261

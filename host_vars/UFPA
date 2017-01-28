@@ -10,7 +10,7 @@ neighbors:
   CAIDA: {link_cost: 155}
   MEMPHIS: {link_cost: 115}
   COPELABS: {link_cost: 145}
-  INDONESIA: {link_cost: 235}
+  INDONESIA: {link_cost: 190}
 network_regions: [/ndn/br/ufpa]
 hr_radius: 29.2553552716
 hr_angle: 3.51898188093184
