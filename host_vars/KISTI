@@ -7,7 +7,7 @@ default_prefix: /ndn/kr/re/kisti
 advertised_prefixes: [/ndn/kr/re/kisti]
 router_name: router3 
 neighbors: 
-  INDONESIA: {link_cost: 38}
+  INDONESIA: {link_cost: 150}
   WASEDA: {link_cost: 22}
   CSU: {link_cost: 89}
   ANYANG: {link_cost: 38}
