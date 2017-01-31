@@ -3,12 +3,12 @@
 # file: host_vars/IVORY
 ansible_host: ivory.arl.wustl.edu
 site: /edu/ivory
-default_prefix: /ndn/edu/ivory 
-advertised_prefixes: [/ndn/edu/ivory]
+default_prefix: /ndnx/edu/ivory 
+advertised_prefixes: [/ndnx/edu/ivory]
 router_name: ivory 
 neighbors: 
   EBONY: {link_cost: 1}
-network_regions: [/ndn/edu/ivory]
+network_regions: [/ndnx/edu/ivory]
 hr_radius: 19.426848571939
 hr_angle: 4.31067173953721
 # certificate related variables

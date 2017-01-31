@@ -3,12 +3,12 @@
 # file: host_vars/FOREST1
 ansible_host: forest1.arl.wustl.edu
 site: /edu/forest1
-default_prefix: /ndn/edu/forest1 
-advertised_prefixes: [/ndn/edu/forest1]
+default_prefix: /ndnx/edu/forest1 
+advertised_prefixes: [/ndnx/edu/forest1]
 router_name: forest1 
 neighbors: 
   EBONY: {link_cost: 1}
-network_regions: [/ndn/edu/forest1]
+network_regions: [/ndnx/edu/forest1]
 hr_radius: 19.426848571939
 hr_angle: 4.31067173953721
 # certificate related variables
