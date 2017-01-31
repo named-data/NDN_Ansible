@@ -90,7 +90,7 @@ face_system
   tcp
   {
     listen yes ; set to 'no' to disable TCP listener, default 'yes'
-    port 6363 ; TCP listener port number
+    port {{tcp_port}} ; TCP listener port number
     enable_v4 yes ; set to 'no' to disable IPv4 channels, default 'yes'
     enable_v6 yes ; set to 'no' to disable IPv6 channels, default 'yes'
   }
@@ -99,7 +99,7 @@ face_system
   ; UDP channel is always listening; delete udp section to disable UDP
   udp
   {
-    port 6363 ; UDP unicast port number
+    port {{udp_port}} ; UDP unicast port number
     enable_v4 yes ; set to 'no' to disable IPv4 channels, default 'yes'
     enable_v6 yes ; set to 'no' to disable IPv6 channels, default 'yes'
     idle_timeout 600 ; idle time (seconds) before closing a UDP unicast face
@@ -114,7 +114,7 @@ face_system
     ;    sudo setcap cap_net_raw=eip /full/path/nfd
     ;
     mcast yes ; set to 'no' to disable UDP multicast, default 'yes'
-    mcast_port 56363 ; UDP multicast port number
+    mcast_port {{multicast_port}} ; UDP multicast port number
     mcast_group 224.0.23.170 ; UDP multicast group (IPv4 only)
   }
 
