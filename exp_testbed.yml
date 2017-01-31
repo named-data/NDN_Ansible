@@ -1,16 +1,17 @@
 ---
-- name: install ndn gateways
-  hosts: ndngateways 
+- name: install experimental ndn gateways
+  hosts: ndn_exp_gws
   remote_user: ndnops
   become: yes
-
+#
   roles: 
   - NOC
-  - ndn-cxx
-  - nfd
+  - ndn-cxx-from-source
+  - nfd-from-source
+  - ndn-tools-from-source
   - ndnsec
   - ndnping
-  - nlsr
+  - nlsr-from-source
   - nfd-status-http-server
   - ndn-autoconfig-server
   - repo-ng
