@@ -2,12 +2,6 @@
 #[ndndemo]
 #NDNDEMO
 
-[ndn_exp_gws]
-# experimental gateways for trying out new nfd and certs
-EBONY
-IVORY
-FOREST1
-
 [ndngateways]
 
 # We need to get link costs for neighbors from somewhere but we want to make
