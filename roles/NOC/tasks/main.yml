@@ -4,6 +4,9 @@
 # tasks file for NOC
 # apt: name={{ item }} state=present
 
+- debug:
+    msg: "OS: {{ ansible_distribution }} major version: {{ ansible_distribution_major_version }} full version: {{ ansible_distribution_version }}"
+
 - name: create NOC directories
   file: path=/home/ndnops/ndn-ops/NOC/ping_delay_tests state=directory owner=ndnops group=ndnops mode=0755
 
@@ -53,7 +56,12 @@
        - python3-setuptools
        - python3-pip
        - fail2ban
-       - liblog4cxx10
+       - liblog4cxx10*
+
+#       - liblog4cxx10
+#         when {{ ansible_distribution_major_version }} == 14 
+#       - liblog4cxx10v5
+#         when {{ ansible_distribution_major_version }} == 16 
 
 #- name: install base ndn libraries 
 #  action: >
