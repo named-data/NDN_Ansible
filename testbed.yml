@@ -4,7 +4,9 @@
   remote_user: ndnops
   become: yes
 
+
   roles: 
+  - {role: 'nlsr', tags: 'nlsr'}  # to use the tag above, do this:   > ansible-playbook -i testbedInventory --tags "nlsr"
   - NOC
   - ndn-cxx
   - nfd
