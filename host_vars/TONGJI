@@ -8,7 +8,7 @@ advertised_prefixes: [/ndn/cn/edu/tongji]
 router_name: cnlab 
 neighbors: 
   OSAKA: {link_cost: 63}
-  INDONESIA: {link_cost: 33}
+  INDONESIA: {link_cost: 61}
   ANYANG: {link_cost: 54}
   WASEDA: {link_cost: 98}
   CAIDA: {link_cost: 93}

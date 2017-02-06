@@ -9,7 +9,7 @@ router_name: systemx-ndn-1
 neighbors: 
   GOETTINGEN: {link_cost: 10}
   NTNU: {link_cost: 24}
-  LIP6: {link_cost: 9}
+  LIP6: {link_cost: 1}
   BASEL: {link_cost: 9}
   #ORANGE: {link_cost: 3}
 network_regions: [/ndn/fr/irt-systemx]

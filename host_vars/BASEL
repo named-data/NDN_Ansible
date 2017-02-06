@@ -10,12 +10,12 @@ neighbors:
   TNO: {link_cost: 14}
   MINHO: {link_cost: 23}
   SYSTEMX: {link_cost: 9}
-  GOETTINGEN: {link_cost: 12}
+  GOETTINGEN: {link_cost: 10}
   NTNU: {link_cost: 30}
   PADUA: {link_cost: 9}
   #ORANGE: {link_cost: 18}
-  LIP6: {link_cost: 9}
-  URJC: {link_cost: 18}
+  LIP6: {link_cost: 7}
+  URJC: {link_cost: 14}
 network_regions: [/ndn/ch/unibas]
 hr_radius: 13.2717666496574
 hr_angle: 2.41932700603969

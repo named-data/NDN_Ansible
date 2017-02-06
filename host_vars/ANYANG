@@ -7,11 +7,11 @@ default_prefix: /ndn/kr/anyang
 advertised_prefixes: [/ndn/kr/anyang]
 router_name: anyanghub 
 neighbors: 
-  SRRU: {link_cost: 72}
+  SRRU: {link_cost: 57}
   MSU: {link_cost: 70}
   OSAKA: {link_cost: 36}
-  KISTI: {link_cost: 38}
-  WASEDA: {link_cost: 22}
+  KISTI: {link_cost: 40}
+  WASEDA: {link_cost: 40}
   BUPT: {link_cost: 33}
   TONGJI: {link_cost: 54}
 network_regions: [/ndn/kr/anyang]

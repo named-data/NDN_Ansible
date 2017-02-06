@@ -7,7 +7,7 @@ default_prefix: /ndn/no/ntnu
 advertised_prefixes: [/ndn/no/ntnu]
 router_name: ndnnode 
 neighbors: 
-  GOETTINGEN: {link_cost: 26}
+  GOETTINGEN: {link_cost: 40}
   NEU: {link_cost: 69}
   SYSTEMX: {link_cost: 24}
   BASEL: {link_cost: 30}

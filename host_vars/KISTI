@@ -8,9 +8,9 @@ advertised_prefixes: [/ndn/kr/re/kisti]
 router_name: router3 
 neighbors: 
   INDONESIA: {link_cost: 150}
-  WASEDA: {link_cost: 22}
-  CSU: {link_cost: 89}
-  ANYANG: {link_cost: 38}
+  WASEDA: {link_cost: 39}
+  CSU: {link_cost: 106}
+  ANYANG: {link_cost: 40}
   BUPT: {link_cost: 33}
 network_regions: [/ndn/kr/re/kisti]
 hr_radius: 11.5531281288249

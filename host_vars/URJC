@@ -10,7 +10,7 @@ neighbors:
   MINHO: {link_cost: 13}
   COPELABS: {link_cost: 13}
   PADUA: {link_cost: 15}
-  BASEL: {link_cost: 18}
+  BASEL: {link_cost: 14}
   WU: {link_cost: 86}
   LIP6: {link_cost: 15}
   #ORANGE: {link_cost: 15}

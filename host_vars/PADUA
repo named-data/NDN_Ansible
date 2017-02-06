@@ -10,7 +10,7 @@ router_name: ndnnode
 neighbors: 
   SRRU: {link_cost: 126}
   MINHO: {link_cost: 26}
-  GOETTINGEN: {link_cost: 21}
+  GOETTINGEN: {link_cost: 14}
   COPELABS: {link_cost: 24}
   URJC: {link_cost: 15}
   UIUC: {link_cost: 80}
