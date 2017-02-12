@@ -5,7 +5,10 @@
 # ndnsec get-default -k
 #ndnsec-install-cert "http: ... "
 
-sudo su - ndnsec -c "ndnsec-install-cert $1 "
+sudo su - ndnsec -c "wget $1 -O cert.out"
+sudo su - ndnsec -c "ndnsec-install-cert -f cert.out "
+
+#sudo su - ndnsec -c "ndnsec-install-cert $1 "
 
 sudo su - ndnsec -c "ndnsec-set-default -n $2"
 
