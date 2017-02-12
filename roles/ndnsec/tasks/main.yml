@@ -57,7 +57,7 @@
 
 - script: roles/ndnsec/files/checkCert.sh "{{ default_prefix }}"
   register: cert_present
-  when: ((key_present is defined and key_present.rc == 0) or (key_presetn2 is defined and key_present2.rc == 0))
+  when: ((key_present is defined and key_present.rc == 0) or (key_present2 is defined and key_present2.rc == 0))
   ignore_errors: yes
 
 - debug:
