@@ -9,6 +9,7 @@
   - {role: 'nlsr', tags: 'nlsr'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "nlsr"
   - {role: 'ndnsec', tags: 'ndnsec'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnsec"
   - {role: 'NOC', tags: 'NOC'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "NOC"
+  - {role: 'repo-ng', tags: 'repo-ng'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "repo-ng"
   - NOC
   - ndn-cxx
   - nfd
