@@ -2,3 +2,6 @@
 # handlers file for repo-ng
 - name: restart repo-ng
   service: name=repo-ng state=restarted
+
+- name: restart repo-ng-2
+  service: name=repo-ng-2 state=restarted

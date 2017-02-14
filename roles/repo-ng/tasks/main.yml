@@ -3,10 +3,24 @@
 - name: install repo-ng
   apt: name=repo-ng state=latest update_cache=yes
 
+- name: create repo-ng and repo-ng-2 directories
+  file: path=/var/lib/ndn/repo-ng state=directory owner=ndn group=ndn mode=0755
+- file: path=/var/lib/ndn/repo-ng-2 state=directory owner=ndn group=ndn mode=0755
+
+# copy repo-ng-2 /etc/init/ conf file
+- name: create repo-ng-2 /etc/init conf file
+  copy: src=roles/repo-ng/files/repo-ng-2.conf dest=/etc/init/repo-ng-2.conf
+
 - name: create repo-ng configuration file
-  #template: src=repo-ng.conf.j2 dest=/etc/ndn/ansible_repo-ng.conf owner=root group=root mode="u=rw,g=r,o=r"
   template: src=repo-ng.conf.j2 dest=/etc/ndn/repo-ng.conf owner=root group=root mode="u=rw,g=r,o=r"
   notify: restart repo-ng
 
+- name: create repo-ng-2 configuration file
+  template: src=repo-ng-2.conf.j2 dest=/etc/ndn/repo-ng-2.conf owner=root group=root mode="u=rw,g=r,o=r"
+  notify: restart repo-ng-2
+
 - name: start repo-ng
   service: name=repo-ng state=started enabled=yes
+
+- name: start repo-ng-2
+  service: name=repo-ng-2 state=started enabled=yes
