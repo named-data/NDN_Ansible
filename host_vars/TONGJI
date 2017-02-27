@@ -7,6 +7,7 @@ default_prefix: /ndn/cn/edu/tongji
 advertised_prefixes: [/ndn/cn/edu/tongji]
 router_name: cnlab 
 neighbors: 
+  PKUSZ: {link_cost: 54}
   OSAKA: {link_cost: 63}
   INDONESIA: {link_cost: 61}
   ANYANG: {link_cost: 54}

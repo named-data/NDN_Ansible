@@ -7,6 +7,7 @@ default_prefix: /ndn/jp/ac/osaka-u
 advertised_prefixes: [/ndn/jp/ac/osaka-u]
 router_name: NDNtestbed 
 neighbors: 
+  PKUSZ: {link_cost: 63}
   SRRU: {link_cost: 67}
   ANYANG: {link_cost: 36}
   TONGJI: {link_cost: 63}

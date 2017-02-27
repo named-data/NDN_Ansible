@@ -7,6 +7,7 @@ default_prefix: /ndn/jp/waseda
 advertised_prefixes: [/ndn/jp/waseda]
 router_name: ndn-tb 
 neighbors: 
+  PKUSZ: {link_cost: 98}
   OSAKA: {link_cost: 5}
   INDONESIA: {link_cost: 49}
   KISTI: {link_cost: 39}
