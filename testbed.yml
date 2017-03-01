@@ -6,22 +6,22 @@
 
 
   roles: 
-#  - {role: 'ndnTestbedDataCollector', tags: 'ndnTestbedDataCollector'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnTestbedDataCollector"
-#  - {role: 'nlsr', tags: 'nlsr'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "nlsr"
-#  - {role: 'ndnsec', tags: 'ndnsec'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnsec"
-#  - {role: 'NOC', tags: 'NOC'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "NOC"
-#  - {role: 'repo-ng', tags: 'repo-ng'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "repo-ng"
-  - NOC
+  - {role: 'NOC', tags: 'NOC'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "NOC"
+#  - NOC
   - ndn-cxx
   - nfd
-  - ndnsec
+  - {role: 'ndnsec', tags: 'ndnsec'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnsec"
+#  - ndnsec
   - ndnping
-  - nlsr
+  - {role: 'nlsr', tags: 'nlsr'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "nlsr"
+#  - nlsr
   - nfd-status-http-server
   - ndn-autoconfig-server
-  - repo-ng
+  - {role: 'repo-ng', tags: 'repo-ng'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "repo-ng"
+#  - repo-ng
   - ndnmap-data-collector
-  - ndnTestbedDataCollector
+  - {role: 'ndnTestbedDataCollector', tags: 'ndnTestbedDataCollector'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnTestbedDataCollector"
+#  - ndnTestbedDataCollector
   - nfd-autoreg
 
 
