@@ -34,6 +34,8 @@
 - name: start nfd
   service: name=nfd state=started enabled=yes
 
+# The problem is that we want to restart nfd sometimes before something like NLSR restarts
+# and sometimes after NLSR restarts...
 # restart nfd immediately, don't wait for end of playbook
-- meta: flush_handlers
+#- meta: flush_handlers
 
