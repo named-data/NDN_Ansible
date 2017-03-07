@@ -5,7 +5,11 @@
 sleep 15
 
 # set default strategy to best-route (bestroute2)
+{% if hyperbolic_state == "on" %}
+/usr/bin/nfdc set-strategy ndn:/ ndn:/localhost/nfd/strategy/asf
+{% else %}
 /usr/bin/nfdc set-strategy ndn:/ ndn:/localhost/nfd/strategy/best-route
+{% endif %}
 
 # set broadcast strategy
 /usr/bin/nfdc set-strategy /ndn/broadcast /localhost/nfd/strategy/multicast
