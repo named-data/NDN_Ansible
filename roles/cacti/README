@@ -1,0 +1,8 @@
+$ echo $CACTI_DIR
+/usr/share/cacti/
+
+Add a Cacti device for a new NDN Testbed node:  sudo php -q $CACTI_DIR/cli/add_device.php --description="PKUSZ NDN Gateway" --ip=219.223.222.5 --avail=ping --ping_method=tcp --ping_port=22 --ping_retries=1 --version=0 --notes="PKUSZ (219.223.222.5) NDN Testbed Gateway Node does not use SNMP"
+
+jdd@ndndemo:/usr/share/cacti/cli$ sudo $CACTI_DIR/cli/add_graphs.php --graph-template-id=55  --host-id=39 --input-fields="prefix=/ndn/cn/edu/pkusz" --graph-type=cg
+Graph Added - graph-id: (298) - data-source-ids: (332)
+jdd@ndndemo:/usr/share/cacti/cli$
