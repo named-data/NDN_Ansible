@@ -1,2 +1,29 @@
 ---
 # tasks file for cacti
+
+#- script: roles/cacti/files/addDevice.sh "{{ hostvars[item].inventory_hostname }}" "{{ hostvars[item].ansible_host }}"
+#  with_items: "{{ groups['ndngateways'] }}"
+#  ignore_errors: yes
+
+- script: roles/cacti/files/addGraph.sh "{{ hostvars[item[0]].inventory_hostname }}" "{{ item[1] }}" "{{ hostvars[item[0]].default_prefix }}"
+  with_nested: 
+    - "{{ groups['ndngateways'] }}"
+    - [ 'NFD Counters' ]
+
+#    - [ 'NFD Counters', 'NFD Uptime', 'NFD VProc Size', 'NDN GW Disk Usage', 'NDN GW Load Average', 'NDN GW NFD CPU and Mem Usage' ]
+  ignore_errors: yes
+
+
+#- script: roles/cacti/files/addGraph.sh "{{ inventory_hostname }}" "{{ item }}" "{{ default_prefix }}" 
+#  ignore_errors: yes
+#  with_items:
+#    - "NFD Uptime"
+##    - NFD VProc Size
+##    - NDN GW Disk Usage
+##    - NDN GW Load Average
+##    - NDN GW NFD CPU and Mem Usage
+
+## THIS WORKS!
+#- debug: msg="{{ hostvars[item].ansible_host }}"
+#  with_items: "{{ groups['ndngateways'] }}"
+
