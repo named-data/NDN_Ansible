@@ -2,6 +2,7 @@
 
 # file: host_vars/WU
 ansible_host: ndndemo.arl.wustl.edu
+ansible_user: jdd
 #site: /edu/wustl
 #default_prefix: /ndn/edu/wustl 
 #advertised_prefixes: [/ndn/edu/wustl]
