@@ -1,6 +1,6 @@
 # ndndemo support.
-#[ndndemo]
-#NDNDEMO
+[ndndemo]
+NDNDEMO
 
 [ndngateways]
 
@@ -37,7 +37,7 @@ REMAP
 SRRU
 SYSTEMX
 TNO
-TONGJI
+#TONGJI
 UCI
 UCLA
 UFPA
@@ -51,8 +51,8 @@ WU
 ansible_user=ndnops
 ansible_ssh_private_key_file=~/.ssh/id_rsa
 ndnNetwork=/ndn
-hyperbolic_state=off
+hyperbolic_state=on
 tcp_port=6363
 udp_port=6363
 multicast_port=56363
-
+supports_guest_certs=False

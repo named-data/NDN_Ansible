@@ -17,13 +17,18 @@
   - {role: 'repo-ng', tags: 'repo-ng'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "repo-ng"
   - ndnmap-data-collector
   - {role: 'ndnTestbedDataCollector', tags: 'ndnTestbedDataCollector'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnTestbedDataCollector"
+  - {role: 'ndn-utils', tags: 'ndn-utils'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndn-utils"
   - nfd-autoreg
 
 
-#- name: install ndndemo
-#  hosts: ndndemo
-#  remote_user: jdd
-#  become: yes
+- name: install ndndemo
+  hosts: ndndemo
+  remote_user: jdd
+  become: yes
+
+  roles:
+  - {role: 'cacti', tags: 'cacti'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "cacti"
+
 #
 #  roles:
 #  - nfd
