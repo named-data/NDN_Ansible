@@ -1,8 +1,41 @@
 $ echo $CACTI_DIR
 /usr/share/cacti/
 
-Add a Cacti device for a new NDN Testbed node:  sudo php -q $CACTI_DIR/cli/add_device.php --description="PKUSZ NDN Gateway" --ip=219.223.222.5 --avail=ping --ping_method=tcp --ping_port=22 --ping_retries=1 --version=0 --notes="PKUSZ (219.223.222.5) NDN Testbed Gateway Node does not use SNMP"
+Add a Cacti device for a new NDN Testbed node:  sudo php -q $CACTI_DIR/cli/add_device.php --description="PKUSZ NDN Gateway" --ip=219.223.222.5 --avail=ping --ping_method=tcp --ping_port=22 --ping_retries=1 --timeout=1000 --version=0 --notes="PKUSZ (219.223.222.5) NDN Testbed Gateway Node does not use SNMP"
 
 jdd@ndndemo:/usr/share/cacti/cli$ sudo $CACTI_DIR/cli/add_graphs.php --graph-template-id=55  --host-id=39 --input-fields="prefix=/ndn/cn/edu/pkusz" --graph-type=cg
 Graph Added - graph-id: (298) - data-source-ids: (332)
 jdd@ndndemo:/usr/share/cacti/cli$
+
+list graph templates:
+
+sudo $CACTI_DIR/cli/add_graphs.php --list-graph-templates
+
+ find NFD Uptime graph template ID:
+sudo $CACTI_DIR/cli/add_graphs.php --list-graph-templates | grep "NFD Uptime" | cut -f 1
+
+find WU device ID:
+sudo $CACTI_DIR/cli/add_graphs.php --list-hosts | grep WU
+
+Add UCLA node:
+
+sudo php -q $CACTI_DIR/cli/add_device.php --description="UCLA NDN Gateway" --ip=131.179.196.46 --avail=ping --ping_method=tcp --ping_port=22 --ping_retries=1 --timeout=1000 --version=0 --notes="UCLA (131.179.196.46) NDN Testbed Gateway Node does not use SNMP"
+
+Find UCLA node  ID:
+UCLA_ID=`sudo $CACTI_DIR/cli/add_graphs.php --list-hosts | grep UCLA | cut -f 1`
+
+Find NFD Uptime graph template ID:
+NFD_UPTIME_ID=`sudo $CACTI_DIR/cli/add_graphs.php --list-graph-templates | grep "NFD Uptime" | cut -f 1`
+
+Add an NFD Uptime graph for UCLA:
+sudo $CACTI_DIR/cli/add_graphs.php --graph-template-id=$NFD_UPTIME_ID  --host-id=$UCLA_ID --input-fields="prefix=/ndn/edu/ucla" --graph-type=cg
+
+Find NFD Counters graph template ID:
+NFD_COUNTERS_ID=`sudo $CACTI_DIR/cli/add_graphs.php --list-graph-templates | grep "NFD Counters" | cut -f 1`
+
+Add an NFD Counters graph for UCLA:
+sudo $CACTI_DIR/cli/add_graphs.php --graph-template-id=$NFD_COUNTERS_ID  --host-id=$UCLA_ID --input-fields="prefix=/ndn/edu/ucla" --graph-type=cg
+
+
+
+
