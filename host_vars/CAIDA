@@ -11,7 +11,7 @@ neighbors:
   UCLA: {link_cost: 3}
   UCI: {link_cost: 3}
   ARIZONA: {link_cost: 25}
-  TONGJI: {link_cost: 93}
+#  TONGJI: {link_cost: 93}
 network_regions: [/ndn/org/caida]
 hr_radius: 17.6030443241278
 hr_angle: 2.94302721088435
