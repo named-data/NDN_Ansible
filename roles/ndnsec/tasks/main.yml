@@ -4,7 +4,14 @@
 - name: add ndnsec user
   user: name=ndnsec state=present shell=/bin/bash password=LrVkOUM1s16xE
 
-- cron: name="auto-approve guest certs" user="ndnsec" minute="*/5" job="/usr/local/bin/ndnop-process-requests --guest-only --auto-approve"
+- cron: name="auto-approve guest certs" state=present user="ndnsec" minute="*/5" job="/usr/local/bin/ndnop-process-requests --guest-only --auto-approve"
+  when: supports_guest_certs
+
+- cron: name="auto-approve guest certs" state=absent user="ndnsec" minute="*/5" job="/usr/local/bin/ndnop-process-requests --guest-only --auto-approve"
+  when: not supports_guest_certs
+
+#- cron: name="auto-approve guest certs" state=absent user="ndnsec" minute="*/5" job="/usr/local/bin/ndnop-process-requests --guest-only --auto-approve"
+#  when: inventory_hostname == "BASEL" or inventory_hostname == "NIST"
 
 # Check that there is a default name and that default_prefix == default name on node
 # if not, try to change default name to default_prefix
