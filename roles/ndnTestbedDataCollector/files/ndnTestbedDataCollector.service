@@ -1,0 +1,23 @@
+# Authors:
+# - John DeHart <jdd@wustl.edu>
+
+[Unit]
+Description=Data collection daemons for NDN Testbed.
+Documentation=man:ndnTestbedDataCollector
+Requires=nfd.service
+After=nfd.service
+
+[Service]
+Environment=HOME=/var/lib/ndn/ndnTestbedDataCollector
+EnvironmentFile=-/etc/default/ndnTestbedDataCollector
+User=ndn
+Group=ndn
+ExecStart=/usr/local/bin/ndnTestbedDataCollectorClient $FLAGS -p "$PREFIX"
+Restart=on-failure
+ProtectSystem=full
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectHome=yes
+
+[Install]
+WantedBy=multi-user.target
