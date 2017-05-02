@@ -9,10 +9,11 @@ router_name: PE2950
 neighbors: 
   OSAKA: {link_cost: 63}
   WASEDA: {link_cost: 98}
-  TONGJI: {link_cost: 54}
+#  TONGJI: {link_cost: 54}
+  PADUA: {link_cost: 170}
   BUPT: {link_cost: 54}
-  MSU: {link_cost: 33}
-  SRRU: {link_cost: 33}
+  MSU: {link_cost: 71}
+  SRRU: {link_cost: 71}
 network_regions: [/ndn/cn/edu/pkusz]
 hr_radius: 11.1495655496376
 hr_angle: 2.8701600000

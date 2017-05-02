@@ -8,13 +8,13 @@ default_prefix: /ndn/th/ac/srru
 advertised_prefixes: [/ndn/th/ac/srru]
 router_name: comsci2
 neighbors: 
-  PKUSZ: {link_cost: 33}
+  PKUSZ: {link_cost: 71}
   MSU: {link_cost: 3}
   BUPT: {link_cost: 72}
   ANYANG: {link_cost: 57}
   OSAKA: {link_cost: 67}
   INDONESIA: {link_cost: 32}
-  PADUA: {link_cost: 126}
+#  PADUA: {link_cost: 126}
 network_regions: [/ndn/th/ac/srru]
 hr_radius: 12.8769009681331
 hr_angle: 3.63761863675582

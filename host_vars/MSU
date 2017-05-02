@@ -7,7 +7,7 @@ default_prefix: /ndn/th/ac/msu
 advertised_prefixes: [/ndn/th/ac/msu]
 router_name: isan-ndn 
 neighbors: 
-  PKUSZ: {link_cost: 33}
+  PKUSZ: {link_cost: 71}
   SRRU: {link_cost: 3}
   UCLA: {link_cost: 150}
   TNO: {link_cost: 120}
