@@ -1,5 +1,8 @@
 ---
 # tasks file for ndnTestbedDataCollector
+- debug:
+    msg: "OS: {{ ansible_distribution }} major version: {{ ansible_distribution_major_version }} full version: {{ ansible_distribution_version }}"
+
 - name: git ndnTestbedDataCollector
   git: repo=http://github.com/WU-ARL/ndnTestbedDataCollector
        dest=/tmp/ndnTestbedDataCollector
@@ -35,9 +38,26 @@
 #    args:
 #      chdir: /tmp/ndnTestbedDataCollector
 
+## copy unsigned keys to UCLA for approval
+#- copy: src={{ item }} dest=/home/nlsr/ owner=nlsr group=nlsr mode=644
+#  with_fileglob:
+#    - roles/nlsr/files/*_unsigned_site.cert
+#  when: inventory_hostname == "UCLA"
+
 - name: create /etc/init/ndnTestbedDataCollector.conf
   copy: src=roles/ndnTestbedDataCollector/files/ndnTestbedDataCollector.conf dest=/etc/init/ndnTestbedDataCollector.conf owner=root group=root mode="u=rw,g=r,o=r"
   notify: restart ndnTestbedDataCollector
+  when: ansible_distribution_major_version  == "14"
+
+#- name: create /etc/systemd/system/multi-user.target.wants/ndnTestbedDataCollector.service
+- name: create /lib/systemd/system/ndnTestbedDataCollector.service
+  copy: src=roles/ndnTestbedDataCollector/files/ndnTestbedDataCollector.service dest=/lib/systemd/system/ndnTestbedDataCollector.service owner=root group=root mode="u=rw,g=r,o=r"
+  notify: restart ndnTestbedDataCollector
+  when: ansible_distribution_major_version  == "16"
+
+- name: create /etc/systemd/system/multi-user.target.wants/ndnTestbedDataCollector.service
+  file: src=/lib/systemd/system/ndnTestbedDataCollector.service dest=/etc/systemd/system/multi-user.target.wants/ndnTestbedDataCollector.service state=link
+  when: ansible_distribution_major_version  == "16"
 
 - name: create /etc/default/ndnTestbedDataCollector
   #template: src=ndnTestbedDataCollector.j2 dest=/etc/default/ansible_ndnTestbedDataCollector owner=root group=root mode="u=rw,g=r,o=r"
