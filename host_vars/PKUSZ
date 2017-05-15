@@ -7,6 +7,7 @@ default_prefix: /ndn/cn/edu/pkusz
 advertised_prefixes: [/ndn/cn/edu/pkusz]
 router_name: PE2950 
 neighbors: 
+  CNIC: {link_cost: 20}
   OSAKA: {link_cost: 63}
   WASEDA: {link_cost: 98}
 #  TONGJI: {link_cost: 54}

@@ -7,6 +7,7 @@ default_prefix: /ndn/cn/edu/bupt
 advertised_prefixes: [/ndn/cn/edu/bupt]
 router_name: bupthub 
 neighbors: 
+  CNIC: {link_cost: 10}
   PKUSZ: {link_cost: 54}
   SRRU: {link_cost: 72}
   INDONESIA: {link_cost: 54}
