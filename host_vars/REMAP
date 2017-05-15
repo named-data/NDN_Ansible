@@ -4,7 +4,7 @@
 ansible_host: 128.97.98.7
 site: /edu/ucla
 default_prefix: /ndn/edu/ucla/remap 
-advertised_prefixes: [/ndn/edu/ucla/remap]
+advertised_prefixes: [/ndn/edu/ucla/remap,/org/openmhealth]
 router_name: cs/aleph 
 neighbors:
   BYU: {link_cost: 9}
