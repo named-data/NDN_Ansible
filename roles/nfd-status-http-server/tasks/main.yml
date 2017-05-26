@@ -2,6 +2,7 @@
 # tasks file for nfd-status-http-server
 - name: install nfd-status-http-server
   apt: name=nfd-status-http-server state=latest update_cache=yes
+  when: ansible_distribution == "Ubuntu" 
 
 - name: start nfd-status-http-server
   service: name=nfd-status-http-server state=started enabled=yes
