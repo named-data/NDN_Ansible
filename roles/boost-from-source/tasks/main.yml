@@ -1,0 +1,34 @@
+---
+# tasks file for boost-from-source
+
+#- command: wget https://sourceforge.net/projects/boost/files/boost/1.54.0/boost_1_54_0.tar.gz
+#  args:
+#    chdir: /tmp
+- get_url:
+    url: https://sourceforge.net/projects/boost/files/boost/1.54.0/boost_1_54_0.tar.gz
+    dest: /tmp/boost_1_54_0.tar.gz
+    mode: 0644
+
+#- command: tar -xzf boost_1_54_0.tar.gz
+#  args:
+#    chdir: /tmp
+
+- unarchive:
+    src: /tmp/boost_1_54_0.tar.gz
+    remote_src: true
+    dest: /tmp
+
+
+- command: ./bootstrap.sh
+  args:
+    chdir: /tmp/boost_1_54_0
+  
+- command: ./b2
+  args:
+    chdir: /tmp/boost_1_54_0
+  
+- command: sudo ./b2 install
+  args:
+    chdir: /tmp/boost_1_54_0
+  
+ 
