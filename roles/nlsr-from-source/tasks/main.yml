@@ -120,6 +120,7 @@
 
 - command: rpm -ivh  /tmp/log4cxx-devel-0.10.0-16.el7.x86_64.rpm
   when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'"
+  ignore_errors: yes
 
 
 #- name: install NFD from source
