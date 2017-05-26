@@ -1,6 +1,26 @@
 ---
 # need to add NDN repository
 
+# When RHEL we need these:
+#    - wget         
+#    - python-devel  (sudo yum install python-devel) This is needed by boost
+################    - boost-devel   (sudo yum install boost-devel)
+#    - build boost libs from source: 
+#          > wget https://dl.bintray.com/boostorg/release/1.64.0/source/boost_1_64_0.tar.gz
+#          > tar -xzf boost_1_64_0.tar.gz
+#          > cd boost_1_64_0
+#          > ./bootstrap.h
+#          > ./b2
+#          > sudo ./b2 install
+#          >
+#    
+#    - sqlite3       (sudo yum install sqlite)
+#    - sqlite3-dev   (sudo yum install sqlite-devel)
+#    - crypto++      (git http://github.com/weidai11/cryptopp/releases/tag/CRYPTOPP_5_6_5)
+#                      make static dynamic cryptest.exe ; sudo make install
+#    - openssl       (sudo yum install openssl)
+#    - openssl-devel (sudo yum install openssl openssl-devel)
+
 # tasks file for NOC
 # apt: name={{ item }} state=present
 
@@ -23,10 +43,41 @@
 
 - cron: name="parallel ndn ping test" user="ndnops" state=present disabled=no minute="15" job="cd /home/ndnops/ndn-ops/NOC/ping_delay_tests; ./getTestbedDelays_ndnping_parallel.sh -c 300 -n {{ inventory_hostname }} "
 
+# Download and install EPEL for Centos/RHEL version 7
+- name: Download EPEL Repo - Centos/RHEL 7
+  get_url: url=http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm dest=/tmp/epel-release-latest-7.noarch.rpm
+  when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'"
+
+- name: Install EPEL Repo - Centos/RHEL 7
+  command: rpm -ivh /tmp/epel-release-latest-7.noarch.rpm creates=/etc/yum.repos.d/epel.repo
+  when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'"
+
+- name: install general RedHat packages 
+  when: ansible_distribution == "RedHat" 
+  action: >
+       {{ ansible_pkg_mgr }} name={{ item }} state=latest update_cache=yes
+  with_items:
+       - net-tools
+       - tcpdump
+       - rpm-build
+       - wget
+       - python-devel
+       - bzip2-devel
+       - fail2ban
+       - sqlite-devel
+       - openssl
+       - openssl-devel
+       - protobuf
+       - protobuf-compiler
+       - protobuf-devel
+       - log4cxx.x86_64
+
 - name: add ndn repository
   apt_repository: repo='ppa:named-data/ppa' state=present
+  when: ansible_distribution == "Ubuntu" 
 
 - name: install general ubuntu packages 
+  when: ansible_distribution == "Ubuntu" 
   action: >
        {{ ansible_pkg_mgr }} name={{ item }} state=latest update_cache=yes
   with_items:
@@ -100,8 +151,8 @@
   copy: dest=/usr/local/bin/ndnop-process-requests src=roles/NOC/files/ndnop-process-requests.testbed owner=root group=root mode=0755
   when: inventory_hostname != "UCLA"
 
-- name: copy ndnop-process-requests to UCLA
-  copy: dest=/usr/local/bin/ndnop-process-requests src=roles/NOC/files/ndnop-process-requests.ucla owner=root group=root mode=0755
-  when: inventory_hostname == "UCLA"
+#- name: copy ndnop-process-requests to UCLA
+#  copy: dest=/usr/local/bin/ndnop-process-requests src=roles/NOC/files/ndnop-process-requests.ucla owner=root group=root mode=0755
+#  when: inventory_hostname == "UCLA"
 
 
