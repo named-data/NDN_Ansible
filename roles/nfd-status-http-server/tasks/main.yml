@@ -4,8 +4,22 @@
   apt: name=nfd-status-http-server state=latest update_cache=yes
   when: ansible_distribution == "Ubuntu" 
 
+- name: copy /lib/systemd/system/nfd-status-http-server.service
+  copy: dest=/lib/systemd/system/nfd-status-http-server.service src=roles/nfd-status-http-server/files/nfd-status-http-server.service owner=root group=root mode=0644
+  when: ansible_distribution == "RedHat"
+
+- file: path=/etc/systemd/system/multi-user.target.wants/nfd-status-http-server.service  state=link  src=/lib/systemd/system/nfd-status-http-server.service
+  when: ansible_distribution == "RedHat"
+
+- command: systemctl daemon-reload
+  when: ansible_distribution == "RedHat"
+
 - name: start nfd-status-http-server
   service: name=nfd-status-http-server state=started enabled=yes
+
+- name: copy port 80 default file to RedHat systems
+  copy: dest=/etc/default/nfd-status-http-server src=roles/nfd-status-http-server/files/nfd-status-http-server.default.80 owner=root group=root mode=0644
+  when: ansible_distribution == "RedHat"
 
 - name: copy port 8080 default file to BUPT
   copy: dest=/etc/default/nfd-status-http-server src=roles/nfd-status-http-server/files/nfd-status-http-server.default.8080 owner=root group=root mode=0644

@@ -35,7 +35,7 @@
   - {role: 'ndnsec', tags: 'ndnsec'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnsec"
   - {role: 'nlsr-from-source', tags: 'nlsr-from-source'}
   - {role: 'ndnping-from-source', tags: 'ndnping-from-source'}
-  - nfd-status-http-server
+  - {role: 'nfd-status-http-server', tags: 'nfd-status-http-server'}
   - ndn-autoconfig-server
   - {role: 'repo-ng-from-source', tags: 'repo-ng-from-source'}
 #  - ndnmap-data-collector
