@@ -1,6 +1,7 @@
 ---
 # tasks file for ndn-cxx-from-source
 - name: purge base ndn libraries 
+  when: ansible_distribution == "Ubuntu"
   action: >
        {{ ansible_pkg_mgr }} name={{ item }} state=absent purge=yes update_cache=yes
   with_items:
@@ -12,21 +13,25 @@
        dest=/tmp/ndn-cxx
        update=yes
        version={{ndn_cxx_version}}
+  register: gitclone
 
 #- name: configure ndn-cxx
-- command: ./waf configure
+- command: ./waf --boost-libs="{{ boost_base_location }}"/lib --boost-includes="{{ boost_base_location }}"/include configure
   args:
     chdir: /tmp/ndn-cxx
+  when: gitclone.changed
 
 #- name: build ndn-cxx
 - command: ./waf 
   args:
     chdir: /tmp/ndn-cxx
+  when: gitclone.changed
 
 #- name: install ndn-cxx
 - command: ./waf  install
   args:
     chdir: /tmp/ndn-cxx
+  when: gitclone.changed
 
 #- name: ldconfig
 - command: ldconfig
