@@ -2,6 +2,7 @@
 # tasks file for ndn-autoconfig-server
 - name: install ndn-autoconfig-server
   apt: name=ndn-autoconfig-server state=latest update_cache=yes
+  when: ansible_distribution == "Ubuntu" 
 
 - name: create /etc/default/ndn-autoconfig-server
   #template: src=ndn-autoconfig-server.j2 dest=/etc/default/ansible_ndn-autoconfig-server owner=root group=root mode="u=rw,g=r,o=r"

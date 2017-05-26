@@ -1,34 +1,39 @@
 ---
 # tasks file for repo-ng-from-source
-- name: install repo-ng-from-source
-  apt: name=repo-ng state=latest update_cache=yes
 
-- name: install ndndump
-  apt: name=ndndump state=latest
+#environment:
+#  PKG_CONFIG_PATH: "/usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig"
 
 - name: git repo-ng
   git: repo=http://github.com/named-data/repo-ng
        dest=/tmp/repo-ng
        update=yes
-       version={{ndn_tools_version}}
+  register: gitclone
 
 #- name: configure repo-ng
-- command: ./waf configure
+#- command: export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig"; ./waf --boost-libs="{{ boost_base_location }}"/lib --boost-includes="{{ boost_base_location }}"/include configure >& /tmp/jdd.log
+- command: ./waf --boost-libs="{{ boost_base_location }}"/lib --boost-includes="{{ boost_base_location }}"/include configure
   args:
     chdir: /tmp/repo-ng
+  environment:
+    PKG_CONFIG_PATH: /usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig
+  when: gitclone.changed
 
 #- name: clean repo-ng
 - command: ./waf clean
   args:
     chdir: /tmp/repo-ng
+  when: gitclone.changed
 
 #- name: build repo-ng
 - command: ./waf 
   args:
     chdir: /tmp/repo-ng
+  when: gitclone.changed
 
 #- name: install repo-ng
 - command: ./waf  install
   args:
     chdir: /tmp/repo-ng
+  when: gitclone.changed
 
