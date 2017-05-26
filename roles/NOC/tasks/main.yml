@@ -60,6 +60,7 @@
        - net-tools
        - tcpdump
        - rpm-build
+       - apr-devel
        - wget
        - python-devel
        - bzip2-devel

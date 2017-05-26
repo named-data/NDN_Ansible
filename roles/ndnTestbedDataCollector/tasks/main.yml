@@ -9,24 +9,31 @@
        update=yes
 
 #- name: configure ndnTestbedDataCollector
-- command: ./waf configure
+#- command: ./waf configure
+- command: ./waf --boost-libs="{{ boost_base_location }}"/lib --boost-includes="{{ boost_base_location }}"/include configure
   args:
     chdir: /tmp/ndnTestbedDataCollector
+  environment:
+    PKG_CONFIG_PATH: /usr/lib/pkgconfig:/usr/lib64/pkgconfig:/usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig
+  register: gitclone
 
 #- name: clean ndnTestbedDataCollector
 - command: ./waf clean
   args:
     chdir: /tmp/ndnTestbedDataCollector
+  when: gitclone.changed
 
 #- name: build ndnTestbedDataCollector
 - command: ./waf 
   args:
     chdir: /tmp/ndnTestbedDataCollector
+  when: gitclone.changed
 
 #- name: install ndnTestbedDataCollector
 - command: ./waf  install
   args:
     chdir: /tmp/ndnTestbedDataCollector
+  when: gitclone.changed
 
 #- name: build ndnTestbedDataCollector
 #  command: ./waf configure; ./waf; sudo ./waf install 
@@ -53,11 +60,11 @@
 - name: create /lib/systemd/system/ndnTestbedDataCollector.service
   copy: src=roles/ndnTestbedDataCollector/files/ndnTestbedDataCollector.service dest=/lib/systemd/system/ndnTestbedDataCollector.service owner=root group=root mode="u=rw,g=r,o=r"
   notify: restart ndnTestbedDataCollector
-  when: ansible_distribution_major_version  == "16"
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16") or (ansible_distribution == "RedHat")
 
 - name: create /etc/systemd/system/multi-user.target.wants/ndnTestbedDataCollector.service
   file: src=/lib/systemd/system/ndnTestbedDataCollector.service dest=/etc/systemd/system/multi-user.target.wants/ndnTestbedDataCollector.service state=link
-  when: ansible_distribution_major_version  == "16"
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16") or (ansible_distribution == "RedHat")
 
 - name: create /etc/default/ndnTestbedDataCollector
   #template: src=ndnTestbedDataCollector.j2 dest=/etc/default/ansible_ndnTestbedDataCollector owner=root group=root mode="u=rw,g=r,o=r"

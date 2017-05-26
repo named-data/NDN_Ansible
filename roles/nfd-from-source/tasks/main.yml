@@ -20,36 +20,45 @@
 #- name: install NFD from source
 #  apt: name=nfd state=latest update_cache=yes
 
+- get_url: 
+    url: http://mirror.centos.org/centos/7/os/x86_64/Packages/libpcap-devel-1.5.3-8.el7.x86_64.rpm
+    dest: /tmp/libpcap-devel-1.5.3-8.el7.x86_64.rpm
+    mode: 0644
+
+- command: rpm -ivh  /tmp/libpcap-devel-1.5.3-8.el7.x86_64.rpm
+  when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'"
+  ignore_errors: yes
+
 - name: git nfd
   git: repo=http://github.com/named-data/NFD
        dest=/tmp/NFD
        update=yes
        version={{nfd_version}}
-  register: gitclone
+#  register: gitclone
 
 #- name: configure NFD
 - command: ./waf --boost-libs="{{ boost_base_location }}"/lib --boost-includes="{{ boost_base_location }}"/include configure
   args:
     chdir: /tmp/NFD
-  when: gitclone.changed
+#  when: gitclone.changed
 
 #- name: clean NFD
 - command: ./waf clean
   args:
     chdir: /tmp/NFD
-  when: gitclone.changed
+#  when: gitclone.changed
 
 #- name: build NFD
 - command: ./waf 
   args:
     chdir: /tmp/NFD
-  when: gitclone.changed
+#  when: gitclone.changed
 
 #- name: install NFD
 - command: ./waf  install
   args:
     chdir: /tmp/NFD
-  when: gitclone.changed
+#  when: gitclone.changed
 
 
 - name: copy /etc/init/nfd.conf

@@ -8,6 +8,20 @@
        - ndn-cxx
        - ndn-cxx-dev
 
+- name: git cryptopp
+  git: repo=http://github.com/weidai11/cryptopp
+       dest=/tmp/cryptopp
+       update=yes
+       version={{cryptopp_version}}
+
+- command: make static dynamic cryptest.exe
+  args:
+    chdir: /tmp/cryptopp
+
+- command: make install
+  args:
+    chdir: /tmp/cryptopp
+
 - name: git ndn-cxx
   git: repo=http://github.com/named-data/ndn-cxx
        dest=/tmp/ndn-cxx
@@ -32,6 +46,8 @@
   args:
     chdir: /tmp/ndn-cxx
   when: gitclone.changed
+
+- copy: src=roles/ndn-cxx-from-source/files/ndn-ld.so.conf dest=/etc/ld.so.conf.d/ndn-ld.so.conf
 
 #- name: ldconfig
 - command: ldconfig

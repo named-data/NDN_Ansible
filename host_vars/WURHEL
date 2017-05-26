@@ -17,6 +17,7 @@ hr_angle:   4.31060
 #supports_guest_certs: True
 boost_base_location: /usr/local
 nfd_version: NFD-0.5.1
+cryptopp_version: CRYPTOPP_5_6_5
 ndn_cxx_version: ndn-cxx-0.5.1
 nlsr_version: NLSR-0.3.1
 ndn_tools_version: ndn-tools-0.4
