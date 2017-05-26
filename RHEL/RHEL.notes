@@ -1,0 +1,504 @@
+# After installing new machine, here are the steps to get it ready for NDN install:
+
+setup ssh login to ndnops with keys:
+ - log in as ndnops using password
+   > mkdir ~/.ssh
+   > chmod 700 ~/.ssh
+   > cd .ssh
+   > vi authorized_keys
+   # add id_rsa.pub from laptop
+   > chmod 400 authorized_keys
+   > sudo vi /etc/sudoers
+   # add this near the end:   ndnops   ALL=(ALL:ALL) NOPASSWD: ALL
+   > sudo subscription-manager register
+   # it will ask for username and password for the account registered at RedHat Customer Portal
+   > sudo subscription-manager refresh
+   > sudo subscription-manager attach --auto
+   > sudo yum repolist all
+   > sudo yum update
+
+Now we are ready to run our ansible playbook to install everything else.
+
+The rest of this file is notes that were used to compile what would be needed
+for the above and for the ansible-playbook for RedHat.
+
+
+---------------------------------------------------------
+
+
+
+# Needed to remove the machines from the customer portal.
+
+sudo subscription-manager remove --all
+sudo subscription-manager unregister
+sudo subscription-manager register
+sudo subscription-manager refresh
+sudo subscription-manager attach --auto
+sudo yum repolist all
+
+# There was one repo that was not currently available and caused failure, disable it:
+sudo subscription-manager repos --disable=rhel-7-server-rt-beta-rpms
+sudo yum update
+
+# Set up a directory to hold rpm files that need to be manually downloaded and installed.
+mkdir ~/RHEL
+
+# install some basic tools and devel stuff
+sudo yum install tcpdump
+sudo yum install net-tools
+sudo yum install rpm-build
+sudo yum install wget
+sudo yum install python-devel
+sudo yum install bzip2-devel
+
+# EPEL repository
+cd ~/RHEL
+wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo yum install epel-release-latest-7.noarch.rpm
+
+
+# fail2ban
+sudo yum install fail2ban
+sudo systemctl start fail2ban
+sudo systemctl enable fail2ban
+
+# libpcap-devel
+cd ~/RHEL
+wget http://mirror.centos.org/centos/7/os/x86_64/Packages/libpcap-devel-1.5.3-8.el7.x86_64.rpm
+sudo yum install libpcap-devel-1.5.3-8.el7.x86_64.rpm
+
+# build boost 1.54 from source
+cd ~/RHEL
+wget https://sourceforge.net/projects/boost/files/boost/1.54.0/boost_1_54_0.tar.gz
+tar -xzf boost_1_54_0.tar.gz
+cd boost_1_54_0
+./bootstrap.h
+./b2
+sudo ./b2 install
+
+# Add some libraries needed by NDN
+sudo yum install sqlite-devel
+sudo yum install openssl openssl-devel
+sudo yum install protobuf
+sudo yum install protobuf-compiler
+sudo yum install protobuf-devel
+
+
+cd ~/RHEL
+wget ftp://ftp.pbone.net/mirror/download.fedora.redhat.com/pub/fedora/linux/releases/23/Everything/x86_64/os/Packages/l/log4cxx-devel-0.10.0-19.fc23.x86_64.rpm
+sudo yum install log4cxx-devel-0.10.0-19.fc23.x86_64.rpm
+
+cd ~/RHEL
+sudo yum install log4cxx.x86_64
+wget ftp://fr2.rpmfind.net/linux/centos/7.3.1611/os/x86_64/Packages/log4cxx-devel-0.10.0-16.el7.x86_64.rpm
+sudo yum install log4cxx-devel-0.10.0-16.el7.x86_64.rpm
+
+
+# Add crypto++
+cd ~/RHEL
+git clone http://github.com/weidai11/cryptopp
+git checkout tag/CRYPTOPP_5_6_5
+cd cryptopp
+make static dynamic cryptest.exe 
+sudo make install
+
+# git and build NDN software
+cd ~/RHEL
+mkdir NDN
+cd NDN
+git clone http://github.com/named-data/NFD
+pushd NFD
+git checkout tags/NFD-0.5.1
+git submodule init && git submodule update
+popd
+
+git clone http://github.com/named-data/ndn-cxx
+pushd ndn-cxx
+git checkout tags/ndn-cxx-0.5.1
+popd
+
+git clone http://github.com/named-data/ndn-tools
+pushd ndn-tools
+git checkout tags/ndn-tools-0.4
+popd
+
+git clone http://github.com/named-data/repo-ng
+pushd repo-ng
+popd
+
+git clone http://github.com/named-data/NLSR
+pushd NLSR
+git checkout tags/NLSR-0.3.1
+popd
+
+# Build of ndn-cxx:
+cd ~/RHEL/NDN/
+pushd ndn-cxx
+./waf --boost-includes=/usr/local/include --boost-libs=/usr/local/lib configure
+./waf --boost-includes=/usr/local/include --boost-libs=/usr/local/lib
+sudo ./waf --boost-includes=/usr/local/include --boost-libs=/usr/local/lib install
+popd
+
+# Build of NFD:
+cd ~/RHEL/NDN/
+pushd NFD
+./waf --boost-includes=/usr/local/include --boost-libs=/usr/local/lib configure
+./waf --boost-includes=/usr/local/include --boost-libs=/usr/local/lib
+sudo ./waf --boost-includes=/usr/local/include --boost-libs=/usr/local/lib install
+popd
+
+# Build of ndn-tools:
+cd ~/RHEL/NDN/
+pushd ndn-tools
+./waf --boost-includes=/usr/local/include --boost-libs=/usr/local/lib configure
+./waf --boost-includes=/usr/local/include --boost-libs=/usr/local/lib
+sudo ./waf --boost-includes=/usr/local/include --boost-libs=/usr/local/lib install
+popd
+
+# Build of repo-ng
+cd ~/RHEL/NDN/
+pushd repo-ng
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig"
+./waf --boost-includes=/usr/local/include --boost-libs=/usr/local/lib configure
+./waf --boost-includes=/usr/local/include --boost-libs=/usr/local/lib
+sudo ./waf --boost-includes=/usr/local/include --boost-libs=/usr/local/lib install
+popd
+
+# Build of NLSR:
+cd ~/RHEL/NDN/
+pushd NLSR
+./waf --boost-includes=/usr/local/include --boost-libs=/usr/local/lib configure
+./waf --boost-includes=/usr/local/include --boost-libs=/usr/local/lib
+sudo ./waf --boost-includes=/usr/local/include --boost-libs=/usr/local/lib install
+popd
+
+
+# update ld.so.conf
+cd ~/RHEL
+echo "/usr/local/lib64" > ndn-ld.so.conf
+echo "/usr/local/lib" >> ndn-ld.so.conf
+sudo cp ndn-ld.so.conf /etc/ld.so.conf.d/
+sudo ldconfig
+
+
+
+# Here are the NDN related /etc/systemd/system/multi-user.target.wants links on an Ubuntu 16.04 system:
+lrwxrwxrwx 1 root root 49 Feb  5 02:16 ndn-autoconfig-server.service -> /lib/systemd/system/ndn-autoconfig-server.service
+lrwxrwxrwx 1 root root 49 Feb  5 02:17 ndnmap-data-collector.service -> /lib/systemd/system/ndnmap-data-collector.service
+lrwxrwxrwx 1 root root 35 Feb  5 01:10 ndnping.service -> /lib/systemd/system/ndnping.service
+lrwxrwxrwx 1 root root 51 Mar  8 04:26 ndnTestbedDataCollector.service -> /lib/systemd/system/ndnTestbedDataCollector.service
+lrwxrwxrwx 1 root root 31 Feb  5 01:07 nfd.service -> /lib/systemd/system/nfd.service
+lrwxrwxrwx 1 root root 50 Feb  5 02:15 nfd-status-http-server.service -> /lib/systemd/system/nfd-status-http-server.service
+lrwxrwxrwx 1 root root 32 Feb  5 02:15 nlsr.service -> /lib/systemd/system/nlsr.service
+lrwxrwxrwx 1 root root 35 Feb  5 02:16 repo-ng.service -> /lib/systemd/system/repo-ng.service
+
+
+# ndn-autoconfig-server.service
+# Copyright (c) 2015,  Regents of the University of California,
+#                      Arizona Board of Regents,
+#                      Colorado State University,
+#                      University Pierre & Marie Curie, Sorbonne University,
+#                      Washington University in St. Louis,
+#                      Beijing Institute of Technology,
+#                      The University of Memphis.
+#
+# This file is part of NFD (Named Data Networking Forwarding Daemon).
+# See AUTHORS.md for complete list of NFD authors and contributors.
+#
+# NFD is free software: you can redistribute it and/or modify it under the terms
+# of the GNU General Public License as published by the Free Software Foundation,
+# either version 3 of the License, or (at your option) any later version.
+#
+# NFD is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+# without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+# PURPOSE.  See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# NFD, e.g., in COPYING.md file.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Author: Eric Newberry <enewberry@email.arizona.edu>
+
+[Unit]
+Description=NDN Autoconfig Server
+Documentation=man:nfd-autoconfig-server
+Requires=nfd.service
+After=nfd.service
+
+[Service]
+Environment=HOME=/var/lib/ndn/ndn-autoconfig-server
+EnvironmentFile=-/etc/default/ndn-autoconfig-server
+User=ndn
+Group=ndn
+ExecStart=/bin/sh -ec 'if [ "$FACE_URI" != "" ]; then exec /usr/bin/ndn-autoconfig-server $ROUTABLE_PREFIXES $FACE_URI; fi'
+Restart=on-failure
+ProtectSystem=full
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectHome=yes
+
+[Install]
+WantedBy=multi-user.target
+
+
+#ndnmap-data-collector.service
+# Authors:
+# - John DeHart <jdd@wustl.edu>
+
+[Unit]
+Description=Data collection daemons for ndnmap.
+Documentation=man:ndnmapDataCollector
+Requires=nfd.service
+After=nfd.service
+
+[Service]
+Environment=HOME=/var/lib/ndn/ndnmapDataCollector
+EnvironmentFile=-/etc/default/ndnmap-data-collector
+User=ndn
+Group=ndn
+ExecStart=/usr/bin/ndnmapDataCollectorClient $FLAGS -p "$PREFIX"
+Restart=on-failure
+ProtectSystem=full
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectHome=yes
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+#ndnping.service
+# Authors:
+# - Eric Newberry <enewberry@email.arizona.edu>
+# - Alexander Afanasyev <http://lasr.cs.ucla.edu/afanasyev/index.html>
+
+[Unit]
+Description=Reachability testing server for Named Data Networking.
+Documentation=man:ndnpingserver
+Requires=nfd.service
+After=nfd.service
+
+[Service]
+Environment=HOME=/var/lib/ndn/ndnping
+EnvironmentFile=-/etc/default/ndnping
+User=ndn
+Group=ndn
+ExecStart=/usr/bin/ndnpingserver "$PREFIX" $FLAGS
+Restart=on-failure
+ProtectSystem=full
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectHome=yes
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+#ndnTestbedDataCollector.service
+# Authors:
+# - John DeHart <jdd@wustl.edu>
+
+[Unit]
+Description=Data collection daemons for NDN Testbed.
+Documentation=man:ndnTestbedDataCollector
+Requires=nfd.service
+After=nfd.service
+
+[Service]
+Environment=HOME=/var/lib/ndn/ndnTestbedDataCollector
+EnvironmentFile=-/etc/default/ndnTestbedDataCollector
+User=ndn
+Group=ndn
+ExecStart=/usr/local/bin/ndnTestbedDataCollectorClient $FLAGS -p "$PREFIX"
+Restart=on-failure
+ProtectSystem=full
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectHome=yes
+
+[Install]
+WantedBy=multi-user.target
+
+
+# nfd.service
+# Copyright (c) 2015,  Regents of the University of California,
+#                      Arizona Board of Regents,
+#                      Colorado State University,
+#                      University Pierre & Marie Curie, Sorbonne University,
+#                      Washington University in St. Louis,
+#                      Beijing Institute of Technology,
+#                      The University of Memphis.
+#
+# This file is part of NFD (Named Data Networking Forwarding Daemon).
+# See AUTHORS.md for complete list of NFD authors and contributors.
+#
+# NFD is free software: you can redistribute it and/or modify it under the terms
+# of the GNU General Public License as published by the Free Software Foundation,
+# either version 3 of the License, or (at your option) any later version.
+#
+# NFD is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+# without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+# PURPOSE.  See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# NFD, e.g., in COPYING.md file.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Author: Eric Newberry <enewberry@email.arizona.edu>
+
+[Unit]
+Description=NDN Forwarding Daemon
+Documentation=man:nfd man:nfdc man:nfd-status
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Environment=HOME=/var/lib/ndn/nfd
+ExecStart=/usr/bin/nfd --config /etc/ndn/nfd.conf
+ExecStartPost=/bin/sh -ec 'sleep 2; if [ -f /etc/ndn/nfd-init.sh ]; then . /etc/ndn/nfd-init.sh; fi'
+Restart=on-failure
+ProtectSystem=full
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectHome=yes
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+# nfd-status-http-server.service
+# Copyright (c) 2015,  Regents of the University of California,
+#                      Arizona Board of Regents,
+#                      Colorado State University,
+#                      University Pierre & Marie Curie, Sorbonne University,
+#                      Washington University in St. Louis,
+#                      Beijing Institute of Technology,
+#                      The University of Memphis.
+#
+# This file is part of NFD (Named Data Networking Forwarding Daemon).
+# See AUTHORS.md for complete list of NFD authors and contributors.
+#
+# NFD is free software: you can redistribute it and/or modify it under the terms
+# of the GNU General Public License as published by the Free Software Foundation,
+# either version 3 of the License, or (at your option) any later version.
+#
+# NFD is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+# without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+# PURPOSE.  See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# NFD, e.g., in COPYING.md file.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Author: Eric Newberry <enewberry@email.arizona.edu>
+
+[Unit]
+Description=NFD HTTP Status Server
+Documentation=man:nfd-status-http-server
+After=nfd.service
+
+[Service]
+Environment=HOME=/var/lib/ndn/nfd-status-http-server
+EnvironmentFile=-/etc/default/nfd-status-http-server
+ExecStart=/usr/bin/nfd-status-http-server $FLAGS
+Restart=on-failure
+ProtectSystem=full
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectHome=yes
+
+[Install]
+
+
+
+
+
+# nlsr.service
+# Copyright (c) 2014-2015,  The University of Memphis,
+#                           Regents of the University of California,
+#                           Arizona Board of Regents.
+#
+# This file is part of NLSR (Named-data Link State Routing).
+# See AUTHORS.md for complete list of NLSR authors and contributors.
+#
+# NLSR is free software: you can redistribute it and/or modify it under the terms
+# of the GNU General Public License as published by the Free Software Foundation,
+# either version 3 of the License, or (at your option) any later version.
+#
+# NLSR is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+# without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+# PURPOSE.  See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# NLSR, e.g., in COPYING.md file.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Author: Eric Newberry <enewberry@email.arizona.edu>
+
+[Unit]
+Description=NDN NLSR Routing Daemon
+Documentation=man:nlsr
+Requires=nfd.service
+After=nfd.service
+
+[Service]
+Environment=HOME=/var/lib/ndn/nlsr
+User=nlsr
+Group=nlsr
+ExecStart=/usr/bin/nlsr -f /etc/ndn/nlsr/nlsr.conf
+Restart=on-failure
+ProtectSystem=full
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectHome=yes
+
+[Install]
+
+
+
+
+#  repo-ng.service
+# Copyright (c) 2015,  Arizona Board of Regents.
+#
+# This file is part of NDN repo-ng (Next generation of NDN repository).
+# See AUTHORS.md for complete list of repo-ng authors and contributors.
+#
+# repo-ng is free software: you can redistribute it and/or modify it under the terms
+# of the GNU General Public License as published by the Free Software Foundation,
+# either version 3 of the License, or (at your option) any later version.
+#
+# repo-ng is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+# without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+# PURPOSE.  See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# repo-ng, e.g., in COPYING.md file.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Author: Eric Newberry <enewberry@email.arizona.edu>
+
+[Unit]
+Description=New generation of NDN repo
+Documentation=man:ndn-repo-ng
+Requires=nfd.service
+After=nfd.service
+
+[Service]
+Environment=HOME=/var/lib/ndn/repo-ng
+User=ndn
+Group=ndn
+ExecStart=/usr/bin/ndn-repo-ng -c /etc/ndn/repo-ng.conf
+Restart=on-failure
+ProtectSystem=full
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectHome=yes
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+
+---------------
+
+
+
