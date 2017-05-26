@@ -1,7 +1,7 @@
 ---
 # tasks file for nfd-from-source
-- name: install nfd
-  apt: name=nfd state=absent purge=yes update_cache=yes
+#- name: install nfd
+#  apt: name=nfd state=absent purge=yes update_cache=yes
 
 - name: add ndn user
   user: name=ndn state=present shell=/bin/false createhome=no
@@ -19,35 +19,52 @@
 
 #- name: install NFD from source
 #  apt: name=nfd state=latest update_cache=yes
+
 - name: git nfd
   git: repo=http://github.com/named-data/NFD
        dest=/tmp/NFD
        update=yes
        version={{nfd_version}}
+  register: gitclone
 
 #- name: configure NFD
-- command: ./waf configure
+- command: ./waf --boost-libs="{{ boost_base_location }}"/lib --boost-includes="{{ boost_base_location }}"/include configure
   args:
     chdir: /tmp/NFD
+  when: gitclone.changed
 
 #- name: clean NFD
 - command: ./waf clean
   args:
     chdir: /tmp/NFD
+  when: gitclone.changed
 
 #- name: build NFD
 - command: ./waf 
   args:
     chdir: /tmp/NFD
+  when: gitclone.changed
 
 #- name: install NFD
 - command: ./waf  install
   args:
     chdir: /tmp/NFD
+  when: gitclone.changed
 
 
 - name: copy /etc/init/nfd.conf
   copy: dest=/etc/init/nfd.conf src=roles/nfd-from-source/files/etc-init-nfd.conf owner=root group=root mode=0644
+  when: ansible_distribution == "Ubuntu" 
+
+- name: copy /lib/systemd/system/nfd.service
+  copy: dest=/lib/systemd/system/nfd.service src=roles/nfd-from-source/files/nfd.service owner=root group=root mode=0644
+  when: ansible_distribution == "RedHat" 
+
+- file: path=/etc/systemd/system/multi-user.target.wants/nfd.service  state=link  src=/lib/systemd/system/nfd.service
+  when: ansible_distribution == "RedHat" 
+
+- command: systemctl daemon-reload
+  when: ansible_distribution == "RedHat" 
 
 - name: copy root key
   #copy: dest=/etc/ndn/keys/ansible_ndn-testbed-root.ndncert.base64 src=roles/nfd-from-source/files/ndn-testbed-root.ndncert.base64 owner=root group=root mode=0644

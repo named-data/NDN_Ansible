@@ -1,0 +1,65 @@
+---
+# tasks file for ndnping-from-source
+- name: install ndnping
+  apt: name=ndnping state=latest update_cache=yes
+  when: ansible_distribution == "Ubuntu"
+
+#- name: install ndnping from source
+#  apt: name=ndnping state=latest update_cache=yes
+
+- name: git ndnping
+  git: repo=http://github.com/named-data/ndn-tlv-ping
+       dest=/tmp/ndn-tlv-ping
+       update=yes
+#       version={{ndnping_version}}
+#  register: gitclone
+
+#- name: configure ndnping
+- command: ./waf configure
+  args:
+    chdir: /tmp/ndn-tlv-ping
+  environment:
+    PKG_CONFIG_PATH: /usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig
+#  when: gitclone.changed
+
+#- name: clean ndnping
+- command: ./waf clean
+  args:
+    chdir: /tmp/ndn-tlv-ping
+  environment:
+    PKG_CONFIG_PATH: /usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig
+#  when: gitclone.changed
+
+#- name: build ndnping
+- command: ./waf
+  args:
+    chdir: /tmp/ndn-tlv-ping
+  environment:
+    PKG_CONFIG_PATH: /usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig
+#  when: gitclone.changed
+
+#- name: install ndnping
+- command: ./waf  install
+  args:
+    chdir: /tmp/ndn-tlv-ping
+  environment:
+    PKG_CONFIG_PATH: /usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig
+#  when: gitclone.changed
+
+- name: create /etc/default/ndnping
+  #template: src=ndnping.j2 dest=/etc/default/ansible_ndnping  owner=root group=root mode="u=rw,g=r,o=r"
+  template: src=ndnping.j2 dest=/etc/default/ndnping  owner=root group=root mode="u=rw,g=r,o=r"
+  notify: restart ndnping
+
+- name: copy /lib/systemd/system/ndnping.service
+  copy: dest=/lib/systemd/system/ndnping.service src=roles/ndnping-from-source/files/ndnping.service owner=root group=root mode=0644
+  when: ansible_distribution == "RedHat" 
+
+- file: path=/etc/systemd/system/multi-user.target.wants/ndnping.service  state=link  src=/lib/systemd/system/ndnping.service
+  when: ansible_distribution == "RedHat" 
+
+- command: systemctl daemon-reload
+  when: ansible_distribution == "RedHat" 
+
+- name: start ndnping
+  service: name=ndnping state=started enabled=yes

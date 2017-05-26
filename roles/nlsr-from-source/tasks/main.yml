@@ -99,8 +99,10 @@
 
 - name: purge nlsr
   apt: name=nlsr state=absent purge=yes update_cache=yes
+  when: ansible_distribution == "Ubuntu" 
 
 - name: install general ubuntu packages for dev building
+  when: ansible_distribution == "Ubuntu" 
   action: >
        {{ ansible_pkg_mgr }} name={{ item }} state=latest update_cache=yes
   with_items:
@@ -118,30 +120,48 @@
        dest=/tmp/NLSR
        update=yes
        version={{nlsr_version}}
+  register: gitclone
+
+- debug: 
+    msg: "debug: gitclone.changed: {{ gitclone.changed }}"
 
 #- name: configure NLSR
-- command: ./waf configure
+- command: ./waf --boost-libs="{{ boost_base_location }}"/lib --boost-includes="{{ boost_base_location }}"/include configure
   args:
     chdir: /tmp/NLSR
+  when: gitclone.changed
 
 #- name: build NLSR
 - command: ./waf clean
   args:
     chdir: /tmp/NLSR
+  when: gitclone.changed
 
 #- name: clean NLSR
 - command: ./waf 
   args:
     chdir: /tmp/NLSR
+  when: gitclone.changed
 
 #- name: install NLSR
 - command: ./waf  install
   args:
     chdir: /tmp/NLSR
+  when: gitclone.changed
 
 - name: copy /etc/init/nlsr.conf
   copy: dest=/etc/init/nlsr.conf src=roles/nlsr-from-source/files/etc-init-nlsr.conf owner=root group=root mode=0644
+  when: ansible_distribution == "Ubuntu" 
 
+- name: copy /lib/systemd/system/nlsr.service
+  copy: dest=/lib/systemd/system/nlsr.service src=roles/nlsr-from-source/files/nlsr.service owner=root group=root mode=0644
+  when: ansible_distribution == "RedHat" 
+
+- file: path=/etc/systemd/system/multi-user.target.wants/nlsr.service  state=link  src=/lib/systemd/system/nlsr.service
+  when: ansible_distribution == "RedHat" 
+
+- command: systemctl daemon-reload
+  when: ansible_distribution == "RedHat" 
 
 - name: start nlsr
   service: name=nlsr state=started enabled=yes
