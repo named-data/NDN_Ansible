@@ -1,11 +1,12 @@
 ---
 
 # file: host_vars/TONGJI
-ansible_host: cnlab.tongji.edu.cn
+ansible_host: 202.120.188.246
+ansible_port: 10413
 site: /cn/edu/tongji
 default_prefix: /ndn/cn/edu/tongji 
 advertised_prefixes: [/ndn/cn/edu/tongji]
-router_name: cnlab 
+router_name: ndn 
 neighbors: 
   PKUSZ: {link_cost: 54}
   OSAKA: {link_cost: 63}
@@ -17,4 +18,4 @@ neighbors:
 network_regions: [/ndn/cn/edu/tongji]
 hr_radius: 11.1495655496376
 hr_angle: 2.8701500000
-cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fcn%2Fedu%2Ftongji%2Fksk-1413220385596%2FID-CERT%2F%25FD%2500%2500%2501SRa%25A4%25CC
+#cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fcn%2Fedu%2Ftongji%2Fksk-1413220385596%2FID-CERT%2F%25FD%2500%2500%2501SRa%25A4%25CC

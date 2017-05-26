@@ -10,7 +10,7 @@ neighbors:
   CNIC: {link_cost: 20}
   OSAKA: {link_cost: 63}
   WASEDA: {link_cost: 98}
-#  TONGJI: {link_cost: 54}
+  TONGJI: {link_cost: 54}
   PADUA: {link_cost: 170}
   BUPT: {link_cost: 54}
   MSU: {link_cost: 71}

@@ -14,7 +14,7 @@ neighbors:
   KISTI: {link_cost: 33}
   ANYANG: {link_cost: 33}
   WASEDA: {link_cost: 48}
-#  TONGJI: {link_cost: 18}
+  TONGJI: {link_cost: 18}
 network_regions: [/ndn/cn/edu/bupt]
 hr_radius: 11.5095245566676
 hr_angle: 2.87230371009491
