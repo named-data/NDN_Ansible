@@ -73,7 +73,11 @@ neighbors
    neighbor   ; {{ neighbor }}
    {
        name {{ ndnNetwork }}{{hostvars[neighbor].site }}/%C1.Router/{{ hostvars[neighbor].router_name }}
+{% if (inventory_hostname == "BYU" or neighbor == "BYU") or  (inventory_hostname == "SRRU" or neighbor == "SRRU") or (inventory_hostname == "MSU" or neighbor == "MSU")%}
+       face-uri  tcp4://{{ hostvars[neighbor].ansible_host }}
+{% else %}
        face-uri  udp4://{{ hostvars[neighbor].ansible_host }}
+{% endif %}
        link-cost {{ data['link_cost'] }}
    }
 {% endfor %}
@@ -180,7 +184,8 @@ security
             k-regex ^([^<KEY><NLSR>]*)<NLSR><KEY><ksk-.*><ID-CERT>$
             k-expand \\1
             h-relation equal
-            p-regex ^([^<NLSR><LSA>]*)<NLSR><LSA>(<>*)<><><><>$
+            ;p-regex ^([^<NLSR><LSA>]*)<NLSR><LSA>(<>*)<><><><>$
+            p-regex ^<localhop>(<>*)<NLSR><LSA>(<>*)<><><><>$
             p-expand \\1\\2
           }
         }
