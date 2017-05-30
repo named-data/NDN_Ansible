@@ -34,9 +34,10 @@ for the above and for the ansible-playbook for RedHat.
 
 
 # Needed to remove the machines from the customer portal.
-
 sudo subscription-manager remove --all
 sudo subscription-manager unregister
+
+# And here is how to re-add it
 sudo subscription-manager register
 sudo subscription-manager refresh
 sudo subscription-manager attach --auto
