@@ -17,6 +17,12 @@ setup ssh login to ndnops with keys:
    > sudo yum repolist all
    > sudo yum update
 
+And we need to open some ports on RedHat systems:
+   > sudo firewall-cmd --zone=public --add-port=80/tcp --permanent
+   > sudo firewall-cmd --zone=public --add-port=6363/udp --permanent
+   > sudo firewall-cmd --zone=public --add-port=6363/tcp --permanent
+   > sudo firewall-cmd --reload
+
 Now we are ready to run our ansible playbook to install everything else.
 
 The rest of this file is notes that were used to compile what would be needed
