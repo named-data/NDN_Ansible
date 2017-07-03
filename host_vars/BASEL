@@ -7,6 +7,7 @@ default_prefix: /ndn/ch/unibas
 advertised_prefixes: [/ndn/ch/unibas]
 router_name: dmi-ndn-testbed1 
 neighbors: 
+  BERN: {link_cost: 2}
   TNO: {link_cost: 14}
   MINHO: {link_cost: 23}
   SYSTEMX: {link_cost: 9}
