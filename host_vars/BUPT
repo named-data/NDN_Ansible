@@ -16,6 +16,6 @@ neighbors:
   WASEDA: {link_cost: 48}
   TONGJI: {link_cost: 18}
 network_regions: [/ndn/cn/edu/bupt]
-hr_radius: 11.5095245566676
-hr_angle: 2.87230371009491
+hr_radius: 29.2553552716000000
+hr_angle: 3.0763589301121700
 cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fcn%2Fedu%2Fbupt%2Fksk-1475868963662%2FID-CERT%2F%25FD%2500%2500%2501W%25A0%25A76%2521

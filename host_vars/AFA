@@ -11,6 +11,6 @@ neighbors:
   COPELABS: {link_cost: 36}
   BERN: {link_cost: 15}
 network_regions: [/ndn/it/afasystems]
-hr_radius: 16.2060358549513
-hr_angle: 2.62082874954162
+hr_radius: 10.3354428445488000
+hr_angle: 1.1264020707506500
 #cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fpt%2Fulusofona%2Fcopelabs%2Fksk-1449004419760%2FID-CERT%2F%25FD%2500%2500%2501S%250A%2580%25E4q
