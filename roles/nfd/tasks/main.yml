@@ -22,6 +22,9 @@
   #copy: dest=/etc/ndn/keys/ansible_ndn-testbed-root.ndncert.base64 src=roles/nfd/files/ndn-testbed-root.ndncert.base64 owner=root group=root mode=0644
   copy: dest=/etc/ndn/keys/ndn-testbed-root.ndncert.base64 src=roles/nfd/files/ndn-testbed-root.ndncert.base64 owner=root group=root mode=0644
 
+- name: copy openmhealth key
+  copy: dest=/etc/ndn/keys/openmhealth.cert src=roles/nfd/files/openmhealth.cert owner=root group=root mode=0644
+
 - name: create nfd.conf
   #template: src=nfd.conf.j2 dest=/etc/ndn/ansible_nfd.conf owner=root group=root mode="u=rw,g=r,o=r"
   template: src=nfd.conf.j2 dest=/etc/ndn/nfd.conf owner=root group=root mode="u=rw,g=r,o=r"
