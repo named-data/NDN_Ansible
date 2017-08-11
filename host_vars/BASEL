@@ -21,5 +21,4 @@ network_regions: [/ndn/ch/unibas]
 hr_radius: 13.2717666496574
 #hr_angle: 2.41932700603969
 hr_angle: 2.41932
-hr_angle: 2.41932
 cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fch%2Funibas%2Fksk-1457396430480%2FID-CERT%2F%25FD%2500%2500%2501Sv%25D9%259Bg
