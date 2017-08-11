@@ -27,6 +27,9 @@
 - debug:
     msg: "OS: {{ ansible_distribution }} major version: {{ ansible_distribution_major_version }} full version: {{ ansible_distribution_version }}"
 
+- name: create NOC bin directory
+  file: path=/home/ndnops/ndn-ops/NOC/bin state=directory owner=ndnops group=ndnops mode=0755
+
 - name: copy rotateLogs.sh to NOC/bin
   copy: dest=/home/ndnops/ndn-ops/NOC/bin/rotateLogs.sh  src=roles/NOC/files/rotateLogs.sh owner=ndnops group=ndnops mode=0755
 
@@ -44,7 +47,7 @@
 
 #- cron: name="parallel ndn ping test" user="ndnops" state=present disabled=yes minute="15" job="cd /home/ndnops/ndn-ops/NOC/ping_delay_tests; ./getTestbedDelays_ndnping_parallel.sh -c 300 -n {{ inventory_hostname }} "
 
-- cron: name="parallel ndn ping test" user="ndnops" state=present disabled=no minute="15" job="cd /home/ndnops/ndn-ops/NOC/ping_delay_tests; ./getTestbedDelays_ndnping_parallel.sh -c 300 -n {{ inventory_hostname }} "
+- cron: name="parallel ndn ping test" user="ndnops" state=present disabled=yes minute="15" job="cd /home/ndnops/ndn-ops/NOC/ping_delay_tests; ./getTestbedDelays_ndnping_parallel.sh -c 300 -n {{ inventory_hostname }} "
 
 # Download and install EPEL for Centos/RHEL version 7
 - name: Download EPEL Repo - Centos/RHEL 7
@@ -78,6 +81,10 @@
 
 - name: add ndn repository
   apt_repository: repo='ppa:named-data/ppa' state=present
+  when: ansible_distribution == "Ubuntu" 
+
+- name: add Ashlesh experimental ndn repository
+  apt_repository: repo='ppa:agawande/named-data-exp' state=present
   when: ansible_distribution == "Ubuntu" 
 
 - name: install general ubuntu packages 
