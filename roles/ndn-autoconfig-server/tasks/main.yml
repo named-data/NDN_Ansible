@@ -9,5 +9,16 @@
   template: src=ndn-autoconfig-server.j2 dest=/etc/default/ndn-autoconfig-server owner=root group=root mode="u=rw,g=r,o=r"
   notify: restart ndn-autoconfig-server
 
+- name: copy /lib/systemd/system/ndn-autoconfig-server.service
+  copy: dest=/lib/systemd/system/ndn-autoconfig-server.service src=roles/ndn-autoconfig-server/files/ndn-autoconfig-server.service owner=root group=root mode=0644
+  when: ansible_distribution == "RedHat" 
+
+- file: path=/etc/systemd/system/multi-user.target.wants/ndn-autoconfig-server.service  state=link  src=/lib/systemd/system/ndn-autoconfig-server.service
+  when: ansible_distribution == "RedHat" 
+
+- command: systemctl daemon-reload
+  when: ansible_distribution == "RedHat" 
+
+
 - name: start ndn-autoconfig-server
   service: name=ndn-autoconfig-server state=started enabled=yes
