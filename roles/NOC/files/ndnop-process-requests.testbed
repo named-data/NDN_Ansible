@@ -49,7 +49,8 @@ args = parser.parse_args()
 ###                                CONFIG                                    ###
 ################################################################################
 
-URL = "http://ndncert.named-data.net"
+#URL = "http://ndncert.named-data.net"
+URL = "https://ndncert.named-data.net"
 PUBLISH_REPO = True
 REPO_HOST = "localhost"
 REPO_PORT = 7376
