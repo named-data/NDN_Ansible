@@ -7,6 +7,7 @@ default_prefix: /ndn/ch/unibe
 advertised_prefixes: [/ndn/ch/unibe]
 router_name: ndn-1
 neighbors: 
+  LIP6: {link_cost: 18}
   BASEL: {link_cost: 2}
   AFA: {link_cost: 15}
 network_regions: [/ndn/ch/unibe]

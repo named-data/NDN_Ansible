@@ -7,6 +7,7 @@ default_prefix: /ndn/fr/lip6
 advertised_prefixes: [/ndn/fr/lip6]
 router_name: ndnhub 
 neighbors: 
+  BERN: {link_cost: 18}
   TNO: {link_cost: 9}
   COPELABS: {link_cost: 22}
   NTNU: {link_cost: 25}
