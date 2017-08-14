@@ -33,6 +33,9 @@
 - name: copy rotateLogs.sh to NOC/bin
   copy: dest=/home/ndnops/ndn-ops/NOC/bin/rotateLogs.sh  src=roles/NOC/files/rotateLogs.sh owner=ndnops group=ndnops mode=0755
 
+- name: copy purge_kernelImages.sh to NOC/bin
+  copy: dest=/home/ndnops/ndn-ops/NOC/bin/purge_kernelImages.sh  src=roles/NOC/files/purge_kernelImages.sh owner=ndnops group=ndnops mode=0755
+
 - name: create NOC directories
   file: path=/home/ndnops/ndn-ops/NOC/ping_delay_tests state=directory owner=ndnops group=ndnops mode=0755
 
