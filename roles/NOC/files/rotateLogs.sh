@@ -1,21 +1,32 @@
 #!/bin/bash
 
 
-cd /var/log/ndn
-
-# MAX_SIZE of about 10MB
-MAX_SIZE=10000000
-if [ -f nfd.log ]
+FORCE=0
+if [ $# -eq 1 ]
 then
-  SIZE=`wc -c nfd.log| awk ' { print $1 } '`
-  if [ $SIZE -lt $MAX_SIZE ]
+  if [ $1 = "-f" ]
   then
-    exit 0
+    FORCE=1
   fi
-else
-  exit 0
 fi
 
+cd /var/log/ndn
+
+if [ $FORCE -eq 0 ]
+then
+  # MAX_SIZE of about 10MB
+  MAX_SIZE=10000000
+  if [ -f nfd.log ]
+  then
+    SIZE=`wc -c nfd.log| awk ' { print $1 } '`
+    if [ $SIZE -lt $MAX_SIZE ]
+    then
+      exit 0
+    fi
+  else
+    exit 0
+  fi
+fi
 
 
 # Keep the last 10 nfd logs
