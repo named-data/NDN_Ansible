@@ -5,6 +5,7 @@ ansible_host: vnetlab.gcom.di.uminho.pt
 site: /pt/uminho
 default_prefix: /ndn/pt/uminho 
 advertised_prefixes: [/ndn/pt/uminho]
+routable_prefixes: [/ndn/pt/uminho]
 router_name: vnetlab 
 neighbors: 
   COPELABS: {link_cost: 4}

@@ -5,6 +5,7 @@ ansible_host: 219.223.222.5
 site: /cn/edu/pkusz
 default_prefix: /ndn/cn/edu/pkusz 
 advertised_prefixes: [/ndn/cn/edu/pkusz]
+routable_prefixes: [/ndn/cn/edu/pkusz]
 router_name: PE2950 
 neighbors: 
   CNIC: {link_cost: 20}

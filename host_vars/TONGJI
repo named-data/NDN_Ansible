@@ -6,6 +6,7 @@ ansible_port: 10413
 site: /cn/edu/tongji
 default_prefix: /ndn/cn/edu/tongji 
 advertised_prefixes: [/ndn/cn/edu/tongji]
+routable_prefixes: [/ndn/cn/edu/tongji]
 router_name: ndn 
 neighbors: 
   PKUSZ: {link_cost: 54}

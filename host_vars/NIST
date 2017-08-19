@@ -5,6 +5,7 @@ ansible_host: ndn-01.antd.nist.gov
 site: /gov/nist
 default_prefix: /ndn/gov/nist 
 advertised_prefixes: [/ndn/gov/nist]
+routable_prefixes: [/ndn/gov/nist]
 router_name: hostname 
 neighbors: 
   NEU: {link_cost: 12}

@@ -5,6 +5,7 @@ ansible_host: 129.10.52.193
 site: /edu/neu
 default_prefix: /ndn/edu/neu 
 advertised_prefixes: [/ndn/edu/neu]
+routable_prefixes: [/ndn/edu/neu]
 router_name: ndnrtr 
 neighbors: 
   NIST: {link_cost: 12}

@@ -5,6 +5,7 @@ ansible_host: insula.gsyc.es
 site: /es/urjc
 default_prefix: /ndn/es/urjc 
 advertised_prefixes: [/ndn/es/urjc]
+routable_prefixes: [/ndn/es/urjc]
 router_name: insula 
 neighbors: 
   MINHO: {link_cost: 13}

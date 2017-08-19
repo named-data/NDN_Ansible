@@ -4,7 +4,8 @@
 ansible_host: spurs.cs.ucla.edu
 site: /edu/ucla
 default_prefix: /ndn/edu/ucla
-advertised_prefixes: [/KEY,/ndn/KEY,/ndn/edu/ucla,/ndn/guest]
+advertised_prefixes: [/KEY,/ndn/KEY,/ndn/edu/ucla,/ndn/guest,/ndn/edu/ucla/cs]
+routable_prefixes: [ndn/edu/ucla,/ndn/guest,/ndn/edu/ucla/cs]
 router_name: cs/spurs 
 neighbors:
   REMAP: {link_cost: 1}

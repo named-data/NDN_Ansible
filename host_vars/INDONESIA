@@ -5,6 +5,7 @@ ansible_host: 152.118.101.159
 site: /id/ac/ui
 default_prefix: /ndn/id/ac/ui
 advertised_prefixes: [/ndn/id/ac/ui]
+routable_prefixes: [/ndn/id/ac/ui]
 router_name: ndnlab-s5-1420d 
 neighbors: 
   UFPA: {link_cost: 200}

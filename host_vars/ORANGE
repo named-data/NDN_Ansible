@@ -5,6 +5,7 @@ ansible_host: 193.253.72.45
 site: /com/orange
 default_prefix: /ndn/com/orange 
 advertised_prefixes: [/ndn/com/orange]
+routable_prefixes: [/ndn/com/orange]
 router_name: orange-ndn-1 
 neighbors: 
   PADUA: {link_cost: 15}

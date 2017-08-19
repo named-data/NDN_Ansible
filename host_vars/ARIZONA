@@ -5,6 +5,7 @@ ansible_host: hobo.cs.arizona.edu
 site: /edu/arizona
 default_prefix: /ndn/edu/arizona 
 advertised_prefixes: [/ndn/edu/arizona]
+routable_prefixes: [/ndn/edu/arizona]
 router_name: hobo 
 neighbors: 
   REMAP: {link_cost: 25}

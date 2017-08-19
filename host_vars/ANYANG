@@ -5,6 +5,7 @@ ansible_host: 210.114.89.49
 site: /kr/anyang
 default_prefix: /ndn/kr/anyang 
 advertised_prefixes: [/ndn/kr/anyang]
+routable_prefixes: [/ndn/kr/anyang]
 router_name: anyanghub 
 neighbors: 
   SRRU: {link_cost: 57}

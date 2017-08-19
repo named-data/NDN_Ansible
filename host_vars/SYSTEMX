@@ -5,6 +5,7 @@ ansible_host: systemx-ndn-1.enst.fr
 site: /fr/irt-systemx
 default_prefix: /ndn/fr/irt-systemx 
 advertised_prefixes: [/ndn/fr/irt-systemx]
+routable_prefixes: [/ndn/fr/irt-systemx]
 router_name: systemx-ndn-1 
 neighbors: 
   GOETTINGEN: {link_cost: 10}

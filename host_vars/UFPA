@@ -5,6 +5,7 @@ ansible_host: 200.239.93.10
 site: /br/ufpa
 default_prefix: /ndn/br/ufpa 
 advertised_prefixes: [/ndn/br/ufpa]
+routable_prefixes: [/ndn/br/ufpa]
 router_name: hostname 
 neighbors: 
   CAIDA: {link_cost: 155}

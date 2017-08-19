@@ -5,6 +5,7 @@ ansible_host: 193.137.75.171
 site: /pt/ulusofona/copelabs
 default_prefix: /ndn/pt/ulusofona/copelabs
 advertised_prefixes: [/ndn/pt/ulusofona/copelabs]
+routable_prefixes: [/ndn/pt/ulusofona/copelabs]
 router_name: ndn 
 neighbors: 
   AFA: {link_cost: 36}

@@ -5,6 +5,7 @@ ansible_host: 198.111.224.197
 site: /edu/umich
 default_prefix: /ndn/edu/umich 
 advertised_prefixes: [/ndn/edu/umich]
+routable_prefixes: [/ndn/edu/umich]
 router_name: ndn0 
 neighbors: 
   NIST: {link_cost: 13}

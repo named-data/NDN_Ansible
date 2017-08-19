@@ -5,6 +5,7 @@ ansible_host: 203.253.235.168
 site: /kr/re/kisti
 default_prefix: /ndn/kr/re/kisti 
 advertised_prefixes: [/ndn/kr/re/kisti]
+routable_prefixes: [/ndn/kr/re/kisti]
 router_name: router3 
 neighbors: 
   INDONESIA: {link_cost: 150}

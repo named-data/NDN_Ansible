@@ -5,6 +5,7 @@ ansible_host: 133.1.17.51
 site: /jp/ac/osaka-u
 default_prefix: /ndn/jp/ac/osaka-u 
 advertised_prefixes: [/ndn/jp/ac/osaka-u]
+routable_prefixes: [/ndn/jp/ac/osaka-u]
 router_name: NDNtestbed 
 neighbors: 
   CNIC: {link_cost: 45}

@@ -5,6 +5,7 @@ ansible_host: 129.241.209.52
 site: /no/ntnu
 default_prefix: /ndn/no/ntnu 
 advertised_prefixes: [/ndn/no/ntnu]
+routable_prefixes: [/ndn/no/ntnu]
 router_name: ndnnode 
 neighbors: 
   GOETTINGEN: {link_cost: 40}

@@ -5,6 +5,7 @@ ansible_host: 134.221.116.42
 site: /nl/tno
 default_prefix: /ndn/nl/tno 
 advertised_prefixes: [/ndn/nl/tno]
+routable_prefixes: [/ndn/nl/tno]
 router_name: tno-ndntestbed-bordernode 
 neighbors: 
   GOETTINGEN: {link_cost: 12}

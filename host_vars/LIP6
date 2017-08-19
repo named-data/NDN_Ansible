@@ -5,6 +5,7 @@ ansible_host: ndnhub.ipv6.lip6.fr
 site: /fr/lip6
 default_prefix: /ndn/fr/lip6 
 advertised_prefixes: [/ndn/fr/lip6]
+routable_prefixes: [/ndn/fr/lip6]
 router_name: ndnhub 
 neighbors: 
   BERN: {link_cost: 18}

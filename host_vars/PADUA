@@ -6,6 +6,7 @@ ansible_port: 22222
 site: /it/unipd
 default_prefix: /ndn/it/unipd 
 advertised_prefixes: [/ndn/it/unipd]
+routable_prefixes: [/ndn/it/unipd]
 router_name: ndnnode 
 neighbors: 
 #  SRRU: {link_cost: 126}

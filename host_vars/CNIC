@@ -6,6 +6,7 @@ ansible_host: 159.226.186.32
 site: /cn/cas/cnic
 default_prefix: /ndn/cn/cas/cnic 
 advertised_prefixes: [/ndn/cn/cas/cnic]
+routable_prefixes: [/ndn/cn/cas/cnic]
 router_name: ubuntu 
 neighbors: 
   PKUSZ: {link_cost: 20}

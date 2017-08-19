@@ -5,6 +5,7 @@ ansible_host: ndnhub.ics.uci.edu
 site: /edu/uci
 default_prefix: /ndn/edu/uci 
 advertised_prefixes: [/ndn/edu/uci]
+routable_prefixes: [/ndn/edu/uci]
 router_name: ndnhub 
 neighbors: 
   UCLA: {link_cost: 1}

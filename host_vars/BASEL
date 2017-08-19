@@ -5,6 +5,7 @@ ansible_host: dmi-ndn-testbed1.dmi.unibas.ch
 site: /ch/unibas
 default_prefix: /ndn/ch/unibas 
 advertised_prefixes: [/ndn/ch/unibas]
+routable_prefixes: [/ndn/ch/unibas]
 router_name: dmi-ndn-testbed1 
 neighbors: 
   BERN: {link_cost: 2}

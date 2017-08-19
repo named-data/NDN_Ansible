@@ -5,6 +5,7 @@ ansible_host: ndn.netsec.colostate.edu
 site: /edu/colostate
 default_prefix: /ndn/edu/colostate 
 advertised_prefixes: [/ndn/edu/colostate]
+routable_prefixes: [/ndn/edu/colostate]
 router_name: mccoy 
 neighbors: 
   ARIZONA: {link_cost: 18}

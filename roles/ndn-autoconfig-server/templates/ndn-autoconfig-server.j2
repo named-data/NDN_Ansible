@@ -2,4 +2,11 @@
 
 # FaceURI of NDN hub announced to hosts
 FACE_URI="udp4://{{ansible_host}}"
+#ROUTABLE_PREFIXES="-p {{default_prefix}}"
+{% if routable_prefixes is not defined %}
 ROUTABLE_PREFIXES="-p {{default_prefix}}"
+{% else %}
+ROUTABLE_PREFIXES="{% for prefix in routable_prefixes -%}
+-p {{ prefix }} {{' '}}
+{%- endfor %}"
+{% endif%}

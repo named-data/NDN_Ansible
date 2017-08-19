@@ -5,6 +5,7 @@ ansible_host: 134.76.249.235
 site: /de/uni-goettingen
 default_prefix: /ndn/de/uni-goettingen 
 advertised_prefixes: [/ndn/de/uni-goettingen]
+routable_prefixes: [/ndn/de/uni-goettingen]
 router_name: ndntestbed 
 neighbors: 
   TNO: {link_cost: 12}
