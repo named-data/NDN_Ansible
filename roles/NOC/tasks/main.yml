@@ -172,4 +172,10 @@
 #  copy: dest=/usr/local/bin/ndnop-process-requests src=roles/NOC/files/ndnop-process-requests.ucla owner=root group=root mode=0755
 #  when: inventory_hostname == "UCLA"
 
+- name: create ndndumpScript.sh
+  template: src=ndndumpScript.sh.j2 dest=/home/ndnops/ndn-ops/NOC/bin/ndndumpScript.sh  owner=root group=root mode="u=rwx,g=rx,o=rx"
 
+- name: copy checkAndRestart_ndndumpScript.sh to NOC/bin
+  copy: dest=/home/ndnops/ndn-ops/NOC/bin/checkAndRestart_ndndumpScript.sh  src=roles/NOC/files/checkAndRestart_ndndumpScript.sh owner=ndnops group=ndnops mode=0755
+
+- cron: name="ndndump script check" user="ndnops" state=present disabled=no minute="*/5" job="cd /home/ndnops/ndn-ops/NOC/bin; sudo ./checkAndRestart_ndndumpScript.sh  "
