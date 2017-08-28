@@ -1,6 +1,7 @@
 ---
 
 # file: host_vars/BASEL
+ethernet_device: eth0
 ansible_host: dmi-ndn-testbed1.dmi.unibas.ch
 site: /ch/unibas
 default_prefix: /ndn/ch/unibas 

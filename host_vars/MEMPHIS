@@ -2,6 +2,7 @@
 
 # file: host_vars/MEMPHIS
 ansible_host: titan.cs.memphis.edu
+ethernet_device: eth1
 site: /edu/memphis
 default_prefix: /ndn/edu/memphis 
 advertised_prefixes: [/ndn/edu/memphis]

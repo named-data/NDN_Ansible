@@ -2,6 +2,7 @@
 
 # file: host_vars/OSAKA
 ansible_host: 133.1.17.51
+ethernet_device: eth2
 site: /jp/ac/osaka-u
 default_prefix: /ndn/jp/ac/osaka-u 
 advertised_prefixes: [/ndn/jp/ac/osaka-u]

@@ -2,6 +2,7 @@
 
 # file: host_vars/PKUSZ
 ansible_host: 219.223.222.5
+ethernet_device: eth0
 site: /cn/edu/pkusz
 default_prefix: /ndn/cn/edu/pkusz 
 advertised_prefixes: [/ndn/cn/edu/pkusz]

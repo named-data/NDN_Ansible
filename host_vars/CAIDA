@@ -2,6 +2,7 @@
 
 # file: host_vars/CAIDA
 ansible_host: click.caida.org
+ethernet_device: eth0
 site: /org/caida
 default_prefix: /ndn/org/caida 
 advertised_prefixes: [/ndn/org/caida]

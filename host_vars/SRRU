@@ -2,6 +2,7 @@
 
 # file: host_vars/SRRU
 ansible_host: comsci2.srru.ac.th
+ethernet_device: eth0
 ansible_user: ndnops2
 site: /th/ac/srru
 default_prefix: /ndn/th/ac/srru 

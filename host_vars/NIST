@@ -2,6 +2,7 @@
 
 # file: host_vars/NIST
 ansible_host: ndn-01.antd.nist.gov
+ethernet_device: eth0
 site: /gov/nist
 default_prefix: /ndn/gov/nist 
 advertised_prefixes: [/ndn/gov/nist]

@@ -2,6 +2,7 @@
 
 # file: host_vars/SYSTEMX
 ansible_host: systemx-ndn-1.enst.fr
+ethernet_device: eth0
 site: /fr/irt-systemx
 default_prefix: /ndn/fr/irt-systemx 
 advertised_prefixes: [/ndn/fr/irt-systemx]

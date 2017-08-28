@@ -2,6 +2,7 @@
 
 # file: host_vars/TONGJI
 ansible_host: 202.120.188.246
+ethernet_device: eth0
 ansible_port: 10413
 site: /cn/edu/tongji
 default_prefix: /ndn/cn/edu/tongji 

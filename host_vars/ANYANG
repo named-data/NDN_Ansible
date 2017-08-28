@@ -1,6 +1,7 @@
 ---
 
 # file: host_vars/ANYANG
+ethernet_device: eth0
 ansible_host: 210.114.89.49
 site: /kr/anyang
 default_prefix: /ndn/kr/anyang 

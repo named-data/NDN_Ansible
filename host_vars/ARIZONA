@@ -1,6 +1,7 @@
 ---
 
 # file: host_vars/ARIZONA
+ethernet_device: eth0
 ansible_host: hobo.cs.arizona.edu
 site: /edu/arizona
 default_prefix: /ndn/edu/arizona 

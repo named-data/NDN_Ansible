@@ -2,6 +2,7 @@
 
 # file: host_vars/PADUA
 ansible_host: ndnnode.math.unipd.it
+ethernet_device: eth0
 ansible_port: 22222
 site: /it/unipd
 default_prefix: /ndn/it/unipd 

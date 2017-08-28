@@ -2,6 +2,7 @@
 
 # file: host_vars/KISTI
 ansible_host: 203.253.235.168
+ethernet_device: em1
 site: /kr/re/kisti
 default_prefix: /ndn/kr/re/kisti 
 advertised_prefixes: [/ndn/kr/re/kisti]

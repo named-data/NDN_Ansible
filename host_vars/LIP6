@@ -2,6 +2,7 @@
 
 # file: host_vars/LIP6
 ansible_host: ndnhub.ipv6.lip6.fr
+ethernet_device: eth0
 site: /fr/lip6
 default_prefix: /ndn/fr/lip6 
 advertised_prefixes: [/ndn/fr/lip6]

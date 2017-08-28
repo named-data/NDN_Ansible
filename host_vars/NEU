@@ -2,6 +2,7 @@
 
 # file: host_vars/NEU
 ansible_host: 129.10.52.193
+ethernet_device: eth0
 site: /edu/neu
 default_prefix: /ndn/edu/neu 
 advertised_prefixes: [/ndn/edu/neu]

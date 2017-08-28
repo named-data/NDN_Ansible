@@ -2,6 +2,7 @@
 
 # file: host_vars/INDONESIA
 ansible_host: 152.118.101.159
+ethernet_device: eth1
 site: /id/ac/ui
 default_prefix: /ndn/id/ac/ui
 advertised_prefixes: [/ndn/id/ac/ui]

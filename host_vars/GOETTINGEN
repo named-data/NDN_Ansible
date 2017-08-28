@@ -2,6 +2,7 @@
 
 # file: host_vars/GOETTINGEN
 ansible_host: 134.76.249.235
+ethernet_device: eth0
 site: /de/uni-goettingen
 default_prefix: /ndn/de/uni-goettingen 
 advertised_prefixes: [/ndn/de/uni-goettingen]

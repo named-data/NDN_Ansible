@@ -3,6 +3,7 @@
 # file: host_vars/URJC
 ansible_host: insula.gsyc.es
 site: /es/urjc
+ethernet_device: eth0
 default_prefix: /ndn/es/urjc 
 advertised_prefixes: [/ndn/es/urjc]
 routable_prefixes: [/ndn/es/urjc]

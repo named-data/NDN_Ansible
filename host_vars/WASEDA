@@ -2,6 +2,7 @@
 
 # file: host_vars/WASEDA
 ansible_host: 133.9.67.98
+ethernet_device: eno1
 site: /jp/waseda
 default_prefix: /ndn/jp/waseda 
 advertised_prefixes: [/ndn/jp/waseda]

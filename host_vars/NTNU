@@ -2,6 +2,7 @@
 
 # file: host_vars/NTNU
 ansible_host: 129.241.209.52
+ethernet_device: eth0
 site: /no/ntnu
 default_prefix: /ndn/no/ntnu 
 advertised_prefixes: [/ndn/no/ntnu]

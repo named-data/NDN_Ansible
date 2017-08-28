@@ -2,6 +2,7 @@
 
 # file: host_vars/TNO
 ansible_host: 134.221.116.42
+ethernet_device: eth0
 site: /nl/tno
 default_prefix: /ndn/nl/tno 
 advertised_prefixes: [/ndn/nl/tno]

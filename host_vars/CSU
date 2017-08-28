@@ -2,6 +2,7 @@
 
 # file: host_vars/CSU
 ansible_host: ndn.netsec.colostate.edu
+ethernet_device: eth0
 site: /edu/colostate
 default_prefix: /ndn/edu/colostate 
 advertised_prefixes: [/ndn/edu/colostate]

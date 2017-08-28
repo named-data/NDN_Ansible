@@ -2,6 +2,7 @@
 
 # file: host_vars/BUPT
 ansible_host: 114.247.165.44
+ethernet_device: eth0
 site: /cn/edu/bupt
 default_prefix: /ndn/cn/edu/bupt 
 advertised_prefixes: [/ndn/cn/edu/bupt]

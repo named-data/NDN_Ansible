@@ -3,6 +3,7 @@
 # file: host_vars/CNIC
 
 ansible_host: 159.226.186.32
+ethernet_device: eth0
 site: /cn/cas/cnic
 default_prefix: /ndn/cn/cas/cnic 
 advertised_prefixes: [/ndn/cn/cas/cnic]

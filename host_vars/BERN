@@ -1,6 +1,7 @@
 ---
 
 # file: host_vars/BERN
+ethernet_device: ens3
 ansible_host: 130.92.70.172
 site: /ch/unibe
 default_prefix: /ndn/ch/unibe 

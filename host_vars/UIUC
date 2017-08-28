@@ -2,6 +2,7 @@
 
 # file: host_vars/UIUC
 ansible_host: ndnx.cs.illinois.edu
+ethernet_device: eth0
 site: /edu/illinois
 default_prefix: /ndn/edu/illinois 
 advertised_prefixes: [/ndn/edu/illinois,/ndn/edu/uiuc]
