@@ -26,6 +26,10 @@
   when: inventory_hostname == "BUPT"
 
 # Set up TLS websocket support
+- name: stop nfd-status-http-server.server for Ubuntu 16.04
+  shell: systemctl stop nfd-status-http-server.service
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16") 
+
 - name: install nginx
   apt: name=nginx state=latest update_cache=yes
   when: ansible_distribution == "Ubuntu" 
@@ -54,4 +58,8 @@
   when: ansible_distribution == "Ubuntu"
 
 - cron: name="renew certbot" user="root" day="28" hour="1" minute="30" job="/usr/local/bin/certbot-auto renew --standalone --pre-hook \"stop nfd-status-http-server; service nginx stop\" --post-hok \"start nfd-status-http-server; service nginx start\""
+
+- name: start nfd-status-http-server.server for Ubuntu 16.04
+  shell: systemctl start nfd-status-http-server.service
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16") 
 
