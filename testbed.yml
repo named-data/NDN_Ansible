@@ -12,12 +12,12 @@
   - {role: 'ndnsec', tags: 'ndnsec'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnsec"
   - ndnping
   - {role: 'nlsr', tags: 'nlsr'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "nlsr"
-  - nfd-status-http-server
+  - {role: 'nfd-status-http-server', tags: 'nfd-status-http-server'} 
   #- ndn-autoconfig-server
   - {role: 'ndn-autoconfig-server', tags: 'ndn-autoconfig-server'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndn-autoconfig-server"
   - {role: 'repo-ng', tags: 'repo-ng'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "repo-ng"
   - ndnmap-data-collector
-  - {role: 'ndnTestbedDataCollector', tags: 'ndnTestbedDataCollector'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnTestbedDataCollector"
+#  - {role: 'ndnTestbedDataCollector', tags: 'ndnTestbedDataCollector'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnTestbedDataCollector"
   - {role: 'ndn-tools', tags: 'ndn-tools'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndn-tools"
   - {role: 'nfd-autoreg', tags: 'nfd-autoreg'} 
 
