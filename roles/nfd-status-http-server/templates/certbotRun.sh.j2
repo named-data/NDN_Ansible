@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+if [ ! -e /etc/ssl/dhparams.pem ]
+then
+  #/usr/local/bin/certbot-auto certonly --non-interactive -m jdd@wustl.edu --nginx --agree-tos --standalone --pre-hook "stop nfd-status-http-server; service nginx stop" --post-hook "start nfd-status-http-server; service nginx start" -d {{ ansible_host }}
+  /usr/local/bin/certbot-auto certonly --non-interactive -m jdd@wustl.edu --agree-tos --standalone --pre-hook "stop nfd-status-http-server; service nginx stop" --post-hook "start nfd-status-http-server; service nginx start" -d {{ ansible_host }}
+
+  openssl dhparam -out /etc/ssl/dhparams.pem 2048
+fi

@@ -25,3 +25,33 @@
   copy: dest=/etc/default/nfd-status-http-server src=roles/nfd-status-http-server/files/nfd-status-http-server.default.8080 owner=root group=root mode=0644
   when: inventory_hostname == "BUPT"
 
+# Set up TLS websocket support
+- name: install nginx
+  apt: name=nginx state=latest update_cache=yes
+  when: ansible_distribution == "Ubuntu" 
+
+- name: remove nginx default site
+  file: path=/etc/nginx/sites-enabled/default state=absent
+  when: ansible_distribution == "Ubuntu" 
+
+- name: install certbot-auto from EFF
+  get_url: url=https://dl.eff.org/certbot-auto dest=/usr/local/bin/certbot-auto mode=0755
+  when: ansible_distribution == "Ubuntu" 
+
+- name: create certbotRun.sh
+  template: src=certbotRun.sh.j2 dest=/home/ndnops/certbotRun.sh  owner=root group=root mode="u=rwx,g=rx,o=rx"
+  when: ansible_distribution == "Ubuntu" 
+
+- name: run certbotRun.sh
+  shell: /home/ndnops/certbotRun.sh
+  when: ansible_distribution == "Ubuntu" 
+
+- name: create /etc/nginx/sites-available/nfd
+  template: src=nfd_site.j2 dest=/etc/nginx/sites-available/nfd  owner=root group=root mode="u=rw,g=r,o=r"
+  when: ansible_distribution == "Ubuntu" 
+
+- file: path=/etc/nginx/sites-enabled/nfd state=link  src=/etc/nginx/sites-available/nfd
+  when: ansible_distribution == "Ubuntu"
+
+- cron: name="renew certbot" user="root" day="28" hour="1" minute="30" job="/usr/local/bin/certbot-auto renew --standalone --pre-hook \"stop nfd-status-http-server; service nginx stop\" --post-hok \"start nfd-status-http-server; service nginx start\""
+
