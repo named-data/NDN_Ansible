@@ -1,7 +1,8 @@
 ---
 
 # file: host_vars/GOETTINGEN
-ansible_host: 134.76.249.235
+ansible_host: k.extra.informatik.uni-goettingen.de
+#ansible_host: 134.76.249.235 #
 ethernet_device: eth0
 site: /de/uni-goettingen
 default_prefix: /ndn/de/uni-goettingen 

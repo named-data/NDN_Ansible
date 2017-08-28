@@ -1,7 +1,8 @@
 ---
 
 # file: host_vars/WASEDA
-ansible_host: 133.9.67.98
+ansible_host: ndn-tb.nz.comm.waseda.ac.jp
+#ansible_host: 133.9.67.98 #
 ethernet_device: eno1
 site: /jp/waseda
 default_prefix: /ndn/jp/waseda 

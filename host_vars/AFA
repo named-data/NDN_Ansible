@@ -2,7 +2,8 @@
 
 # file: host_vars/AFA
 ethernet_device: eth0
-ansible_host: 93.42.157.82
+ansible_host: 93-42-157-82.ip87.fastwebnet.it
+#ansible_host: 93.42.157.82 #
 site: /it/afasystems
 default_prefix: /ndn/it/afasystems
 advertised_prefixes: [/ndn/it/afasystems]

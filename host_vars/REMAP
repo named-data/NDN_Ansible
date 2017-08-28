@@ -1,7 +1,8 @@
 ---
 
 # file: host_vars/REMAP
-ansible_host: 128.97.98.7
+ansible_host: ndn-remap-p05.it.ucla.edu
+#ansible_host: 128.97.98.7 #
 ethernet_device: eth0
 site: /edu/ucla
 default_prefix: /ndn/edu/ucla/remap 
