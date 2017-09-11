@@ -10,6 +10,7 @@ advertised_prefixes: [/ndn/th/ac/srru]
 routable_prefixes: [/ndn/th/ac/srru]
 router_name: comsci2
 neighbors: 
+  UUM: {link_cost: 100}
   PKUSZ: {link_cost: 71}
   MSU: {link_cost: 3}
   BUPT: {link_cost: 72}

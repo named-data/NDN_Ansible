@@ -9,6 +9,7 @@ advertised_prefixes: [/ndn/th/ac/msu]
 routable_prefixes: [/ndn/th/ac/msu]
 router_name: isan-ndn 
 neighbors: 
+  UUM: {link_cost: 100}
   PKUSZ: {link_cost: 71}
   SRRU: {link_cost: 3}
   UCLA: {link_cost: 150}

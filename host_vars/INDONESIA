@@ -9,6 +9,7 @@ advertised_prefixes: [/ndn/id/ac/ui]
 routable_prefixes: [/ndn/id/ac/ui]
 router_name: ndnlab-s5-1420d 
 neighbors: 
+  UUM: {link_cost: 100}
   UFPA: {link_cost: 200}
   KISTI: {link_cost: 150}
   SRRU: {link_cost: 32}

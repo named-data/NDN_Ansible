@@ -10,6 +10,7 @@ advertised_prefixes: [/ndn/it/afasystems]
 routable_prefixes: [/ndn/it/afasystems]
 router_name: ndn 
 neighbors: 
+  UUM: {link_cost: 100}
   PADUA: {link_cost: 11}
   COPELABS: {link_cost: 36}
   BERN: {link_cost: 15}

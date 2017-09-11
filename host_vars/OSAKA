@@ -9,6 +9,7 @@ advertised_prefixes: [/ndn/jp/ac/osaka-u]
 routable_prefixes: [/ndn/jp/ac/osaka-u]
 router_name: NDNtestbed 
 neighbors: 
+  UUM: {link_cost: 100}
   CNIC: {link_cost: 45}
   PKUSZ: {link_cost: 63}
   SRRU: {link_cost: 67}
