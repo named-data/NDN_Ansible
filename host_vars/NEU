@@ -1,7 +1,7 @@
 ---
 
 # file: host_vars/NEU
-ansible_host: stat-193-52.ece.neu.edu
+ansible_host: dyn-148-53.dhcp.ece.neu.edu
 #ansible_host: 129.10.52.193 #
 ethernet_device: eth0
 site: /edu/neu
