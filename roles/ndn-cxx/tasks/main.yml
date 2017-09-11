@@ -6,4 +6,5 @@
   with_items:
        - ndn-cxx
        - ndn-cxx-dev
+       - ndn-cxx-dbg
 
