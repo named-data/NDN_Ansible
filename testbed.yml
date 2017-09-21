@@ -10,7 +10,7 @@
   - {role: 'ndn-cxx', tags: 'ndn-cxx'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndn-cxx"
   - {role: 'nfd', tags: 'nfd'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "nfd"
   - {role: 'ndnsec', tags: 'ndnsec'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnsec"
-  - ndnping
+  - {role: 'ndnping', tags: 'ndnping'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnping"
   - {role: 'nlsr', tags: 'nlsr'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "nlsr"
   - {role: 'nfd-status-http-server', tags: 'nfd-status-http-server'} 
   #- ndn-autoconfig-server
