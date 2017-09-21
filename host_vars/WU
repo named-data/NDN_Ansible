@@ -10,7 +10,7 @@ routable_prefixes: [/ndn/edu/wustl]
 router_name: wundngw 
 neighbors: 
 #  WURHEL: {link_cost: 1}
-  MUMBAI_AWS: {link_cost: 100}
+#  MUMBAI_AWS: {link_cost: 100}
   URJC: {link_cost: 86}
   ARIZONA: {link_cost: 33}
   MEMPHIS: {link_cost: 17}

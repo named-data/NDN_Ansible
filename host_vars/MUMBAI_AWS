@@ -10,7 +10,9 @@ advertised_prefixes: [/ndn/aws/mumbai]
 routable_prefixes: [/ndn/aws/mumbai]
 router_name: ubuntu 
 neighbors: 
-  WU: {link_cost: 100}
+#  WU: {link_cost: 122}
+  AFA: {link_cost: 100}
+  UUM: {link_cost: 100}
 network_regions: [/ndn/aws/mumbai]
 hr_radius: 12.8934676596808
 hr_angle: 2.95081967213115
