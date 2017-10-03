@@ -1,0 +1,13 @@
+---
+- name: install ndn ubuntu end host
+  hosts: ubuntu_end_hosts 
+#  remote_user: ubuntu
+  become: yes
+
+
+  roles: 
+  - {role: 'NOC', tags: 'NOC'}  # to use the tag, do this:   > ansible-playbook -i inventory --tags "NOC"
+  - {role: 'ndn-cxx', tags: 'ndn-cxx'}  # to use the tag, do this:   > ansible-playbook -i inventory --tags "ndn-cxx"
+  - {role: 'nfd', tags: 'nfd'}  # to use the tag, do this:   > ansible-playbook -i inventory --tags "nfd"
+#  - {role: 'ndn-tools', tags: 'ndn-tools'}  # to use the tag, do this:   > ansible-playbook -i inventory --tags "ndn-tools"
+

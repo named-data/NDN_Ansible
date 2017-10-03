@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Some issues with startup time, we need to sleep to make sure nfd is fully up
+
+sleep 15
+
+# set default strategy to best-route (bestroute2)
+{% if hyperbolic_state == "on" %}
+/usr/bin/nfdc strategy set  ndn:/ ndn:/localhost/nfd/strategy/asf
+{% else %}
+/usr/bin/nfdc strategy set  ndn:/ ndn:/localhost/nfd/strategy/best-route
+{% endif %}
+
+# set broadcast strategy
+/usr/bin/nfdc strategy set  /ndn/broadcast /localhost/nfd/strategy/multicast
+/usr/bin/nfdc strategy set  /localhost     /localhost/nfd/strategy/multicast
+
+# default local access strategy
+nfdc strategy set  ndn:{{ default_prefix }} ndn:/localhost/nfd/strategy/access
+
+{% if inventory_hostname == "UCLA" %}
+nfdc strategy set  ndn:/ndn/edu/ucla/remap ndn:/localhost/nfd/strategy/best-route
+{% endif %}
+{% if inventory_hostname == "WU" %}
+# Set up route for ndnstatus to get to ndndemo:
+nfdc register -o 255 /ndn/edu/wustl/ndnstatus udp4://128.252.153.28:6363
+{% endif %}
+
+## Special stuff for NDN SIGCOMM demo:
+#nfdc strategy set /ndn/edu/wustl/jdd ndn:/localhost/nfd/strategy/asf/%FD%02
+##nfdc strategy set /ndn/edu/wustl/jdd ndn:/localhost/nfd/strategy/asf/%FD%02/n-silent-timeouts=4
+#nfdc strategy set /ndn/edu/wustl/jdd ndn:/localhost/nfd/strategy/asf/%FD%02/n-silent-timeouts=2
+

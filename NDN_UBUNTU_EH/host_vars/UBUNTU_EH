@@ -1,0 +1,11 @@
+---
+ansible_user: ubuntu
+
+
+ansible_host:  <host address to be installed>
+ndn_rtr_address:   <address or hostname of NDN gw router to connect to>
+
+# Example to connect 10.10.10.1 to WU gw router in NDN Testbed:
+#ansible_host:  10.10.10.1
+#ndn_rtr_address:  128.252.153.194
+

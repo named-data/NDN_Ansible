@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Some issues with startup time, we need to sleep to make sure nfd is fully up
+
+sleep 15
+
+
+nfdc face create udp4://{{ndn_rtr_address}}
+nfdc route add ndn:/ udp4://{{ndn_rtr_address}}
+

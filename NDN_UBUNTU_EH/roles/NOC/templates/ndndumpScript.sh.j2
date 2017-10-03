@@ -1,0 +1,25 @@
+#!/bin/bash
+
+DATE=`date +%Y.%B.%d.%H.%M.%S`
+
+ETHERNET_DEVICE={{ ethernet_device }}
+sudo ndndump -i $ETHERNET_DEVICE | grep multicast >& /var/log/ndn/ndndump.multicast.log.${DATE} &
+
+NFDC_LOGFILE="/var/log/ndn/nfdc.log.${DATE}"
+touch $NFDC_LOGFILE
+echo "" >> $NFDC_LOGFILE
+date >> $NFDC_LOGFILE
+date -u +%s.%N >> $NFDC_LOGFILE
+echo "" >> $NFDC_LOGFILE
+while true
+do
+  nfdc face list >> $NFDC_LOGFILE
+  sleep 60
+  echo "" >> $NFDC_LOGFILE
+  echo "-----------------------------------------------------------" >> $NFDC_LOGFILE
+  echo "" >> $NFDC_LOGFILE
+  date  >> $NFDC_LOGFILE
+  date -u +%s.%N >> $NFDC_LOGFILE
+  echo "" >> $NFDC_LOGFILE
+done
+

@@ -1,0 +1,43 @@
+---
+# tasks file for nfd
+- name: add ndn user
+  user: name=ndn state=present shell=/bin/false createhome=no
+  become: yes
+
+- name: make ndn required directories
+  file: path=/etc/ndn state=directory owner=ndn group=ndn mode=0755
+  become: yes
+
+- file: path=/etc/ndn/keys state=directory owner=ndn group=ndn mode=0755
+  become: yes
+- file: path=/var/lib/ndn state=directory owner=ndn group=ndn mode=0755
+  become: yes
+- file: path=/var/log/ndn state=directory owner=ndn group=ndn mode=0755
+  become: yes
+
+- name: install nfd
+  apt: name=nfd state=latest update_cache=yes
+  become: yes
+
+- name: create nfd-init.sh
+  template: src=nfd-init.sh.j2 dest=/etc/ndn/nfd-init.sh  owner=root group=root mode="u=rwx,g=rx,o=rx"
+  notify: restart nfd
+  become: yes
+  when: ndn_rtr_address is defined
+
+- name: install ndnping
+  apt: name=ndnping state=latest update_cache=yes
+  become: yes
+
+- name: install ndndump
+  apt: name=ndndump state=latest update_cache=yes
+  become: yes
+
+- name: install ndn-tools
+  apt: name=ndn-tools state=latest update_cache=yes
+  become: yes
+
+- name: start nfd
+  service: name=nfd state=started enabled=yes
+  become: yes
+

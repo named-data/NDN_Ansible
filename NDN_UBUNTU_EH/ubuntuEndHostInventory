@@ -1,0 +1,12 @@
+# Ubuntu End Host support
+# If you want to add more hosts, add more names after UBUNTU_EH
+# and then add the corresponding files in host_vars/
+[ubuntu_end_hosts]
+UBUNTU_EH
+
+
+[all:vars]
+ansible_ssh_private_key_file=<path to private key>
+
+# Example
+# ansible_ssh_private_key_file=~/.ssh/id.pem
