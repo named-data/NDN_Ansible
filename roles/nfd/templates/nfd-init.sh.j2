@@ -2,21 +2,22 @@
 
 # Some issues with startup time, we need to sleep to make sure nfd is fully up
 
-{% if inventory_hostname != "BERN" %}
-# for debug purposes, grab the current set of nfd.log files:
-DATE=`date +%s.%N`
-SAVEDIR=/var/log/ndn/SAVE_LOGS_${DATE}
-mkdir ${SAVEDIR}
-#cp -p /var/log/ndn/nfd.log.?.gz  /var/log/ndn/nfd.log.??.gz  /var/log/ndn/nfd.log  /var/log/ndn/nfdc.face.list.log ${SAVEDIR}
-cp -p /var/log/ndn/nfd.log.?.gz  /var/log/ndn/nfd.log.??.gz  /var/log/ndn/nfd.log  ${SAVEDIR}
-mv  /var/log/ndn/nfdc.face.list.log ${SAVEDIR}
-{% endif %}
+#{% if inventory_hostname != "BERN" %}
+## for debug purposes, grab the current set of nfd.log files:
+#DATE=`date +%s.%N`
+#SAVEDIR=/var/log/ndn/SAVE_LOGS_${DATE}
+#mkdir ${SAVEDIR}
+##cp -p /var/log/ndn/nfd.log.?.gz  /var/log/ndn/nfd.log.??.gz  /var/log/ndn/nfd.log  /var/log/ndn/nfdc.face.list.log ${SAVEDIR}
+#cp -p /var/log/ndn/nfd.log.?.gz  /var/log/ndn/nfd.log.??.gz  /var/log/ndn/nfd.log  ${SAVEDIR}
+#mv  /var/log/ndn/nfdc.face.list.log ${SAVEDIR}
+#{% endif %}
 
 sleep 15
 
 # set default strategy to best-route (bestroute2)
 {% if hyperbolic_state == "on" %}
-/usr/bin/nfdc strategy set  ndn:/ ndn:/localhost/nfd/strategy/asf
+#/usr/bin/nfdc strategy set  ndn:/ ndn:/localhost/nfd/strategy/asf
+/usr/bin/nfdc strategy set ndn:/ ndn:/localhost/nfd/strategy/asf/%FD%02/n-silent-timeouts=2
 {% else %}
 /usr/bin/nfdc strategy set  ndn:/ ndn:/localhost/nfd/strategy/best-route
 {% endif %}
