@@ -9,6 +9,7 @@ advertised_prefixes: [/ndn/edu/arizona]
 routable_prefixes: [/ndn/edu/arizona]
 router_name: hobo 
 neighbors: 
+  UASLP: {link_cost: 100}
   REMAP: {link_cost: 25}
   CSU: {link_cost: 18}
   MEMPHIS: {link_cost: 17}
