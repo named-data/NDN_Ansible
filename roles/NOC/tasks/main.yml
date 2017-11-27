@@ -171,7 +171,7 @@
 - name: copy nfdcLog.sh
   copy: dest=/home/ndnops/ndn-ops/NOC/bin/nfdcLog.sh  src=roles/NOC/files/nfdcLog.sh owner=ndnops group=ndnops mode=0755
 
-- cron: name="nfdc face list " user="root" state=present disabled=no minute="*/1" job="/home/ndnops/ndn-ops/NOC/bin/nfdcLog.sh"
+- cron: name="nfdc face list " user="root" state=present disabled=yes minute="*/1" job="/home/ndnops/ndn-ops/NOC/bin/nfdcLog.sh"
   when: ansible_distribution_major_version == 14 
 
 #- name: copy ndnop-process-requests to UCLA
