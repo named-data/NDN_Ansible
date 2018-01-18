@@ -90,7 +90,8 @@
   when: ansible_distribution == "Ubuntu" 
 
 - name: add Ashlesh experimental ndn repository
-  apt_repository: repo='ppa:agawande/named-data-exp' state=present
+  #apt_repository: repo='ppa:agawande/named-data-exp' state=present
+  apt_repository: repo='ppa:agawande/named-data-exp' state=absent
   when: ansible_distribution == "Ubuntu" 
 
 - name: install general ubuntu packages 
