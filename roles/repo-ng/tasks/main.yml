@@ -11,6 +11,14 @@
 - name: create repo-ng-2 /etc/init conf file
   copy: src=roles/repo-ng/files/repo-ng-2.conf dest=/etc/init/repo-ng-2.conf
 
+# copy repo-ng-2 /lib/systemd/ conf file
+- name: create repo-ng-2 /lib/systemd conf file
+  copy: src=roles/repo-ng/files/repo-ng-2.service dest=/lib/systemd/system/repo-ng-2.service
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+
+- file: path=/etc/systemd/system/multi-user.target.wants/repo-ng-2.service state=link src=/lib/systemd/system/repo-ng-2.service
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+
 - name: create repo-ng configuration file
   template: src=repo-ng.conf.j2 dest=/etc/ndn/repo-ng.conf owner=root group=root mode="u=rw,g=r,o=r"
   notify: restart repo-ng
