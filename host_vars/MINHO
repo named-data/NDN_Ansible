@@ -9,6 +9,7 @@ advertised_prefixes: [/ndn/pt/uminho]
 routable_prefixes: [/ndn/pt/uminho]
 router_name: vnetlab 
 neighbors: 
+  CARUNA: {link_cost: 27}
   COPELABS: {link_cost: 4}
   BASEL: {link_cost: 23}
   URJC: {link_cost: 13}
@@ -18,3 +19,4 @@ hr_radius: 16.2060358549513
 #hr_angle: 2.62082874954162
 hr_angle: 2.62083
 cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fpt%2Fuminho%2Fksk-1458247661374%2FID-CERT%2F%25FD%2500%2500%2501S%2586n%25F6%25F0
+nlsr_version: NLSR-0.3.2

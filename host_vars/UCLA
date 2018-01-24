@@ -20,3 +20,4 @@ hr_radius: 16.5866430024476
 hr_angle: 2.99910767400357
 cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fedu%2Fucla%2Fksk-1457321496551%2FID-CERT%2F%25FD%2500%2500%2501SO%2596%258B%2502
 supports_guest_certs: True
+nlsr_version: NLSR-0.3.2

@@ -19,3 +19,4 @@ hr_radius: 11.5531281288249
 hr_angle: 2.98403796376186
 #cert_url: 
 supports_guest_certs: True
+nlsr_version: NLSR-0.3.2

@@ -15,3 +15,4 @@ ansible_user: jdd
 network_regions: [ ]
 #hr_radius: 19.426848571939
 #hr_angle: 4.31067173953721
+nlsr_version: NLSR-0.3.2

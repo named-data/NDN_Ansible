@@ -19,3 +19,4 @@ network_regions: [/ndn/com/orange]
 hr_radius: 11.939786808546
 hr_angle: 1.23943054357204
 cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fcom%2Forange%2Fksk-1413296644868%2FID-CERT%2F%25FD%2500%2500%2501SRas%253E
+nlsr_version: NLSR-0.3.2

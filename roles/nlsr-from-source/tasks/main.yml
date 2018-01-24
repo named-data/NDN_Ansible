@@ -117,61 +117,84 @@
     url: ftp://fr2.rpmfind.net/linux/centos/7.3.1611/os/x86_64/Packages/log4cxx-devel-0.10.0-16.el7.x86_64.rpm
     dest: /tmp/log4cxx-devel-0.10.0-16.el7.x86_64.rpm
     mode: 0644
+  when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'"
 
 - command: rpm -ivh  /tmp/log4cxx-devel-0.10.0-16.el7.x86_64.rpm
   when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'"
   ignore_errors: yes
 
 
+- name: create build directory
+  file: path=~/AnsibleBuild state=directory 
+
 #- name: install NFD from source
 #  apt: name=nlsr state=latest update_cache=yes
 - name: git nlsr
   git: repo=http://github.com/named-data/NLSR
-       dest=/tmp/NLSR
-       update=yes
+       dest=~/AnsibleBuild/NLSR
        version={{nlsr_version}}
+       force=yes
+  register: gitclone
+  ignore_errors: yes
+
+# repeat it. There is a bug in this version of ansible that the "force" above gives an error but it still does the update needed.
+- name: git nlsr
+  git: repo=http://github.com/named-data/NLSR
+       dest=~/AnsibleBuild/NLSR
+       version={{nlsr_version}}
+       force=yes
   register: gitclone
 
+       #update=yes
+       #force=yes
 - debug: 
     msg: "debug: gitclone.changed: {{ gitclone.changed }}"
 
+- replace:
+    dest: /root/AnsibleBuild/NLSR/src/nlsr.cpp
+    regexp: '7300'
+    replace: '3000'
+    backup: yes
+
 #- name: configure NLSR
-- command: ./waf --boost-libs="{{ boost_base_location }}"/lib --boost-includes="{{ boost_base_location }}"/include configure
+#- command: ./waf --boost-libs="{{ boost_base_location }}"/lib --boost-includes="{{ boost_base_location }}"/include configure
+- command: ./waf configure
   args:
-    chdir: /tmp/NLSR
-  when: gitclone.changed
+    chdir: ~/AnsibleBuild/NLSR
+  #when: gitclone.changed
+
+##- name: clean NLSR
+#- command: ./waf clean
+#  args:
+#    chdir: ~/AnsibleBuild/NLSR
+#  #when: gitclone.changed
 
 #- name: build NLSR
-- command: ./waf clean
-  args:
-    chdir: /tmp/NLSR
-  when: gitclone.changed
-
-#- name: clean NLSR
 - command: ./waf 
   args:
-    chdir: /tmp/NLSR
-  when: gitclone.changed
+    chdir: ~/AnsibleBuild/NLSR
+  #when: gitclone.changed
 
 #- name: install NLSR
 - command: ./waf  install
   args:
-    chdir: /tmp/NLSR
-  when: gitclone.changed
+    chdir: ~/AnsibleBuild/NLSR
+  #when: gitclone.changed
 
 - name: copy /etc/init/nlsr.conf
   copy: dest=/etc/init/nlsr.conf src=roles/nlsr-from-source/files/etc-init-nlsr.conf owner=root group=root mode=0644
-  when: ansible_distribution == "Ubuntu" 
+  #when: ansible_distribution == "Ubuntu" 
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "14")
 
 - name: copy /lib/systemd/system/nlsr.service
   copy: dest=/lib/systemd/system/nlsr.service src=roles/nlsr-from-source/files/nlsr.service owner=root group=root mode=0644
-  when: ansible_distribution == "RedHat" 
+  when: ((ansible_distribution == "RedHat" ) or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16"))
 
 - file: path=/etc/systemd/system/multi-user.target.wants/nlsr.service  state=link  src=/lib/systemd/system/nlsr.service
-  when: ansible_distribution == "RedHat" 
+  when: ((ansible_distribution == "RedHat" ) or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16"))
 
 - command: systemctl daemon-reload
-  when: ansible_distribution == "RedHat" 
+  when: ((ansible_distribution == "RedHat" ) or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16"))
 
 - name: start nlsr
   service: name=nlsr state=started enabled=yes
