@@ -21,7 +21,10 @@
   when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
 
 #- cron: name="log rotate" user="ndnops" hour="1" minute="1" job="/home/ndnops/ndn-ops/NOC/logRotation/rotateLogs.sh  "
-- cron: name="log rotate" user="ndnops" minute="28" job="/home/ndnops/ndn-ops/NOC/bin/rotateLogs.sh  "
+- cron: name="log rotate" state="absent" user="ndnops" minute="28" job="/home/ndnops/ndn-ops/NOC/bin/rotateLogs.sh  "
+
+- name: copy logrotate conf file for nfd
+  copy: dest=/etc/logrotate.d/nfd  src=roles/nfd/files/logrotate.nfd owner=root group=root mode=0644
 
 - name: remove ashlesh asf version of nfd if present
   apt: name=nfd=0.5.1-73-gc65c9be-ppa2~trusty state=absent update_cache=yes
