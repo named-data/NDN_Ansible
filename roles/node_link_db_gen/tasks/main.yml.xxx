@@ -1,0 +1,5 @@
+---
+# tasks file for node_link_db_gen
+- name: clear db file
+  local_action: file path=roles/node_link_db_gen/files/node_link_db.txt state=absent run_once=true become=false
+

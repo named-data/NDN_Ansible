@@ -1,0 +1,13 @@
+node: PADUA
+PADUA hr_radius: 13.5903793307
+PADUA hr_angle: 1.1393442623
+link: PADUA - URJC cost: 15
+link: PADUA - PKUSZ cost: 170
+link: PADUA - COPELABS cost: 24
+link: PADUA - MINHO cost: 26
+link: PADUA - BASEL cost: 9
+link: PADUA - AFA cost: 11
+link: PADUA - UIUC cost: 80
+link: PADUA - GOETTINGEN cost: 14
+link: PADUA - CAGLIARI cost: 25
+

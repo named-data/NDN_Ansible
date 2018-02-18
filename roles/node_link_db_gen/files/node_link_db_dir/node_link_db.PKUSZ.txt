@@ -1,0 +1,12 @@
+node: PKUSZ
+PKUSZ hr_radius: 11.1495655496
+PKUSZ hr_angle: 2.87016
+link: PKUSZ - TONGJI cost: 54
+link: PKUSZ - SRRU cost: 71
+link: PKUSZ - OSAKA cost: 63
+link: PKUSZ - BUPT cost: 54
+link: PKUSZ - CNIC cost: 20
+link: PKUSZ - PADUA cost: 170
+link: PKUSZ - WASEDA cost: 98
+link: PKUSZ - MSU cost: 71
+

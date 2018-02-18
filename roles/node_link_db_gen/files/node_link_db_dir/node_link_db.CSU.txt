@@ -1,0 +1,11 @@
+node: CSU
+CSU hr_radius: 14.1056931988
+CSU hr_angle: 2.99266609146
+link: CSU - REMAP cost: 16
+link: CSU - ARIZONA cost: 18
+link: CSU - KISTI cost: 106
+link: CSU - MICHIGAN cost: 15
+link: CSU - BYU cost: 8
+link: CSU - UCLA cost: 16
+link: CSU - UIUC cost: 14
+

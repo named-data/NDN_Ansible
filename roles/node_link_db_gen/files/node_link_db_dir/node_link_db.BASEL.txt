@@ -1,0 +1,13 @@
+node: BASEL
+BASEL hr_radius: 13.2717666497
+BASEL hr_angle: 2.41932
+link: BASEL - URJC cost: 14
+link: BASEL - MINHO cost: 23
+link: BASEL - NTNU cost: 30
+link: BASEL - PADUA cost: 9
+link: BASEL - LIP6 cost: 7
+link: BASEL - GOETTINGEN cost: 10
+link: BASEL - BERN cost: 2
+link: BASEL - TNO cost: 14
+link: BASEL - SYSTEMX cost: 9
+

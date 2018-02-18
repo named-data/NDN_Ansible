@@ -1,0 +1,9 @@
+node: UIUC
+UIUC hr_radius: 29.2553552716
+UIUC hr_angle: 2.98231233822
+link: UIUC - CSU cost: 14
+link: UIUC - MICHIGAN cost: 5
+link: UIUC - PADUA cost: 80
+link: UIUC - WU cost: 9
+link: UIUC - NIST cost: 12
+

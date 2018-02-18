@@ -1,0 +1,11 @@
+node: SRRU
+SRRU hr_radius: 12.8769009681
+SRRU hr_angle: 3.63761863676
+link: SRRU - PKUSZ cost: 71
+link: SRRU - INDONESIA cost: 32
+link: SRRU - OSAKA cost: 67
+link: SRRU - BUPT cost: 72
+link: SRRU - UUM cost: 100
+link: SRRU - ANYANG cost: 57
+link: SRRU - MSU cost: 3
+

@@ -1,0 +1,12 @@
+node: URJC
+URJC hr_radius: 13.6888312672
+URJC hr_angle: 1.17169974116
+link: URJC - COPELABS cost: 13
+link: URJC - MINHO cost: 13
+link: URJC - CARUNA cost: 17
+link: URJC - BASEL cost: 14
+link: URJC - WU cost: 86
+link: URJC - PADUA cost: 15
+link: URJC - LIP6 cost: 15
+link: URJC - CAGLIARI cost: 28
+

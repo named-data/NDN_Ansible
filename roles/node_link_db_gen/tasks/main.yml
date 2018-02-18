@@ -1,0 +1,25 @@
+---
+# tasks file for node_link_db_gen
+- name: clear db files dir
+  local_action: file path=roles/node_link_db_gen/files/node_link_db_dir state=absent 
+  run_once: true 
+  become: false
+
+- name: create db files dir
+  local_action: file path=roles/node_link_db_gen/files/node_link_db_dir state=directory 
+  run_once: true 
+  become: false
+
+#  name: create node link db file
+#  #local_action: template src=node_link_coordinates.j2 dest=/Users/jdd/Google\ Drive/NDN/NDN_CRI/NDN_Testbed/roles/node_link_db_gen/files/node_link_db.txt 
+#  #local_action: template src=node_link_coordinates.j2 dest=roles/node_link_db_gen/files/node_link_db_dir/node_link_db.{{inventory_hostname}}.txt 
+
+
+- local_action: template src=node_link_coordinates.j2 dest=roles/node_link_db_gen/files/node_link_db_dir/node_link_db.{{inventory_hostname}}.txt 
+  become: false
+
+# Combined all db files
+- name: Combined all db files
+  local_action: shell cat roles/node_link_db_gen/files/node_link_db_dir/node_link_db.*.txt > roles/node_link_db_gen/files/node_link_db.txt
+  run_once: true 
+  become: false

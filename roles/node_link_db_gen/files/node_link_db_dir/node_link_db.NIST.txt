@@ -1,0 +1,7 @@
+node: NIST
+NIST hr_radius: 13.4257788269
+NIST hr_angle: 2.97670405522
+link: NIST - MICHIGAN cost: 13
+link: NIST - NEU cost: 12
+link: NIST - UIUC cost: 12
+

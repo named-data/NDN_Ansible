@@ -1,0 +1,9 @@
+node: CAIDA
+CAIDA hr_radius: 17.6030443241
+CAIDA hr_angle: 2.94302721088
+link: CAIDA - ARIZONA cost: 25
+link: CAIDA - UFPA cost: 155
+link: CAIDA - UCLA cost: 3
+link: CAIDA - UCI cost: 3
+link: CAIDA - TONGJI cost: 93
+

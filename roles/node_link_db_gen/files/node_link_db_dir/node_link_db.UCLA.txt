@@ -1,0 +1,9 @@
+node: UCLA
+UCLA hr_radius: 16.5866430024
+UCLA hr_angle: 2.999107674
+link: UCLA - CSU cost: 16
+link: UCLA - CAIDA cost: 3
+link: UCLA - REMAP cost: 1
+link: UCLA - MSU cost: 150
+link: UCLA - UCI cost: 1
+

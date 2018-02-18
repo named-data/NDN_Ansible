@@ -1,0 +1,7 @@
+node: BERN
+BERN hr_radius: 13.2717666497
+BERN hr_angle: 2.41933
+link: BERN - BASEL cost: 2
+link: BERN - AFA cost: 15
+link: BERN - LIP6 cost: 18
+

@@ -1,0 +1,7 @@
+node: {{inventory_hostname}}
+{{inventory_hostname}} hr_radius: {{hr_radius}}
+{{inventory_hostname}} hr_angle: {{hr_angle}}
+{% for neighbor, data in neighbors.items() %}
+link: {{inventory_hostname}} - {{neighbor}} cost: {{ data['link_cost'] }}
+{% endfor %}
+

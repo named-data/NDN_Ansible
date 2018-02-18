@@ -1,0 +1,9 @@
+node: UFPA
+UFPA hr_radius: 29.2553552716
+UFPA hr_angle: 3.51898188093
+link: UFPA - UASLP cost: 100
+link: UFPA - CAIDA cost: 155
+link: UFPA - INDONESIA cost: 200
+link: UFPA - MEMPHIS cost: 115
+link: UFPA - COPELABS cost: 145
+

@@ -1,0 +1,11 @@
+node: ANYANG
+ANYANG hr_radius: 14.3378634978
+ANYANG hr_angle: 2.99956859362
+link: ANYANG - TONGJI cost: 54
+link: ANYANG - SRRU cost: 57
+link: ANYANG - MSU cost: 70
+link: ANYANG - BUPT cost: 33
+link: ANYANG - KISTI cost: 40
+link: ANYANG - WASEDA cost: 40
+link: ANYANG - OSAKA cost: 36
+

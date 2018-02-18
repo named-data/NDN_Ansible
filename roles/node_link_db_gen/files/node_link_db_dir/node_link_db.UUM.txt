@@ -1,0 +1,9 @@
+node: UUM
+UUM hr_radius: 14.8351249127
+UUM hr_angle: 3.44434857636
+link: UUM - SRRU cost: 100
+link: UUM - MUMBAI_AWS cost: 100
+link: UUM - MSU cost: 100
+link: UUM - INDONESIA cost: 100
+link: UUM - OSAKA cost: 100
+

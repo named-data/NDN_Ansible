@@ -1,0 +1,7 @@
+node: CNIC
+CNIC hr_radius: 13.0513265591
+CNIC hr_angle: 2.87446074202
+link: CNIC - PKUSZ cost: 20
+link: CNIC - BUPT cost: 10
+link: CNIC - OSAKA cost: 45
+

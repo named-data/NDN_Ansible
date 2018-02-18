@@ -1,0 +1,7 @@
+node: BYU
+BYU hr_radius: 19.3538454318
+BYU hr_angle: 3.77334112453
+link: BYU - CSU cost: 8
+link: BYU - REMAP cost: 9
+link: BYU - ARIZONA cost: 30
+

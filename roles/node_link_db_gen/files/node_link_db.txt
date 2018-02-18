@@ -1,0 +1,402 @@
+node: AFA
+AFA hr_radius: 10.3354428445
+AFA hr_angle: 1.12640207075
+link: AFA - MUMBAI_AWS cost: 100
+link: AFA - BERN cost: 15
+link: AFA - CAGLIARI cost: 25
+link: AFA - PADUA cost: 11
+link: AFA - COPELABS cost: 36
+
+node: ANYANG
+ANYANG hr_radius: 14.3378634978
+ANYANG hr_angle: 2.99956859362
+link: ANYANG - TONGJI cost: 54
+link: ANYANG - SRRU cost: 57
+link: ANYANG - MSU cost: 70
+link: ANYANG - BUPT cost: 33
+link: ANYANG - KISTI cost: 40
+link: ANYANG - WASEDA cost: 40
+link: ANYANG - OSAKA cost: 36
+
+node: ARIZONA
+ARIZONA hr_radius: 16.2305391314
+ARIZONA hr_angle: 2.97033285094
+link: ARIZONA - CAIDA cost: 25
+link: ARIZONA - REMAP cost: 25
+link: ARIZONA - WASEDA cost: 75
+link: ARIZONA - BYU cost: 30
+link: ARIZONA - UASLP cost: 100
+link: ARIZONA - WU cost: 33
+link: ARIZONA - CSU cost: 18
+link: ARIZONA - MEMPHIS cost: 17
+
+node: BASEL
+BASEL hr_radius: 13.2717666497
+BASEL hr_angle: 2.41932
+link: BASEL - URJC cost: 14
+link: BASEL - MINHO cost: 23
+link: BASEL - NTNU cost: 30
+link: BASEL - PADUA cost: 9
+link: BASEL - LIP6 cost: 7
+link: BASEL - GOETTINGEN cost: 10
+link: BASEL - BERN cost: 2
+link: BASEL - TNO cost: 14
+link: BASEL - SYSTEMX cost: 9
+
+node: BERN
+BERN hr_radius: 13.2717666497
+BERN hr_angle: 2.41933
+link: BERN - BASEL cost: 2
+link: BERN - AFA cost: 15
+link: BERN - LIP6 cost: 18
+
+node: BUPT
+BUPT hr_radius: 29.2553552716
+BUPT hr_angle: 3.07635893011
+link: BUPT - PKUSZ cost: 54
+link: BUPT - WASEDA cost: 48
+link: BUPT - TONGJI cost: 18
+link: BUPT - SRRU cost: 72
+link: BUPT - INDONESIA cost: 54
+link: BUPT - KISTI cost: 33
+link: BUPT - CNIC cost: 10
+link: BUPT - ANYANG cost: 33
+
+node: BYU
+BYU hr_radius: 19.3538454318
+BYU hr_angle: 3.77334112453
+link: BYU - CSU cost: 8
+link: BYU - REMAP cost: 9
+link: BYU - ARIZONA cost: 30
+
+node: CAGLIARI
+CAGLIARI hr_radius: 13.5903793307
+CAGLIARI hr_angle: 1.1393442623
+link: CAGLIARI - URJC cost: 28
+link: CAGLIARI - CARUNA cost: 40
+link: CAGLIARI - PADUA cost: 25
+link: CAGLIARI - AFA cost: 25
+link: CAGLIARI - WU cost: 100
+
+node: CAIDA
+CAIDA hr_radius: 17.6030443241
+CAIDA hr_angle: 2.94302721088
+link: CAIDA - ARIZONA cost: 25
+link: CAIDA - UFPA cost: 155
+link: CAIDA - UCLA cost: 3
+link: CAIDA - UCI cost: 3
+link: CAIDA - TONGJI cost: 93
+
+node: CARUNA
+CARUNA hr_radius: 13.6888312672
+CARUNA hr_angle: 1.17169974116
+link: CARUNA - URJC cost: 17
+link: CARUNA - CAGLIARI cost: 40
+link: CARUNA - MINHO cost: 27
+
+node: CNIC
+CNIC hr_radius: 13.0513265591
+CNIC hr_angle: 2.87446074202
+link: CNIC - PKUSZ cost: 20
+link: CNIC - BUPT cost: 10
+link: CNIC - OSAKA cost: 45
+
+node: COPELABS
+COPELABS hr_radius: 16.206035855
+COPELABS hr_angle: 2.62082
+link: COPELABS - URJC cost: 13
+link: COPELABS - MINHO cost: 4
+link: COPELABS - AFA cost: 36
+link: COPELABS - PADUA cost: 24
+link: COPELABS - LIP6 cost: 22
+link: COPELABS - UFPA cost: 145
+
+node: CSU
+CSU hr_radius: 14.1056931988
+CSU hr_angle: 2.99266609146
+link: CSU - REMAP cost: 16
+link: CSU - ARIZONA cost: 18
+link: CSU - KISTI cost: 106
+link: CSU - MICHIGAN cost: 15
+link: CSU - BYU cost: 8
+link: CSU - UCLA cost: 16
+link: CSU - UIUC cost: 14
+
+node: GOETTINGEN
+GOETTINGEN hr_radius: 12.2349274272
+GOETTINGEN hr_angle: 2.4715271786
+link: GOETTINGEN - OSAKA cost: 136
+link: GOETTINGEN - BASEL cost: 10
+link: GOETTINGEN - NTNU cost: 40
+link: GOETTINGEN - PADUA cost: 14
+link: GOETTINGEN - TNO cost: 12
+link: GOETTINGEN - SYSTEMX cost: 10
+
+node: INDONESIA
+INDONESIA hr_radius: 29.2553552716
+INDONESIA hr_angle: 2.75021570319
+link: INDONESIA - WASEDA cost: 49
+link: INDONESIA - TONGJI cost: 61
+link: INDONESIA - SRRU cost: 32
+link: INDONESIA - BUPT cost: 54
+link: INDONESIA - UUM cost: 100
+link: INDONESIA - KISTI cost: 150
+link: INDONESIA - UFPA cost: 200
+
+node: KISTI
+KISTI hr_radius: 11.5531281288
+KISTI hr_angle: 2.98403796376
+link: KISTI - CSU cost: 106
+link: KISTI - BUPT cost: 33
+link: KISTI - INDONESIA cost: 150
+link: KISTI - ANYANG cost: 40
+link: KISTI - WASEDA cost: 39
+
+node: LIP6
+LIP6 hr_radius: 29.2553552716
+LIP6 hr_angle: 2.62295081967
+link: LIP6 - URJC cost: 15
+link: LIP6 - COPELABS cost: 22
+link: LIP6 - MICHIGAN cost: 69
+link: LIP6 - BASEL cost: 7
+link: LIP6 - NTNU cost: 25
+link: LIP6 - TNO cost: 9
+link: LIP6 - BERN cost: 18
+link: LIP6 - SYSTEMX cost: 1
+
+node: MEMPHIS
+MEMPHIS hr_radius: 15.264773513
+MEMPHIS hr_angle: 2.98360655738
+link: MEMPHIS - ARIZONA cost: 17
+link: MEMPHIS - MICHIGAN cost: 12
+link: MEMPHIS - UASLP cost: 100
+link: MEMPHIS - WU cost: 17
+link: MEMPHIS - UFPA cost: 115
+link: MEMPHIS - NEU cost: 21
+
+node: MICHIGAN
+MICHIGAN hr_radius: 17.7738038607
+MICHIGAN hr_angle: 2.98018269082
+link: MICHIGAN - UIUC cost: 5
+link: MICHIGAN - LIP6 cost: 69
+link: MICHIGAN - CSU cost: 15
+link: MICHIGAN - NEU cost: 14
+link: MICHIGAN - MEMPHIS cost: 12
+link: MICHIGAN - NIST cost: 13
+
+node: MINHO
+MINHO hr_radius: 16.206035855
+MINHO hr_angle: 2.62083
+link: MINHO - URJC cost: 13
+link: MINHO - BASEL cost: 23
+link: MINHO - CARUNA cost: 27
+link: MINHO - COPELABS cost: 4
+link: MINHO - PADUA cost: 26
+
+node: MSU
+MSU hr_radius: 19.6533436173
+MSU hr_angle: 3.64135462555
+link: MSU - PKUSZ cost: 71
+link: MSU - SRRU cost: 3
+link: MSU - UCLA cost: 150
+link: MSU - UUM cost: 100
+link: MSU - TNO cost: 120
+link: MSU - ANYANG cost: 70
+
+node: MUMBAI_AWS
+MUMBAI_AWS hr_radius: 12.8934676597
+MUMBAI_AWS hr_angle: 2.95081967213
+link: MUMBAI_AWS - UUM cost: 100
+link: MUMBAI_AWS - AFA cost: 100
+
+node: NEU
+NEU hr_radius: 19.9001283692
+NEU hr_angle: 2.13894230769
+link: NEU - MICHIGAN cost: 14
+link: NEU - MEMPHIS cost: 21
+link: NEU - NTNU cost: 69
+link: NEU - NIST cost: 12
+
+node: NIST
+NIST hr_radius: 13.4257788269
+NIST hr_angle: 2.97670405522
+link: NIST - MICHIGAN cost: 13
+link: NIST - NEU cost: 12
+link: NIST - UIUC cost: 12
+
+node: NTNU
+NTNU hr_radius: 12.0281644432
+NTNU hr_angle: 3.11561691113
+link: NTNU - GOETTINGEN cost: 40
+link: NTNU - NEU cost: 69
+link: NTNU - BASEL cost: 30
+link: NTNU - SYSTEMX cost: 24
+link: NTNU - LIP6 cost: 25
+
+node: OSAKA
+OSAKA hr_radius: 19.3573834399
+OSAKA hr_angle: 3.53687143598
+link: OSAKA - PKUSZ cost: 63
+link: OSAKA - WASEDA cost: 5
+link: OSAKA - SRRU cost: 67
+link: OSAKA - TONGJI cost: 63
+link: OSAKA - UUM cost: 100
+link: OSAKA - CNIC cost: 45
+link: OSAKA - GOETTINGEN cost: 136
+link: OSAKA - ANYANG cost: 36
+
+node: PADUA
+PADUA hr_radius: 13.5903793307
+PADUA hr_angle: 1.1393442623
+link: PADUA - URJC cost: 15
+link: PADUA - PKUSZ cost: 170
+link: PADUA - COPELABS cost: 24
+link: PADUA - MINHO cost: 26
+link: PADUA - BASEL cost: 9
+link: PADUA - AFA cost: 11
+link: PADUA - UIUC cost: 80
+link: PADUA - GOETTINGEN cost: 14
+link: PADUA - CAGLIARI cost: 25
+
+node: PKUSZ
+PKUSZ hr_radius: 11.1495655496
+PKUSZ hr_angle: 2.87016
+link: PKUSZ - TONGJI cost: 54
+link: PKUSZ - SRRU cost: 71
+link: PKUSZ - OSAKA cost: 63
+link: PKUSZ - BUPT cost: 54
+link: PKUSZ - CNIC cost: 20
+link: PKUSZ - PADUA cost: 170
+link: PKUSZ - WASEDA cost: 98
+link: PKUSZ - MSU cost: 71
+
+node: REMAP
+REMAP hr_radius: 16.5866430024
+REMAP hr_angle: 2.99911
+link: REMAP - CSU cost: 16
+link: REMAP - BYU cost: 9
+link: REMAP - ARIZONA cost: 25
+link: REMAP - UCLA cost: 1
+link: REMAP - UCI cost: 1
+
+node: SRRU
+SRRU hr_radius: 12.8769009681
+SRRU hr_angle: 3.63761863676
+link: SRRU - PKUSZ cost: 71
+link: SRRU - INDONESIA cost: 32
+link: SRRU - OSAKA cost: 67
+link: SRRU - BUPT cost: 72
+link: SRRU - UUM cost: 100
+link: SRRU - ANYANG cost: 57
+link: SRRU - MSU cost: 3
+
+node: SYSTEMX
+SYSTEMX hr_radius: 19.1697680538
+SYSTEMX hr_angle: 2.62274588692
+link: SYSTEMX - GOETTINGEN cost: 10
+link: SYSTEMX - BASEL cost: 9
+link: SYSTEMX - NTNU cost: 24
+link: SYSTEMX - LIP6 cost: 1
+
+node: TNO
+TNO hr_radius: 12.0148443703
+TNO hr_angle: 2.4603106126
+link: TNO - GOETTINGEN cost: 12
+link: TNO - BASEL cost: 14
+link: TNO - MSU cost: 120
+link: TNO - LIP6 cost: 9
+
+node: TONGJI
+TONGJI hr_radius: 11.1495655496
+TONGJI hr_angle: 2.87015
+link: TONGJI - CAIDA cost: 93
+link: TONGJI - PKUSZ cost: 54
+link: TONGJI - WASEDA cost: 98
+link: TONGJI - OSAKA cost: 63
+link: TONGJI - BUPT cost: 18
+link: TONGJI - INDONESIA cost: 61
+link: TONGJI - ANYANG cost: 54
+
+node: UASLP
+UASLP hr_radius: 19.0473935894
+UASLP hr_angle: 2.96488127257
+link: UASLP - UFPA cost: 100
+link: UASLP - ARIZONA cost: 100
+link: UASLP - MEMPHIS cost: 100
+
+node: UCI
+UCI hr_radius: 19.2697694366
+UCI hr_angle: 2.94186046512
+link: UCI - CAIDA cost: 3
+link: UCI - REMAP cost: 1
+link: UCI - UCLA cost: 1
+
+node: UCLA
+UCLA hr_radius: 16.5866430024
+UCLA hr_angle: 2.999107674
+link: UCLA - CSU cost: 16
+link: UCLA - CAIDA cost: 3
+link: UCLA - REMAP cost: 1
+link: UCLA - MSU cost: 150
+link: UCLA - UCI cost: 1
+
+node: UFPA
+UFPA hr_radius: 29.2553552716
+UFPA hr_angle: 3.51898188093
+link: UFPA - UASLP cost: 100
+link: UFPA - CAIDA cost: 155
+link: UFPA - INDONESIA cost: 200
+link: UFPA - MEMPHIS cost: 115
+link: UFPA - COPELABS cost: 145
+
+node: UIUC
+UIUC hr_radius: 29.2553552716
+UIUC hr_angle: 2.98231233822
+link: UIUC - CSU cost: 14
+link: UIUC - MICHIGAN cost: 5
+link: UIUC - PADUA cost: 80
+link: UIUC - WU cost: 9
+link: UIUC - NIST cost: 12
+
+node: URJC
+URJC hr_radius: 13.6888312672
+URJC hr_angle: 1.17169974116
+link: URJC - COPELABS cost: 13
+link: URJC - MINHO cost: 13
+link: URJC - CARUNA cost: 17
+link: URJC - BASEL cost: 14
+link: URJC - WU cost: 86
+link: URJC - PADUA cost: 15
+link: URJC - LIP6 cost: 15
+link: URJC - CAGLIARI cost: 28
+
+node: UUM
+UUM hr_radius: 14.8351249127
+UUM hr_angle: 3.44434857636
+link: UUM - SRRU cost: 100
+link: UUM - MUMBAI_AWS cost: 100
+link: UUM - MSU cost: 100
+link: UUM - INDONESIA cost: 100
+link: UUM - OSAKA cost: 100
+
+node: WASEDA
+WASEDA hr_radius: 19.3583257472
+WASEDA hr_angle: 2.99935233161
+link: WASEDA - PKUSZ cost: 98
+link: WASEDA - ARIZONA cost: 75
+link: WASEDA - TONGJI cost: 98
+link: WASEDA - OSAKA cost: 5
+link: WASEDA - INDONESIA cost: 49
+link: WASEDA - KISTI cost: 39
+link: WASEDA - BUPT cost: 48
+link: WASEDA - ANYANG cost: 40
+
+node: WU
+WU hr_radius: 19.4268485719
+WU hr_angle: 4.31067173954
+link: WU - URJC cost: 86
+link: WU - CAGLIARI cost: 100
+link: WU - UIUC cost: 9
+link: WU - ARIZONA cost: 33
+link: WU - MEMPHIS cost: 17
+

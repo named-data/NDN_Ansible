@@ -1,0 +1,9 @@
+node: MINHO
+MINHO hr_radius: 16.206035855
+MINHO hr_angle: 2.62083
+link: MINHO - URJC cost: 13
+link: MINHO - BASEL cost: 23
+link: MINHO - CARUNA cost: 27
+link: MINHO - COPELABS cost: 4
+link: MINHO - PADUA cost: 26
+

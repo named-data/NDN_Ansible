@@ -1,0 +1,9 @@
+node: NTNU
+NTNU hr_radius: 12.0281644432
+NTNU hr_angle: 3.11561691113
+link: NTNU - GOETTINGEN cost: 40
+link: NTNU - NEU cost: 69
+link: NTNU - BASEL cost: 30
+link: NTNU - SYSTEMX cost: 24
+link: NTNU - LIP6 cost: 25
+

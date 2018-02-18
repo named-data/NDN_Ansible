@@ -1,0 +1,10 @@
+node: MICHIGAN
+MICHIGAN hr_radius: 17.7738038607
+MICHIGAN hr_angle: 2.98018269082
+link: MICHIGAN - UIUC cost: 5
+link: MICHIGAN - LIP6 cost: 69
+link: MICHIGAN - CSU cost: 15
+link: MICHIGAN - NEU cost: 14
+link: MICHIGAN - MEMPHIS cost: 12
+link: MICHIGAN - NIST cost: 13
+

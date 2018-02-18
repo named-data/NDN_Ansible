@@ -1,0 +1,9 @@
+node: AFA
+AFA hr_radius: 10.3354428445
+AFA hr_angle: 1.12640207075
+link: AFA - MUMBAI_AWS cost: 100
+link: AFA - BERN cost: 15
+link: AFA - CAGLIARI cost: 25
+link: AFA - PADUA cost: 11
+link: AFA - COPELABS cost: 36
+
