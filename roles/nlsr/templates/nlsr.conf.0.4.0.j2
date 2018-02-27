@@ -36,7 +36,7 @@ general
 
   log-dir       /var/log/ndn/nlsr/         ; path for log directory (Absolute path)
   seq-dir       /var/lib/ndn/nlsr/         ; path for sequence directory (Absolute path)
-  ;log4cxx-conf /etc/ndn/nlsr/log4cxx.conf  ; path for log4cxx configuration file (Absolute path)
+  log4cxx-conf /etc/ndn/nlsr/log4cxx.conf  ; path for log4cxx configuration file (Absolute path)
 }
 
 ; the neighbor's section contains the configuration for router's neighbors and hellos behavior
@@ -247,7 +247,6 @@ security
 
     trust-anchor
     {
-      ;type any
       type file
       ;file-name "root.cert"
       file-name "/etc/ndn/nlsr/keys/root.cert"
@@ -297,7 +296,6 @@ security
 
     trust-anchor
     {
-      ;type any
       type file
       ;file-name "site.cert"
       file-name "/etc/ndn/nlsr/keys/site.cert"

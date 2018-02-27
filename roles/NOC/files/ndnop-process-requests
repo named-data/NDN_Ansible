@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright (c) 2014  Regents of the University of California
+# Copyright (c) 2014-2017  Regents of the University of California
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -28,20 +28,27 @@ import requests
 
 import subprocess
 import base64
-import pyndn as ndn
 import time
 import datetime
 import re
 import socket
 
+import pyndn as ndn
 import pyndn.security
+import pyndn.security.v2
+
+try:
+    defaultIdentity = ndn.security.KeyChain().getPib().getDefaultIdentity().getName()
+except:
+    sys.stderr.write("No default identity configured\n")
+    sys.exit(1)
 
 parser = argparse.ArgumentParser(description='Process NDNCERT requests')
 parser.add_argument('-g', '--guest-only', dest='guest_only', action='store_true',
                     help='''Process only guest requests''')
 parser.add_argument('-a', '--auto-approve', dest='auto_approve', action='store_true',
                     help='''Automatically approve requests''')
-parser.add_argument('site_prefix', metavar='site_prefix', type=str, nargs='?', default=ndn.security.KeyChain().getDefaultIdentity(),
+parser.add_argument('site_prefix', metavar='site_prefix', type=str, nargs='?', default=ndn.security.KeyChain().getPib().getDefaultIdentity().getName(),
                     help='''Site prefix (will use the default identity if omitted)''')
 args = parser.parse_args()
 
@@ -49,7 +56,6 @@ args = parser.parse_args()
 ###                                CONFIG                                    ###
 ################################################################################
 
-#URL = "http://ndncert.named-data.net"
 URL = "https://ndncert.named-data.net"
 PUBLISH_REPO = True
 REPO_HOST = "localhost"
@@ -74,10 +80,12 @@ class Signer(object):
         commandInterest = ndn.Interest(commandInterestName)
         try:
             keyChain = ndn.security.KeyChain()
-            keyChain.sign(commandInterest)
-        except:
+            certName = keyChain.getPib().getIdentity(self.site_prefix).getDefaultKey().getDefaultCertificate().getName()
+
+            keyChain.sign(commandInterest, certName)
+        except Exception as e:
             print("ERROR: cannot generate signature, please submit your certification " \
-                  "request to NDN testbed root")
+                  "request to NDN testbed root: %s" % e)
             return
 
         http_request = "%s/cert-requests/get/" % URL
@@ -174,16 +182,15 @@ class Signer(object):
         cmdline = ['ndnsec-certgen',
                    '--not-before', not_before,
                    '--not-after',  not_after,
-                   '--subject-name', sanitize(request['fullname']),
+                   '--info', '%s %s' % ('fullname',     sanitize(request['fullname'])),
 
-                   '--signed-info', '%s %s' % ('1.2.840.113549.1.9.1', sanitize(request['email'])),
-                   '--signed-info', '%s %s' % ('2.5.4.11',             sanitize(request['organization'])),
-                   '--signed-info', '%s %s' % ('2.5.4.1',              sanitize(request['group'])),
-                   '--signed-info', '%s %s' % ('2.5.4.3',              sanitize(request['homeurl'])),
-                   '--signed-info', '%s %s' % ('2.5.4.80',             sanitize(request['advisor'])),
+                   '--info', '%s %s' % ('email',        sanitize(request['email'])),
+                   '--info', '%s %s' % ('organization', sanitize(request['organization'])),
+                   '--info', '%s %s' % ('group',        sanitize(request['group'])),
+                   '--info', '%s %s' % ('homeurl',      sanitize(request['homeurl'])),
+                   '--info', '%s %s' % ('advisor',      sanitize(request['advisor'])),
 
                    '--sign-id', str(self.site_prefix),
-                   '--cert-prefix', str(self.site_prefix),
                    '--request', '-'
                    ]
 
@@ -195,15 +202,17 @@ class Signer(object):
         return cert.rstrip()
 
     def denyCertificate(self, request):
-        cmdline = ['ndnsec-cert-revoke',
-                   '--sign-id', str(self.site_prefix),
-                   '--cert-prefix', str(self.site_prefix),
-                   '--request', '-'
-                   ]
+        print ("NOT SUPPORTED")
+        return False
+        # cmdline = ['ndnsec-cert-revoke',
+        #            '--sign-id', str(self.site_prefix),
+        #            '--cert-prefix', str(self.site_prefix),
+        #            '--request', '-'
+        #            ]
 
-        p = subprocess.Popen(cmdline, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-        cert, err = p.communicate(base64.b64decode(request['cert_request']['$binary']))
-        return cert.rstrip()
+        # p = subprocess.Popen(cmdline, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+        # cert, err = p.communicate(base64.b64decode(request['cert_request']['$binary']))
+        # return cert.rstrip()
 
     def publishCertificate(self, certificate):
         if PUBLISH_REPO:

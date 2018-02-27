@@ -4,7 +4,10 @@
   action: >
        {{ ansible_pkg_mgr }} name={{ item }} state=latest update_cache=yes
   with_items:
-       - ndn-cxx
-       - ndn-cxx-dev
-       - ndn-cxx-dbg
+       #- ndn-cxx
+       #- ndn-cxx-dev
+       #- ndn-cxx-dbg
+       - libndn-cxx
+       - libndn-cxx-dev
+       - libndn-cxx-dbg
 

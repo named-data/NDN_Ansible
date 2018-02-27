@@ -5,8 +5,8 @@ general
   ; when not performing privileged tasks. NFD does not drop
   ; privileges by default.
 
-  ; user ndn
-  ; group ndn
+  ; user ndn-user
+  ; group ndn-user
 }
 
 log
@@ -26,7 +26,6 @@ log
   ;  ALL ; all messages
 
   default_level INFO
-  ;default_level DEBUG
 
   ; You may override default_level by assigning a logging level
   ; to the desired module name. Module names can be found in two ways:
@@ -45,7 +44,6 @@ log
 ; The tables section configures the CS, PIT, FIB, Strategy Choice, and Measurements
 tables
 {
-
   ; ContentStore size limit in number of packets
   ; default is 65536, about 500MB with 8KB packet size
   cs_max_packets 65536
@@ -66,29 +64,40 @@ tables
     /localhost      /localhost/nfd/strategy/multicast
     /localhost/nfd  /localhost/nfd/strategy/best-route
     /ndn/broadcast  /localhost/nfd/strategy/multicast
-    /ndn/multicast  /localhost/nfd/strategy/multicast
   }
 
+  ; Declare network region names
+  ; These are used for mobility support.  An Interest carrying a Link object is
+  ; assumed to have reached the producer region if any delegation name in the
+  ; Link object is a prefix of any region name.
   network_region
   {
   ; Network regions: {{ network_regions }}
 {% for region in network_regions %}
     {{region}}
 {% endfor %}
+    ; /example/region1
+    ; /example/region2
   }
 }
 
 ; The face_system section defines what faces and channels are created.
 face_system
 {
+  ; This section contains options that apply to multiple face protocols.
+  general
+  {
+    enable_congestion_marking yes ; set to 'yes' to perform congestion marking on supported faces, default 'no'
+  }
+
   ; The unix section contains settings of Unix stream faces and channels.
-  ; Unix channel is always listening; delete unix section to disable
+  ; A Unix channel is always listening; delete the unix section to disable
   ; Unix stream faces and channels.
   ;
-  ; The ndn-cxx library expects unix:///var/run/nfd.sock
-  ; to be used as the default transport option. Please change
-  ; the "transport" field in client.conf to an appropriate tcp4 FaceUri
-  ; if you need to disable unix sockets.
+  ; The ndn-cxx library expects unix:///var/run/nfd.sock to be used as
+  ; the default transport option. Please change the "transport" field
+  ; in client.conf to an appropriate tcp4 FaceUri if you want to
+  ; disable Unix sockets and use TCP instead.
   unix
   {
     path /var/run/nfd.sock ; Unix stream listener path
@@ -104,42 +113,47 @@ face_system
   }
 
   ; The udp section contains settings of UDP faces and channels.
-  ; UDP channel is always listening; delete udp section to disable UDP
   udp
   {
+    ; UDP unicast settings.
+    ; UDP channels are always listening; delete the udp section to disable them
     port {{udp_port}} ; UDP unicast port number
     enable_v4 yes ; set to 'no' to disable IPv4 channels, default 'yes'
     enable_v6 yes ; set to 'no' to disable IPv6 channels, default 'yes'
 
-    ; idle time (seconds) before closing a UDP unicast face, the actual timeout would be
-    ; anywhere within [idle_timeout, 2*idle_timeout), default is 600
-
+    ; Time (in seconds) before closing an idle UDP unicast face.
+    ; The actual timeout will occur anytime between idle_timeout and 2*idle_timeout.
+    ; The default is 600 (10 minutes).
     idle_timeout 600
 
     keep_alive_interval 25; interval (seconds) between keep-alive refreshes
 
-    ; UDP multicast settings
-    ; By default, NFD creates one UDP multicast face per NIC
+    ; UDP multicast settings.
+    ; By default, NFD creates one UDP multicast face per NIC.
     ;
     ; In multi-homed Linux machines these settings will NOT work without
-    ; root or settings the appropriate permissions:
+    ; root or setting the appropriate permissions:
     ;
-    ;    sudo setcap cap_net_raw=eip /full/path/nfd
+    ;    sudo setcap cap_net_raw=eip /path/to/nfd
     ;
-{% if inventory_hostname == "URJC" %}
+{% if inventory_hostname == "UUM" %}
     mcast no ; set to 'no' to disable UDP multicast, default 'yes'
 {% else %}
     mcast yes ; set to 'no' to disable UDP multicast, default 'yes'
 {% endif %}
-    mcast_group 224.0.23.170 ; UDP multicast group (IPv4 only)
-    mcast_port {{multicast_port}} ; UDP multicast port number
-    mcast_ad_hoc no ; set 'yes' to make all UDP multicast faces "ad hoc", default 'no'
+    mcast yes ; set to 'no' to disable UDP multicast, default 'yes'
+    mcast_group 224.0.23.170 ; UDP multicast group (IPv4)
+    mcast_port 56363 ; UDP multicast port number (IPv4)
+    mcast_group_v6 ff02::1234 ; UDP multicast group (IPv6)
+    mcast_port_v6 56363 ; UDP multicast port number (IPv6)
+    mcast_ad_hoc no ; set to 'yes' to make all UDP multicast faces "ad hoc", default 'no'
 
     ; Whitelist and blacklist can contain, in no particular order:
-    ; interface names, including wildcard patterns (e.g., 'ifname eth0', 'ifname en*', 'ifname wlp?s0'),
-    ; mac addresses (e.g., 'ether 85:3b:4d:d3:5f:c2'),
-    ; subnets (e.g., 'subnet 192.0.2.0/24', note that only IPv4 is supported here),
-    ; or a single asterisk ('*') that matches all interfaces.
+    ; - interface names, including wildcard patterns (e.g., 'ifname eth0', 'ifname en*', 'ifname wlp?s0')
+    ; - mac addresses (e.g., 'ether 85:3b:4d:d3:5f:c2')
+    ; - subnets (e.g., 'subnet 192.0.2.0/24', note that only IPv4 is supported here)
+    ; - a single asterisk ('*') that matches all interfaces
+    ; By default, all interfaces are whitelisted.
     whitelist
     {
       *
@@ -153,7 +167,7 @@ face_system
   ; These settings will NOT work without root or setting the appropriate
   ; permissions:
   ;
-  ;    sudo setcap cap_net_raw,cap_net_admin=eip /full/path/nfd
+  ;    sudo setcap cap_net_raw,cap_net_admin=eip /path/to/nfd
   ;
   ; You may need to install a package to use setcap:
   ;
@@ -171,25 +185,29 @@ face_system
   ;
   ;    sudo chgrp admin /dev/bpf*
   ;    sudo chmod g+rw /dev/bpf*
-
+  ;
   ether
   {
-    ; Ethernet multicast settings
-    ; By default, NFD creates one Ethernet multicast face per NIC
+    ; Ethernet unicast settings.
+    listen yes ; set to 'no' to disable Ethernet listener, default 'yes'
   
-{% if inventory_hostname == "URJC" %}
-    mcast no ; set to 'no' to disable Ethernet multicast, default 'yes'
-{% else %}
+    ; Time (in seconds) before closing an idle Ethernet unicast face.
+    ; The actual timeout will occur anytime between idle_timeout and 2*idle_timeout.
+    ; The default is 600 (10 minutes).
+    idle_timeout 600
+  
+    ; Ethernet multicast settings.
+    ; By default, NFD creates one Ethernet multicast face per NIC.
     mcast yes ; set to 'no' to disable Ethernet multicast, default 'yes'
-{% endif %}
     mcast_group 01:00:5E:00:17:AA ; Ethernet multicast group
-    mcast_ad_hoc no ; set to 'yes' to make all Ethernet faces 'ad hoc', default 'no'
-
+    mcast_ad_hoc no ; set to 'yes' to make all Ethernet multicast faces "ad hoc", default 'no'
+  
     ; Whitelist and blacklist can contain, in no particular order:
-    ; interface names, including wildcard patterns (e.g., 'ifname eth0', 'ifname en*', 'ifname wlp?s0'),
-    ; mac addresses (e.g., 'ether 85:3b:4d:d3:5f:c2'),
-    ; subnets (e.g., 'subnet 192.0.2.0/24', note that only IPv4 is supported here),
-    ; or a single asterisk ('*') that matches all interfaces.
+    ; - interface names, including wildcard patterns (e.g., 'ifname eth0', 'ifname en*', 'ifname wlp?s0')
+    ; - mac addresses (e.g., 'ether 85:3b:4d:d3:5f:c2')
+    ; - subnets (e.g., 'subnet 192.0.2.0/24', note that only IPv4 is supported here)
+    ; - a single asterisk ('*') that matches all interfaces
+    ; By default, all interfaces are whitelisted.
     whitelist
     {
       *
@@ -200,7 +218,6 @@ face_system
   }
 
   ; The websocket section contains settings of WebSocket faces and channels.
-
   websocket
   {
     listen yes ; set to 'no' to disable WebSocket listener, default 'yes'
@@ -280,9 +297,9 @@ rib
    {
      ; This section defines the trust model for NFD RIB Management. It consists of rules and
      ; trust-anchors, which are briefly defined in this file.  For more information refer to
-     ; manpage of ndn-validator.conf:
+     ; validator configuration file format documentation:
      ;
-     ;     man ndn-validator.conf
+     ;    https://named-data.net/doc/ndn-cxx/current/tutorials/security-validator-config.html
      ;
      ; A trust-anchor is a pre-trusted certificate.  This can be any certificate that is the
      ; root of certification chain (e.g., NDN testbed root certificate) or an existing
@@ -302,13 +319,12 @@ rib
   
      rule
      {
-       id "NRD Prefix Registration Command Rule"
+       id "RIB Registration Command Rule"
        for interest                         ; rule for Interests (to validate CommandInterests)
        filter
        {
-         type name                          ; condition on interest name (w/o signature)
-         regex ^[<localhop><localhost>]<nfd><rib>[<register><unregister>]<>$ ; prefix before
-                                                                             ; timestamp
+         type name                          ; condition on interest name (w/o SignatureInfo/SignatureValue)
+         regex ^[<localhop><localhost>]<nfd><rib>[<register><unregister>]<><><>$
        }
        checker
        {
@@ -318,18 +334,7 @@ rib
          {
            type name                        ; key locator must be the certificate name of the
                                             ; signing key
-           regex ^[^<KEY>]*<KEY><>*<ksk-.*><ID-CERT>$
-         }
-       }
-       checker
-       {
-         type customized
-         sig-type ecdsa-sha256                ; interest must have a ecdsa-sha256 signature
-         key-locator
-         {
-           type name                        ; key locator must be the certificate name of the
-                                            ; signing key
-           regex ^[^<KEY>]*<KEY><>*<ksk-.*><ID-CERT>$
+           regex ^<>*<KEY><>$
          }
        }
      }
@@ -340,7 +345,7 @@ rib
        filter
        {
          type name                          ; condition on data name
-         regex ^[^<KEY>]*<KEY><>*<ksk-.*><ID-CERT><>$
+         regex ^<>*<KEY><><><>$
        }
        checker
        {
@@ -348,23 +353,18 @@ rib
                                             ; the data name must follow the hierarchical model
          sig-type rsa-sha256                ; data must have a rsa-sha256 signature
        }
-       checker
-       {
-         type hierarchical                  ; the certificate name of the signing key and
-                                            ; the data name must follow the hierarchical model
-         sig-type ecdsa-sha256              ; data must have a ecdsa-sha256 signature
-       }
      }
      trust-anchor
      {
        type file
-       file-name keys/ndn-testbed-root.ndncert.base64
+       file-name keys/default.ndncert ; the file name, by default this file should be placed in the
+                                      ; same folder as this config file.
      }
-     trust-anchor
-     {
-       type file
-       file-name keys/openmhealth.cert
-     }
+     ; trust-anchor ; Can be repeated multiple times to specify multiple trust anchors
+     ; {
+     ;   type file
+     ;   file-name keys/ndn-testbed.ndncert
+     ; }
    }
 
   ; The following localhop_security should be enabled when NFD runs on a hub,
@@ -392,7 +392,6 @@ rib
     ; policy. Initially, the wait time is set to base_retry_wait, then it will be doubled for every
     ; retry unless beyond the max_retry_wait, in which case max_retry_wait is set as the wait time.
   }
-
 
   ; If enabled, routes registered with origin=client (typically from auto_prefix_propagate)
   ; will be readvertised into local NLSR daemon.

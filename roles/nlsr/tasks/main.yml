@@ -16,8 +16,30 @@
 #- debug:
 #    msg: "default_prefix: {{ default_prefix }}"
 
+- name: copy logrotate conf file for nlsr
+  copy: dest=/etc/logrotate.d/nlsr  src=roles/nlsr/files/logrotate.nlsr owner=root group=root mode=0644
+
+- name: check if we have a root cert locally
+  local_action: stat path=roles/nlsr/files/root.cert
+  become: false
+  register: root_stat_result
+
+# create a root cert at UCLA if we don't have one here
+- script: roles/nlsr/files/key_gen_root.sh 
+  when: (root_stat_result.stat.exists == False) and  (inventory_hostname == "UCLA")
+
+# fetch unsigned root.cert back to here
+- fetch: 
+    src: /home/nlsr/root.cert
+    dest: roles/nlsr/files/root.cert
+    flat: yes
+  when: (root_stat_result.stat.exists == False) and  (inventory_hostname == "UCLA")
+
 # copy NLSR root cert
 - copy: src=roles/nlsr/files/root.cert dest=/etc/ndn/nlsr/keys/root.cert
+
+# copy NLSR /etc/init/nlsr.conf
+- copy: src=roles/nlsr/files/nlsr.conf dest=/etc/init/nlsr.conf
 
 # generate site and nlsr keys for user nlsr if needed
 - script: roles/nlsr/files/key_gen1.sh "{{ default_prefix }}" "{{ inventory_hostname }}"
@@ -93,9 +115,12 @@
   ignore_errors: yes
 
 
-- name: create log4cxx.conf
-  copy: dest=/etc/ndn/nlsr/log4cxx.conf src=roles/nlsr/files/log4cxx.conf owner=root group=root mode=0644
-  notify: restart nlsr
+#- name: create log4cxx.conf
+#  copy: dest=/etc/ndn/nlsr/log4cxx.conf src=roles/nlsr/files/log4cxx.conf owner=root group=root mode=0644
+#  notify: restart nlsr
+
+- name: install chronosyn
+  apt: name=libchronosync state=latest update_cache=yes
 
 - name: install nlsr
   apt: name=nlsr state=latest update_cache=yes

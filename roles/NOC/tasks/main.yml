@@ -30,6 +30,11 @@
 - name: create NOC bin directory
   file: path=/home/ndnops/ndn-ops/NOC/bin state=directory owner=ndnops group=ndnops mode=0755
 
+- name: copy checkVersions.sh to NOC/bin
+  copy: dest=/home/ndnops/ndn-ops/NOC/bin/checkVersions.sh  src=roles/NOC/files/checkVersions.sh owner=ndnops group=ndnops mode=0755
+
+- cron: name="check NDN versions" state="present" user="root" minute="*/5" job="/home/ndnops/ndn-ops/NOC/bin/checkVersions.sh  "
+
 - name: copy rotateLogs.sh to NOC/bin
   copy: dest=/home/ndnops/ndn-ops/NOC/bin/rotateLogs.sh  src=roles/NOC/files/rotateLogs.sh owner=ndnops group=ndnops mode=0755
 
@@ -85,11 +90,15 @@
        - protobuf-devel
        - log4cxx.x86_64
 
+- name: remove ndn dev repository
+  apt_repository: repo='ppa:named-data/ppa-dev' state=absent
+  when: ansible_distribution == "Ubuntu" 
+
 - name: add ndn repository
   apt_repository: repo='ppa:named-data/ppa' state=present
   when: ansible_distribution == "Ubuntu" 
 
-- name: add Ashlesh experimental ndn repository
+- name: remove Ashlesh experimental ndn repository
   #apt_repository: repo='ppa:agawande/named-data-exp' state=present
   apt_repository: repo='ppa:agawande/named-data-exp' state=absent
   when: ansible_distribution == "Ubuntu" 
@@ -97,7 +106,7 @@
 - name: install general ubuntu packages 
   when: ansible_distribution == "Ubuntu" 
   action: >
-       {{ ansible_pkg_mgr }} name={{ item }} state=latest update_cache=yes
+       {{ ansible_pkg_mgr }} name={{ item }} state=latest update_cache=yes autoclean=yes autoremove=yes
   with_items:
        - build-essential
        - git
@@ -159,11 +168,15 @@
 #  become: yes
 #  become_user: root
 
-#- pip: name=requests executable=/usr/local/bin/pip3
+- pip: name=setuptools state=latest executable=pip3
+
+- pip: name=requests state=latest executable=pip3
 
 #- pip: name=requests,pyndn executable=/usr/local/bin/pip3
 
-#- pip: name=pyndn executable=/usr/local/bin/pip3
+#- pip: name=pyndn state=latest executable=/usr/local/bin/pip
+
+- pip: name=pyndn state=latest  executable=pip3
 
 - name: copy ndnop-process-requests to TESTBED
   copy: dest=/usr/local/bin/ndnop-process-requests src=roles/NOC/files/ndnop-process-requests.testbed owner=root group=root mode=0755

@@ -4,14 +4,34 @@
 - name: add ndnsec user
   user: name=ndnsec state=present shell=/bin/bash password=LrVkOUM1s16xE
 
+- name: install ndnsec libraries 
+  action: >
+       {{ ansible_pkg_mgr }} name={{ item }} state=latest update_cache=yes
+  with_items:
+       - ndnsec
+
+
 - cron: name="auto-approve guest certs" state=present user="ndnsec" minute="*/5" job="/usr/local/bin/ndnop-process-requests --guest-only --auto-approve"
   when: supports_guest_certs and inventory_hostname != "UCLA"
 
 - cron: name="auto-approve guest certs" state=absent user="ndnsec" minute="*/5" job="/usr/local/bin/ndnop-process-requests --guest-only --auto-approve"
   when: not supports_guest_certs
 
-#- cron: name="auto-approve guest certs" state=absent user="ndnsec" minute="*/5" job="/usr/local/bin/ndnop-process-requests --guest-only --auto-approve"
-#  when: inventory_hostname == "BASEL" or inventory_hostname == "NIST"
+- script: roles/ndnsec/files/checkKey.sh "{{ default_prefix }}"
+  register: key_present
+  ignore_errors: yes
+
+- debug:
+    msg: "Found key exists for default_prefix: {{ default_prefix }}"
+  when: key_present is defined and (key_present.rc == 0)
+
+- debug:
+    msg: "Found key does NOT exists for default_prefix: {{ default_prefix }}"
+  when: key_present is defined and (key_present.rc != 0)
+
+- script: roles/ndnsec/files/generateKey.sh "{{ default_prefix }}"
+  when: key_present is not defined or key_present.rc != 0
+  ignore_errors: yes
 
 # Check that there is a default name and that default_prefix == default name on node
 # if not, try to change default name to default_prefix
@@ -35,32 +55,6 @@
 - debug:
     msg: "Tried setting default name. Default name still does NOT agree with default_prefix: {{ default_prefix }}"
   when: name_present2 is defined and (name_present2.rc != 0)
-
-- script: roles/ndnsec/files/checkKey.sh "{{ default_prefix }}"
-  register: key_present
-  when: name_present.rc == 0
-  ignore_errors: yes
-
-- debug:
-    msg: "Found key exists for default_prefix: {{ default_prefix }}"
-  when: key_present is defined and (key_present.rc == 0)
-
-- debug:
-    msg: "Found key does NOT exists for default_prefix: {{ default_prefix }}"
-  when: key_present is defined and (key_present.rc != 0)
-
-- script: roles/ndnsec/files/generateKey.sh "{{ default_prefix }}"
-  when: key_present is not defined or key_present.rc != 0
-  ignore_errors: yes
-
-- script: roles/ndnsec/files/checkKey.sh "{{ default_prefix }}"
-  register: key_present2
-  when: key_present is not defined or key_present.rc != 0
-  ignore_errors: yes
-
-- debug:
-    msg: "Tried generating key, must have faild. Found key does NOT exists for default_prefix: {{ default_prefix }}"
-  when: key_present2 is defined and (key_present2.rc != 0)
 
 - script: roles/ndnsec/files/checkCert.sh "{{ default_prefix }}"
   register: cert_present
@@ -91,14 +85,3 @@
 - script: roles/ndnsec/files/installCert.sh "{{ cert_url }}"  "{{ default_prefix }}"
   when: (cert_present.rc != 0 or (cert_valid is defined and (cert_valid.rc != 0 ))) and (cert_url is defined)
 
-
-# check that there is a key defined for default name
-# if not, generate a key for default_prefix (that will then need to be used to generate a cert by human action)
-
-# check that there is a cert defined for default name
-# if not, if there is a URL variable defined for cert, then install it.
-
-# check that cert for default name is still valid
-# if not, if there is a URL variable defined for cert, then re-install it and check validity again
-
-# So, it looks like there are just two variables involved. default_prefix and cert_url

@@ -35,11 +35,22 @@ nfdc strategy set  ndn:/ndn/edu/ucla/remap ndn:/localhost/nfd/strategy/best-rout
 {% endif %}
 {% if inventory_hostname == "WU" %}
 # Set up route for ndnstatus to get to ndndemo:
-nfdc register -o 255 /ndn/edu/wustl/ndnstatus udp4://128.252.153.28:6363
+#nfdc register -o 255 /ndn/edu/wustl/ndnstatus udp4://128.252.153.28:6363
+nfdc face create udp4://128.252.153.28:6363
+nfdc route add -o 255 /ndn/edu/wustl/ndnstatus udp4://128.252.153.28:6363
 {% endif %}
 
 ## Special stuff for NDN SIGCOMM demo:
 #nfdc strategy set /ndn/edu/wustl/jdd ndn:/localhost/nfd/strategy/asf/%FD%02
 ##nfdc strategy set /ndn/edu/wustl/jdd ndn:/localhost/nfd/strategy/asf/%FD%02/n-silent-timeouts=4
 #nfdc strategy set /ndn/edu/wustl/jdd ndn:/localhost/nfd/strategy/asf/%FD%02/n-silent-timeouts=2
+
+
+# Build the faces that NLSR will need:
+  # {{ inventory_hostname}}  Neighbors: {{ neighbors }}
+{% for neighbor, data in neighbors.items() %}
+   # {{ neighbor }} {{ hostvars[neighbor].ansible_host }}
+nfdc face create udp4://{{ hostvars[neighbor].ansible_host }} persistency permanent
+
+{% endfor %}
 
