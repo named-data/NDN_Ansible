@@ -19,4 +19,4 @@ network_regions: [/ndn/th/ac/msu]
 hr_radius: 19.6533436173325
 hr_angle: 3.64135462555066
 cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fth%2Fac%2Fmsu%2Fksk-1479486847708%2FID-CERT%2F%25FD%2500%2500%2501X%258D%2506%25D2%25C8
-nlsr_version: NLSR-0.3.2
+nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10

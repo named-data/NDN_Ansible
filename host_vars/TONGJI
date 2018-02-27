@@ -21,4 +21,4 @@ network_regions: [/ndn/cn/edu/tongji]
 hr_radius: 11.1495655496376
 hr_angle: 2.8701500000
 #cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fcn%2Fedu%2Ftongji%2Fksk-1413220385596%2FID-CERT%2F%25FD%2500%2500%2501SRa%25A4%25CC
-nlsr_version: NLSR-0.3.2
+nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
