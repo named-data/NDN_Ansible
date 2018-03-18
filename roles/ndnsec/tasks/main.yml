@@ -26,11 +26,112 @@
   when: key_present is defined and (key_present.rc == 0)
 
 - debug:
-    msg: "Found key does NOT exists for default_prefix: {{ default_prefix }}"
+    msg: "Found key does NOT exist for default_prefix: {{ default_prefix }}"
   when: key_present is defined and (key_present.rc != 0)
 
 - script: roles/ndnsec/files/generateKey.sh "{{ default_prefix }}"
   when: key_present is not defined or key_present.rc != 0
+  ignore_errors: yes
+
+# fetch unsigned key back to here
+- fetch:
+    src: /home/ndnsec/generated_key.txt
+    dest: roles/ndnsec/files/ANSIBLE_{{ inventory_hostname }}_unsigned_site.cert
+    flat: yes
+  when: (key_present is not defined or key_present.rc != 0) and (inventory_hostname != "REMAP")
+  ignore_errors: yes
+
+# REMAP: fetch unsigned key back to here
+- fetch:
+    src: /home/ndnsec/generated_key.txt
+    dest: roles/ndnsec/files/REMAP_{{ inventory_hostname }}_unsigned_site.cert
+    flat: yes
+  when: (key_present is not defined or key_present.rc != 0) and (inventory_hostname == "REMAP")
+
+- name: create site-cert directory
+  file: path=/home/testbed-root/site-certs state=directory owner=testbed-root group=testbed-root mode=0755
+  when: inventory_hostname == "UCLA"
+
+# copy unsigned keys to UCLA for approval
+- copy: src={{ item }} dest=/home/testbed-root/site-certs owner=testbed-root group=testbed-root mode=644
+  with_fileglob:
+    - roles/ndnsec/files/ANSIBLE*_unsigned_site.cert
+  when: inventory_hostname == "UCLA"
+
+- name: create site-cert directory for REMAP approval by ndnsec
+  file: path=/home/ndnsec/site-certs state=directory owner=ndnsec group=ndnsec mode=0755
+  when: inventory_hostname == "UCLA"
+
+# copy unsigned keys to UCLA for approval
+- copy: src={{ item }} dest=/home/ndnsec/site-certs owner=ndnsec group=ndnsec mode=644
+  with_fileglob:
+    - roles/ndnsec/files/REMAP*_unsigned_site.cert
+  when: inventory_hostname == "UCLA"
+
+# approve any unsigned keys
+- script: roles/ndnsec/files/key_approval.sh
+  when: inventory_hostname == "UCLA"
+  ignore_errors: yes
+
+# approve any REMAP unsigned keys
+- script: roles/ndnsec/files/remap_key_approval.sh
+  when: inventory_hostname == "UCLA"
+  ignore_errors: yes
+
+# get the names of approved site certs
+- name: get filenames of approved site certs
+  shell: cd /home/testbed-root/site-certs/ ; ls -1 *.signed 
+  register: approved_sites
+  when: inventory_hostname == "UCLA"
+  ignore_errors: yes
+
+# get the names of approved REMAP site certs
+- name: get filenames of approved site certs
+  shell: cd /home/ndnsec/site-certs/ ; ls -1 *.signed 
+  register: remap_approved_sites
+  when: inventory_hostname == "UCLA"
+  ignore_errors: yes
+
+
+# fetch approved site certs
+- fetch: src=/home/testbed-root/site-certs/{{ item }} dest=roles/ndnsec/files/  flat=yes
+  when: inventory_hostname == "UCLA"
+  with_items: "{{ (inventory_hostname == 'UCLA') | ternary(approved_sites.stdout_lines, '') }}"
+
+# fetch approved REMAP site certs
+- fetch: src=/home/ndnsec/site-certs/{{ item }} dest=roles/ndnsec/files/  flat=yes
+  when: inventory_hostname == "UCLA"
+  with_items: "{{ (inventory_hostname == 'UCLA') | ternary(remap_approved_sites.stdout_lines, '') }}"
+
+- name: check if <NAME>_site.cert exists
+  local_action: stat path=roles/ndnsec/files/ANSIBLE_{{ inventory_hostname }}_unsigned_site.cert.signed
+  become: false
+  register: stat_result
+
+# copy approved site certs to sites
+- copy: src=roles/ndnsec/files/ANSIBLE_{{inventory_hostname}}_unsigned_site.cert.signed dest=/etc/ndn/keys/default.ndncert  mode=644
+  when: stat_result|success
+  ignore_errors: yes
+
+# install certs on gateways
+- script: roles/ndnsec/files/installCert.sh 
+  when: stat_result|success
+  ignore_errors: yes
+
+- name: check if REMAP <NAME>_site.cert exists
+  local_action: stat path=roles/ndnsec/files/REMAP_{{ inventory_hostname }}_unsigned_site.cert.signed
+  become: false
+  when: (inventory_hostname == "REMAP")
+  register: remap_stat_result
+
+# copy approved site certs to sites
+- copy: src=roles/ndnsec/files/REMAP_{{inventory_hostname}}_unsigned_site.cert.signed dest=/etc/ndn/keys/default.ndncert  mode=644
+  when: (remap_stat_result|success) and (inventory_hostname == "REMAP")
+  ignore_errors: yes
+
+# install certs on gateways
+- script: roles/ndnsec/files/installCert.sh 
+  when: (remap_stat_result|success) and (inventory_hostname == "REMAP")
   ignore_errors: yes
 
 # Check that there is a default name and that default_prefix == default name on node
