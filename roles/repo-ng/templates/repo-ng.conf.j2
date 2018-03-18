@@ -4,6 +4,7 @@ repo
   ; Only 'prefix' option is allowed here, which can be repeated multiple times
   data
   {
+    registration-subset 3
     prefix "ndn:{{ default_prefix }}/KEY"
 {% if inventory_hostname == "UCLA" %}
     prefix "ndn:{{ default_prefix }}/cs/KEY"
