@@ -54,8 +54,8 @@ UUM
 WASEDA
 WU
 
-[ndngateways_rhel]
-WURHEL
+#[ndngateways_rhel]
+#WURHEL
 
 
 [all:vars]
