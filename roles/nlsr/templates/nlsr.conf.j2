@@ -250,7 +250,8 @@ security
       ;type any
       type file
       ;file-name "root.cert"
-      file-name "/etc/ndn/nlsr/keys/root.cert"
+      ;file-name "/etc/ndn/nlsr/keys/root.cert"
+      file-name "/etc/ndn/keys/ndn-testbed-root.ndncert.base64"
     }
   }
 
@@ -300,23 +301,26 @@ security
       ;type any
       type file
       ;file-name "site.cert"
-      file-name "/etc/ndn/nlsr/keys/site.cert"
+      ;file-name "/etc/ndn/nlsr/keys/site.cert"
+      file-name "/etc/ndn/keys/default.ndncert"
     }
   }
 
   ; cert-to-publish "root.cert"  ; optional, a file containing the root certificate
                                  ; Only the router that is designated to publish the root cert
                                  ; needs to specify this
-{% if inventory_hostname == "UCLA" %}
-   cert-to-publish "/etc/ndn/nlsr/keys/root.cert"
-{% else %}
-   ;cert-to-publish "/etc/ndn/nlsr/keys/root.cert"
-{% endif %}
+  cert-to-publish  "/etc/ndn/keys/ndn-testbed-root.ndncert.base64"
+;{% if inventory_hostname == "UCLA" %}
+;   cert-to-publish "/etc/ndn/nlsr/keys/root.cert"
+;{% else %}
+;   ;cert-to-publish "/etc/ndn/nlsr/keys/root.cert"
+;{% endif %}
 
   ; cert-to-publish "site.cert"  ; optional, a file containing the site certificate
                                  ; Only the router that is designated to publish the site cert
                                  ; needs to specify this
-   cert-to-publish "/etc/ndn/nlsr/keys/site.cert"
+   ;cert-to-publish "/etc/ndn/nlsr/keys/site.cert"
+   cert-to-publish "/etc/ndn/keys/default.ndncert"
 
   ; cert-to-publish "operator.cert" ; optional, a file containing the operator certificate
                                     ; Only the router that is designated to publish the operator
