@@ -141,7 +141,7 @@ face_system
 {% else %}
     mcast yes ; set to 'no' to disable UDP multicast, default 'yes'
 {% endif %}
-    mcast yes ; set to 'no' to disable UDP multicast, default 'yes'
+    ;mcast yes ; set to 'no' to disable UDP multicast, default 'yes'
     mcast_group 224.0.23.170 ; UDP multicast group (IPv4)
     mcast_port 56363 ; UDP multicast port number (IPv4)
     mcast_group_v6 ff02::1234 ; UDP multicast group (IPv6)
@@ -198,7 +198,11 @@ face_system
   
     ; Ethernet multicast settings.
     ; By default, NFD creates one Ethernet multicast face per NIC.
+{% if inventory_hostname == "UUM" %}
+    mcast no ; set to 'no' to disable Ethernet multicast, default 'yes'
+{% else %}
     mcast yes ; set to 'no' to disable Ethernet multicast, default 'yes'
+{% endif %}
     mcast_group 01:00:5E:00:17:AA ; Ethernet multicast group
     mcast_ad_hoc no ; set to 'yes' to make all Ethernet multicast faces "ad hoc", default 'no'
   
@@ -337,6 +341,17 @@ rib
            regex ^<>*<KEY><>$
          }
        }
+       checker
+       {
+         type customized
+         sig-type ecdsa-sha256                ; interest must have a ecdsa-sha256 signature
+         key-locator
+         {
+           type name                        ; key locator must be the certificate name of the
+                                            ; signing key
+           regex ^<>*<KEY><>$
+         }
+       }
      }
      rule
      {
@@ -353,11 +368,18 @@ rib
                                             ; the data name must follow the hierarchical model
          sig-type rsa-sha256                ; data must have a rsa-sha256 signature
        }
+       checker
+       {
+         type hierarchical                  ; the certificate name of the signing key and
+                                            ; the data name must follow the hierarchical model
+         sig-type ecdsa-sha256              ; data must have a ecdsa-sha256 signature
+       }
      }
      trust-anchor
      {
        type file
-       file-name keys/default.ndncert ; the file name, by default this file should be placed in the
+       ;file-name keys/default.ndncert ; the file name, by default this file should be placed in the
+       file-name keys/ndn-testbed-root.ndncert.base64; the file name, by default this file should be placed in the
                                       ; same folder as this config file.
      }
      ; trust-anchor ; Can be repeated multiple times to specify multiple trust anchors
@@ -377,21 +399,21 @@ rib
   ;   }
   ; }
 
-  auto_prefix_propagate
-  {
-    cost 15 ; forwarding cost of prefix registered on remote router
-    timeout 10000 ; timeout (in milliseconds) of prefix registration command for propagation
-
-    refresh_interval 300 ; interval (in seconds) before refreshing the propagation
-    ; This setting should be less than face_system.udp.idle_time,
-    ; so that the face is kept alive on the remote router.
-
-    base_retry_wait 50 ; base wait time (in seconds) before retrying propagation
-    max_retry_wait 3600 ; maximum wait time (in seconds) before retrying propagation
-    ; for consequent retries, the wait time before each retry is calculated based on the back-off
-    ; policy. Initially, the wait time is set to base_retry_wait, then it will be doubled for every
-    ; retry unless beyond the max_retry_wait, in which case max_retry_wait is set as the wait time.
-  }
+;  auto_prefix_propagate
+;  {
+;    cost 15 ; forwarding cost of prefix registered on remote router
+;    timeout 10000 ; timeout (in milliseconds) of prefix registration command for propagation
+;
+;    refresh_interval 300 ; interval (in seconds) before refreshing the propagation
+;    ; This setting should be less than face_system.udp.idle_time,
+;    ; so that the face is kept alive on the remote router.
+;
+;    base_retry_wait 50 ; base wait time (in seconds) before retrying propagation
+;    max_retry_wait 3600 ; maximum wait time (in seconds) before retrying propagation
+;    ; for consequent retries, the wait time before each retry is calculated based on the back-off
+;    ; policy. Initially, the wait time is set to base_retry_wait, then it will be doubled for every
+;    ; retry unless beyond the max_retry_wait, in which case max_retry_wait is set as the wait time.
+;  }
 
   ; If enabled, routes registered with origin=client (typically from auto_prefix_propagate)
   ; will be readvertised into local NLSR daemon.
