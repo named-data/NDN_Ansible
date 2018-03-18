@@ -89,7 +89,7 @@ link: CAIDA - TONGJI cost: 93
 
 node: CARUNA
 CARUNA hr_radius: 13.6888312672
-CARUNA hr_angle: 1.17169974116
+CARUNA hr_angle: 1.1717
 link: CARUNA - URJC cost: 17
 link: CARUNA - CAGLIARI cost: 40
 link: CARUNA - MINHO cost: 27
@@ -207,6 +207,7 @@ node: MUMBAI_AWS
 MUMBAI_AWS hr_radius: 12.8934676597
 MUMBAI_AWS hr_angle: 2.95081967213
 link: MUMBAI_AWS - UUM cost: 100
+link: MUMBAI_AWS - WU cost: 122
 link: MUMBAI_AWS - AFA cost: 100
 
 node: NEU
@@ -395,8 +396,9 @@ node: WU
 WU hr_radius: 19.4268485719
 WU hr_angle: 4.31067173954
 link: WU - URJC cost: 86
-link: WU - CAGLIARI cost: 100
+link: WU - MUMBAI_AWS cost: 122
 link: WU - UIUC cost: 9
 link: WU - ARIZONA cost: 33
+link: WU - CAGLIARI cost: 100
 link: WU - MEMPHIS cost: 17
 
