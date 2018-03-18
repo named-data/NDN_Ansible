@@ -15,8 +15,13 @@ neighbors:
   AFA: {link_cost: 100}
   UUM: {link_cost: 100}
 network_regions: [/ndn/aws/mumbai]
+# AS16509/AS38895
+# AS16509
 hr_radius: 12.8934676596808
 hr_angle: 2.95081967213115
+## AS38895
+#hr_radius: 16.5008246128559
+#hr_angle: 2.95042095416277
 #hr_radius: 16.5008246128559
 #hr_angle: 2.95042095416277
 # certificate related variables

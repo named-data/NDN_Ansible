@@ -15,5 +15,5 @@ neighbors:
 network_regions: [/ndn/edu/uci]
 hr_radius: 19.2697694366069
 hr_angle: 2.94186046511628
-cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fedu%2Fuci%2Fksk-1413220442517%2FID-CERT%2F%25FD%2500%2500%2501SRaZ%250B
+#cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fedu%2Fuci%2Fksk-1413220442517%2FID-CERT%2F%25FD%2500%2500%2501SRaZ%250B
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10

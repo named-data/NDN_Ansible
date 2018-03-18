@@ -22,5 +22,5 @@ neighbors:
 network_regions: [/ndn/es/urjc]
 hr_radius: 13.6888312671789
 hr_angle: 1.17169974115617
-cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fes%2Furjc%2Fksk-1413220611357%2FID-CERT%2F%25FD%2500%2500%2501SRad8
+#cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fes%2Furjc%2Fksk-1413220611357%2FID-CERT%2F%25FD%2500%2500%2501SRad8
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
