@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+SERVER_PID=`ps auxwww | grep nlsr | grep -v grep | grep -v checkAnd | awk '{print $2}'`
+
+DATE=`date +%Y.%B.%d.%H.%M.%S`
+
+if [ -z "$SERVER_PID" ]
+then
+    sudo initctl start nlsr
+else
+    echo "SERVER_PID: $SERVER_PID"
+fi

@@ -28,37 +28,47 @@
     msg: "OS: {{ ansible_distribution }} major version: {{ ansible_distribution_major_version }} full version: {{ ansible_distribution_version }}"
 
 - name: create NOC bin directory
-  file: path=/home/ndnops/ndn-ops/NOC/bin state=directory owner=ndnops group=ndnops mode=0755
+  file: path=/home/{{ansible_user}}/ndn-ops/NOC/bin state=directory owner={{ansible_user}} group={{ansible_user}} mode=0755
+
+- name: copy checkAndRestart_nlsr.sh to NOC/bin
+  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/checkAndRestart_nlsr.sh  src=roles/NOC/files/checkAndRestart_nlsr.sh.16.04 owner={{ansible_user}} group={{ansible_user}} mode=0755
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+
+- name: copy checkAndRestart_nlsr.sh to NOC/bin
+  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/checkAndRestart_nlsr.sh  src=roles/NOC/files/checkAndRestart_nlsr.sh.14.04 owner={{ansible_user}} group={{ansible_user}} mode=0755
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "14")
+
+- cron: name="check and restart nlsr" state="present" user="{{ansible_user}}" minute="*/30" job="/home/{{ansible_user}}/ndn-ops/NOC/bin/checkAndRestart_nlsr.sh  "
 
 - name: copy checkVersions.sh to NOC/bin
-  copy: dest=/home/ndnops/ndn-ops/NOC/bin/checkVersions.sh  src=roles/NOC/files/checkVersions.sh owner=ndnops group=ndnops mode=0755
+  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/checkVersions.sh  src=roles/NOC/files/checkVersions.sh owner={{ansible_user}} group={{ansible_user}} mode=0755
 
-- cron: name="check NDN versions" state="present" user="root" minute="*/5" job="/home/ndnops/ndn-ops/NOC/bin/checkVersions.sh  "
+- cron: name="check NDN versions" state="present" user="root" minute="*/5" job="/home/{{ansible_user}}/ndn-ops/NOC/bin/checkVersions.sh  "
 
 - name: copy rotateLogs.sh to NOC/bin
-  copy: dest=/home/ndnops/ndn-ops/NOC/bin/rotateLogs.sh  src=roles/NOC/files/rotateLogs.sh owner=ndnops group=ndnops mode=0755
+  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/rotateLogs.sh  src=roles/NOC/files/rotateLogs.sh owner={{ansible_user}} group={{ansible_user}} mode=0755
 
 - name: copy purge_kernelImages.sh to NOC/bin
-  copy: dest=/home/ndnops/ndn-ops/NOC/bin/purge_kernelImages.sh  src=roles/NOC/files/purge_kernelImages.sh owner=ndnops group=ndnops mode=0755
+  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/purge_kernelImages.sh  src=roles/NOC/files/purge_kernelImages.sh owner={{ansible_user}} group={{ansible_user}} mode=0755
 
 - name: copy check_fail2ban_log.sh to NOC/bin
-  copy: dest=/home/ndnops/ndn-ops/NOC/bin/check_fail2ban_log.sh  src=roles/NOC/files/check_fail2ban_log.sh owner=ndnops group=ndnops mode=0755
+  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/check_fail2ban_log.sh  src=roles/NOC/files/check_fail2ban_log.sh owner={{ansible_user}} group={{ansible_user}} mode=0755
 
 #- name: create NOC directories
-#  file: path=/home/ndnops/ndn-ops/NOC/ping_delay_tests state=directory owner=ndnops group=ndnops mode=0755
+#  file: path=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests state=directory owner={{ansible_user}} group={{ansible_user}} mode=0755
 
 #- name: copy ndnping parallel test script
-#  copy: dest=/home/ndnops/ndn-ops/NOC/ping_delay_tests/./getTestbedDelays_ndnping_parallel.sh  src=roles/NOC/files/./getTestbedDelays_ndnping_parallel.sh owner=ndnops group=ndnops mode=0755
+#  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests/./getTestbedDelays_ndnping_parallel.sh  src=roles/NOC/files/./getTestbedDelays_ndnping_parallel.sh owner={{ansible_user}} group={{ansible_user}} mode=0755
 
 #- name: copy ndnping parallel test prefix list
-#  copy: dest=/home/ndnops/ndn-ops/NOC/ping_delay_tests/./full_prefix_list.txt  src=roles/NOC/files/./full_prefix_list.txt owner=ndnops group=ndnops mode=0644
+#  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests/./full_prefix_list.txt  src=roles/NOC/files/./full_prefix_list.txt owner={{ansible_user}} group={{ansible_user}} mode=0644
 
 #- name: copy ndnping parallel test prefix list (UP)
-#  copy: dest=/home/ndnops/ndn-ops/NOC/ping_delay_tests/./full_prefix_list_UP.txt  src=roles/NOC/files/./full_prefix_list_UP.txt owner=ndnops group=ndnops mode=0644
+#  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests/./full_prefix_list_UP.txt  src=roles/NOC/files/./full_prefix_list_UP.txt owner={{ansible_user}} group={{ansible_user}} mode=0644
 
-##- cron: name="parallel ndn ping test" user="ndnops" state=present disabled=yes minute="15" job="cd /home/ndnops/ndn-ops/NOC/ping_delay_tests; ./getTestbedDelays_ndnping_parallel.sh -c 300 -n {{ inventory_hostname }} "
+##- cron: name="parallel ndn ping test" user="{{ansible_user}}" state=present disabled=yes minute="15" job="cd /home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests; ./getTestbedDelays_ndnping_parallel.sh -c 300 -n {{ inventory_hostname }} "
 
-#- cron: name="parallel ndn ping test" user="ndnops" state=present disabled=yes minute="15" job="cd /home/ndnops/ndn-ops/NOC/ping_delay_tests; ./getTestbedDelays_ndnping_parallel.sh -c 300 -n {{ inventory_hostname }} "
+#- cron: name="parallel ndn ping test" user="{{ansible_user}}" state=present disabled=yes minute="15" job="cd /home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests; ./getTestbedDelays_ndnping_parallel.sh -c 300 -n {{ inventory_hostname }} "
 
 # Download and install EPEL for Centos/RHEL version 7
 - name: Download EPEL Repo - Centos/RHEL 7
@@ -176,29 +186,29 @@
 
 #- pip: name=pyndn state=latest executable=/usr/local/bin/pip
 
-- pip: name=pyndn state=latest  executable=pip3
+- pip: name=pyndn state=latest  executable=pip3 extra_args=--pre
 
 - name: copy ndnop-process-requests to TESTBED
   copy: dest=/usr/local/bin/ndnop-process-requests src=roles/NOC/files/ndnop-process-requests.testbed owner=root group=root mode=0755
   when: inventory_hostname != "UCLA"
 
 - name: copy nfdcLog.sh
-  copy: dest=/home/ndnops/ndn-ops/NOC/bin/nfdcLog.sh  src=roles/NOC/files/nfdcLog.sh owner=ndnops group=ndnops mode=0755
+  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/nfdcLog.sh  src=roles/NOC/files/nfdcLog.sh owner={{ansible_user}} group={{ansible_user}} mode=0755
 
-- cron: name="nfdc face list " user="root" state=present disabled=yes minute="*/1" job="/home/ndnops/ndn-ops/NOC/bin/nfdcLog.sh"
-  when: ansible_distribution_major_version == 14 
+#- cron: name="nfdc face list " user="root" state=present disabled=yes minute="*/1" job="/home/{{ansible_user}}/ndn-ops/NOC/bin/nfdcLog.sh"
+#  when: ansible_distribution_major_version == 14 
 
 #- name: copy ndnop-process-requests to UCLA
 #  copy: dest=/usr/local/bin/ndnop-process-requests src=roles/NOC/files/ndnop-process-requests.ucla owner=root group=root mode=0755
 #  when: inventory_hostname == "UCLA"
 
 #- name: create ndndumpScript.sh
-#  template: src=ndndumpScript.sh.j2 dest=/home/ndnops/ndn-ops/NOC/bin/ndndumpScript.sh  owner=root group=root mode="u=rwx,g=rx,o=rx"
+#  template: src=ndndumpScript.sh.j2 dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/ndndumpScript.sh  owner=root group=root mode="u=rwx,g=rx,o=rx"
 #
 #- name: copy checkAndRestart_ndndumpScript.sh to NOC/bin
-#  copy: dest=/home/ndnops/ndn-ops/NOC/bin/checkAndRestart_ndndumpScript.sh  src=roles/NOC/files/checkAndRestart_ndndumpScript.sh owner=ndnops group=ndnops mode=0755
+#  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/checkAndRestart_ndndumpScript.sh  src=roles/NOC/files/checkAndRestart_ndndumpScript.sh owner={{ansible_user}} group={{ansible_user}} mode=0755
 #
-#- cron: name="ndndump script check" user="ndnops" state=absent disabled=no minute="*/5" job="cd /home/ndnops/ndn-ops/NOC/bin; sudo ./checkAndRestart_ndndumpScript.sh  "
+#- cron: name="ndndump script check" user="{{ansible_user}}" state=absent disabled=no minute="*/5" job="cd /home/{{ansible_user}}/ndn-ops/NOC/bin; sudo ./checkAndRestart_ndndumpScript.sh  "
 #
 #- script: roles/NOC/files/kill_ndndumpScript.sh 
 #
