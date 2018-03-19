@@ -1,0 +1,37 @@
+---
+# tasks file for cert_operator_domain_db_gen
+- name: clear db files dir
+  local_action: file path=roles/cert_operator_domain_db_gen/files/cert_operator_domain_db_dir state=absent 
+  run_once: true 
+  become: false
+
+- name: create db files dir
+  local_action: file path=roles/cert_operator_domain_db_gen/files/cert_operator_domain_db_dir state=directory 
+  run_once: true 
+  become: false
+
+- local_action: template src=operator_domain.j2 dest=roles/cert_operator_domain_db_gen/files/cert_operator_domain_db_dir/operator_domain_db.{{inventory_hostname}}.txt 
+  become: false
+
+# fetch site cert
+- fetch:
+    src: /etc/ndn/keys/default.ndncert
+    dest: roles/cert_operator_domain_db_gen/files/cert_operator_domain_db_dir/{{ inventory_hostname }}.cert
+    flat: yes
+  ignore_errors: yes
+
+# Combine operator and cert files for each 
+- name: Combine operator and cert files for each site
+  local_action: shell cat roles/cert_operator_domain_db_gen/files/cert_operator_domain_db_dir/operator_domain_db.{{inventory_hostname}}.txt  roles/cert_operator_domain_db_gen/files/cert_operator_domain_db_dir/{{ inventory_hostname }}.cert > roles/cert_operator_domain_db_gen/files/cert_operator_domain_db_dir/cert_operator_domain_db.{{inventory_hostname}}.txt
+  become: false
+
+# Add end of cert marker
+- name: Add end of cert marker
+  local_action: shell echo  "{{inventory_hostname}} End of Cert"  >> roles/cert_operator_domain_db_gen/files/cert_operator_domain_db_dir/cert_operator_domain_db.{{inventory_hostname}}.txt
+  become: false
+
+# Combine all db files
+- name: Combine all db files
+  local_action: shell cat roles/cert_operator_domain_db_gen/files/cert_operator_domain_db_dir/cert_operator_domain_db.*.txt  > roles/cert_operator_domain_db_gen/files/cert_operator_domain_db.txt
+  run_once: true 
+  become: false

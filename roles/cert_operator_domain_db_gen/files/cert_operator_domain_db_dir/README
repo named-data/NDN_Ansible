@@ -1,0 +1,2 @@
+directory to contain the operator info, domain email and cert for each site to
+build a db that can be sent to ndncert.named-data.net for use there.
