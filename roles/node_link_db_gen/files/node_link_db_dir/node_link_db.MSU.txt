@@ -4,7 +4,7 @@ MSU hr_angle: 3.64135462555
 link: MSU - PKUSZ cost: 71
 link: MSU - SRRU cost: 3
 link: MSU - UCLA cost: 150
-link: MSU - UUM cost: 100
+link: MSU - UUM cost: 26
 link: MSU - TNO cost: 120
 link: MSU - ANYANG cost: 70
 

@@ -5,7 +5,7 @@ link: OSAKA - PKUSZ cost: 63
 link: OSAKA - WASEDA cost: 5
 link: OSAKA - SRRU cost: 67
 link: OSAKA - TONGJI cost: 63
-link: OSAKA - UUM cost: 100
+link: OSAKA - UUM cost: 42
 link: OSAKA - CNIC cost: 45
 link: OSAKA - GOETTINGEN cost: 136
 link: OSAKA - ANYANG cost: 36

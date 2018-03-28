@@ -1,7 +1,7 @@
 node: AFA
 AFA hr_radius: 10.3354428445
 AFA hr_angle: 1.12640207075
-link: AFA - MUMBAI_AWS cost: 100
+link: AFA - MUMBAI_AWS cost: 72
 link: AFA - BERN cost: 15
 link: AFA - CAGLIARI cost: 25
 link: AFA - PADUA cost: 11
@@ -25,7 +25,7 @@ link: ARIZONA - CAIDA cost: 25
 link: ARIZONA - REMAP cost: 25
 link: ARIZONA - WASEDA cost: 75
 link: ARIZONA - BYU cost: 30
-link: ARIZONA - UASLP cost: 100
+link: ARIZONA - UASLP cost: 32
 link: ARIZONA - WU cost: 33
 link: ARIZONA - CSU cost: 18
 link: ARIZONA - MEMPHIS cost: 17
@@ -71,12 +71,12 @@ link: BYU - ARIZONA cost: 30
 
 node: CAGLIARI
 CAGLIARI hr_radius: 13.5903793307
-CAGLIARI hr_angle: 1.1393442623
+CAGLIARI hr_angle: 1.139344
 link: CAGLIARI - URJC cost: 28
 link: CAGLIARI - CARUNA cost: 40
 link: CAGLIARI - PADUA cost: 25
 link: CAGLIARI - AFA cost: 25
-link: CAGLIARI - WU cost: 100
+link: CAGLIARI - WU cost: 75
 
 node: CAIDA
 CAIDA hr_radius: 17.6030443241
@@ -199,16 +199,16 @@ MSU hr_angle: 3.64135462555
 link: MSU - PKUSZ cost: 71
 link: MSU - SRRU cost: 3
 link: MSU - UCLA cost: 150
-link: MSU - UUM cost: 100
+link: MSU - UUM cost: 26
 link: MSU - TNO cost: 120
 link: MSU - ANYANG cost: 70
 
 node: MUMBAI_AWS
 MUMBAI_AWS hr_radius: 12.8934676597
 MUMBAI_AWS hr_angle: 2.95081967213
-link: MUMBAI_AWS - UUM cost: 100
+link: MUMBAI_AWS - UUM cost: 88
 link: MUMBAI_AWS - WU cost: 122
-link: MUMBAI_AWS - AFA cost: 100
+link: MUMBAI_AWS - AFA cost: 72
 
 node: NEU
 NEU hr_radius: 19.9001283692
@@ -241,7 +241,7 @@ link: OSAKA - PKUSZ cost: 63
 link: OSAKA - WASEDA cost: 5
 link: OSAKA - SRRU cost: 67
 link: OSAKA - TONGJI cost: 63
-link: OSAKA - UUM cost: 100
+link: OSAKA - UUM cost: 42
 link: OSAKA - CNIC cost: 45
 link: OSAKA - GOETTINGEN cost: 136
 link: OSAKA - ANYANG cost: 36
@@ -287,7 +287,7 @@ link: SRRU - PKUSZ cost: 71
 link: SRRU - INDONESIA cost: 32
 link: SRRU - OSAKA cost: 67
 link: SRRU - BUPT cost: 72
-link: SRRU - UUM cost: 100
+link: SRRU - UUM cost: 42
 link: SRRU - ANYANG cost: 57
 link: SRRU - MSU cost: 3
 
@@ -322,7 +322,7 @@ node: UASLP
 UASLP hr_radius: 19.0473935894
 UASLP hr_angle: 2.96488127257
 link: UASLP - UFPA cost: 100
-link: UASLP - ARIZONA cost: 100
+link: UASLP - ARIZONA cost: 32
 link: UASLP - MEMPHIS cost: 100
 
 node: UCI
@@ -374,11 +374,11 @@ link: URJC - CAGLIARI cost: 28
 node: UUM
 UUM hr_radius: 14.8351249127
 UUM hr_angle: 3.44434857636
-link: UUM - SRRU cost: 100
-link: UUM - MUMBAI_AWS cost: 100
-link: UUM - MSU cost: 100
+link: UUM - SRRU cost: 42
+link: UUM - MUMBAI_AWS cost: 88
+link: UUM - MSU cost: 26
 link: UUM - INDONESIA cost: 100
-link: UUM - OSAKA cost: 100
+link: UUM - OSAKA cost: 42
 
 node: WASEDA
 WASEDA hr_radius: 19.3583257472
@@ -399,6 +399,6 @@ link: WU - URJC cost: 86
 link: WU - MUMBAI_AWS cost: 122
 link: WU - UIUC cost: 9
 link: WU - ARIZONA cost: 33
-link: WU - CAGLIARI cost: 100
+link: WU - CAGLIARI cost: 75
 link: WU - MEMPHIS cost: 17
 

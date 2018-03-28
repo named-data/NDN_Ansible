@@ -5,7 +5,7 @@ link: ARIZONA - CAIDA cost: 25
 link: ARIZONA - REMAP cost: 25
 link: ARIZONA - WASEDA cost: 75
 link: ARIZONA - BYU cost: 30
-link: ARIZONA - UASLP cost: 100
+link: ARIZONA - UASLP cost: 32
 link: ARIZONA - WU cost: 33
 link: ARIZONA - CSU cost: 18
 link: ARIZONA - MEMPHIS cost: 17

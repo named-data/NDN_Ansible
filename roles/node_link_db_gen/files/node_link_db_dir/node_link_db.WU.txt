@@ -5,6 +5,6 @@ link: WU - URJC cost: 86
 link: WU - MUMBAI_AWS cost: 122
 link: WU - UIUC cost: 9
 link: WU - ARIZONA cost: 33
-link: WU - CAGLIARI cost: 100
+link: WU - CAGLIARI cost: 75
 link: WU - MEMPHIS cost: 17
 
