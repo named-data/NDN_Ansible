@@ -1,6 +1,12 @@
 "OSAKA": {
-"operator_name": "Yuki Koizumi",
-"operator_email": "ykoizumi@ist.osaka-u.ac.jp",
-"site_email_domain": "@ist.osaka-u.ac.jp",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "ykoizumi@ist.osaka-u.ac.jp",
+    "key": "...",
+    "name": "Yuki Koizumi",
+    "site_emails": ["ist.osaka-u.ac.jp"],
+    "site_name": "Osaka University, Japan",
+    "site_prefix": "/ndn/jp/ac/osaka-u",
 "cert": "Bv0B+wc0CANuZG4IAmpwCAJhYwgHb3Nha2EtdQgDS0VZCAgxBihnDaGdCwgCTkEICf0AAAFiIb2PhBQJGAECGQQANu6AFf0BJjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANPIRb3goItudeh9MvnynomDKYvrZVXLDcGu+QPPliLDUgGvKCKzIRX0/iXIEyM12Lhbg2Ih8Xf5Pxi4UpWu6SzT6sMGVAzMIWFlWfQNR97fe0lDDn2z7hBtvj/U/sAkxJkFfwffo5pe10NaZvAx9AwawLdqhmZYjsrmaBeNaGBebsgu6wxwQfyGrW/3noeOiYPViN4M3M+QjvIl/2wh43kAS9HG4L5wFBgegbfPXwQhkOU/e0nxp9uOrmEsRzV43hMD8y/kpSNQLgecwmEDXPksQFWQIqyvTer52Qd3DsrhA3FCmkNDyNEXQr9Cr1HEGLgGiZUvli4zbLVyhKTBGscCAwEAARZFGwEDHBYHFAgDbmRuCANLRVkICGWdf6XFgRB9/QD9Jv0A/g8yMDE4MDMxM1QwMDAwMDD9AP8PMjAxOTAzMTNUMDAwMDAwF0cwRQIhAKb9vAGca6KGRkyVAP90/OQ94kp+Qe1ra6t2E+pLNJmIAiAUqtbeu4xgRYB8aqzjonYXFssG5xr0roEpWxbnXe/8Qw=="
  }

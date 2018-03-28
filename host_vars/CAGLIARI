@@ -10,7 +10,7 @@ advertised_prefixes: [/ndn/it/unica]
 routable_prefixes: [/ndn/it/unica]
 router_name: lumiere 
 neighbors:
-  CARUNA: {link_cost: 40}
+  CORUNA: {link_cost: 40}
   PADUA: {link_cost: 25}
   AFA: {link_cost: 25}
   URJC: {link_cost: 28}
@@ -24,4 +24,8 @@ supports_guest_certs: True
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Cristian Perra"
 operator_email: cperra@ieee.org
-site_email_domain: "@unica.it"
+site_email_domain: "unica.it"
+allowGuests: false
+doNotSendOpRequests: false
+doNotSendOpRequestsForGuests: true
+site_name: "Universita degli studi di Cagliari"

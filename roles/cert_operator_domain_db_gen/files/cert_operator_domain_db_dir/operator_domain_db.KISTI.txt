@@ -1,4 +1,10 @@
 "KISTI": {
-"operator_name": "Alexander Ni",
-"operator_email": "alexni1992@gmail.com",
-"site_email_domain": "@kisti.re.kr",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "alexni1992@gmail.com",
+    "key": "...",
+    "name": "Alexander Ni",
+    "site_emails": "kisti.re.kr",
+    "site_name": "Korea Institute of Science and Technology Information (KISTI)",
+    "site_prefix": "/ndn/kr/re/kisti",

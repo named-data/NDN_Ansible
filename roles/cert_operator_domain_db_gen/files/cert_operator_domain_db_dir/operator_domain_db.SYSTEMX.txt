@@ -1,4 +1,10 @@
 "SYSTEMX": {
-"operator_name": "Luca Muscariello",
-"operator_email": "luca.muscariello@irt-systemx.fr",
-"site_email_domain": "@irt-systemx.fr",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "luca.muscariello@irt-systemx.fr",
+    "key": "...",
+    "name": "Luca Muscariello",
+    "site_emails": ["irt-systemx.fr"],
+    "site_name": "Institute for Technological Research SystemX",
+    "site_prefix": "/ndn/fr/irt-systemx",

@@ -25,4 +25,8 @@ hr_angle: 3.63761863675582
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Thongchai Chuachan "
 operator_email: thongchai.c@srru.ac.th
-site_email_domain: "@srru.ac.th"
+site_email_domain: ["srru.ac.th"]
+allowGuests: false
+doNotSendOpRequests: false
+doNotSendOpRequestsForGuests: true
+site_name: "Surindra Rajabhat University, Thailand"

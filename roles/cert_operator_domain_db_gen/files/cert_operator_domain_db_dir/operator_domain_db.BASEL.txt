@@ -1,4 +1,10 @@
 "BASEL": {
-"operator_name": "Urs Schnurrenberger",
-"operator_email": "urs.schnurrenberger@unibas.ch",
-"site_email_domain": "@unibas.ch",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "urs.schnurrenberger@unibas.ch",
+    "key": "...",
+    "name": "Urs Schnurrenberger",
+    "site_emails": ["unibas.ch"],
+    "site_name": "University of Basel, Switzerland",
+    "site_prefix": "/ndn/ch/unibas",

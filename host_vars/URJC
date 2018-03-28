@@ -10,7 +10,7 @@ advertised_prefixes: [/ndn/es/urjc]
 routable_prefixes: [/ndn/es/urjc]
 router_name: insula 
 neighbors: 
-  CARUNA: {link_cost: 17}
+  CORUNA: {link_cost: 17}
   CAGLIARI: {link_cost: 28}
   MINHO: {link_cost: 13}
   COPELABS: {link_cost: 13}
@@ -26,4 +26,8 @@ hr_angle: 1.17169974115617
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Pedro de las Heras Quiros"
 operator_email: pheras@gsyc.es
-site_email_domain: "@urjc.es @alumnos.urjc.es"
+site_email_domain: ["urjc.es", "alumnos.urjc.es"]
+allowGuests: false
+doNotSendOpRequests: false
+doNotSendOpRequestsForGuests: true
+site_name: "Universidad Rey Juan Carlos, Spain"

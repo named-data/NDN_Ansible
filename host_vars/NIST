@@ -19,4 +19,8 @@ hr_angle: 2.97670405522002
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Charif Mahmoudi"
 operator_email: charif.mahmoudi@nist.gov
-site_email_domain: "@nist.gov"
+site_email_domain: ["nist.gov"]
+allowGuests: false
+doNotSendOpRequests: false
+doNotSendOpRequestsForGuests: true
+site_name: "National Institute of Standards and Technology (NIST)"

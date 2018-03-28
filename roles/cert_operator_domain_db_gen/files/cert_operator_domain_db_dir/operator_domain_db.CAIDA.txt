@@ -1,4 +1,10 @@
 "CAIDA": {
-"operator_name": "Dan Andersen",
-"operator_email": "dea@caida.org",
-"site_email_domain": "@caida.org",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "dea@caida.org",
+    "key": "...",
+    "name": "Dan Andersen",
+    "site_emails": "caida.org",
+    "site_name": "Center for Applied Internet Data Analysis (CAIDA)",
+    "site_prefix": "/ndn/org/caida",

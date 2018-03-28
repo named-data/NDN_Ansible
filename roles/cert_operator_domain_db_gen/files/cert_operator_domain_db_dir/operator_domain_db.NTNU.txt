@@ -1,4 +1,10 @@
 "NTNU": {
-"operator_name": "Pål S. Sæther ",
-"operator_email": "palss@ntnu.no",
-"site_email_domain": "@ntnu.no @stud.ntnu.no",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "palss@ntnu.no",
+    "key": "...",
+    "name": "Pål S. Sæther ",
+    "site_emails": ["ntnu.no", "stud.ntnu.no"],
+    "site_name": "Norwegian University of Science and Technology (NTNU), Norway",
+    "site_prefix": "/ndn/no/ntnu",

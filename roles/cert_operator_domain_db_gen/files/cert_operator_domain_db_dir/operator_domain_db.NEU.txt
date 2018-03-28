@@ -1,4 +1,10 @@
 "NEU": {
-"operator_name": "Ran Liu",
-"operator_email": "liuranapply@gmail.com",
-"site_email_domain": "@neu.edu",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "liuranapply@gmail.com",
+    "key": "...",
+    "name": "Ran Liu",
+    "site_emails": ["neu.edu"],
+    "site_name": "Northeastern University",
+    "site_prefix": "/ndn/edu/neu",

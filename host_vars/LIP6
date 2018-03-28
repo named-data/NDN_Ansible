@@ -26,4 +26,8 @@ supports_guest_certs: True
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Davide Pesavento"
 operator_email: davide.pesavento@lip6.fr
-site_email_domain: "@lip6.fr"
+site_email_domain: "lip6.fr"
+allowGuests: false
+doNotSendOpRequests: false
+doNotSendOpRequestsForGuests: true
+site_name: "Laboratorie d'Informatique de Paris 6 (LIP6), Pierre et Marie Curie University, France"

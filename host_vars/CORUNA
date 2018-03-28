@@ -1,6 +1,6 @@
 ---
 
-# file: host_vars/CARUNA
+# file: host_vars/CORUNA
 ansible_host: 193.144.50.247
 ethernet_device: eth0
 site: /es/udc
@@ -23,4 +23,8 @@ supports_guest_certs: True
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Manuel Suárez Albela"
 operator_email: manuel.suarez.albela@gtec.udc.es
-site_email_domain: "@udc.es @gtec.udc.es"
+site_email_domain: ["udc.es", "gtec.udc.es"]
+allowGuests: false
+doNotSendOpRequests: false
+doNotSendOpRequestsForGuests: true
+site_name: "Universidade da Coruna (CORUNA)"

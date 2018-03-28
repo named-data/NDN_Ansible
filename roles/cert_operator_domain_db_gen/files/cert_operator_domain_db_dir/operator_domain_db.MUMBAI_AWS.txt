@@ -1,4 +1,10 @@
 "MUMBAI_AWS": {
-"operator_name": "John DeHart",
-"operator_email": "jdd@wustl.edu",
-"site_email_domain": "",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "jdd@wustl.edu",
+    "key": "...",
+    "name": "John DeHart",
+    "site_emails": "",
+    "site_name": "MUMBAI AWS",
+    "site_prefix": "/ndn/aws/mumbai",

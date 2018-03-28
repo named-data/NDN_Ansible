@@ -24,4 +24,8 @@ hr_angle: 3.0763589301121700
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Junfu Zhou"
 operator_email: zoubupt@foxmail.com
-site_email_domain: "@bupt.edu.cn"
+site_email_domain: ["bupt.edu.cn"]
+allowGuests: false
+doNotSendOpRequests: false
+doNotSendOpRequestsForGuests: true
+site_name: "Beijing University of Posts and Telecommunications, China"

@@ -1,4 +1,10 @@
 "UCLA": {
-"operator_name": "Alex Afanasyev",
-"operator_email": "alexander.afanasyev@ucla.edu",
-"site_email_domain": "@ucla.edu",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "alexander.afanasyev@ucla.edu",
+    "key": "...",
+    "name": "Alex Afanasyev",
+    "site_emails": ["ucla.edu", "cs.ucla.edu", "engineering.ucla.edu"],
+    "site_name": "University of California, Los Angeles",
+    "site_prefix": "/ndn/edu/ucla",

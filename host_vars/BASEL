@@ -27,4 +27,8 @@ hr_angle: 2.41932
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Urs Schnurrenberger"
 operator_email: urs.schnurrenberger@unibas.ch 
-site_email_domain: "@unibas.ch"
+site_email_domain: ["unibas.ch"]
+allowGuests: false
+doNotSendOpRequests: false
+doNotSendOpRequestsForGuests: true
+site_name: "University of Basel, Switzerland"

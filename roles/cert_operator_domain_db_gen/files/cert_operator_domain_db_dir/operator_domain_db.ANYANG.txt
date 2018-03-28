@@ -1,4 +1,10 @@
 "ANYANG": {
-"operator_name": "Euihyun Jung",
-"operator_email": "jung@anyang.ac.kr",
-"site_email_domain": "@anyang.ac.kr",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "jung@anyang.ac.kr",
+    "key": "...",
+    "name": "Euihyun Jung",
+    "site_emails": ["anyang.ac.kr"],
+    "site_name": "Anyang University, South Korea",
+    "site_prefix": "/ndn/kr/anyang",

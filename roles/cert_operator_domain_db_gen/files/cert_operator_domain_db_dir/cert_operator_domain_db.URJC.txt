@@ -1,6 +1,12 @@
 "URJC": {
-"operator_name": "Pedro de las Heras Quiros",
-"operator_email": "pheras@gsyc.es",
-"site_email_domain": "@urjc.es @alumnos.urjc.es",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "pheras@gsyc.es",
+    "key": "...",
+    "name": "Pedro de las Heras Quiros",
+    "site_emails": ["urjc.es", "alumnos.urjc.es"],
+    "site_name": "Universidad Rey Juan Carlos, Spain",
+    "site_prefix": "/ndn/es/urjc",
 "cert": "Bv0B9ActCANuZG4IAmVzCAR1cmpjCANLRVkICDjSWfFMomRNCAJOQQgJ/QAAAWIhvZElFAkYAQIZBAA27oAV/QEmMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7KZ4JdLbuVbxnL/JWxCKDD2wvYJeWk3mQgU/6PmNwT3u8lfV8nZUahS9GG5VFUoJMLZJv+KqbrilY1wAnX4rOKTSyFQ2SdQW4YrQ3mNoVHdod8bWS6IPi6+d+xprkr+b5TpIrbjJXPK0H0T4fsBk8gwwobXZvMM+EENn9QqaDriA/4ToZqvQmw7oEp46gEkW9OYqdMa3MEti8yfz7QtidMI3oTHn4BFqWAJXi+mAplQ5dt8pH+wtAybIKmjmoAFWgaSb4fkbqiRgakhMFBrkHXU3fsbUrW8uiWgdIit9WFVcPk0v29cEDXjrLArtBYDlrcdPUoyFpV05COpnaEwJnQIDAQABFkUbAQMcFgcUCANuZG4IA0tFWQgIZZ1/pcWBEH39AP0m/QD+DzIwMTgwMzEzVDAwMDAwMP0A/w8yMDE5MDMxM1QwMDAwMDAXRzBFAiBrLmhYJhHCwbb0bzwWlwE4lHt43qatr0dg/1L2UebZGgIhAOeMihsQIv++X0it3CZsaoih9BfeKtS7see4+RUJXwnE"
  }

@@ -1,6 +1,12 @@
 "WU": {
-"operator_name": "John DeHart",
-"operator_email": "jdd@wustl.edu",
-"site_email_domain": "@wustl.edu",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "jdd@wustl.edu",
+    "key": "...",
+    "name": "John DeHart",
+    "site_emails": ["wustl.edu"],
+    "site_name": "Washington University in St. Louis",
+    "site_prefix": "/ndn/edu/wustl",
 "cert": "Bv0B9wcvCANuZG4IA2VkdQgFd3VzdGwIA0tFWQgIqPNeZPE+mngIAk5BCAn9AAABYiGELQoUCRgBAhkEADbugBX9ASYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC+a+ILk/l5IHUGOvN0yCDHbP5L1CzX4ANKVUoxcgPptIbJSm+dQ7Qzmx6gVxmMvdlXxcFCaVqjum4XFxJD9d7NCnpo8qeaKbGb3HNa9c1g9LJSkQefmo98Hs954BFjz/cWKfJl5FPNaULQvfZEkTO5r6z1cxUQ525CxsMzQfROFbnYLZoapjbdwEM2zOQ0Oaky+i2gaAkrhx1U/d/fruWLANcMDH+wTgEdpsBOCLeMSH1BmAXLtPPHEnmDPaI+EtjaiGAD+nLI6h33DhiWHXYnr2l9YB2rYArCY7BI4gTzja6ywAxrIhPj78pged0SxEwK2vSf+vQHOJy3HAac1Bv3AgMBAAEWRRsBAxwWBxQIA25kbggDS0VZCAhlnX+lxYEQff0A/Sb9AP4PMjAxODAzMTNUMDAwMDAw/QD/DzIwMTkwMzEzVDAwMDAwMBdIMEYCIQCjzDMX9iA2iz+NQhdLcMwCU7b+kxiZosNlHXEUjiHg4QIhAJCckDZcPw/BrcKOP7zM+Uyy+KtErzYjmA6W39sfviou"
  }

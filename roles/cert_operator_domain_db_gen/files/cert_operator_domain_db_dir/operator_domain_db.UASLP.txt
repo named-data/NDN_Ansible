@@ -1,4 +1,10 @@
 "UASLP": {
-"operator_name": "David Arjona Villicana",
-"operator_email": "david.arjona@uaslp.mx",
-"site_email_domain": "@uaslp.mx",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "david.arjona@uaslp.mx",
+    "key": "...",
+    "name": "David Arjona Villicana",
+    "site_emails": ["uaslp.mx"],
+    "site_name": "Universidad Autonoma de San Luis Potosi (UASLP)",
+    "site_prefix": "/ndn/mx/uaslp",

@@ -1,4 +1,10 @@
 "BUPT": {
-"operator_name": "Junfu Zhou",
-"operator_email": "zoubupt@foxmail.com",
-"site_email_domain": "@bupt.edu.cn",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "zoubupt@foxmail.com",
+    "key": "...",
+    "name": "Junfu Zhou",
+    "site_emails": ["bupt.edu.cn"],
+    "site_name": "Beijing University of Posts and Telecommunications, China",
+    "site_prefix": "/ndn/cn/edu/bupt",

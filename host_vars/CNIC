@@ -22,4 +22,8 @@ hr_angle: 2.87446074201898
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Shanshan Shi"
 operator_email: shishanshan@cstnet.cn
-site_email_domain: "@cstnet.cn"
+site_email_domain: "cstnet.cn"
+allowGuests: false
+doNotSendOpRequests: false
+doNotSendOpRequestsForGuests: true
+site_name: "Computer Network Information Center (CNIC), Chinese Academy of Science (CAS)"

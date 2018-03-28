@@ -1,4 +1,10 @@
 "NIST": {
-"operator_name": "Charif Mahmoudi",
-"operator_email": "charif.mahmoudi@nist.gov",
-"site_email_domain": "@nist.gov",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "charif.mahmoudi@nist.gov",
+    "key": "...",
+    "name": "Charif Mahmoudi",
+    "site_emails": ["nist.gov"],
+    "site_name": "National Institute of Standards and Technology (NIST)",
+    "site_prefix": "/ndn/gov/nist",

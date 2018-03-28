@@ -1,4 +1,10 @@
 "COPELABS": {
-"operator_name": "Paulo Mendes",
-"operator_email": "p4035@ulusofona.pt",
-"site_email_domain": "@ulosofona.pt",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "p4035@ulusofona.pt",
+    "key": "...",
+    "name": "Paulo Mendes",
+    "site_emails": "ulosofona.pt",
+    "site_name": "Cognition and People-centric Computing Labs (COPELABS), Portugal",
+    "site_prefix": "/ndn/pt/ulusofona/copelabs",

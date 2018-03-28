@@ -1,6 +1,12 @@
 "SYSTEMX": {
-"operator_name": "Luca Muscariello",
-"operator_email": "luca.muscariello@irt-systemx.fr",
-"site_email_domain": "@irt-systemx.fr",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "luca.muscariello@irt-systemx.fr",
+    "key": "...",
+    "name": "Luca Muscariello",
+    "site_emails": ["irt-systemx.fr"],
+    "site_name": "Institute for Technological Research SystemX",
+    "site_prefix": "/ndn/fr/irt-systemx",
 "cert": "Bv0B+gc0CANuZG4IAmZyCAtpcnQtc3lzdGVteAgDS0VZCAgbDUmyM7HNbQgCTkEICf0AAAFiIb2QUBQJGAECGQQANu6AFf0BJjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN8V+j/zzc8FF7a/03tpZK4208698VjPuHbz97SAOFA+P59YLA2Pt9IkUlRBbH5jj4zTJhyQ6sWW5WXvCRwiL3QfdMfDACdfz1sh0UQ/cFUsR3HTAchMLKJffBcvMmyFNaTCZit8Xo7pXuHvQnHu1K8M/HchVmKQcw85Qlbeq063WA8+V65e23se4Rs0do+GLwxz6KFKb4t1uP40Uc0b4hBwqhmZnru0yw9Pof9GHOcIuKAnQ6lz6c81C2Vq8Hz76zannqsKYXDjdFux68EtMfamWeNGe6B3YojQvP+U9k/YHAbN5zqo1ZiyMpiDQTKwVvRu6vvcHoyieF4wqphPrqcCAwEAARZFGwEDHBYHFAgDbmRuCANLRVkICGWdf6XFgRB9/QD9Jv0A/g8yMDE4MDMxM1QwMDAwMDD9AP8PMjAxOTAzMTNUMDAwMDAwF0YwRAIgZhDQr1AYeBFG7Sfcytcw4yWk0U+VndqrAsgeEGyjyJECICdUMDRo2zRfGRKKw+OlSbCrSEyuUj1FqjQaoAUU8m6r"
  }

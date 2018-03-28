@@ -1,4 +1,10 @@
 "BERN": {
-"operator_name": "Jonnahtan Saltarin",
-"operator_email": "saltarin@inf.unibe.ch",
-"site_email_domain": "@inf.unibe.ch",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "saltarin@inf.unibe.ch",
+    "key": "...",
+    "name": "Jonnahtan Saltarin",
+    "site_emails": ["inf.unibe.ch"],
+    "site_name": "University of Bern, Switzerland",
+    "site_prefix": "/ndn/ch/unibe",

@@ -1,4 +1,10 @@
 "TONGJI": {
-"operator_name": "Rui Qin",
-"operator_email": "13qinrui@tongji.edu.cn",
-"site_email_domain": "@tongji.edu.cn",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "13qinrui@tongji.edu.cn",
+    "key": "...",
+    "name": "Rui Qin",
+    "site_emails": ["tongji.edu.cn"],
+    "site_name": "Tongji University, China",
+    "site_prefix": "/ndn/cn/edu/tongji",

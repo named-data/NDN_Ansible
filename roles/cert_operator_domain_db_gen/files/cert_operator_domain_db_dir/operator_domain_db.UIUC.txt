@@ -1,4 +1,10 @@
 "UIUC": {
-"operator_name": "Jongdeog Lee (JD)",
-"operator_email": "jlee700@illinois.edu",
-"site_email_domain": "@illinois.edu",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "jlee700@illinois.edu",
+    "key": "...",
+    "name": "Jongdeog Lee (JD)",
+    "site_emails": ["illinois.edu"],
+    "site_name": "University of Illinois",
+    "site_prefix": "/ndn/edu/illinois",

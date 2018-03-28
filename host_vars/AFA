@@ -22,4 +22,8 @@ hr_angle: 1.1264020707506500
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Gianmichele Russi"
 operator_email: russi@afasystems.it
-site_email_domain: "@afasystems.it"
+site_email_domain: ["afasystems.it"]
+allowGuests: false
+doNotSendOpRequests: false
+doNotSendOpRequestsForGuests: true
+site_name: "AFA Systems, Italy"

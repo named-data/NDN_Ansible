@@ -19,4 +19,8 @@ hr_angle: 3.77334112452928
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Jeff Andersen"
 operator_email: andersen@isrl.byu.edu
-site_email_domain: "i@byu.edu   @isrl.byu.edu"
+site_email_domain: ["byu.edu", "isrl.byu.edu"]
+allowGuests: false
+doNotSendOpRequests: false
+doNotSendOpRequestsForGuests: true
+site_name: "Brigham Young University"

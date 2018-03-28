@@ -26,4 +26,8 @@ hr_angle: 2.99935233160622
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Xiabo Li"
 operator_email: lxb385@fuji.waseda.jp
-site_email_domain: "@waseda.jp @fuji.waseda.jp"
+site_email_domain: ["waseda.jp", "fuji.waseda.jp"]
+allowGuests: false
+doNotSendOpRequests: false
+doNotSendOpRequestsForGuests: true
+site_name: "Waseda University, Tokyo, Japan"

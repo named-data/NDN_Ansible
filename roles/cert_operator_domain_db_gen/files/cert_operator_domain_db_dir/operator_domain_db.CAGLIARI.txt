@@ -1,4 +1,10 @@
 "CAGLIARI": {
-"operator_name": "Cristian Perra",
-"operator_email": "cperra@ieee.org",
-"site_email_domain": "@unica.it",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "cperra@ieee.org",
+    "key": "...",
+    "name": "Cristian Perra",
+    "site_emails": "unica.it",
+    "site_name": "Universita degli studi di Cagliari",
+    "site_prefix": "/ndn/it/unica",

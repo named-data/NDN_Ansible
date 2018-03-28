@@ -1,4 +1,10 @@
 "MEMPHIS": {
-"operator_name": "Ashlesh Gawande",
-"operator_email": "agawande@memphis.edu",
-"site_email_domain": "@memphis.edu",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "agawande@memphis.edu",
+    "key": "...",
+    "name": "Ashlesh Gawande",
+    "site_emails": "memphis.edu",
+    "site_name": "The University of Memphis",
+    "site_prefix": "/ndn/edu/memphis",

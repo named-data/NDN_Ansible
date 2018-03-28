@@ -1,4 +1,10 @@
 "ARIZONA": {
-"operator_name": "Teng Liang",
-"operator_email": "philoliang2011@gmail.com",
-"site_email_domain": "@cs.arizona.edu",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "philoliang2011@gmail.com",
+    "key": "...",
+    "name": "Teng Liang",
+    "site_emails": ["cs.arizona.edu", "email.arizona.edu", "cs.arizona.edu"],
+    "site_name": "The University of Arizona",
+    "site_prefix": "/ndn/edu/arizona",

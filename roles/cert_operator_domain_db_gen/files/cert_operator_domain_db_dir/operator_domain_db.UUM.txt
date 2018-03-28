@@ -1,4 +1,10 @@
 "UUM": {
-"operator_name": "Athirah Rosli",
-"operator_email": "athirah.rosli58@gmail.com",
-"site_email_domain": "@uum.edu.my",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "athirah.rosli58@gmail.com",
+    "key": "...",
+    "name": "Athirah Rosli",
+    "site_emails": ["uum.edu.my"],
+    "site_name": "Universiti Utara Malaysia (UUM)",
+    "site_prefix": "/ndn/my/edu/uum",

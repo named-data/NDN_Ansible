@@ -1,6 +1,12 @@
 "CAGLIARI": {
-"operator_name": "Cristian Perra",
-"operator_email": "cperra@ieee.org",
-"site_email_domain": "@unica.it",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "cperra@ieee.org",
+    "key": "...",
+    "name": "Cristian Perra",
+    "site_emails": "unica.it",
+    "site_name": "Universita degli studi di Cagliari",
+    "site_prefix": "/ndn/it/unica",
 "cert": "Bv0B9QcuCANuZG4IAml0CAV1bmljYQgDS0VZCAhTB8M2QOM59wgCTkEICf0AAAFiJQry0BQJGAECGQQANu6AFf0BJjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANPCC6EHIbvaN5Dlb7BPaFt4G6y8ipeitow+HChJkOxb/NQ5CtypdViNnFsDHMCJ+wwp19KKcf7SJLUlyJlhTWfiTBxRkFWiMHDGC0K8WGyJkCgDrJZqtvXD+r+WdF8ObqhoCkyNSC0nVCPEtOfrwaCKWfWV5Di1ZSIFKLvyzFH4U1Y4fU22xuY5/DviEiaBiwRbsyXKTZkE0IrYnp4RLHJCMJnhn81f9fj5IXDyRR0adnMqdKvwtlD4rjWdU5VI7t+AA5W05y0jBdj8Ze0tMXsjPBAHdC02FK6OU0MSgQyseYtKGDzK7/7rTaNyPG8JoCRVJqgYzXPWmsnWnK+gH50CAwEAARZFGwEDHBYHFAgDbmRuCANLRVkICGWdf6XFgRB9/QD9Jv0A/g8yMDE4MDMxNFQwMDAwMDD9AP8PMjAxOTAzMTRUMDAwMDAwF0cwRQIhANhKrVdskxsh+DITfV7zLfAQPvefaKs3N4N96JkJniOvAiAY0TuUVFf0f5Mtbk5V007joxg4se+s84KrbcCSFmhnFQ=="
  }

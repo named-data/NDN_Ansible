@@ -1,4 +1,10 @@
 "OSAKA": {
-"operator_name": "Yuki Koizumi",
-"operator_email": "ykoizumi@ist.osaka-u.ac.jp",
-"site_email_domain": "@ist.osaka-u.ac.jp",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "ykoizumi@ist.osaka-u.ac.jp",
+    "key": "...",
+    "name": "Yuki Koizumi",
+    "site_emails": ["ist.osaka-u.ac.jp"],
+    "site_name": "Osaka University, Japan",
+    "site_prefix": "/ndn/jp/ac/osaka-u",

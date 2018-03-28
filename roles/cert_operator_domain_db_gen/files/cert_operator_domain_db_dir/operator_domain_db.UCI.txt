@@ -1,4 +1,10 @@
 "UCI": {
-"operator_name": "Cesar Ghali",
-"operator_email": "cghali@uci.edu",
-"site_email_domain": "@uci.edu",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "cghali@uci.edu",
+    "key": "...",
+    "name": "Cesar Ghali",
+    "site_emails": ["uci.edu"],
+    "site_name": "University of California, Irvine",
+    "site_prefix": "/ndn/edu/uci",

@@ -28,3 +28,6 @@ ndn_tools_version: ndn-tools-0.4
 #nfd_version: 0.5.0-45-g890afe9
 #ndn_cxx_version: 0.5.0-24-g8ac8754
 #nlsr_version: 0.3.0-17-g4439523
+allowGuests: false
+doNotSendOpRequests: false
+doNotSendOpRequestsForGuests: true

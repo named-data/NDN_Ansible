@@ -24,4 +24,8 @@ hr_angle: 2.8701600000
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Xuewei Piao"
 operator_email: puxueweiwei@163.com
-site_email_domain: "@pkusz.edu.cn"
+site_email_domain: ["pkusz.edu.cn"]
+allowGuests: false
+doNotSendOpRequests: false
+doNotSendOpRequestsForGuests: true
+site_name: "PKU Shenzhen Graduate School"

@@ -1,4 +1,10 @@
 "WASEDA": {
-"operator_name": "Xiabo Li",
-"operator_email": "lxb385@fuji.waseda.jp",
-"site_email_domain": "@waseda.jp @fuji.waseda.jp",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "lxb385@fuji.waseda.jp",
+    "key": "...",
+    "name": "Xiabo Li",
+    "site_emails": ["waseda.jp", "fuji.waseda.jp"],
+    "site_name": "Waseda University, Tokyo, Japan",
+    "site_prefix": "/ndn/jp/waseda",

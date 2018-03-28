@@ -1,4 +1,10 @@
 "TNO": {
-"operator_name": "Bastiaan Wissingh",
-"operator_email": "bastiaan.wissingh@tno.nl",
-"site_email_domain": "@tno.nl",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "bastiaan.wissingh@tno.nl",
+    "key": "...",
+    "name": "Bastiaan Wissingh",
+    "site_emails": ["tno.nl"],
+    "site_name": "Netherlands Organisation for Applied Scientific Research, Netherlands",
+    "site_prefix": "/ndn/nl/tno",

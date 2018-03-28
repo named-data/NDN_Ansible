@@ -1,6 +1,12 @@
 "UUM": {
-"operator_name": "Athirah Rosli",
-"operator_email": "athirah.rosli58@gmail.com",
-"site_email_domain": "@uum.edu.my",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "athirah.rosli58@gmail.com",
+    "key": "...",
+    "name": "Athirah Rosli",
+    "site_emails": ["uum.edu.my"],
+    "site_name": "Universiti Utara Malaysia (UUM)",
+    "site_prefix": "/ndn/my/edu/uum",
 "cert": "Bv0B9wcxCANuZG4IAm15CANlZHUIA3V1bQgDS0VZCAi4nVMk1lUr8AgCTkEICf0AAAFiIb2RWRQJGAECGQQANu6AFf0BJjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOn5NQqDrCV0jBHmWfI95FSih8h0cg8vYsmpgG1Z4EDoSISl0WI50L/U6VLvf1VdK8Gx/s6V7XG6rCejpVTnwNL8yv5BgMkMYGdJYaeNEv09Sdfp0CjFK0Ie6K0tMo6GiiFkGMgFEafXq7BWIG4xH148agRJIDgTqGwettaelZMggDcWQosUtT2UeMu6+ePLnIDP52xu0sAEtQ8Pwdu9v7axkGo+wg/LdPRwm2wa7YjnTyey9MeUhjLz5zvkDNQgx44Jb5KHtnIjDbVoIOHW/hlSJKmOgZR2eMDHN76sYHFnd8uf1+YmqS9yjLEDa/PcYROWt82R2HFR/txc7Jm+BZcCAwEAARZFGwEDHBYHFAgDbmRuCANLRVkICGWdf6XFgRB9/QD9Jv0A/g8yMDE4MDMxM1QwMDAwMDD9AP8PMjAxOTAzMTNUMDAwMDAwF0YwRAIgQ6NRXGQfSpfMHUdDmRE7NtFpbCGiE82cSNduZ6knYrUCIFLHnRUGuNPnJBCevnbysndlg+qkAmX+SfIJFEphGPbb"
  }

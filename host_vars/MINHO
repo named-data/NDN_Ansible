@@ -9,7 +9,7 @@ advertised_prefixes: [/ndn/pt/uminho]
 routable_prefixes: [/ndn/pt/uminho]
 router_name: vnetlab 
 neighbors: 
-  CARUNA: {link_cost: 27}
+  CORUNA: {link_cost: 27}
   COPELABS: {link_cost: 4}
   BASEL: {link_cost: 23}
   URJC: {link_cost: 13}
@@ -22,4 +22,8 @@ hr_angle: 2.62083
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Ertugrul Dogruluk"
 operator_email: id5540@alunos.uminho.pt
-site_email_domain: "@di.minho.pt @alunos.uminho.pt"
+site_email_domain: ["di.minho.pt", "alunos.uminho.pt"]
+allowGuests: false
+doNotSendOpRequests: false
+doNotSendOpRequestsForGuests: true
+site_name: "University of Mihno, Portugal"

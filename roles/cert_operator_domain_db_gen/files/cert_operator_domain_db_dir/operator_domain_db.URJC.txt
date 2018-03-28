@@ -1,4 +1,10 @@
 "URJC": {
-"operator_name": "Pedro de las Heras Quiros",
-"operator_email": "pheras@gsyc.es",
-"site_email_domain": "@urjc.es @alumnos.urjc.es",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "pheras@gsyc.es",
+    "key": "...",
+    "name": "Pedro de las Heras Quiros",
+    "site_emails": ["urjc.es", "alumnos.urjc.es"],
+    "site_name": "Universidad Rey Juan Carlos, Spain",
+    "site_prefix": "/ndn/es/urjc",

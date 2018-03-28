@@ -1,4 +1,10 @@
 "PKUSZ": {
-"operator_name": "Xuewei Piao",
-"operator_email": "puxueweiwei@163.com",
-"site_email_domain": "@pkusz.edu.cn",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "puxueweiwei@163.com",
+    "key": "...",
+    "name": "Xuewei Piao",
+    "site_emails": ["pkusz.edu.cn"],
+    "site_name": "PKU Shenzhen Graduate School",
+    "site_prefix": "/ndn/cn/edu/pkusz",

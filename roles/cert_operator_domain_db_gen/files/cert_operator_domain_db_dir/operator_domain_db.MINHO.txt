@@ -1,4 +1,10 @@
 "MINHO": {
-"operator_name": "Ertugrul Dogruluk",
-"operator_email": "id5540@alunos.uminho.pt",
-"site_email_domain": "@di.minho.pt @alunos.uminho.pt",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "id5540@alunos.uminho.pt",
+    "key": "...",
+    "name": "Ertugrul Dogruluk",
+    "site_emails": ["di.minho.pt", "alunos.uminho.pt"],
+    "site_name": "University of Mihno, Portugal",
+    "site_prefix": "/ndn/pt/uminho",

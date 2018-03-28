@@ -1,6 +1,12 @@
 "LIP6": {
-"operator_name": "Davide Pesavento",
-"operator_email": "davide.pesavento@lip6.fr",
-"site_email_domain": "@lip6.fr",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "davide.pesavento@lip6.fr",
+    "key": "...",
+    "name": "Davide Pesavento",
+    "site_emails": "lip6.fr",
+    "site_name": "Laboratorie d'Informatique de Paris 6 (LIP6), Pierre et Marie Curie University, France",
+    "site_prefix": "/ndn/fr/lip6",
 "cert": "Bv0B8wctCANuZG4IAmZyCARsaXA2CANLRVkICPcQtXFl7imVCAJOQQgJ/QAAAWIiAToJFAkYAQIZBAA27oAV/QEmMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAukw4btktEH1Ookww0FHWQcX2l9sj6QvwctfqP635eFsDBOAxKx+bMS5i4XVMQ7Fh6xA4cOLRBeif9FrxWzdF9fTtsDQf/um1Dji2rlLtj3/T9E6hImWuhAmVA1iGeCpvdj2kvBwL0rZSOnLJX1IKDqOs7XSGBKAWEs0H0p3VG8JKxIF/lvxCk3W9g3mK9UUoWyG76Too5xJCq80lAiM2sggOUaOOPd6zvwlDK1yinV0xyKhdF71lMYn1bxlV384MeNtSwtHpCwQAIw0npK/Z44NdlotEGb1YXM1izBcQxft6hCjMnLCTUax+jzwP5U1wNRn1dUi531IRrawGInrvIQIDAQABFkUbAQMcFgcUCANuZG4IA0tFWQgIZZ1/pcWBEH39AP0m/QD+DzIwMTgwMzEzVDAwMDAwMP0A/w8yMDE5MDMxM1QwMDAwMDAXRjBEAiA7Y8MWyscVKMCaHMr2O29KZZnoPiZCxWNZ2P5RHZEuzgIgaywNk2G4ZD14prnEoY8w7gAgKFJ+r35uCKlX1fwa6K8="
  }

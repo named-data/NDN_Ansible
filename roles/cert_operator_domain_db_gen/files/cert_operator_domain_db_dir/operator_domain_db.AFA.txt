@@ -1,4 +1,10 @@
 "AFA": {
-"operator_name": "Gianmichele Russi",
-"operator_email": "russi@afasystems.it",
-"site_email_domain": "@afasystems.it",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "russi@afasystems.it",
+    "key": "...",
+    "name": "Gianmichele Russi",
+    "site_emails": ["afasystems.it"],
+    "site_name": "AFA Systems, Italy",
+    "site_prefix": "/ndn/it/afasystems",

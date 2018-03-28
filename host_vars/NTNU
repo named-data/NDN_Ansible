@@ -22,4 +22,8 @@ hr_angle: 3.11561691113028
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Pål S. Sæther "
 operator_email: palss@ntnu.no
-site_email_domain: "@ntnu.no @stud.ntnu.no"
+site_email_domain: ["ntnu.no", "stud.ntnu.no"]
+allowGuests: false
+doNotSendOpRequests: false
+doNotSendOpRequestsForGuests: true
+site_name: "Norwegian University of Science and Technology (NTNU), Norway"

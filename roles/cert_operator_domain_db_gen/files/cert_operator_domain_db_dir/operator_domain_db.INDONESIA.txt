@@ -1,4 +1,10 @@
 "INDONESIA": {
-"operator_name": "Yudi A. Phanama",
-"operator_email": "yudi.andrean@ui.ac.id",
-"site_email_domain": "@ui.ac.id",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "yudi.andrean@ui.ac.id",
+    "key": "...",
+    "name": "Yudi A. Phanama",
+    "site_emails": "ui.ac.id",
+    "site_name": "Universitas Indonesia, Indonesia",
+    "site_prefix": "/ndn/id/ac/ui",

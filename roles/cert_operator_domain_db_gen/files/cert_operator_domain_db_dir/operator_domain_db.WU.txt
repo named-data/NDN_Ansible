@@ -1,4 +1,10 @@
 "WU": {
-"operator_name": "John DeHart",
-"operator_email": "jdd@wustl.edu",
-"site_email_domain": "@wustl.edu",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "jdd@wustl.edu",
+    "key": "...",
+    "name": "John DeHart",
+    "site_emails": ["wustl.edu"],
+    "site_name": "Washington University in St. Louis",
+    "site_prefix": "/ndn/edu/wustl",

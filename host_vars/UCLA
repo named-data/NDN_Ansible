@@ -23,4 +23,8 @@ supports_guest_certs: True
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Alex Afanasyev"
 operator_email: alexander.afanasyev@ucla.edu
-site_email_domain: "@ucla.edu"
+site_email_domain: ["ucla.edu", "cs.ucla.edu", "engineering.ucla.edu"]
+allowGuests: false
+doNotSendOpRequests: false
+doNotSendOpRequestsForGuests: true
+site_name: "University of California, Los Angeles"

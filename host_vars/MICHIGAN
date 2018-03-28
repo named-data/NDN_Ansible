@@ -22,4 +22,8 @@ hr_angle: 2.98018269081901
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "J. Alex Halderman"
 operator_email: jhalderm@eecs.umich.edu
-site_email_domain: "@eecs.umich.edu"
+site_email_domain: ["eecs.umich.edu"]
+allowGuests: false
+doNotSendOpRequests: false
+doNotSendOpRequestsForGuests: true
+site_name: "University of Michigan"

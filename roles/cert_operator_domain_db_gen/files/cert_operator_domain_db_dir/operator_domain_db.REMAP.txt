@@ -1,4 +1,10 @@
 "REMAP": {
-"operator_name": "Zhehao Wang",
-"operator_email": "wangzhehao410305@gmail.com",
-"site_email_domain": "@remap.ucla.edu",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "wangzhehao410305@gmail.com",
+    "key": "...",
+    "name": "Zhehao Wang",
+    "site_emails": ["remap.ucla.edu"],
+    "site_name": "The Center for Research in Engineering, Media and Performance (REMAP)",
+    "site_prefix": "/ndn/edu/ucla/remap",

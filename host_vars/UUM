@@ -21,4 +21,8 @@ hr_angle: 3.44434857635893
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Athirah Rosli"
 operator_email: athirah.rosli58@gmail.com
-site_email_domain: "@uum.edu.my"
+site_email_domain: ["uum.edu.my"]
+allowGuests: false
+doNotSendOpRequests: false
+doNotSendOpRequestsForGuests: true
+site_name: "Universiti Utara Malaysia (UUM)"

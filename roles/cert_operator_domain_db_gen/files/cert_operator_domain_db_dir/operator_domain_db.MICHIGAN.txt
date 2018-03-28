@@ -1,4 +1,10 @@
 "MICHIGAN": {
-"operator_name": "J. Alex Halderman",
-"operator_email": "jhalderm@eecs.umich.edu",
-"site_email_domain": "@eecs.umich.edu",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "jhalderm@eecs.umich.edu",
+    "key": "...",
+    "name": "J. Alex Halderman",
+    "site_emails": ["eecs.umich.edu"],
+    "site_name": "University of Michigan",
+    "site_prefix": "/ndn/edu/umich",

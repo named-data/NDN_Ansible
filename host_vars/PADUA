@@ -30,4 +30,8 @@ hr_angle: 1.13934426229508
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Alberto Compagno"
 operator_email: compagno@di.uniroma1.it
-site_email_domain: "@unipd.it"
+site_email_domain: ["unipd.it"]
+allowGuests: false
+doNotSendOpRequests: false
+doNotSendOpRequestsForGuests: true
+site_name: "University of Padua, Italy"

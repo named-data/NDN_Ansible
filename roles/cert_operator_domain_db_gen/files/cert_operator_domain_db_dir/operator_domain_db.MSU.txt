@@ -1,4 +1,10 @@
 "MSU": {
-"operator_name": "Somnuk Puangpronpitag",
-"operator_email": "somnuk.p@msu.ac.th",
-"site_email_domain": "@msu.ac.th",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "somnuk.p@msu.ac.th",
+    "key": "...",
+    "name": "Somnuk Puangpronpitag",
+    "site_emails": ["msu.ac.th"],
+    "site_name": "Mahasarakham University, Thailand",
+    "site_prefix": "/ndn/th/ac/msu",

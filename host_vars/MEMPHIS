@@ -24,4 +24,8 @@ supports_guest_certs: True
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Ashlesh Gawande"
 operator_email: agawande@memphis.edu
-site_email_domain: "@memphis.edu"
+site_email_domain: "memphis.edu"
+allowGuests: false
+doNotSendOpRequests: false
+doNotSendOpRequestsForGuests: true
+site_name: "The University of Memphis"

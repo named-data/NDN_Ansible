@@ -1,4 +1,10 @@
 "PADUA": {
-"operator_name": "Alberto Compagno",
-"operator_email": "compagno@di.uniroma1.it",
-"site_email_domain": "@unipd.it",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "compagno@di.uniroma1.it",
+    "key": "...",
+    "name": "Alberto Compagno",
+    "site_emails": ["unipd.it"],
+    "site_name": "University of Padua, Italy",
+    "site_prefix": "/ndn/it/unipd",

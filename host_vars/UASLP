@@ -23,4 +23,8 @@ supports_guest_certs: True
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "David Arjona Villicana"
 operator_email: david.arjona@uaslp.mx
-site_email_domain: "@uaslp.mx"
+site_email_domain: ["uaslp.mx"]
+allowGuests: false
+doNotSendOpRequests: false
+doNotSendOpRequestsForGuests: true
+site_name: "Universidad Autonoma de San Luis Potosi (UASLP)"

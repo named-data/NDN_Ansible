@@ -1,6 +1,12 @@
 "CSU": {
-"operator_name": "Susmit Shannigrahi",
-"operator_email": "susmit@cs.colostate.edu",
-"site_email_domain": "@colostate.edu",
+    "allowGuests": False,
+    "doNotSendOpRequests": False,
+    "doNotSendOpRequestsForGuests": True,
+    "email": "susmit@cs.colostate.edu",
+    "key": "...",
+    "name": "Susmit Shannigrahi",
+    "site_emails": "colostate.edu",
+    "site_name": "Colorado State University",
+    "site_prefix": "/ndn/edu/colostate",
 "cert": "Bv0B+gczCANuZG4IA2VkdQgJY29sb3N0YXRlCANLRVkICO8i/+fsfUAECAJOQQgJ/QAAAWIhowuuFAkYAQIZBAA27oAV/QEmMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqMUdNKrANHhcmdoAI1VKecLQ7D/BElbXcMFQg2Qb1xKetTyf4sbGIw0BcK0j7+U440Rn7IBYQoyp2SscsmM4xCq6Mj0xnVSttRAfJEoZ3lqn5y8R3efRKsqpFDOKCLW+oAZC1ESUhSu7kcAjJc+IbSk/VuJ81PPAcgEu8HCma0G47Ab0geUgGV+pXqLUiz0xNqjyCT9rkJuqkBNWE+2KpRc/s6kjdegXuV+/LoYKNUBLfU3ukJkp94dp2sq9gsBtkRcCB9yTHFVaX8TfLQQ5huSD5iyCm//RVOcCAmetrl6rpYwwUGSoC7L//MqQMErmP+ECPsIi524TrtWQ5noCoQIDAQABFkUbAQMcFgcUCANuZG4IA0tFWQgIZZ1/pcWBEH39AP0m/QD+DzIwMTgwMzEzVDAwMDAwMP0A/w8yMDE5MDMxM1QwMDAwMDAXRzBFAiAYAEeKu5HTcAjBFCXtX37lZq6Br5cQhED5z83jGmjb8wIhAKKdSWNMMefF4oNsEA+n6V88rdYzKhftG+fEsQHg3CQW"
  }
