@@ -1,0 +1,4 @@
+"BASEL": {
+"operator_name": "Urs Schnurrenberger",
+"operator_email": "urs.schnurrenberger@unibas.ch",
+"site_email_domain": "@unibas.ch",

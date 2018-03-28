@@ -1,0 +1,4 @@
+"BUPT": {
+"operator_name": "Junfu Zhou",
+"operator_email": "zoubupt@foxmail.com",
+"site_email_domain": "@bupt.edu.cn",

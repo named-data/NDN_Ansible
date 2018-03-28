@@ -1,0 +1,4 @@
+"CSU": {
+"operator_name": "Susmit Shannigrahi",
+"operator_email": "susmit@cs.colostate.edu",
+"site_email_domain": "@colostate.edu",

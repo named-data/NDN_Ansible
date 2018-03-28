@@ -1,0 +1,4 @@
+"MICHIGAN": {
+"operator_name": "J. Alex Halderman",
+"operator_email": "jhalderm@eecs.umich.edu",
+"site_email_domain": "@eecs.umich.edu",

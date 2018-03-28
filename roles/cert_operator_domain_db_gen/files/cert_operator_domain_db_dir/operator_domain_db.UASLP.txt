@@ -1,0 +1,4 @@
+"UASLP": {
+"operator_name": "David Arjona Villicana",
+"operator_email": "david.arjona@uaslp.mx",
+"site_email_domain": "@uaslp.mx",

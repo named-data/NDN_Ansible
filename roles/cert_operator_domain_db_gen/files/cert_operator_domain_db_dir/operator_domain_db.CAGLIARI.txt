@@ -1,0 +1,4 @@
+"CAGLIARI": {
+"operator_name": "Cristian Perra",
+"operator_email": "cperra@ieee.org",
+"site_email_domain": "@unica.it",

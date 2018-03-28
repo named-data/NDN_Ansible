@@ -1,0 +1,4 @@
+"ANYANG": {
+"operator_name": "Euihyun Jung",
+"operator_email": "jung@anyang.ac.kr",
+"site_email_domain": "@anyang.ac.kr",

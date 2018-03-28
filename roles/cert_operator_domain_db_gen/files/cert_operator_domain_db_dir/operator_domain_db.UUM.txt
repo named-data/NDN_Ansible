@@ -1,0 +1,4 @@
+"UUM": {
+"operator_name": "Athirah Rosli",
+"operator_email": "athirah.rosli58@gmail.com",
+"site_email_domain": "@uum.edu.my",

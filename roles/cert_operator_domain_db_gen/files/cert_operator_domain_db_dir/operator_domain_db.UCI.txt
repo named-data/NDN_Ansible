@@ -1,0 +1,4 @@
+"UCI": {
+"operator_name": "Cesar Ghali",
+"operator_email": "cghali@uci.edu",
+"site_email_domain": "@uci.edu",

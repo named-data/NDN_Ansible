@@ -1,0 +1,4 @@
+"ARIZONA": {
+"operator_name": "Teng Liang",
+"operator_email": "philoliang2011@gmail.com",
+"site_email_domain": "@cs.arizona.edu",

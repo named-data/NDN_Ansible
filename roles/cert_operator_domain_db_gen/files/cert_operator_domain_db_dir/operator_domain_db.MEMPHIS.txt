@@ -1,0 +1,4 @@
+"MEMPHIS": {
+"operator_name": "Ashlesh Gawande",
+"operator_email": "agawande@memphis.edu",
+"site_email_domain": "@memphis.edu",

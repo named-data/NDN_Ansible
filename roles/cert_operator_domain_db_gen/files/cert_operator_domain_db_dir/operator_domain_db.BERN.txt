@@ -1,0 +1,4 @@
+"BERN": {
+"operator_name": "Jonnahtan Saltarin",
+"operator_email": "saltarin@inf.unibe.ch",
+"site_email_domain": "@inf.unibe.ch",

@@ -1,0 +1,4 @@
+"BYU": {
+"operator_name": "Jeff Andersen",
+"operator_email": "andersen@isrl.byu.edu",
+"site_email_domain": "i@byu.edu   @isrl.byu.edu",

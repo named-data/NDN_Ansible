@@ -1,0 +1,4 @@
+"MUMBAI_AWS": {
+"operator_name": "John DeHart",
+"operator_email": "jdd@wustl.edu",
+"site_email_domain": "",

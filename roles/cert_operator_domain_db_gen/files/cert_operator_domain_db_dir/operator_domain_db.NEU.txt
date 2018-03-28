@@ -1,0 +1,4 @@
+"NEU": {
+"operator_name": "Ran Liu",
+"operator_email": "liuranapply@gmail.com",
+"site_email_domain": "@neu.edu",

@@ -1,0 +1,4 @@
+"TONGJI": {
+"operator_name": "Rui Qin",
+"operator_email": "13qinrui@tongji.edu.cn",
+"site_email_domain": "@tongji.edu.cn",

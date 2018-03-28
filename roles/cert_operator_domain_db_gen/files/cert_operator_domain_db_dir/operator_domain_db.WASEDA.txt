@@ -1,0 +1,4 @@
+"WASEDA": {
+"operator_name": "Xiabo Li",
+"operator_email": "lxb385@fuji.waseda.jp",
+"site_email_domain": "@waseda.jp @fuji.waseda.jp",

@@ -1,0 +1,4 @@
+"URJC": {
+"operator_name": "Pedro de las Heras Quiros",
+"operator_email": "pheras@gsyc.es",
+"site_email_domain": "@urjc.es @alumnos.urjc.es",

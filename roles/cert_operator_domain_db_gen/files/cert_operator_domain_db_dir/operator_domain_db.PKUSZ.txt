@@ -1,0 +1,4 @@
+"PKUSZ": {
+"operator_name": "Xuewei Piao",
+"operator_email": "puxueweiwei@163.com",
+"site_email_domain": "@pkusz.edu.cn",

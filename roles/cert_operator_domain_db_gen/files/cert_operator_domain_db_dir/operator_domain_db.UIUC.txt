@@ -1,0 +1,4 @@
+"UIUC": {
+"operator_name": "Jongdeog Lee (JD)",
+"operator_email": "jlee700@illinois.edu",
+"site_email_domain": "@illinois.edu",

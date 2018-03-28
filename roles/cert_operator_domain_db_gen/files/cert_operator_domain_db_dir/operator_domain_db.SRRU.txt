@@ -1,0 +1,4 @@
+"SRRU": {
+"operator_name": "Thongchai Chuachan ",
+"operator_email": "thongchai.c@srru.ac.th",
+"site_email_domain": "@srru.ac.th",

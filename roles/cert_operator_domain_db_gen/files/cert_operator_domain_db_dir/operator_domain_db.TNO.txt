@@ -1,0 +1,4 @@
+"TNO": {
+"operator_name": "Bastiaan Wissingh",
+"operator_email": "bastiaan.wissingh@tno.nl",
+"site_email_domain": "@tno.nl",

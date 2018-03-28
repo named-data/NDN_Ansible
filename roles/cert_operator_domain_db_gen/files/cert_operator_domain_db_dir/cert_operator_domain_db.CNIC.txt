@@ -1,0 +1,6 @@
+"CNIC": {
+"operator_name": "Shanshan Shi",
+"operator_email": "shishanshan@cstnet.cn",
+"site_email_domain": "@cstnet.cn",
+"cert": ""
+ }

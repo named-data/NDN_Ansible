@@ -1,0 +1,4 @@
+"CARUNA": {
+"operator_name": "Manuel Suárez Albela",
+"operator_email": "manuel.suarez.albela@gtec.udc.es",
+"site_email_domain": "@udc.es @gtec.udc.es",

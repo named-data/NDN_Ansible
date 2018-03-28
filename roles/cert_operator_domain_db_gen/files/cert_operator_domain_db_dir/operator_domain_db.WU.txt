@@ -1,0 +1,4 @@
+"WU": {
+"operator_name": "John DeHart",
+"operator_email": "jdd@wustl.edu",
+"site_email_domain": "@wustl.edu",

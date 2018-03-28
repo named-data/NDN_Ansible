@@ -1,0 +1,4 @@
+"UCLA": {
+"operator_name": "Alex Afanasyev",
+"operator_email": "alexander.afanasyev@ucla.edu",
+"site_email_domain": "@ucla.edu",

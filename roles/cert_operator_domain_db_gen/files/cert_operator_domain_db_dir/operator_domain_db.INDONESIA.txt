@@ -1,0 +1,4 @@
+"INDONESIA": {
+"operator_name": "Yudi A. Phanama",
+"operator_email": "yudi.andrean@ui.ac.id",
+"site_email_domain": "@ui.ac.id",

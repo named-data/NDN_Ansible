@@ -1,0 +1,4 @@
+"KISTI": {
+"operator_name": "Alexander Ni",
+"operator_email": "alexni1992@gmail.com",
+"site_email_domain": "@kisti.re.kr",

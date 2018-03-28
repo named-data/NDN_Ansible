@@ -1,0 +1,4 @@
+"PADUA": {
+"operator_name": "Alberto Compagno",
+"operator_email": "compagno@di.uniroma1.it",
+"site_email_domain": "@unipd.it",

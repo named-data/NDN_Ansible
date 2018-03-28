@@ -1,0 +1,4 @@
+"NTNU": {
+"operator_name": "Pål S. Sæther ",
+"operator_email": "palss@ntnu.no",
+"site_email_domain": "@ntnu.no @stud.ntnu.no",

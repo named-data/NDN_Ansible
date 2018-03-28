@@ -1,0 +1,5 @@
+"{{inventory_hostname}}": {
+"operator_name": "{{operator_name}}"
+"operator_email": "{{operator_email}}"
+"site_email_domain": "{{site_email_domain}}"
+"cert":

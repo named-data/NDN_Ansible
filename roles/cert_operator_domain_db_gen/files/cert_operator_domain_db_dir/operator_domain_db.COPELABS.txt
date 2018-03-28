@@ -1,0 +1,4 @@
+"COPELABS": {
+"operator_name": "Paulo Mendes",
+"operator_email": "p4035@ulusofona.pt",
+"site_email_domain": "@ulosofona.pt",

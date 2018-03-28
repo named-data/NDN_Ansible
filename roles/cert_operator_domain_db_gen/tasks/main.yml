@@ -1,9 +1,9 @@
 ---
 # tasks file for cert_operator_domain_db_gen
-- name: clear db files dir
-  local_action: file path=roles/cert_operator_domain_db_gen/files/cert_operator_domain_db_dir state=absent 
-  run_once: true 
-  become: false
+#- name: clear db files dir
+#  local_action: file path=roles/cert_operator_domain_db_gen/files/cert_operator_domain_db_dir state=absent 
+#  run_once: true 
+#  become: false
 
 - name: create db files dir
   local_action: file path=roles/cert_operator_domain_db_gen/files/cert_operator_domain_db_dir state=directory 
@@ -22,16 +22,23 @@
 
 # Combine operator and cert files for each 
 - name: Combine operator and cert files for each site
-  local_action: shell cat roles/cert_operator_domain_db_gen/files/cert_operator_domain_db_dir/operator_domain_db.{{inventory_hostname}}.txt  roles/cert_operator_domain_db_gen/files/cert_operator_domain_db_dir/{{ inventory_hostname }}.cert > roles/cert_operator_domain_db_gen/files/cert_operator_domain_db_dir/cert_operator_domain_db.{{inventory_hostname}}.txt
+  local_action: shell roles/cert_operator_domain_db_gen/files/createSiteFile.sh {{inventory_hostname}}
   become: false
 
 # Add end of cert marker
 - name: Add end of cert marker
-  local_action: shell echo  "{{inventory_hostname}} End of Cert"  >> roles/cert_operator_domain_db_gen/files/cert_operator_domain_db_dir/cert_operator_domain_db.{{inventory_hostname}}.txt
+  local_action: shell echo  " }"  >> roles/cert_operator_domain_db_gen/files/cert_operator_domain_db_dir/cert_operator_domain_db.{{inventory_hostname}}.txt
   become: false
+
+## Combine all db files
+#- name: Combine all db files
+#  local_action: shell cat roles/cert_operator_domain_db_gen/files/cert_operator_domain_db_dir/cert_operator_domain_db.*.txt  > roles/cert_operator_domain_db_gen/files/cert_operator_domain_db.txt
+#  run_once: true 
+#  become: false
 
 # Combine all db files
 - name: Combine all db files
-  local_action: shell cat roles/cert_operator_domain_db_gen/files/cert_operator_domain_db_dir/cert_operator_domain_db.*.txt  > roles/cert_operator_domain_db_gen/files/cert_operator_domain_db.txt
+  local_action: shell roles/cert_operator_domain_db_gen/files/combineFiles.sh > roles/cert_operator_domain_db_gen/files/cert_operator_domain_db.json 
   run_once: true 
   become: false
+

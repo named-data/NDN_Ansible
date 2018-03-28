@@ -1,0 +1,4 @@
+"REMAP": {
+"operator_name": "Zhehao Wang",
+"operator_email": "wangzhehao410305@gmail.com",
+"site_email_domain": "@remap.ucla.edu",

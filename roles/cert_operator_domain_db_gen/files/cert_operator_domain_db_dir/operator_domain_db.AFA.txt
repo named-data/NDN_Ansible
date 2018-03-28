@@ -1,0 +1,4 @@
+"AFA": {
+"operator_name": "Gianmichele Russi",
+"operator_email": "russi@afasystems.it",
+"site_email_domain": "@afasystems.it",

@@ -1,0 +1,4 @@
+"SYSTEMX": {
+"operator_name": "Luca Muscariello",
+"operator_email": "luca.muscariello@irt-systemx.fr",
+"site_email_domain": "@irt-systemx.fr",
