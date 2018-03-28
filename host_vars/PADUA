@@ -28,3 +28,6 @@ hr_angle: 1.13934426229508
 #137     1.13934426229508        13.5903793306882
 #cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fit%2Funipd%2Fksk-1457623884295%2FID-CERT%2F%25FD%2500%2500%2501Sgh-k
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
+operator_name: "Alberto Compagno"
+operator_email: compagno@di.uniroma1.it
+site_email_domain: "@unipd.it"

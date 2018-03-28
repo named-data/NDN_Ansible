@@ -9,7 +9,7 @@ advertised_prefixes: [/ndn/jp/ac/osaka-u]
 routable_prefixes: [/ndn/jp/ac/osaka-u]
 router_name: NDNtestbed 
 neighbors: 
-  UUM: {link_cost: 100}
+  UUM: {link_cost: 42}
   CNIC: {link_cost: 45}
   PKUSZ: {link_cost: 63}
   SRRU: {link_cost: 67}
@@ -23,3 +23,6 @@ hr_angle: 3.53687143597719
 #cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fjp%2Fac%2Fosaka-u%2Fksk-1458244776784%2FID-CERT%2F%25FD%2500%2500%2501S%2586n%25C1%25B1
 supports_guest_certs: True
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
+operator_name: "Yuki Koizumi"
+operator_email: ykoizumi@ist.osaka-u.ac.jp
+site_email_domain: "@ist.osaka-u.ac.jp"

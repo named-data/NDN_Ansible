@@ -20,3 +20,6 @@ hr_angle: 2.98403796376186
 #cert_url: 
 supports_guest_certs: True
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
+operator_name: "Alexander Ni"
+operator_email: alexni1992@gmail.com
+site_email_domain: "@kisti.re.kr"

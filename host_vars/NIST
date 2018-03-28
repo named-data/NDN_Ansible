@@ -17,3 +17,6 @@ hr_radius: 13.4257788268795
 hr_angle: 2.97670405522002
 #cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fgov%2Fnist%2Fksk-1456510874713%2FID-CERT%2F%25FD%2500%2500%2501SO%2596R%25FF
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
+operator_name: "Charif Mahmoudi"
+operator_email: charif.mahmoudi@nist.gov
+site_email_domain: "@nist.gov"

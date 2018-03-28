@@ -22,3 +22,6 @@ hr_angle: 2.75021570319241
 #cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fid%2Fac%2Fui%2Fksk-1458249009564%2FID-CERT%2F%25FD%2500%2500%2501S%2586n%25FCM
 supports_guest_certs: True
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
+operator_name: "Yudi A. Phanama"
+operator_email: yudi.andrean@ui.ac.id
+site_email_domain: "@ui.ac.id"

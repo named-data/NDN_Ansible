@@ -24,3 +24,6 @@ hr_radius: 19.3583257471934
 hr_angle: 2.99935233160622
 #cert_url: "http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fjp%2Fwaseda%2Fksk-1486849781320%2FID-CERT%2F%25FD%2500%2500%2501Z%252F5V%25B5"
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
+operator_name: "Xiabo Li"
+operator_email: lxb385@fuji.waseda.jp
+site_email_domain: "@waseda.jp @fuji.waseda.jp"
