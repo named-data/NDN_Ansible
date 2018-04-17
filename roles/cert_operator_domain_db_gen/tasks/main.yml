@@ -5,10 +5,16 @@
 #  run_once: true 
 #  become: false
 
-- name: create db files dir
+- name: create db files dir NOW
   local_action: file path=roles/cert_operator_domain_db_gen/files/cert_operator_domain_db_dir state=directory 
   run_once: true 
   become: false
+
+#- local_action: command nc -z {{ ansible_host }} 443
+- name: check TLS port
+  local_action: shell roles/cert_operator_domain_db_gen/files/testTlsPort.sh {{ansible_host}} {{inventory_hostname}} > roles/cert_operator_domain_db_gen/files/cert_operator_domain_db_dir/{{inventory_hostname}}_TLS.txt
+  become: false
+  ignore_errors: yes
 
 - local_action: template src=operator_domain.j2 dest=roles/cert_operator_domain_db_gen/files/cert_operator_domain_db_dir/operator_domain_db.{{inventory_hostname}}.txt 
   become: false
