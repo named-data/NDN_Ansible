@@ -1,0 +1,60 @@
+---
+# tasks file for prep_0.6.0
+
+- name: stat /var/lib/ndn
+  stat: path=/var/lib/ndn
+  register: var_lib_ndn
+
+- name: stat /var/lib/ndn.0.5
+  stat: path=/var/lib/ndn.0.5
+  register: var_lib_ndn05
+
+# remove old ndn packages so they don't try to start
+- name: purge old nfd packages
+  apt: name=nfd purge=yes state=absent
+  when: (var_lib_ndn.stat.exists == True) and (var_lib_ndn05.stat.exists == False)
+
+- name: purge old ndn-cxx packages
+  apt: name=ndn-cxx purge=yes state=absent
+  when: (var_lib_ndn.stat.exists == True) and (var_lib_ndn05.stat.exists == False)
+ 
+- name: Move /var/lib/ndn to /var/lib/ndn.0.5
+  command: creates="/var/lib/ndn.0.5" mv /var/lib/ndn /var/lib/ndn.0.5
+  when: (var_lib_ndn.stat.exists == True) and (var_lib_ndn05.stat.exists == False)
+
+# remove old nlsr keys
+- file:
+    path: /etc/ndn/nlsr/keys
+    state: absent
+  when: (var_lib_ndn.stat.exists == True) and (var_lib_ndn05.stat.exists == False)
+
+- file:
+    path: /home/nlsr/unsigned_site.cert
+    state: absent
+  when: (var_lib_ndn.stat.exists == True) and (var_lib_ndn05.stat.exists == False)
+
+- file:
+    path: /var/log/ndn/nlsr/nlsr.log
+    state: absent
+  when: (var_lib_ndn.stat.exists == True) and (var_lib_ndn05.stat.exists == False)
+
+# Remove nlsr built from source
+- name: stat /usr/local/bin/nlsr
+  stat: path=/usr/local/bin/nlsr
+  register: usr_local_nlsr
+
+- file: 
+    path: /usr/local/bin/nlsr
+    state: absent
+  when: (usr_local_nlsr.stat.exists == True) 
+ 
+- file: 
+    path: /usr/local/bin/nlsrc
+    state: absent
+  when: (usr_local_nlsr.stat.exists == True) 
+ 
+- file: 
+    path: /etc/init/nlsr.conf
+    state: absent
+  when: (usr_local_nlsr.stat.exists == True) 
+
