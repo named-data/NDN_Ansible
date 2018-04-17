@@ -6,21 +6,21 @@
 
 
   roles: 
+  - {role: 'prep_0.6.0', tags: 'prep_0.6.0'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "prep_0.6.0"
   - {role: 'NOC', tags: 'NOC'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "NOC"
   - {role: 'ndn-cxx', tags: 'ndn-cxx'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndn-cxx"
   - {role: 'ndnsec', tags: 'ndnsec'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnsec"
   - {role: 'nfd', tags: 'nfd'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "nfd"
   - {role: 'ndnping', tags: 'ndnping'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnping"
-  #- {role: 'nlsr', tags: 'nlsr'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "nlsr"
-  - {role: 'nlsr-from-source', tags: 'nlsr-from-source'}
+  - {role: 'nlsr', tags: 'nlsr'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "nlsr"
   - {role: 'nfd-status-http-server', tags: 'nfd-status-http-server'} 
-  #- ndn-autoconfig-server
   - {role: 'ndn-autoconfig-server', tags: 'ndn-autoconfig-server'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndn-autoconfig-server"
   - {role: 'repo-ng', tags: 'repo-ng'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "repo-ng"
-  - {role: 'ndnmap-data-collector', tags: 'ndnmap-data-collector'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnmap-data-collector"
-#  - {role: 'ndnTestbedDataCollector', tags: 'ndnTestbedDataCollector'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnTestbedDataCollector"
   - {role: 'ndn-tools', tags: 'ndn-tools'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndn-tools"
   - {role: 'nfd-autoreg', tags: 'nfd-autoreg'} 
+
+#  - {role: 'ndnmap-data-collector', tags: 'ndnmap-data-collector'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnmap-data-collector"
+#  - {role: 'ndnTestbedDataCollector', tags: 'ndnTestbedDataCollector'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnTestbedDataCollector"
 
 - name: install ndn gateways (RHEL)
   hosts: ndngateways_rhel 
@@ -73,7 +73,7 @@
   - nfd-status-http-server
   - ndn-autoconfig-server
   - repo-ng-from-source
-  - ndnmap-data-collector
+#  - ndnmap-data-collector
   - ndnTestbedDataCollector
   - {role: 'nfd-autoreg', tags: 'nfd-autoreg'} 
 
