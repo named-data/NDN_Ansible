@@ -57,8 +57,14 @@
 - file: path=/etc/nginx/sites-enabled/nfd state=link  src=/etc/nginx/sites-available/nfd
   when: ansible_distribution == "Ubuntu"
 
-- cron: name="renew certbot" user="root" day="28" hour="1" minute="30" job="/usr/local/bin/certbot-auto renew --standalone --pre-hook \"stop nfd-status-http-server; service nginx stop\" --post-hok \"start nfd-status-http-server; service nginx start\""
+- cron: name="renew certbot" user="root" day="28" hour="1" minute="30" job="/usr/local/bin/certbot-auto renew --standalone --pre-hook \"service nfd-status-http-server stop; service nginx stop\" --post-hook \"service nfd-status-http-server start; service nginx start\""
 
+#- cron: name="renew certbot" user="root" day="28" hour="1" minute="30" job="/usr/local/bin/certbot-auto renew --standalone --pre-hook \"initctl stop nfd-status-http-server; service nginx stop\" --post-hook \"initctl start nfd-status-http-server; service nginx start\""
+#  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "14") 
+#
+#- cron: name="renew certbot" user="root" day="28" hour="1" minute="30" job="/usr/local/bin/certbot-auto renew --standalone --pre-hook \"systemctl stop nfd-status-http-server; service nginx stop\" --post-hook \"systemctl start nfd-status-http-server; service nginx start\""
+#  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16") 
+#
 - name: start nfd-status-http-server.server for Ubuntu 16.04
   shell: systemctl start nfd-status-http-server.service
   when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16") 
