@@ -1,9 +1,8 @@
 "{{inventory_hostname}}": {
-    "allowGuests": {{allowGuests}},
-    "doNotSendOpRequests": {{doNotSendOpRequests}},
-    "doNotSendOpRequestsForGuests": {{doNotSendOpRequestsForGuests}},
+    "allowGuests": {{allowGuests | to_json}},
+    "doNotSendOpRequests": {{doNotSendOpRequests | to_json}},
+    "doNotSendOpRequestsForGuests": {{doNotSendOpRequestsForGuests | to_json}},
     "email": "{{operator_email}}",
-    "key": "...",
     "name": "{{operator_name}}",
     "site_emails": {{site_email_domain | to_json }},
     "site_name": "{{site_name}}",
