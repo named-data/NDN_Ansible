@@ -22,5 +22,5 @@ operator_email: andersen@isrl.byu.edu
 site_email_domain: ["byu.edu", "isrl.byu.edu"]
 allowGuests: false
 doNotSendOpRequests: false
-doNotSendOpRequestsForGuests: true
+doNotSendOpRequestsForGuests: false
 site_name: "Brigham Young University"

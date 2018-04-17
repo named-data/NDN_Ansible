@@ -25,5 +25,5 @@ operator_email: jhalderm@eecs.umich.edu
 site_email_domain: ["eecs.umich.edu"]
 allowGuests: false
 doNotSendOpRequests: false
-doNotSendOpRequestsForGuests: true
+doNotSendOpRequestsForGuests: false
 site_name: "University of Michigan"

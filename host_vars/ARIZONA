@@ -27,7 +27,7 @@ nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Teng Liang"
 operator_email: philoliang2011@gmail.com
 site_email_domain: ["cs.arizona.edu", "email.arizona.edu", "cs.arizona.edu"]
-allowGuests: false
+allowGuests: true
 doNotSendOpRequests: false
 doNotSendOpRequestsForGuests: true
 site_name: "The University of Arizona"

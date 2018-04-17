@@ -28,5 +28,5 @@ operator_email: thongchai.c@srru.ac.th
 site_email_domain: ["srru.ac.th"]
 allowGuests: false
 doNotSendOpRequests: false
-doNotSendOpRequestsForGuests: true
+doNotSendOpRequestsForGuests: false
 site_name: "Surindra Rajabhat University, Thailand"

@@ -26,5 +26,5 @@ operator_email: p4035@ulusofona.pt
 site_email_domain: "ulosofona.pt"
 allowGuests: false
 doNotSendOpRequests: false
-doNotSendOpRequestsForGuests: true
+doNotSendOpRequestsForGuests: false
 site_name: "Cognition and People-centric Computing Labs (COPELABS), Portugal"

@@ -25,5 +25,5 @@ operator_email: id5540@alunos.uminho.pt
 site_email_domain: ["di.minho.pt", "alunos.uminho.pt"]
 allowGuests: false
 doNotSendOpRequests: false
-doNotSendOpRequestsForGuests: true
+doNotSendOpRequestsForGuests: false
 site_name: "University of Mihno, Portugal"

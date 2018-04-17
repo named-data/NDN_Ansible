@@ -9,6 +9,7 @@ advertised_prefixes: [/ndn/ch/unibas]
 routable_prefixes: [/ndn/ch/unibas]
 router_name: dmi-ndn-testbed1 
 neighbors: 
+  AAU: {link_cost: 16}
   BERN: {link_cost: 2}
   TNO: {link_cost: 14}
   MINHO: {link_cost: 23}
@@ -30,5 +31,5 @@ operator_email: urs.schnurrenberger@unibas.ch
 site_email_domain: ["unibas.ch"]
 allowGuests: false
 doNotSendOpRequests: false
-doNotSendOpRequestsForGuests: true
+doNotSendOpRequestsForGuests: false
 site_name: "University of Basel, Switzerland"

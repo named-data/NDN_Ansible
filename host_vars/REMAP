@@ -24,7 +24,7 @@ nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Zhehao Wang"
 operator_email: wangzhehao410305@gmail.com
 site_email_domain: ["remap.ucla.edu"]
-allowGuests: false
+allowGuests: true
 doNotSendOpRequests: false
 doNotSendOpRequestsForGuests: true
 site_name: "The Center for Research in Engineering, Media and Performance (REMAP)"

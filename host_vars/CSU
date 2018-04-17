@@ -25,7 +25,7 @@ nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Susmit Shannigrahi"
 operator_email: susmit@cs.colostate.edu
 site_email_domain: "colostate.edu"
-allowGuests: false
+allowGuests: true
 doNotSendOpRequests: false
 doNotSendOpRequestsForGuests: true
 site_name: "Colorado State University"

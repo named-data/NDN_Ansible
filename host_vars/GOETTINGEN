@@ -25,7 +25,7 @@ nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Sripriya Srikant Adhatarao"
 operator_email: s.adhatarao@stud.uni-goettingen.de
 site_email_domain: ["uni-goettingen.de", "cs.uni-goettingen.de"]
-allowGuests: false
+allowGuests: true
 doNotSendOpRequests: false
 doNotSendOpRequestsForGuests: true
 site_name: "University of Goettingen, Germany"

@@ -28,7 +28,7 @@ nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "John DeHart"
 operator_email: jdd@wustl.edu
 site_email_domain: ["wustl.edu"]
-allowGuests: false
+allowGuests: true
 doNotSendOpRequests: false
 doNotSendOpRequestsForGuests: true
 site_name: "Washington University in St. Louis"

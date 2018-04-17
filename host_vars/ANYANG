@@ -26,5 +26,5 @@ operator_email: jung@anyang.ac.kr
 site_email_domain: ["anyang.ac.kr"]
 allowGuests: false
 doNotSendOpRequests: false
-doNotSendOpRequestsForGuests: true
+doNotSendOpRequestsForGuests: false
 site_name: "Anyang University, South Korea"

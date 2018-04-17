@@ -29,5 +29,5 @@ operator_email: pheras@gsyc.es
 site_email_domain: ["urjc.es", "alumnos.urjc.es"]
 allowGuests: false
 doNotSendOpRequests: false
-doNotSendOpRequestsForGuests: true
+doNotSendOpRequestsForGuests: false
 site_name: "Universidad Rey Juan Carlos, Spain"

@@ -25,7 +25,7 @@ nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Yudi A. Phanama"
 operator_email: yudi.andrean@ui.ac.id
 site_email_domain: "ui.ac.id"
-allowGuests: false
+allowGuests: true
 doNotSendOpRequests: false
 doNotSendOpRequestsForGuests: true
 site_name: "Universitas Indonesia, Indonesia"

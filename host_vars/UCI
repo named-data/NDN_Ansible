@@ -22,5 +22,5 @@ operator_email: cghali@uci.edu
 site_email_domain: ["uci.edu"]
 allowGuests: false
 doNotSendOpRequests: false
-doNotSendOpRequestsForGuests: true
+doNotSendOpRequestsForGuests: false
 site_name: "University of California, Irvine"

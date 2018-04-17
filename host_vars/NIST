@@ -1,7 +1,8 @@
 ---
 
 # file: host_vars/NIST
-ansible_host: ndn-01.antd.nist.gov
+#ansible_host: ndn-01.antd.nist.gov
+ansible_host: 129.6.112.51
 ethernet_device: eth0
 site: /gov/nist
 default_prefix: /ndn/gov/nist 
@@ -22,5 +23,5 @@ operator_email: charif.mahmoudi@nist.gov
 site_email_domain: ["nist.gov"]
 allowGuests: false
 doNotSendOpRequests: false
-doNotSendOpRequestsForGuests: true
+doNotSendOpRequestsForGuests: false
 site_name: "National Institute of Standards and Technology (NIST)"

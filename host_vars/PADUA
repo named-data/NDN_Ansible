@@ -11,6 +11,7 @@ routable_prefixes: [/ndn/it/unipd]
 router_name: ndnnode 
 neighbors: 
 #  SRRU: {link_cost: 126}
+  AAU: {link_cost: 15}
   CAGLIARI: {link_cost: 25}
   AFA: {link_cost: 11}
   PKUSZ: {link_cost: 170}
@@ -33,5 +34,5 @@ operator_email: compagno@di.uniroma1.it
 site_email_domain: ["unipd.it"]
 allowGuests: false
 doNotSendOpRequests: false
-doNotSendOpRequestsForGuests: true
+doNotSendOpRequestsForGuests: false
 site_name: "University of Padua, Italy"

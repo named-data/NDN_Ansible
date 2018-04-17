@@ -24,7 +24,7 @@ nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Jongdeog Lee (JD)"
 operator_email: jlee700@illinois.edu
 site_email_domain: ["illinois.edu"]
-allowGuests: false
+allowGuests: true
 doNotSendOpRequests: false
 doNotSendOpRequestsForGuests: true
 site_name: "University of Illinois"

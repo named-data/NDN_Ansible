@@ -26,7 +26,7 @@ nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Yuki Koizumi"
 operator_email: ykoizumi@ist.osaka-u.ac.jp
 site_email_domain: ["ist.osaka-u.ac.jp"]
-allowGuests: false
+allowGuests: true
 doNotSendOpRequests: false
 doNotSendOpRequestsForGuests: true
 site_name: "Osaka University, Japan"

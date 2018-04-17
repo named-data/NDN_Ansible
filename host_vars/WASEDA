@@ -29,5 +29,5 @@ operator_email: lxb385@fuji.waseda.jp
 site_email_domain: ["waseda.jp", "fuji.waseda.jp"]
 allowGuests: false
 doNotSendOpRequests: false
-doNotSendOpRequestsForGuests: true
+doNotSendOpRequestsForGuests: false
 site_name: "Waseda University, Tokyo, Japan"

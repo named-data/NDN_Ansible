@@ -25,5 +25,5 @@ operator_email: palss@ntnu.no
 site_email_domain: ["ntnu.no", "stud.ntnu.no"]
 allowGuests: false
 doNotSendOpRequests: false
-doNotSendOpRequestsForGuests: true
+doNotSendOpRequestsForGuests: false
 site_name: "Norwegian University of Science and Technology (NTNU), Norway"

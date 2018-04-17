@@ -27,5 +27,5 @@ operator_email: zoubupt@foxmail.com
 site_email_domain: ["bupt.edu.cn"]
 allowGuests: false
 doNotSendOpRequests: false
-doNotSendOpRequestsForGuests: true
+doNotSendOpRequestsForGuests: false
 site_name: "Beijing University of Posts and Telecommunications, China"
