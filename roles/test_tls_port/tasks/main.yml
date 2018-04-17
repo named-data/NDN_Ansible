@@ -1,0 +1,9 @@
+---
+# tasks file for test_tls_port
+
+
+# test port 443 to each site
+#- local_action: command nc -z {{ ansible_host }} 443
+- local_action: roles/test_tls_port/files/testTlsPort.sh {{ansible_host}} {{inventory_hostname}}
+  become: false
+  ignore_errors: yes
