@@ -1,12 +1,12 @@
 "WASEDA": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": false,
     "email": "lxb385@fuji.waseda.jp",
-    "key": "...",
     "name": "Xiabo Li",
     "site_emails": ["waseda.jp", "fuji.waseda.jp"],
     "site_name": "Waseda University, Tokyo, Japan",
     "site_prefix": "/ndn/jp/waseda",
-"cert": "Bv0B9gcvCANuZG4IAmpwCAZ3YXNlZGEIA0tFWQgIR3TZOJo1NtwIAk5BCAn9AAABYiUXJOcUCRgBAhkEADbugBX9ASYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC8/TEjeLAf8H3SdhjusqcJyNy1TLOk7u4IDuMbmkq7N5+chYcu4q74lUei1wA+i4M+KhpjKq7nwB3WHJaa0dwJtxadIk19X/nVSARUvXeduLLMq2r5Fqql3S6vafA7MxMyUlVeQyFUNso1/sa5RU3tcjGfJg0SQA3+JjCgw3w2TkkOpDcqYcqfOyt4PYvnPPUFp4Owng6mkDVeY9dHa7QHqnmmYOLdVejcFWAL10rWzNPbIcHxyWyp3MMFQBh40l0+oSrs29Sf3yiAdH2y0W273P82ysSQZJ2zBCd80t4v79bFOUisEywMNNMDGgrsII3ch9IBS+ihImYzC4FZhBH5AgMBAAEWRRsBAxwWBxQIA25kbggDS0VZCAhlnX+lxYEQff0A/Sb9AP4PMjAxODAzMTRUMDAwMDAw/QD/DzIwMTkwMzE0VDAwMDAwMBdHMEUCIQDVsXpv/hOqNiqAH2CR1qYnQgJUDSML60V7JpVi0411HQIgdaaNpn95agdBMKHAA2Vi2S5N97ywwzLibUnOIzw0A+g="
+    "TLS_port": "CLOSED",
+    "key": "Bv0B9gcvCANuZG4IAmpwCAZ3YXNlZGEIA0tFWQgIR3TZOJo1NtwIAk5BCAn9AAABYiUXJOcUCRgBAhkEADbugBX9ASYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC8/TEjeLAf8H3SdhjusqcJyNy1TLOk7u4IDuMbmkq7N5+chYcu4q74lUei1wA+i4M+KhpjKq7nwB3WHJaa0dwJtxadIk19X/nVSARUvXeduLLMq2r5Fqql3S6vafA7MxMyUlVeQyFUNso1/sa5RU3tcjGfJg0SQA3+JjCgw3w2TkkOpDcqYcqfOyt4PYvnPPUFp4Owng6mkDVeY9dHa7QHqnmmYOLdVejcFWAL10rWzNPbIcHxyWyp3MMFQBh40l0+oSrs29Sf3yiAdH2y0W273P82ysSQZJ2zBCd80t4v79bFOUisEywMNNMDGgrsII3ch9IBS+ihImYzC4FZhBH5AgMBAAEWRRsBAxwWBxQIA25kbggDS0VZCAhlnX+lxYEQff0A/Sb9AP4PMjAxODAzMTRUMDAwMDAw/QD/DzIwMTkwMzE0VDAwMDAwMBdHMEUCIQDVsXpv/hOqNiqAH2CR1qYnQgJUDSML60V7JpVi0411HQIgdaaNpn95agdBMKHAA2Vi2S5N97ywwzLibUnOIzw0A+g="
  }

@@ -1,12 +1,12 @@
 "AFA": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "russi@afasystems.it",
-    "key": "...",
     "name": "Gianmichele Russi",
     "site_emails": ["afasystems.it"],
     "site_name": "AFA Systems, Italy",
     "site_prefix": "/ndn/it/afasystems",
-"cert": "Bv0B+QczCANuZG4IAml0CAphZmFzeXN0ZW1zCANLRVkICLLFlEkkTq9cCAJOQQgJ/QAAAWIlhtEoFAkYAQIZBAA27oAV/QEmMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAv73CkLd7XAfhCC6drOP9A4JrspY3GFRBbRcMcDN5FmEubHi/QY7sTXU06WqtHcZnhKBCc3k3CiblPVqhzVq7glmhZDpXTATVcUN1su/frc2rjP0p44WSmXHcuZsmcszjomENgvaTnXa7BiEFrPUr/K8jk7jdHSAtzr4VZyaEo6r2FOKwySIlXPwD2+Vz+i6nuwlWnqia6FyDwPB2xQQ83mXC0cKkRbUF3+e59Ox3iDsC6aHFfa6RdTrxrlDRvIU2jO0RNTsaLz4n7nwTOw+YerBc6wKSGZ4E+So0XRh2WO2hH8L1d/R68tSZVCcxK9jz5Xk4JAHJPCWHXRWu4eGQBQIDAQABFkUbAQMcFgcUCANuZG4IA0tFWQgIZZ1/pcWBEH39AP0m/QD+DzIwMTgwMzE0VDAwMDAwMP0A/w8yMDE5MDMxNFQwMDAwMDAXRjBEAiBPmztThwSzWpgwcenSD2qhqPL4jugRTYrY6xlxlp+nMwIgCd0/bwi9FweghHxDCaHmht+p76kefPVZl8XBZrsVd20="
+    "TLS_port": "CLOSED",
+    "key": "Bv0B+QczCANuZG4IAml0CAphZmFzeXN0ZW1zCANLRVkICLLFlEkkTq9cCAJOQQgJ/QAAAWIlhtEoFAkYAQIZBAA27oAV/QEmMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAv73CkLd7XAfhCC6drOP9A4JrspY3GFRBbRcMcDN5FmEubHi/QY7sTXU06WqtHcZnhKBCc3k3CiblPVqhzVq7glmhZDpXTATVcUN1su/frc2rjP0p44WSmXHcuZsmcszjomENgvaTnXa7BiEFrPUr/K8jk7jdHSAtzr4VZyaEo6r2FOKwySIlXPwD2+Vz+i6nuwlWnqia6FyDwPB2xQQ83mXC0cKkRbUF3+e59Ox3iDsC6aHFfa6RdTrxrlDRvIU2jO0RNTsaLz4n7nwTOw+YerBc6wKSGZ4E+So0XRh2WO2hH8L1d/R68tSZVCcxK9jz5Xk4JAHJPCWHXRWu4eGQBQIDAQABFkUbAQMcFgcUCANuZG4IA0tFWQgIZZ1/pcWBEH39AP0m/QD+DzIwMTgwMzE0VDAwMDAwMP0A/w8yMDE5MDMxNFQwMDAwMDAXRjBEAiBPmztThwSzWpgwcenSD2qhqPL4jugRTYrY6xlxlp+nMwIgCd0/bwi9FweghHxDCaHmht+p76kefPVZl8XBZrsVd20="
  }

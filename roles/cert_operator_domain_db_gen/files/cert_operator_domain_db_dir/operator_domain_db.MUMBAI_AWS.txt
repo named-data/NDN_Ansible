@@ -1,9 +1,8 @@
 "MUMBAI_AWS": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "jdd@wustl.edu",
-    "key": "...",
     "name": "John DeHart",
     "site_emails": "",
     "site_name": "MUMBAI AWS",

@@ -1,9 +1,8 @@
 "BERN": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "saltarin@inf.unibe.ch",
-    "key": "...",
     "name": "Jonnahtan Saltarin",
     "site_emails": ["inf.unibe.ch"],
     "site_name": "University of Bern, Switzerland",

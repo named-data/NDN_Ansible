@@ -7,3 +7,6 @@
     "site_emails": ["byu.edu", "isrl.byu.edu"],
     "site_name": "Brigham Young University",
     "site_prefix": "/ndn/edu/byu",
+    "TLS_port": "CLOSED",
+    "key": ""
+ }

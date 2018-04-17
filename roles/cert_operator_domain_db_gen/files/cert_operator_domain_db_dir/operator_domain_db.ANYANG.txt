@@ -1,9 +1,8 @@
 "ANYANG": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": false,
     "email": "jung@anyang.ac.kr",
-    "key": "...",
     "name": "Euihyun Jung",
     "site_emails": ["anyang.ac.kr"],
     "site_name": "Anyang University, South Korea",

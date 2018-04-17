@@ -1,9 +1,8 @@
 "UCI": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": false,
     "email": "cghali@uci.edu",
-    "key": "...",
     "name": "Cesar Ghali",
     "site_emails": ["uci.edu"],
     "site_name": "University of California, Irvine",

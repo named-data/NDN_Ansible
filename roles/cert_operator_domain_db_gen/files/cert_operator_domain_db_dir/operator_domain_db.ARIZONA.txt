@@ -1,9 +1,8 @@
 "ARIZONA": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": true,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "philoliang2011@gmail.com",
-    "key": "...",
     "name": "Teng Liang",
     "site_emails": ["cs.arizona.edu", "email.arizona.edu", "cs.arizona.edu"],
     "site_name": "The University of Arizona",

@@ -1,9 +1,8 @@
 "BASEL": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": false,
     "email": "urs.schnurrenberger@unibas.ch",
-    "key": "...",
     "name": "Urs Schnurrenberger",
     "site_emails": ["unibas.ch"],
     "site_name": "University of Basel, Switzerland",

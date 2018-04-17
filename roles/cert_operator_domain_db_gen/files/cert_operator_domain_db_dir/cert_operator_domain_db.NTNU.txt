@@ -1,12 +1,12 @@
 "NTNU": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": false,
     "email": "palss@ntnu.no",
-    "key": "...",
     "name": "Pål S. Sæther ",
     "site_emails": ["ntnu.no", "stud.ntnu.no"],
     "site_name": "Norwegian University of Science and Technology (NTNU), Norway",
     "site_prefix": "/ndn/no/ntnu",
-"cert": "Bv0B8wctCANuZG4IAm5vCARudG51CANLRVkICNWJENZMx8cdCAJOQQgJ/QAAAWIhvY9QFAkYAQIZBAA27oAV/QEmMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4s3q03Z7IeJigfbwftAt8VTz6IbSUw6RaHi3IS7xnVaupeUjypQF5gpaTnPOJ3ynbRme2qorfXdkH0J6TQ5+Udo8+ILSlu7/b4QQirjRob+npDfdEJgLhDlkvQHWYIjA+nTTIORlLomoN+NcAJS2CwmDOCic19U6/NTizNFFURurYanDkeUaIueducHz8FF5Uw/7FJaExrS0mAeBwtkuIfL1pBHwd5BEYGVAbZeTxOQuq686OJoIswk5p/L+mVJbloO0UeFh7/M8JyDZnKQbnoJtbUC6eXPxNE6MFdH14oH4AgxNulUOM33Zscv0Bx+j0sFA11hSBf5GWWNN/+c3hwIDAQABFkUbAQMcFgcUCANuZG4IA0tFWQgIZZ1/pcWBEH39AP0m/QD+DzIwMTgwMzEzVDAwMDAwMP0A/w8yMDE5MDMxM1QwMDAwMDAXRjBEAiAwb7/DZ5PNoOzajZ1HqOrlYuuBIEb6oVqm1kcugVMguAIgELmIGxIYYe1W1ihwrNrxdf4SltEgCNvT4Ip+wSBhCQs="
+    "TLS_port": "OPEN",
+    "key": "Bv0B8wctCANuZG4IAm5vCARudG51CANLRVkICNWJENZMx8cdCAJOQQgJ/QAAAWIhvY9QFAkYAQIZBAA27oAV/QEmMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4s3q03Z7IeJigfbwftAt8VTz6IbSUw6RaHi3IS7xnVaupeUjypQF5gpaTnPOJ3ynbRme2qorfXdkH0J6TQ5+Udo8+ILSlu7/b4QQirjRob+npDfdEJgLhDlkvQHWYIjA+nTTIORlLomoN+NcAJS2CwmDOCic19U6/NTizNFFURurYanDkeUaIueducHz8FF5Uw/7FJaExrS0mAeBwtkuIfL1pBHwd5BEYGVAbZeTxOQuq686OJoIswk5p/L+mVJbloO0UeFh7/M8JyDZnKQbnoJtbUC6eXPxNE6MFdH14oH4AgxNulUOM33Zscv0Bx+j0sFA11hSBf5GWWNN/+c3hwIDAQABFkUbAQMcFgcUCANuZG4IA0tFWQgIZZ1/pcWBEH39AP0m/QD+DzIwMTgwMzEzVDAwMDAwMP0A/w8yMDE5MDMxM1QwMDAwMDAXRjBEAiAwb7/DZ5PNoOzajZ1HqOrlYuuBIEb6oVqm1kcugVMguAIgELmIGxIYYe1W1ihwrNrxdf4SltEgCNvT4Ip+wSBhCQs="
  }

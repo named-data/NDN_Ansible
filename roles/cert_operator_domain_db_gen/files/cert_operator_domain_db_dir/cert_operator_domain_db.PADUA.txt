@@ -1,12 +1,12 @@
 "PADUA": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": false,
     "email": "compagno@di.uniroma1.it",
-    "key": "...",
     "name": "Alberto Compagno",
     "site_emails": ["unipd.it"],
     "site_name": "University of Padua, Italy",
     "site_prefix": "/ndn/it/unipd",
-"cert": "Bv0B9QcuCANuZG4IAml0CAV1bmlwZAgDS0VZCAgY99vNtF9H+ggCTkEICf0AAAFiIb2PthQJGAECGQQANu6AFf0BJjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALD3V5u2ZNhVTLJEFb6MfXJywzcV7ZAMeDcaEDHPZTcgx4gLZ1QlZlIbHZaGooY4weRjzH7n++jBU8ncfK8132H4DWursBsFhlyadkpUbzcCqh5hd64zqHp204HqjQ9DsbwpeQKGEsbzyb7tKE22br0oi/d18aZEbkKCW369MWYi3DYVSzjZwpP4U1rr0lsjNofsWgO9HIGCqCPE7mjS9CwuTd/7/bj7QEcpdiuJtOliEteB3xNn2ylAU6bGLkS4VCzF1mtYAm4Q8MItkdn25sTJ7c4e9H6oJl0+Mg57fDBIJcqHSLNvUst9t0kG3JouNhVNz5LzXQRiRn7UpJw4KAcCAwEAARZFGwEDHBYHFAgDbmRuCANLRVkICGWdf6XFgRB9/QD9Jv0A/g8yMDE4MDMxM1QwMDAwMDD9AP8PMjAxOTAzMTNUMDAwMDAwF0cwRQIhALibM6MpjsE/LcVCc5YZSiHdN97t7xXdO5/7L+HIhy+MAiAaPksSm1CYw8J4PFVy4BxfTdel8n9E5Tarj50Y1rdJlw=="
+    "TLS_port": "CLOSED",
+    "key": "Bv0B9QcuCANuZG4IAml0CAV1bmlwZAgDS0VZCAgY99vNtF9H+ggCTkEICf0AAAFiIb2PthQJGAECGQQANu6AFf0BJjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALD3V5u2ZNhVTLJEFb6MfXJywzcV7ZAMeDcaEDHPZTcgx4gLZ1QlZlIbHZaGooY4weRjzH7n++jBU8ncfK8132H4DWursBsFhlyadkpUbzcCqh5hd64zqHp204HqjQ9DsbwpeQKGEsbzyb7tKE22br0oi/d18aZEbkKCW369MWYi3DYVSzjZwpP4U1rr0lsjNofsWgO9HIGCqCPE7mjS9CwuTd/7/bj7QEcpdiuJtOliEteB3xNn2ylAU6bGLkS4VCzF1mtYAm4Q8MItkdn25sTJ7c4e9H6oJl0+Mg57fDBIJcqHSLNvUst9t0kG3JouNhVNz5LzXQRiRn7UpJw4KAcCAwEAARZFGwEDHBYHFAgDbmRuCANLRVkICGWdf6XFgRB9/QD9Jv0A/g8yMDE4MDMxM1QwMDAwMDD9AP8PMjAxOTAzMTNUMDAwMDAwF0cwRQIhALibM6MpjsE/LcVCc5YZSiHdN97t7xXdO5/7L+HIhy+MAiAaPksSm1CYw8J4PFVy4BxfTdel8n9E5Tarj50Y1rdJlw=="
  }

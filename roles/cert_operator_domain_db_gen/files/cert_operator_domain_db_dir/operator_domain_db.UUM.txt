@@ -1,9 +1,8 @@
 "UUM": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "athirah.rosli58@gmail.com",
-    "key": "...",
     "name": "Athirah Rosli",
     "site_emails": ["uum.edu.my"],
     "site_name": "Universiti Utara Malaysia (UUM)",

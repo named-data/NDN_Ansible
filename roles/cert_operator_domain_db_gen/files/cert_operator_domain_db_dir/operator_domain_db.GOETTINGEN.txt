@@ -1,9 +1,8 @@
 "GOETTINGEN": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": true,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "s.adhatarao@stud.uni-goettingen.de",
-    "key": "...",
     "name": "Sripriya Srikant Adhatarao",
     "site_emails": ["uni-goettingen.de", "cs.uni-goettingen.de"],
     "site_name": "University of Goettingen, Germany",

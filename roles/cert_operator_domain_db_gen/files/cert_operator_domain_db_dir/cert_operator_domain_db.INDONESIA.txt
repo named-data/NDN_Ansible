@@ -7,3 +7,6 @@
     "site_emails": "ui.ac.id",
     "site_name": "Universitas Indonesia, Indonesia",
     "site_prefix": "/ndn/id/ac/ui",
+    "TLS_port": "CLOSED",
+    "key": ""
+ }

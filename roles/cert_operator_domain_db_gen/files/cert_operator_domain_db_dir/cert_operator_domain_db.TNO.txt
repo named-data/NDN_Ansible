@@ -1,12 +1,12 @@
 "TNO": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": true,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "bastiaan.wissingh@tno.nl",
-    "key": "...",
     "name": "Bastiaan Wissingh",
     "site_emails": ["tno.nl"],
     "site_name": "Netherlands Organisation for Applied Scientific Research, Netherlands",
     "site_prefix": "/ndn/nl/tno",
-"cert": "Bv0B8gcsCANuZG4IAm5sCAN0bm8IA0tFWQgI3MHNzfOiim0IAk5BCAn9AAABYiG9kIQUCRgBAhkEADbugBX9ASYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCyg5CkNWhVTHOJrpMfRDm6NsvzXE46T/a6Xbj5soInMHGu/EiuCWR2ysJthuuIVMk1GlqE9HOgS62FbhH9Az+gTu4CXc2adeydEoORx1cuBuxKwquajqET+qeQhsiFLt50d3oS7P51jm+j0hRMZv0m1o5Z8HTSr2BxkEI36Wt8DCSzb3ykcILW5bj7iJDACTDPcKQTUnNFiQnmO0ujsJHarfo+/se82yc82PFh6/z4ywwrbR+QLu2GsLHeKtbNF/bfeqjkzmEsehsCd8OLk8I3LEVGYfWDbRpS6SkCrU46IoZgL7mvKIXUZ6bGavoRa3r75O6rZINU/qMI6nzFO+YPAgMBAAEWRRsBAxwWBxQIA25kbggDS0VZCAhlnX+lxYEQff0A/Sb9AP4PMjAxODAzMTNUMDAwMDAw/QD/DzIwMTkwMzEzVDAwMDAwMBdGMEQCIAUN8z8uchVKLmH1Yxc25mo8mfLTY499emN2nmt9EWMaAiBUwfn/lamHMziQY/KerUNHNiSXgVJJWNPdtXH3hb8/EA=="
+    "TLS_port": "CLOSED",
+    "key": "Bv0B8gcsCANuZG4IAm5sCAN0bm8IA0tFWQgI3MHNzfOiim0IAk5BCAn9AAABYiG9kIQUCRgBAhkEADbugBX9ASYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCyg5CkNWhVTHOJrpMfRDm6NsvzXE46T/a6Xbj5soInMHGu/EiuCWR2ysJthuuIVMk1GlqE9HOgS62FbhH9Az+gTu4CXc2adeydEoORx1cuBuxKwquajqET+qeQhsiFLt50d3oS7P51jm+j0hRMZv0m1o5Z8HTSr2BxkEI36Wt8DCSzb3ykcILW5bj7iJDACTDPcKQTUnNFiQnmO0ujsJHarfo+/se82yc82PFh6/z4ywwrbR+QLu2GsLHeKtbNF/bfeqjkzmEsehsCd8OLk8I3LEVGYfWDbRpS6SkCrU46IoZgL7mvKIXUZ6bGavoRa3r75O6rZINU/qMI6nzFO+YPAgMBAAEWRRsBAxwWBxQIA25kbggDS0VZCAhlnX+lxYEQff0A/Sb9AP4PMjAxODAzMTNUMDAwMDAw/QD/DzIwMTkwMzEzVDAwMDAwMBdGMEQCIAUN8z8uchVKLmH1Yxc25mo8mfLTY499emN2nmt9EWMaAiBUwfn/lamHMziQY/KerUNHNiSXgVJJWNPdtXH3hb8/EA=="
  }

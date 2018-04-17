@@ -1,12 +1,12 @@
 "UFPA": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": true,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "igfuca@gmail.com",
-    "key": "...",
     "name": "Igor Carvallho",
     "site_emails": ["ufpa.br"],
     "site_name": "Federal University of Para, Brazil",
     "site_prefix": "/ndn/br/ufpa",
-"cert": "Bv0B9ActCANuZG4IAmJyCAR1ZnBhCANLRVkICEb0JcGTzSUYCAJOQQgJ/QAAAWIhvZC6FAkYAQIZBAA27oAV/QEmMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxH1HlySerawDk8vxnVESZ4lASKNxrW0UewHIc9oaDjWkZKpWxO8KlxqmA7G7okSO5+FEFi1e9CvxW7a5ZldOfgz0iyfal3I06lPOQUZgF9nrT+N/J4Uw7T6Rmduw+WyJ0brBmYugbK8A8fStT4njO80Tzbsl1LbQAHYdg+PJMVV3hxn6EVVLgSJfTFsiOqnPHmdwpqfIJ9CoPs+OT1tu6M0Hxhar36YNEXdPn+ZONR/1AvB9pPQibO1tzk0/GgySvlNSjmTpgQ7l6qa9OI4+Llq6nvAR1FS/s9E0wusRn61RdS+DOv8ljIM/ZTMQKcJmza1O6PpFlDKyQa62eAd/CQIDAQABFkUbAQMcFgcUCANuZG4IA0tFWQgIZZ1/pcWBEH39AP0m/QD+DzIwMTgwMzEzVDAwMDAwMP0A/w8yMDE5MDMxM1QwMDAwMDAXRzBFAiAP7pyaUNLUTCPJrGezTsY9a8+85BiEHRocJOCZoOuPNwIhAMXoXky5VK4nQ8vnuCZBpKOyfQjeEHmoRlkiHqLp9b7K"
+    "TLS_port": "CLOSED",
+    "key": "Bv0B9ActCANuZG4IAmJyCAR1ZnBhCANLRVkICEb0JcGTzSUYCAJOQQgJ/QAAAWIhvZC6FAkYAQIZBAA27oAV/QEmMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxH1HlySerawDk8vxnVESZ4lASKNxrW0UewHIc9oaDjWkZKpWxO8KlxqmA7G7okSO5+FEFi1e9CvxW7a5ZldOfgz0iyfal3I06lPOQUZgF9nrT+N/J4Uw7T6Rmduw+WyJ0brBmYugbK8A8fStT4njO80Tzbsl1LbQAHYdg+PJMVV3hxn6EVVLgSJfTFsiOqnPHmdwpqfIJ9CoPs+OT1tu6M0Hxhar36YNEXdPn+ZONR/1AvB9pPQibO1tzk0/GgySvlNSjmTpgQ7l6qa9OI4+Llq6nvAR1FS/s9E0wusRn61RdS+DOv8ljIM/ZTMQKcJmza1O6PpFlDKyQa62eAd/CQIDAQABFkUbAQMcFgcUCANuZG4IA0tFWQgIZZ1/pcWBEH39AP0m/QD+DzIwMTgwMzEzVDAwMDAwMP0A/w8yMDE5MDMxM1QwMDAwMDAXRzBFAiAP7pyaUNLUTCPJrGezTsY9a8+85BiEHRocJOCZoOuPNwIhAMXoXky5VK4nQ8vnuCZBpKOyfQjeEHmoRlkiHqLp9b7K"
  }

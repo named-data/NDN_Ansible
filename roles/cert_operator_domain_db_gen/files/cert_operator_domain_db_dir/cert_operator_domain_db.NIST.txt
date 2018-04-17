@@ -7,3 +7,6 @@
     "site_emails": ["nist.gov"],
     "site_name": "National Institute of Standards and Technology (NIST)",
     "site_prefix": "/ndn/gov/nist",
+    "TLS_port": "CLOSED",
+    "key": ""
+ }

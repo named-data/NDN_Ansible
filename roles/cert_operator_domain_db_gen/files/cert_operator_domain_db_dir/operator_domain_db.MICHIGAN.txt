@@ -1,9 +1,8 @@
 "MICHIGAN": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": false,
     "email": "jhalderm@eecs.umich.edu",
-    "key": "...",
     "name": "J. Alex Halderman",
     "site_emails": ["eecs.umich.edu"],
     "site_name": "University of Michigan",

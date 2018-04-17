@@ -1,9 +1,8 @@
 "CNIC": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "shishanshan@cstnet.cn",
-    "key": "...",
     "name": "Shanshan Shi",
     "site_emails": "cstnet.cn",
     "site_name": "Computer Network Information Center (CNIC), Chinese Academy of Science (CAS)",

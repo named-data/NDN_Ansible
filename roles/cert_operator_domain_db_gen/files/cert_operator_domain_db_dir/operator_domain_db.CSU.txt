@@ -1,9 +1,8 @@
 "CSU": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": true,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "susmit@cs.colostate.edu",
-    "key": "...",
     "name": "Susmit Shannigrahi",
     "site_emails": "colostate.edu",
     "site_name": "Colorado State University",

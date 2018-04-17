@@ -1,9 +1,8 @@
 "PKUSZ": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": false,
     "email": "puxueweiwei@163.com",
-    "key": "...",
     "name": "Xuewei Piao",
     "site_emails": ["pkusz.edu.cn"],
     "site_name": "PKU Shenzhen Graduate School",

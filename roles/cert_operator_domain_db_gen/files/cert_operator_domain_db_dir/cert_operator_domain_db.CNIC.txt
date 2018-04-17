@@ -1,12 +1,12 @@
 "CNIC": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "shishanshan@cstnet.cn",
-    "key": "...",
     "name": "Shanshan Shi",
     "site_emails": "cstnet.cn",
     "site_name": "Computer Network Information Center (CNIC), Chinese Academy of Science (CAS)",
     "site_prefix": "/ndn/cn/cas/cnic",
-"cert": ""
+    "TLS_port": "CLOSED",
+    "key": "Bv0B+QcyCANuZG4IAmNuCANjYXMIBGNuaWMIA0tFWQgI7f0+7982cjcIAk5BCAn9AAABYlLL13kUCRgBAhkEADbugBX9ASYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCymZCH7HUPmi4gKU9QOLZYRhZF/r+5VhbRvXVfmQeDD3GfaT35AWHMbTH+ivLbpPTI0s21vQwcEURc2SJYep8JjuqzEsUa4d54fxdCw3zj37juqZl34cHKH1MwC5UBKyZFDAZqX856wlKbUlk33OVm7TIo0aJrvkRZKiy3D5UGCGVVoqdNaLOFs0stY1vi4DBIPeUE6NR1F9vhqht8KczzFsGlJwuSfRYTuXP2scH6iyXknCTHrPaaGb9pFk4+x6zpQyj7vbA5vawtVSePoj5TTar5cV0sX+CdGA9+4bIkt0pPBskHtceYsZ02twKROs69GzdfsHiiAMmwxbQKk5MbAgMBAAEWRRsBAxwWBxQIA25kbggDS0VZCAhlnX+lxYEQff0A/Sb9AP4PMjAxODAzMjNUMDAwMDAw/QD/DzIwMTkwMzIzVDAwMDAwMBdHMEUCICT3ZLRa7yKnKMsjNryIe9ikIDNxx81EBFdJgorqho/LAiEAolVHRrnP/PhUOVuCJi1R1rOD6mRt0XHxWLhbsHRdM/0="
  }

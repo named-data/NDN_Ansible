@@ -1,12 +1,12 @@
 "UASLP": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "david.arjona@uaslp.mx",
-    "key": "...",
     "name": "David Arjona Villicana",
     "site_emails": ["uaslp.mx"],
     "site_name": "Universidad Autonoma de San Luis Potosi (UASLP)",
     "site_prefix": "/ndn/mx/uaslp",
-"cert": "Bv0B9AcuCANuZG4IAm14CAV1YXNscAgDS0VZCAgT0Seb1Y80iQgCTkEICf0AAAFiJRcksBQJGAECGQQANu6AFf0BJjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMRtXYrYPxPatGS77X+AEt7fnf/AoFWCKDwWBbjmwUlTPnRFGQxcZBWuwNlcbH0+XBxSb3LG/c8LtUAxapEoGcw0+VBDpQ8Mv/6QIauH/LHJmv3te6ymzXcuhlhIeDkq2kC/aG1WCED3j6ynUMxJtKwSKAgH6g311viI+3xqOtgjpYw9cUmV7oeZGmNWLbGj5Kmuhfqrs9ynl27jSAkWfv93hF2J1LxsNf60y18bDs9nGe4BYiVGRO+Xuo0y++k/CRae6tIjiGR3WZFzCqfCc8u+UOQdtoPGlLFFynLA198syi2SgArUzZXpvcvCBKfphHjPVpbQxdKNmQYbvxrwlK8CAwEAARZFGwEDHBYHFAgDbmRuCANLRVkICGWdf6XFgRB9/QD9Jv0A/g8yMDE4MDMxNFQwMDAwMDD9AP8PMjAxOTAzMTRUMDAwMDAwF0YwRAIgX5qOUQ4oBN2WMUp1bssnryhufM3/5Tw6AeceyvfV39oCIB2vPeVGN134zpo641YtPgexFWhtKq7UqUvjduIaCfAO"
+    "TLS_port": "CLOSED",
+    "key": "Bv0B9AcuCANuZG4IAm14CAV1YXNscAgDS0VZCAgT0Seb1Y80iQgCTkEICf0AAAFiJRcksBQJGAECGQQANu6AFf0BJjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMRtXYrYPxPatGS77X+AEt7fnf/AoFWCKDwWBbjmwUlTPnRFGQxcZBWuwNlcbH0+XBxSb3LG/c8LtUAxapEoGcw0+VBDpQ8Mv/6QIauH/LHJmv3te6ymzXcuhlhIeDkq2kC/aG1WCED3j6ynUMxJtKwSKAgH6g311viI+3xqOtgjpYw9cUmV7oeZGmNWLbGj5Kmuhfqrs9ynl27jSAkWfv93hF2J1LxsNf60y18bDs9nGe4BYiVGRO+Xuo0y++k/CRae6tIjiGR3WZFzCqfCc8u+UOQdtoPGlLFFynLA198syi2SgArUzZXpvcvCBKfphHjPVpbQxdKNmQYbvxrwlK8CAwEAARZFGwEDHBYHFAgDbmRuCANLRVkICGWdf6XFgRB9/QD9Jv0A/g8yMDE4MDMxNFQwMDAwMDD9AP8PMjAxOTAzMTRUMDAwMDAwF0YwRAIgX5qOUQ4oBN2WMUp1bssnryhufM3/5Tw6AeceyvfV39oCIB2vPeVGN134zpo641YtPgexFWhtKq7UqUvjduIaCfAO"
  }

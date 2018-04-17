@@ -1,9 +1,8 @@
 "TONGJI": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": false,
     "email": "13qinrui@tongji.edu.cn",
-    "key": "...",
     "name": "Rui Qin",
     "site_emails": ["tongji.edu.cn"],
     "site_name": "Tongji University, China",

@@ -1,9 +1,8 @@
 "MSU": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": true,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "somnuk.p@msu.ac.th",
-    "key": "...",
     "name": "Somnuk Puangpronpitag",
     "site_emails": ["msu.ac.th"],
     "site_name": "Mahasarakham University, Thailand",

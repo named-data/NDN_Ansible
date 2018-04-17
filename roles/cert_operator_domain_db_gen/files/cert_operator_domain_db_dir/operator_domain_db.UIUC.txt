@@ -1,9 +1,8 @@
 "UIUC": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": true,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "jlee700@illinois.edu",
-    "key": "...",
     "name": "Jongdeog Lee (JD)",
     "site_emails": ["illinois.edu"],
     "site_name": "University of Illinois",

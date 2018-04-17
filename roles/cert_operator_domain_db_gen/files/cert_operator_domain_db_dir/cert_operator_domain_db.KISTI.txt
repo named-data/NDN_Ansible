@@ -1,12 +1,12 @@
 "KISTI": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": true,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "alexni1992@gmail.com",
-    "key": "...",
     "name": "Alexander Ni",
     "site_emails": "kisti.re.kr",
     "site_name": "Korea Institute of Science and Technology Information (KISTI)",
     "site_prefix": "/ndn/kr/re/kisti",
-"cert": "Bv0B+AcyCANuZG4IAmtyCAJyZQgFa2lzdGkIA0tFWQgIznO/YJ0i39cIAk5BCAn9AAABYiG9jlEUCRgBAhkEADbugBX9ASYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQChEt60ItNbzk8j0bO3zjXZvrCrYUaLT+jX1du84oTT5A5hMhDPy5tUWRUgebAgRRSF6UuULcyHk9fZNtDwLekqrQKg9YAyurigPzMT+NarqIB9Z/hNrwWCo+kK7NBmhFY8Vd3oI/BfvvYky9oeObZVTQxySFHJXTDY2v65+Fr4hSd/d8BdmQ2h34f2L6ZiGzKiPmEWVgZhTaetGNWfnXN+JAkwHi/FD0J+xMpiNyS9tfaoyQynSXtS6EgjJvyEwl7A70x9zHVpyAke1gRaEyOoV2cq6evtLc7BPIN7lxWH+d+sqf9sOHnN2LVgWnqnRHC6XRqJvsXqJ1ZPhC/xDS3NAgMBAAEWRRsBAxwWBxQIA25kbggDS0VZCAhlnX+lxYEQff0A/Sb9AP4PMjAxODAzMTNUMDAwMDAw/QD/DzIwMTkwMzEzVDAwMDAwMBdGMEQCIGDezxXgdFm+vU3mW0utZXiKR7MqZ5xqNyImfwwTEE2wAiAQBZ9ElKTEmolbbLQteOMCJALtZ1yDIALxk2v3hbwR6Q=="
+    "TLS_port": "CLOSED",
+    "key": "Bv0B+AcyCANuZG4IAmtyCAJyZQgFa2lzdGkIA0tFWQgIznO/YJ0i39cIAk5BCAn9AAABYiG9jlEUCRgBAhkEADbugBX9ASYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQChEt60ItNbzk8j0bO3zjXZvrCrYUaLT+jX1du84oTT5A5hMhDPy5tUWRUgebAgRRSF6UuULcyHk9fZNtDwLekqrQKg9YAyurigPzMT+NarqIB9Z/hNrwWCo+kK7NBmhFY8Vd3oI/BfvvYky9oeObZVTQxySFHJXTDY2v65+Fr4hSd/d8BdmQ2h34f2L6ZiGzKiPmEWVgZhTaetGNWfnXN+JAkwHi/FD0J+xMpiNyS9tfaoyQynSXtS6EgjJvyEwl7A70x9zHVpyAke1gRaEyOoV2cq6evtLc7BPIN7lxWH+d+sqf9sOHnN2LVgWnqnRHC6XRqJvsXqJ1ZPhC/xDS3NAgMBAAEWRRsBAxwWBxQIA25kbggDS0VZCAhlnX+lxYEQff0A/Sb9AP4PMjAxODAzMTNUMDAwMDAw/QD/DzIwMTkwMzEzVDAwMDAwMBdGMEQCIGDezxXgdFm+vU3mW0utZXiKR7MqZ5xqNyImfwwTEE2wAiAQBZ9ElKTEmolbbLQteOMCJALtZ1yDIALxk2v3hbwR6Q=="
  }

@@ -1,9 +1,8 @@
 "WASEDA": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": false,
     "email": "lxb385@fuji.waseda.jp",
-    "key": "...",
     "name": "Xiabo Li",
     "site_emails": ["waseda.jp", "fuji.waseda.jp"],
     "site_name": "Waseda University, Tokyo, Japan",

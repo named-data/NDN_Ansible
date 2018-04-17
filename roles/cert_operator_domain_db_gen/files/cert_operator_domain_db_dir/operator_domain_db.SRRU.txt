@@ -1,9 +1,8 @@
 "SRRU": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": false,
     "email": "thongchai.c@srru.ac.th",
-    "key": "...",
     "name": "Thongchai Chuachan ",
     "site_emails": ["srru.ac.th"],
     "site_name": "Surindra Rajabhat University, Thailand",

@@ -1,9 +1,8 @@
 "UCLA": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": true,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "alexander.afanasyev@ucla.edu",
-    "key": "...",
     "name": "Alex Afanasyev",
     "site_emails": ["ucla.edu", "cs.ucla.edu", "engineering.ucla.edu"],
     "site_name": "University of California, Los Angeles",

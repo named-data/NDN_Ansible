@@ -1,9 +1,8 @@
 "URJC": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": false,
     "email": "pheras@gsyc.es",
-    "key": "...",
     "name": "Pedro de las Heras Quiros",
     "site_emails": ["urjc.es", "alumnos.urjc.es"],
     "site_name": "Universidad Rey Juan Carlos, Spain",

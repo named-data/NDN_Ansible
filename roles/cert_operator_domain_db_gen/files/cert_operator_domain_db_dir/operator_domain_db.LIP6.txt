@@ -1,9 +1,8 @@
 "LIP6": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": true,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "davide.pesavento@lip6.fr",
-    "key": "...",
     "name": "Davide Pesavento",
     "site_emails": "lip6.fr",
     "site_name": "Laboratorie d'Informatique de Paris 6 (LIP6), Pierre et Marie Curie University, France",

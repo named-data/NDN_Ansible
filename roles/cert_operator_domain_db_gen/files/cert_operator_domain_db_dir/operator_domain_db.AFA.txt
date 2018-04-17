@@ -1,9 +1,8 @@
 "AFA": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "russi@afasystems.it",
-    "key": "...",
     "name": "Gianmichele Russi",
     "site_emails": ["afasystems.it"],
     "site_name": "AFA Systems, Italy",

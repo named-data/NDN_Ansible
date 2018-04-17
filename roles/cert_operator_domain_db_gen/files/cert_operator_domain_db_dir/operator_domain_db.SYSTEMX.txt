@@ -1,9 +1,8 @@
 "SYSTEMX": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": true,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "luca.muscariello@irt-systemx.fr",
-    "key": "...",
     "name": "Luca Muscariello",
     "site_emails": ["irt-systemx.fr"],
     "site_name": "Institute for Technological Research SystemX",

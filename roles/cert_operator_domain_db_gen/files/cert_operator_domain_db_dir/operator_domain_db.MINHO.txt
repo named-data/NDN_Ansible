@@ -1,9 +1,8 @@
 "MINHO": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": false,
     "email": "id5540@alunos.uminho.pt",
-    "key": "...",
     "name": "Ertugrul Dogruluk",
     "site_emails": ["di.minho.pt", "alunos.uminho.pt"],
     "site_name": "University of Mihno, Portugal",

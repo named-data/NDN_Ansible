@@ -1,12 +1,12 @@
 "BASEL": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": false,
     "email": "urs.schnurrenberger@unibas.ch",
-    "key": "...",
     "name": "Urs Schnurrenberger",
     "site_emails": ["unibas.ch"],
     "site_name": "University of Basel, Switzerland",
     "site_prefix": "/ndn/ch/unibas",
-"cert": "Bv0B9QcvCANuZG4IAmNoCAZ1bmliYXMIA0tFWQgIkdmmKFGoRcwIAk5BCAn9AAABYiG9jbcUCRgBAhkEADbugBX9ASYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDF8YlaruUfX0TilAPzzTXTlVwkpaMYyCWrL40k15b+WXtSWuOkUIKYLwzQYaCUKly28IKk5JtU/38BWpTVLhmRUtmtpEG8UKBGIDDIjZbSldua0s0t9YbtlBzhMywBnNP72CafwkcFNhX2DrSM8AtLI5/UKF8d8ByKn8f34q20UaSTcXq98Bwz2olKWApXLZUdQwKJgGwanXQgdm1r7MUkFudRsdkiCSknI5yBE2J1mFyf8m8tOe6OVDD9M0vy4TsbQJ7tPZK8fyShKhSalMqnKuSNQxLudrAp5I6l81ZM5GqSn/x4pDMfI+i988ZKGTSHYA/ZbTtKwVVh5e9TX4nFAgMBAAEWRRsBAxwWBxQIA25kbggDS0VZCAhlnX+lxYEQff0A/Sb9AP4PMjAxODAzMTNUMDAwMDAw/QD/DzIwMTkwMzEzVDAwMDAwMBdGMEQCIC7/xA0dDnjxFnRbCx0rzEKaNrvcAn6FcnJeyGw1+6ROAiBbnM4/9hlgPg/w+iUwrNSquqZ0sLepfqVhbRRKcBma2Q=="
+    "TLS_port": "OPEN",
+    "key": "Bv0B9QcvCANuZG4IAmNoCAZ1bmliYXMIA0tFWQgIkdmmKFGoRcwIAk5BCAn9AAABYiG9jbcUCRgBAhkEADbugBX9ASYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDF8YlaruUfX0TilAPzzTXTlVwkpaMYyCWrL40k15b+WXtSWuOkUIKYLwzQYaCUKly28IKk5JtU/38BWpTVLhmRUtmtpEG8UKBGIDDIjZbSldua0s0t9YbtlBzhMywBnNP72CafwkcFNhX2DrSM8AtLI5/UKF8d8ByKn8f34q20UaSTcXq98Bwz2olKWApXLZUdQwKJgGwanXQgdm1r7MUkFudRsdkiCSknI5yBE2J1mFyf8m8tOe6OVDD9M0vy4TsbQJ7tPZK8fyShKhSalMqnKuSNQxLudrAp5I6l81ZM5GqSn/x4pDMfI+i988ZKGTSHYA/ZbTtKwVVh5e9TX4nFAgMBAAEWRRsBAxwWBxQIA25kbggDS0VZCAhlnX+lxYEQff0A/Sb9AP4PMjAxODAzMTNUMDAwMDAw/QD/DzIwMTkwMzEzVDAwMDAwMBdGMEQCIC7/xA0dDnjxFnRbCx0rzEKaNrvcAn6FcnJeyGw1+6ROAiBbnM4/9hlgPg/w+iUwrNSquqZ0sLepfqVhbRRKcBma2Q=="
  }

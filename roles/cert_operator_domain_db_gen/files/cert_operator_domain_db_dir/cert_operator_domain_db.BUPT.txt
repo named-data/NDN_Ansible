@@ -7,3 +7,6 @@
     "site_emails": ["bupt.edu.cn"],
     "site_name": "Beijing University of Posts and Telecommunications, China",
     "site_prefix": "/ndn/cn/edu/bupt",
+    "TLS_port": "CLOSED",
+    "key": ""
+ }

@@ -1,0 +1,12 @@
+"AAU": {
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": false,
+    "email": "mario.taschwer@aau.at",
+    "name": "Mario Taschwer",
+    "site_emails": ["aau.at", "itec.aau.at"],
+    "site_name": "Austrian Alpen-Adria-Universtat, Austria",
+    "site_prefix": "/ndn/at/aau",
+    "TLS_port": "CLOSED",
+    "key": "Bv0B8wcsCANuZG4IAmF0CANhYXUIA0tFWQgIM6lYiICLGBgIAk5BCAn9AAABYpbe4vgUCRgBAhkEADbugBX9ASYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDGbDXmJTvb25x7aJWItyLgR40YLsKOH35Nys1o3NWSxXdwM66D1uvNz9dF7rJzurfxaSPNDF7tXG/Hp91QbdGhppFhvueU3+ATb87gystxLtlZmtTCoC/ZGP5yrqKLAYC5rPVJt35fu3xOqv3qh6TcdPjdGaimHRJCCYDXqctxi6hAMotPh1X0bVWBt/uvj7KnQSzSwlGlZ2s+/0M5fZztrcdIYcFcSyHVkeA2Xiaex8oqC7MwzU/CI9LIEdjkY/ecoekVlKk9w08GltK+c+c3vTB2QSvYwxV3l7XxYRFBoK9pADtNNjqQ/eEteOuEZ2w7eNuKxOZvAVPG1y20jEOFAgMBAAEWRRsBAxwWBxQIA25kbggDS0VZCAhlnX+lxYEQff0A/Sb9AP4PMjAxODA0MDVUMDAwMDAw/QD/DzIwMTkwNDA1VDAwMDAwMBdHMEUCIQDANdd2/Z5Qlq2S4CFQkFkavBFWsXR5T98wrylCrQcpnwIgIiU6VDcUNOp+kVoS8cYe2PX9bFrx65Q/PKZWfPDn1zA="
+ }

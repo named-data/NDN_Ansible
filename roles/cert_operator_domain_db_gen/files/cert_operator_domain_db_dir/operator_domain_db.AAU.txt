@@ -1,0 +1,9 @@
+"AAU": {
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": false,
+    "email": "mario.taschwer@aau.at",
+    "name": "Mario Taschwer",
+    "site_emails": ["aau.at", "itec.aau.at"],
+    "site_name": "Austrian Alpen-Adria-Universtat, Austria",
+    "site_prefix": "/ndn/at/aau",

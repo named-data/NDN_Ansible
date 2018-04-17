@@ -1,9 +1,8 @@
 "NTNU": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": false,
     "email": "palss@ntnu.no",
-    "key": "...",
     "name": "Pål S. Sæther ",
     "site_emails": ["ntnu.no", "stud.ntnu.no"],
     "site_name": "Norwegian University of Science and Technology (NTNU), Norway",

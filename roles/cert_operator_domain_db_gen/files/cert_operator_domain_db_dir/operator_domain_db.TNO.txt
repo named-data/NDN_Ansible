@@ -1,9 +1,8 @@
 "TNO": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": true,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "bastiaan.wissingh@tno.nl",
-    "key": "...",
     "name": "Bastiaan Wissingh",
     "site_emails": ["tno.nl"],
     "site_name": "Netherlands Organisation for Applied Scientific Research, Netherlands",

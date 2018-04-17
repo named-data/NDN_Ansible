@@ -1,9 +1,8 @@
 "CORUNA": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "manuel.suarez.albela@gtec.udc.es",
-    "key": "...",
     "name": "Manuel Suárez Albela",
     "site_emails": ["udc.es", "gtec.udc.es"],
     "site_name": "Universidade da Coruna (CORUNA)",

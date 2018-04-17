@@ -1,12 +1,12 @@
 "NEU": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": true,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "liuranapply@gmail.com",
-    "key": "...",
     "name": "Ran Liu",
     "site_emails": ["neu.edu"],
     "site_name": "Northeastern University",
     "site_prefix": "/ndn/edu/neu",
-"cert": "Bv0B8wctCANuZG4IA2VkdQgDbmV1CANLRVkICFIeCp1duv08CAJOQQgJ/QAAAWIhvY8dFAkYAQIZBAA27oAV/QEmMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAn0RoK+cHOkaMnJ0ooO+928YG0eyqMHqR7aypvNAXHOJNEmmjHmIkVjZoRVomJaOEWunu3B9kKNVyeDRrh2hLknrRxYMHmHF62YbsKvnjo/QqznIRrHyondh1vk2bWY6jYDRqT4nAIMMh1jcOsquncRZzyeIBu6ypo6vaoFf3WDkgY471+nZSy4yQVyqocqlRz2mG7CFm0++7o02K+0fFLITwgEBo/BHs4MnmdMvq+peUdxOuEJtxqZSfWQMlLipdOHc4LMbEebEp8Li0r3vZURGamFlj8CxxPIJsa4367pNvrJrxCLrOaknGDSVmZ7E7c0z1je9ZYUwQ4AwzJJFQFQIDAQABFkUbAQMcFgcUCANuZG4IA0tFWQgIZZ1/pcWBEH39AP0m/QD+DzIwMTgwMzEzVDAwMDAwMP0A/w8yMDE5MDMxM1QwMDAwMDAXRjBEAiAQzhPL5x1OMBfRfUX94XDshCE6+QKNBpjGn9BKwTfPBgIgcw81t1gW+gO6w+MULnjEZZ3kQJnyODyrjnqi91kmmsw="
+    "TLS_port": "CLOSED",
+    "key": "Bv0B8wctCANuZG4IA2VkdQgDbmV1CANLRVkICFIeCp1duv08CAJOQQgJ/QAAAWIhvY8dFAkYAQIZBAA27oAV/QEmMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAn0RoK+cHOkaMnJ0ooO+928YG0eyqMHqR7aypvNAXHOJNEmmjHmIkVjZoRVomJaOEWunu3B9kKNVyeDRrh2hLknrRxYMHmHF62YbsKvnjo/QqznIRrHyondh1vk2bWY6jYDRqT4nAIMMh1jcOsquncRZzyeIBu6ypo6vaoFf3WDkgY471+nZSy4yQVyqocqlRz2mG7CFm0++7o02K+0fFLITwgEBo/BHs4MnmdMvq+peUdxOuEJtxqZSfWQMlLipdOHc4LMbEebEp8Li0r3vZURGamFlj8CxxPIJsa4367pNvrJrxCLrOaknGDSVmZ7E7c0z1je9ZYUwQ4AwzJJFQFQIDAQABFkUbAQMcFgcUCANuZG4IA0tFWQgIZZ1/pcWBEH39AP0m/QD+DzIwMTgwMzEzVDAwMDAwMP0A/w8yMDE5MDMxM1QwMDAwMDAXRjBEAiAQzhPL5x1OMBfRfUX94XDshCE6+QKNBpjGn9BKwTfPBgIgcw81t1gW+gO6w+MULnjEZZ3kQJnyODyrjnqi91kmmsw="
  }

@@ -1,9 +1,8 @@
 "REMAP": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": true,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "wangzhehao410305@gmail.com",
-    "key": "...",
     "name": "Zhehao Wang",
     "site_emails": ["remap.ucla.edu"],
     "site_name": "The Center for Research in Engineering, Media and Performance (REMAP)",

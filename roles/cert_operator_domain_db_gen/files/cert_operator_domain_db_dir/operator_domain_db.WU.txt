@@ -1,9 +1,8 @@
 "WU": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": true,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "jdd@wustl.edu",
-    "key": "...",
     "name": "John DeHart",
     "site_emails": ["wustl.edu"],
     "site_name": "Washington University in St. Louis",

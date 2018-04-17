@@ -1,9 +1,8 @@
 "OSAKA": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": true,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "ykoizumi@ist.osaka-u.ac.jp",
-    "key": "...",
     "name": "Yuki Koizumi",
     "site_emails": ["ist.osaka-u.ac.jp"],
     "site_name": "Osaka University, Japan",

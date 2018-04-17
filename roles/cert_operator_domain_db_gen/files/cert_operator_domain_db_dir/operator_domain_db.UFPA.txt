@@ -1,9 +1,8 @@
 "UFPA": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": true,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "igfuca@gmail.com",
-    "key": "...",
     "name": "Igor Carvallho",
     "site_emails": ["ufpa.br"],
     "site_name": "Federal University of Para, Brazil",

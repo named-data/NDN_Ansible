@@ -1,9 +1,8 @@
 "KISTI": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": true,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": true,
     "email": "alexni1992@gmail.com",
-    "key": "...",
     "name": "Alexander Ni",
     "site_emails": "kisti.re.kr",
     "site_name": "Korea Institute of Science and Technology Information (KISTI)",

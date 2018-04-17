@@ -1,9 +1,8 @@
 "PADUA": {
-    "allowGuests": False,
-    "doNotSendOpRequests": False,
-    "doNotSendOpRequestsForGuests": True,
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": false,
     "email": "compagno@di.uniroma1.it",
-    "key": "...",
     "name": "Alberto Compagno",
     "site_emails": ["unipd.it"],
     "site_name": "University of Padua, Italy",
