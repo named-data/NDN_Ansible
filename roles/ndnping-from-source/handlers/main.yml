@@ -1,0 +1,4 @@
+---
+# handlers file for ndnping-from-source
+- name: restart ndnping
+  service: name=ndnping state=restarted
