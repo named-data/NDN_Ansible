@@ -1,0 +1,33 @@
+---
+# tasks file for ndn-tools-from-source
+- name: git ndn-tools
+  git: repo=http://github.com/named-data/ndn-tools
+       dest=/tmp/ndn-tools
+       update=yes
+       version={{ndn_tools_version}}
+  register: gitclone
+
+#- name: configure ndn-tools
+- command: ./waf --boost-libs="{{ boost_base_location }}"/lib --boost-includes="{{ boost_base_location }}"/include configure
+  args:
+    chdir: /tmp/ndn-tools
+  when: gitclone.changed
+
+#- name: clean ndn-tools
+- command: ./waf clean
+  args:
+    chdir: /tmp/ndn-tools
+  when: gitclone.changed
+
+#- name: build ndn-tools
+- command: ./waf 
+  args:
+    chdir: /tmp/ndn-tools
+  when: gitclone.changed
+
+#- name: install ndn-tools
+- command: ./waf  install
+  args:
+    chdir: /tmp/ndn-tools
+  when: gitclone.changed
+
