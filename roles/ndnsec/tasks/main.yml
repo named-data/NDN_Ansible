@@ -156,6 +156,7 @@
 - debug:
     msg: "Tried setting default name. Default name still does NOT agree with default_prefix: {{ default_prefix }}"
   when: name_present2 is defined and (name_present2.rc != 0)
+  ignore_errors: yes
 
 - script: roles/ndnsec/files/checkCert.sh "{{ default_prefix }}"
   register: cert_present
