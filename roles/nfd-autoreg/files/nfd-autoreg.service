@@ -25,7 +25,7 @@
 [Unit]
 Description=NDN Autoreg Server
 Documentation=man:nfd-autoreg
-Wants=nfd.service
+BindsTo=nfd.service
 After=nfd.service
 
 [Service]
@@ -41,3 +41,4 @@ PrivateDevices=yes
 ProtectHome=yes
 
 [Install]
+WantedBy=nfd.service

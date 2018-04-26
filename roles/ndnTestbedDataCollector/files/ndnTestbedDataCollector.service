@@ -4,7 +4,7 @@
 [Unit]
 Description=Data collection daemons for NDN Testbed.
 Documentation=man:ndnTestbedDataCollector
-Requires=nfd.service
+BindsTo=nfd.service
 After=nfd.service
 
 [Service]
@@ -21,3 +21,4 @@ ProtectHome=yes
 
 [Install]
 WantedBy=multi-user.target
+#WantedBy=nfd.service

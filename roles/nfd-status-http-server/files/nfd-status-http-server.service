@@ -25,6 +25,7 @@
 [Unit]
 Description=NFD HTTP Status Server
 Documentation=man:nfd-status-http-server
+BindsTo=nfd.service
 After=nfd.service
 
 [Service]
@@ -38,3 +39,4 @@ PrivateDevices=yes
 ProtectHome=yes
 
 [Install]
+WantedBy=nfd.service

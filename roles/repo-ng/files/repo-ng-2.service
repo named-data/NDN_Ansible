@@ -19,7 +19,7 @@
 [Unit]
 Description=New generation of NDN repo
 Documentation=man:ndn-repo-ng
-Requires=nfd.service
+BindsTo=nfd.service
 After=nfd.service
 
 [Service]
@@ -35,4 +35,4 @@ ProtectHome=yes
 
 [Install]
 WantedBy=multi-user.target
-
+WantedBy=nfd.service

@@ -22,7 +22,7 @@
 [Unit]
 Description=NDN NLSR Routing Daemon
 Documentation=man:nlsr
-Requires=nfd.service
+BindsTo=nfd.service
 After=nfd.service
 
 [Service]
@@ -37,4 +37,4 @@ PrivateDevices=yes
 ProtectHome=yes
 
 [Install]
-
+WantedBy=nfd.service

@@ -25,7 +25,7 @@
 [Unit]
 Description=NDN Autoconfig Server
 Documentation=man:nfd-autoconfig-server
-Requires=nfd.service
+BindsTo=nfd.service
 After=nfd.service
 
 [Service]
@@ -42,3 +42,4 @@ ProtectHome=yes
 
 [Install]
 WantedBy=multi-user.target
+WantedBy=nfd.service
