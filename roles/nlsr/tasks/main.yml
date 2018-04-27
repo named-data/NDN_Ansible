@@ -8,6 +8,22 @@
 - file: path=/var/lib/ndn/nlsr state=directory owner=nlsr group=nlsr mode=0755
 - file: path=/var/log/ndn/nlsr state=directory owner=nlsr group=nlsr mode=0755
 
+- name: set up rsyslog for nlsr.log for Ubuntu 16.04
+  copy: dest=/etc/rsyslog.d/26-nlsr.conf src=roles/nlsr/files/rsyslogd.26-nlsr.conf owner=root group=root mode=0644
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+
+- name: initialize nlsr.log
+  file: path=/var/log/ndn/nlsr/nlsr.log state=touch owner=syslog group=adm mode=0644
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+
+#- cron: name="log rotate" user="ndnops" hour="1" minute="1" job="/home/ndnops/ndn-ops/NOC/logRotation/rotateLogs.sh  "
+- cron: name="log rotate" state="absent" user="ndnops" minute="28" job="/home/ndnops/ndn-ops/NOC/bin/rotateLogs.sh  "
+
+- name: copy logrotate conf file for nlsr
+  copy: dest=/etc/logrotate.d/nlsr  src=roles/nlsr/files/logrotate.nlsr owner=root group=root mode=0644
+
+
+
 - name: create nlsr.conf
   #template: src=nlsr.conf.j2 dest=/etc/ndn/nlsr/ansible_nlsr.conf owner=nlsr group=nlsr mode="u=rw,g=r,o=r"
   template: src=nlsr.conf.j2 dest=/etc/ndn/nlsr/nlsr.conf owner=nlsr group=nlsr mode="u=rw,g=r,o=r"
@@ -15,9 +31,6 @@
 
 #- debug:
 #    msg: "default_prefix: {{ default_prefix }}"
-
-- name: copy logrotate conf file for nlsr
-  copy: dest=/etc/logrotate.d/nlsr  src=roles/nlsr/files/logrotate.nlsr owner=root group=root mode=0644
 
 #- name: check if we have a root cert locally
 #  local_action: stat path=roles/nlsr/files/root.cert
