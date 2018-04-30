@@ -31,7 +31,7 @@ NLSR_START_TIME=`echo $NLSR_START_TIME_STRING | awk '{print $3 " " $4 " " $5 " "
 #echo "NLSR_START_TIME_s: $NLSR_START_TIME_s" >> /usr/share/ndn/versions.txt
 
 UTC0_CURRENT_TIME=`date`
-UTC0_NLSR_START_TIME=`ps -eo pid,lstart,cmd | grep nlsr | grep -v tail | grep -v gdb | grep -v grep | awk '{print $2 " " $3 " " $4 " " $5 " UTC " $6}'`
+UTC0_NLSR_START_TIME=`ps -eo pid,lstart,cmd | grep nlsr | grep -v vi | grep -v tail | grep -v gdb | grep -v grep | awk '{print $2 " " $3 " " $4 " " $5 " UTC " $6}'`
 echo "UTC0_CURRENT_TIME: $UTC0_CURRENT_TIME" >> /usr/share/ndn/versions.txt
 if [ -z "$UTC0_NLSR_START_TIME" ]
 then
