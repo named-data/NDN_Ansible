@@ -6,10 +6,10 @@
 
 - name: copy /lib/systemd/system/nfd-status-http-server.service
   copy: dest=/lib/systemd/system/nfd-status-http-server.service src=roles/nfd-status-http-server/files/nfd-status-http-server.service owner=root group=root mode=0644
-  when: ansible_distribution == "RedHat"
+  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
 
 - file: path=/etc/systemd/system/multi-user.target.wants/nfd-status-http-server.service  state=link  src=/lib/systemd/system/nfd-status-http-server.service
-  when: ansible_distribution == "RedHat"
+  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
 
 - command: systemctl daemon-reload
   when: ansible_distribution == "RedHat"
@@ -41,6 +41,7 @@
 - name: install certbot-auto from EFF
   get_url: url=https://dl.eff.org/certbot-auto dest=/usr/local/bin/certbot-auto mode=0755
   when: ansible_distribution == "Ubuntu" 
+  ignore_errors: yes
 
 - name: create certbotRun.sh
   template: src=certbotRun.sh.j2 dest=/home/ndnops/certbotRun.sh  owner=root group=root mode="u=rwx,g=rx,o=rx"
@@ -49,6 +50,7 @@
 - name: run certbotRun.sh
   shell: /home/ndnops/certbotRun.sh
   when: ansible_distribution == "Ubuntu" 
+  ignore_errors: yes
 
 - name: create /etc/nginx/sites-available/nfd
   template: src=nfd_site.j2 dest=/etc/nginx/sites-available/nfd  owner=root group=root mode="u=rw,g=r,o=r"
