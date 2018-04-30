@@ -8,6 +8,14 @@
 - file: path=/var/lib/ndn/nlsr state=directory owner=nlsr group=nlsr mode=0755
 - file: path=/var/log/ndn/nlsr state=directory owner=nlsr group=nlsr mode=0755
 
+# copy nlsr /lib/systemd/ conf file
+- name: create nlsr /lib/systemd conf file
+  copy: src=roles/nlsr/files/nlsr.service dest=/lib/systemd/system/nlsr.service
+  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+
+- file: path=/etc/systemd/system/multi-user.target.wants/nlsr.service state=link src=/lib/systemd/system/nlsr.service
+  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+
 - name: set up rsyslog for nlsr.log for Ubuntu 16.04
   copy: dest=/etc/rsyslog.d/26-nlsr.conf src=roles/nlsr/files/rsyslogd.26-nlsr.conf owner=root group=root mode=0644
   when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")

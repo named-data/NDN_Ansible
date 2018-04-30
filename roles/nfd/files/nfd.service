@@ -23,15 +23,15 @@
 # Author: Eric Newberry <enewberry@email.arizona.edu>
 
 [Unit]
-Description=NFD HTTP Status Server
-Documentation=man:nfd-status-http-server
-BindsTo=nfd.service
-After=nfd.service
+Description=NDN Forwarding Daemon
+Documentation=man:nfd man:nfdc man:nfd-status
+Wants=network-online.target
+After=network-online.target
 
 [Service]
-Environment=HOME=/var/lib/ndn/nfd-status-http-server
-EnvironmentFile=-/etc/default/nfd-status-http-server
-ExecStart=/usr/bin/nfd-status-http-server $FLAGS
+Environment=HOME=/var/lib/ndn/nfd
+ExecStart=/usr/bin/nfd --config /etc/ndn/nfd.conf
+ExecStartPost=/bin/sh -ec 'sleep 2; if [ -f /etc/ndn/nfd-init.sh ]; then . /etc/ndn/nfd-init.sh; fi'
 Restart=on-failure
 ProtectSystem=full
 PrivateTmp=yes
@@ -40,4 +40,3 @@ ProtectHome=yes
 
 [Install]
 WantedBy=multi-user.target
-WantedBy=nfd.service

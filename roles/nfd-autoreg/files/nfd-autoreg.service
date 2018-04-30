@@ -41,4 +41,5 @@ PrivateDevices=yes
 ProtectHome=yes
 
 [Install]
+WantedBy=multi-user.target
 WantedBy=nfd.service
