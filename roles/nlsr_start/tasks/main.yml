@@ -1,0 +1,5 @@
+---
+# tasks file for nlsr_start
+
+- name: start nlsr
+  service: name=nlsr state=started enabled=yes

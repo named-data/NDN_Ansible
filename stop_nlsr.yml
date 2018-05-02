@@ -1,0 +1,10 @@
+---
+- name: stop nlsr on all testbed nodes
+  hosts: ndngateways 
+  remote_user: ndnops
+  become: yes
+
+
+  roles: 
+  - {role: 'nlsr_stop', tags: 'nlsr_stop'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "nlsr_stop"
+
