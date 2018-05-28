@@ -54,11 +54,62 @@
 - name: copy check_fail2ban_log.sh to NOC/bin
   copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/check_fail2ban_log.sh  src=roles/NOC/files/check_fail2ban_log.sh owner={{ansible_user}} group={{ansible_user}} mode=0755
 
-#- name: create NOC directories
-#  file: path=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests state=directory owner={{ansible_user}} group={{ansible_user}} mode=0755
+# Create files for use in Testbed tests
+# Actually we want to create this in a separate playbook so we do it all locally and
+# not have to worry about whether some nodes are currently up or down.
+# Doing it here we would only catch the machines that are current up and the down or
+# inaccessible machines would not show up in the files.
+# we will create these files in testbed_node_link_db.yml
+# and here we will access them from roles/node_link_db_gen/files
+
+- name: create db files dir
+  local_action: file path=roles/NOC/files/testfiles state=directory
+  run_once: true
+  become: false
+
+#- local_action: template src=node_address.j2 dest=roles/NOC/files/testfiles/node_address.{{inventory_hostname}}.txt
+#  become: false
+#
+#- local_action: template src=node_prefix.j2 dest=roles/NOC/files/testfiles/node_prefix.{{inventory_hostname}}.txt
+#  become: false
+#
+#- local_action: template src=node_neighbors.j2 dest=roles/NOC/files/testfiles/node_neighbors.{{inventory_hostname}}.txt
+#  become: false
+#
+## Combined all node address files
+#- name: Combined all node address files
+#  local_action: shell cat roles/NOC/files/testfiles/node_address.*.txt > roles/NOC/files/node_list.txt
+#  run_once: true
+#  become: false
+#
+## Combined all node neighbor files
+#- name: Combined all node neighbor files
+#  local_action: shell cat roles/NOC/files/testfiles/node_neighbors.*.txt > roles/NOC/files/node_neighbors.txt
+#  run_once: true
+#  become: false
+#
+## Combined all node prefix files
+#- name: Combined all node prefix files
+#  local_action: shell cat roles/NOC/files/testfiles/node_prefix.*.txt > roles/NOC/files/node_prefix.txt
+#  run_once: true
+#  become: false
+
+- name: create NOC directories
+  file: path=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests state=directory owner={{ansible_user}} group={{ansible_user}} mode=0755
+
+- name: copy testfiles for ping tests
+  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests/node_list.txt  src=roles/node_link_db_gen/files/node_list.txt owner={{ansible_user}} group={{ansible_user}} mode=0644
+
+- name: copy testfiles for ping tests
+  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests/node_neighbors.txt  src=roles/node_link_db_gen/files/node_neighbors.txt owner={{ansible_user}} group={{ansible_user}} mode=0644
+
+- name: copy testfiles for ping tests
+  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests/node_prefix.txt  src=roles/node_link_db_gen/files/node_prefix.txt owner={{ansible_user}} group={{ansible_user}} mode=0644
+
+
 
 #- name: copy ndnping parallel test script
-#  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests/./getTestbedDelays_ndnping_parallel.sh  src=roles/NOC/files/./getTestbedDelays_ndnping_parallel.sh owner={{ansible_user}} group={{ansible_user}} mode=0755
+  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests/./getTestbedDelays_ndnping_parallel.sh  src=roles/NOC/files/./getTestbedDelays_ndnping_parallel.sh owner={{ansible_user}} group={{ansible_user}} mode=0755
 
 #- name: copy ndnping parallel test prefix list
 #  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests/./full_prefix_list.txt  src=roles/NOC/files/./full_prefix_list.txt owner={{ansible_user}} group={{ansible_user}} mode=0644
@@ -100,13 +151,29 @@
        - protobuf-devel
        - log4cxx.x86_64
 
-- name: remove ndn dev repository
-  apt_repository: repo='ppa:named-data/ppa-dev' state=absent
-  when: ansible_distribution == "Ubuntu" 
+#- name: remove ndn dev repository
+#  apt_repository: repo='ppa:named-data/ppa-dev' state=absent
+#  when: ansible_distribution == "Ubuntu" 
 
-- name: add ndn repository
-  apt_repository: repo='ppa:named-data/ppa' state=present
-  when: ansible_distribution == "Ubuntu" 
+#- name: remove ndn repository (we will then re-add it to make sure we get new OS version covered)
+#  apt_repository: repo='ppa:named-data/ppa' state=absent
+#  when: ansible_distribution == "Ubuntu" 
+#
+#- name: add ndn repository
+#  apt_repository: repo='ppa:named-data/ppa' state=present
+#  when: ansible_distribution == "Ubuntu" 
+
+- command: add-apt-repository -y -r ppa:named-data/ppa
+  become: yes
+
+- command: add-apt-repository -y  ppa:named-data/ppa
+  become: yes
+
+- command: apt-get -y update
+  become: yes
+
+- command: apt-get -y upgrade
+  become: yes
 
 - name: remove Ashlesh experimental ndn repository
   #apt_repository: repo='ppa:agawande/named-data-exp' state=present
@@ -149,8 +216,11 @@
        - python3-dev
        - python3-setuptools
        - python3-pip
+       - python-pip
        - fail2ban
-       - liblog4cxx10*
+       - liblog4cxx10-dev
+
+#       - liblog4cxx10*
 
 #       - liblog4cxx10
 #         when {{ ansible_distribution_major_version }} == 14 
@@ -177,6 +247,12 @@
 #- command: /usr/bin/easy_install3 pip
 #  become: yes
 #  become_user: root
+
+- command: python3 -m pip install --upgrade pip
+  become: yes
+
+- command: python -m pip install --upgrade pip
+  become: yes
 
 - pip: name=setuptools state=latest executable=pip3
 
