@@ -6,7 +6,7 @@
 
 
   roles: 
-  - {role: 'prep_0.6.0', tags: 'prep_0.6.0'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "prep_0.6.0"
+#  - {role: 'prep_0.6.0', tags: 'prep_0.6.0'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "prep_0.6.0"
   - {role: 'NOC', tags: 'NOC'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "NOC"
   - {role: 'ndn-cxx', tags: 'ndn-cxx'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndn-cxx"
   - {role: 'ndnsec', tags: 'ndnsec'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnsec"
