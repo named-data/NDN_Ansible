@@ -145,6 +145,10 @@
 - name: install nlsr
   apt: name=nlsr state=latest update_cache=yes
 
+- command: systemctl enable nlsr.service
+  become: yes
+  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+
 - name: start nlsr
   service: name=nlsr state=started enabled=yes
 

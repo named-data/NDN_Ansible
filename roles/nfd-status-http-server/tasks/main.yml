@@ -67,6 +67,11 @@
 #- cron: name="renew certbot" user="root" day="28" hour="1" minute="30" job="/usr/local/bin/certbot-auto renew --standalone --pre-hook \"systemctl stop nfd-status-http-server; service nginx stop\" --post-hook \"systemctl start nfd-status-http-server; service nginx start\""
 #  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16") 
 #
+
+- command: systemctl enable nfd-status-http-server.service
+  become: yes
+  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+
 - name: start nfd-status-http-server.server for Ubuntu 16.04
   shell: systemctl start nfd-status-http-server.service
   when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16") 

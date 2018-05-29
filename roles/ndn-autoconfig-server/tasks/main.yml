@@ -19,6 +19,10 @@
 - command: systemctl daemon-reload
   when: ansible_distribution == "RedHat" 
 
+- command: systemctl enable ndn-autoconfig-server.service
+  become: yes
+  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+
 
 - name: start ndn-autoconfig-server
   service: name=ndn-autoconfig-server state=started enabled=yes

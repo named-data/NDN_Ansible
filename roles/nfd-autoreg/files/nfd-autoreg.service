@@ -33,7 +33,8 @@ User=ndn
 Group=ndn
 Environment=HOME=/var/lib/ndn/nfd-autoreg
 EnvironmentFile=-/etc/default/nfd-autoreg
-ExecStart=/usr/local/bin/nfd-autoreg $BLACKLIST $WHITELIST $ON_DEMAND_FACES_PREFIXES $ALL_FACES_PREFIXES $FLAGS
+#ExecStart=/usr/local/bin/nfd-autoreg $BLACKLIST $WHITELIST $ON_DEMAND_FACES_PREFIXES $ALL_FACES_PREFIXES $FLAGS
+ExecStart=/usr/bin/nfd-autoreg $BLACKLIST $WHITELIST $ON_DEMAND_FACES_PREFIXES $ALL_FACES_PREFIXES $FLAGS
 Restart=on-failure
 ProtectSystem=full
 PrivateTmp=yes

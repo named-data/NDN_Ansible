@@ -35,6 +35,14 @@
   template: src=repo-ng-2.conf.j2 dest=/etc/ndn/repo-ng-2.conf owner=root group=root mode="u=rw,g=r,o=r"
   notify: restart repo-ng-2
 
+- command: systemctl enable repo-ng.service
+  become: yes
+  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+
+- command: systemctl enable repo-ng-2.service
+  become: yes
+  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+
 - name: start repo-ng
   service: name=repo-ng state=started enabled=yes
 
