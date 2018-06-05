@@ -2,8 +2,11 @@
 
 # file: host_vars/NIST
 #ansible_host: ndn-01.antd.nist.gov
-ansible_host: 129.6.112.51
-ethernet_device: eth0
+#ansible_host: 129.6.112.51
+#ansible_host: nist.testbed.named-data.net
+ansible_host: 129.6.112.67
+ansible_user: antd
+ethernet_device: enp1s0f0
 site: /gov/nist
 default_prefix: /ndn/gov/nist 
 advertised_prefixes: [/ndn/gov/nist]
