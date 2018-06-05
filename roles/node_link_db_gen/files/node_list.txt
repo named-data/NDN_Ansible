@@ -22,7 +22,7 @@ MINHO vnetlab.gcom.di.uminho.pt
 MSU msu.testbed.named-data.net
 MUMBAI_AWS mumbai.testbed.named-data.net
 NEU neu.testbed.named-data.net
-NIST nist.testbed.named-data.net
+NIST 129.6.112.67
 NTNU ndn.item.ntnu.no
 OSAKA ndn.ist.osaka-u.ac.jp
 PADUA ndnnode.math.unipd.it
