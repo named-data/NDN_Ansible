@@ -1,0 +1,43 @@
+AAU dmi-ndn-testbed1.dmi.unibas.ch os-float172.cnds.unibe.ch ndnnode.math.unipd.it
+AFA mumbai.testbed.named-data.net os-float172.cnds.unibe.ch lumiere.diee.unica.it ndnnode.math.unipd.it copelabs.testbed.named-data.net
+ANYANG tongji.testbed.named-data.net comsci2.srru.ac.th msu.testbed.named-data.net bupt.testbed.named-data.net kisti.testbed.named-data.net ndn-tb.nz.comm.waseda.ac.jp ndn.ist.osaka-u.ac.jp
+ARIZONA click.caida.org ndn-remap-p05.it.ucla.edu ndn-tb.nz.comm.waseda.ac.jp pasta10.cs.byu.edu uaslp.testbed.named-data.net wundngw.arl.wustl.edu ndn.netsec.colostate.edu titan.cs.memphis.edu
+BASEL insula.gsyc.es vnetlab.gcom.di.uminho.pt ndn.item.ntnu.no ndn-itec.aau.at ndnnode.math.unipd.it ndnhub.ipv6.lip6.fr k.extra.informatik.uni-goettingen.de os-float172.cnds.unibe.ch tno.testbed.named-data.net systemx-ndn-1.enst.fr
+BERN ndn-itec.aau.at dmi-ndn-testbed1.dmi.unibas.ch 93-42-157-82.ip87.fastwebnet.it ndnhub.ipv6.lip6.fr
+BUPT pkusz.testbed.named-data.net ndn-tb.nz.comm.waseda.ac.jp tongji.testbed.named-data.net comsci2.srru.ac.th indonesia.testbed.named-data.net kisti.testbed.named-data.net cnic.testbed.named-data.net anyang.testbed.named-data.net
+BYU ndn.netsec.colostate.edu ndn-remap-p05.it.ucla.edu hobo.cs.arizona.edu
+CAGLIARI insula.gsyc.es ndnnode.math.unipd.it wundngw.arl.wustl.edu ndn.gtec.udc.es 93-42-157-82.ip87.fastwebnet.it
+CAIDA hobo.cs.arizona.edu ufpa.testbed.named-data.net spurs.cs.ucla.edu ndnhub.ics.uci.edu tongji.testbed.named-data.net
+CNIC pkusz.testbed.named-data.net bupt.testbed.named-data.net ndn.ist.osaka-u.ac.jp
+COPELABS insula.gsyc.es vnetlab.gcom.di.uminho.pt 93-42-157-82.ip87.fastwebnet.it ufpa.testbed.named-data.net ndnhub.ipv6.lip6.fr ndnnode.math.unipd.it
+CORUNA insula.gsyc.es lumiere.diee.unica.it vnetlab.gcom.di.uminho.pt
+CSU ndn-remap-p05.it.ucla.edu hobo.cs.arizona.edu michigan.testbed.named-data.net pasta10.cs.byu.edu ndnx.cs.illinois.edu spurs.cs.ucla.edu kisti.testbed.named-data.net
+GOETTINGEN ndn.ist.osaka-u.ac.jp dmi-ndn-testbed1.dmi.unibas.ch ndn.item.ntnu.no ndnnode.math.unipd.it tno.testbed.named-data.net systemx-ndn-1.enst.fr
+INDONESIA ndn-tb.nz.comm.waseda.ac.jp tongji.testbed.named-data.net comsci2.srru.ac.th bupt.testbed.named-data.net uum.testbed.named-data.net kisti.testbed.named-data.net ufpa.testbed.named-data.net
+KISTI ndn.netsec.colostate.edu indonesia.testbed.named-data.net bupt.testbed.named-data.net anyang.testbed.named-data.net ndn-tb.nz.comm.waseda.ac.jp
+LIP6 insula.gsyc.es copelabs.testbed.named-data.net michigan.testbed.named-data.net dmi-ndn-testbed1.dmi.unibas.ch ndn.item.ntnu.no tno.testbed.named-data.net os-float172.cnds.unibe.ch systemx-ndn-1.enst.fr
+MEMPHIS hobo.cs.arizona.edu michigan.testbed.named-data.net uaslp.testbed.named-data.net wundngw.arl.wustl.edu ufpa.testbed.named-data.net neu.testbed.named-data.net
+MICHIGAN ndnx.cs.illinois.edu ndnhub.ipv6.lip6.fr ndn.netsec.colostate.edu neu.testbed.named-data.net titan.cs.memphis.edu 129.6.112.67
+MINHO insula.gsyc.es dmi-ndn-testbed1.dmi.unibas.ch copelabs.testbed.named-data.net ndn.gtec.udc.es ndnnode.math.unipd.it
+MSU pkusz.testbed.named-data.net comsci2.srru.ac.th spurs.cs.ucla.edu uum.testbed.named-data.net tno.testbed.named-data.net anyang.testbed.named-data.net
+MUMBAI_AWS uum.testbed.named-data.net wundngw.arl.wustl.edu 93-42-157-82.ip87.fastwebnet.it
+NEU michigan.testbed.named-data.net titan.cs.memphis.edu ndn.item.ntnu.no 129.6.112.67
+NIST michigan.testbed.named-data.net neu.testbed.named-data.net ndnx.cs.illinois.edu
+NTNU k.extra.informatik.uni-goettingen.de neu.testbed.named-data.net dmi-ndn-testbed1.dmi.unibas.ch systemx-ndn-1.enst.fr ndnhub.ipv6.lip6.fr
+OSAKA pkusz.testbed.named-data.net ndn-tb.nz.comm.waseda.ac.jp comsci2.srru.ac.th tongji.testbed.named-data.net uum.testbed.named-data.net cnic.testbed.named-data.net k.extra.informatik.uni-goettingen.de anyang.testbed.named-data.net
+PADUA insula.gsyc.es pkusz.testbed.named-data.net copelabs.testbed.named-data.net vnetlab.gcom.di.uminho.pt dmi-ndn-testbed1.dmi.unibas.ch 93-42-157-82.ip87.fastwebnet.it ndn-itec.aau.at ndnx.cs.illinois.edu k.extra.informatik.uni-goettingen.de lumiere.diee.unica.it
+PKUSZ tongji.testbed.named-data.net comsci2.srru.ac.th ndn.ist.osaka-u.ac.jp bupt.testbed.named-data.net cnic.testbed.named-data.net ndnnode.math.unipd.it ndn-tb.nz.comm.waseda.ac.jp msu.testbed.named-data.net
+REMAP ndn.netsec.colostate.edu hobo.cs.arizona.edu pasta10.cs.byu.edu spurs.cs.ucla.edu ndnhub.ics.uci.edu
+SRRU pkusz.testbed.named-data.net indonesia.testbed.named-data.net ndn.ist.osaka-u.ac.jp bupt.testbed.named-data.net uum.testbed.named-data.net anyang.testbed.named-data.net msu.testbed.named-data.net
+SYSTEMX k.extra.informatik.uni-goettingen.de dmi-ndn-testbed1.dmi.unibas.ch ndn.item.ntnu.no ndnhub.ipv6.lip6.fr
+TNO k.extra.informatik.uni-goettingen.de dmi-ndn-testbed1.dmi.unibas.ch msu.testbed.named-data.net ndnhub.ipv6.lip6.fr
+TONGJI click.caida.org pkusz.testbed.named-data.net ndn-tb.nz.comm.waseda.ac.jp ndn.ist.osaka-u.ac.jp bupt.testbed.named-data.net indonesia.testbed.named-data.net anyang.testbed.named-data.net
+UASLP titan.cs.memphis.edu hobo.cs.arizona.edu ufpa.testbed.named-data.net
+UCI click.caida.org ndn-remap-p05.it.ucla.edu spurs.cs.ucla.edu
+UCLA ndn.netsec.colostate.edu click.caida.org ndn-remap-p05.it.ucla.edu msu.testbed.named-data.net ndnhub.ics.uci.edu
+UFPA uaslp.testbed.named-data.net click.caida.org indonesia.testbed.named-data.net titan.cs.memphis.edu copelabs.testbed.named-data.net
+UIUC ndn.netsec.colostate.edu michigan.testbed.named-data.net ndnnode.math.unipd.it wundngw.arl.wustl.edu 129.6.112.67
+URJC copelabs.testbed.named-data.net vnetlab.gcom.di.uminho.pt dmi-ndn-testbed1.dmi.unibas.ch wundngw.arl.wustl.edu ndn.gtec.udc.es ndnhub.ipv6.lip6.fr ndnnode.math.unipd.it lumiere.diee.unica.it
+UUM comsci2.srru.ac.th mumbai.testbed.named-data.net msu.testbed.named-data.net indonesia.testbed.named-data.net ndn.ist.osaka-u.ac.jp
+WASEDA pkusz.testbed.named-data.net hobo.cs.arizona.edu tongji.testbed.named-data.net ndn.ist.osaka-u.ac.jp indonesia.testbed.named-data.net kisti.testbed.named-data.net bupt.testbed.named-data.net anyang.testbed.named-data.net
+WU insula.gsyc.es mumbai.testbed.named-data.net ndnx.cs.illinois.edu hobo.cs.arizona.edu titan.cs.memphis.edu lumiere.diee.unica.it
