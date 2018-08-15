@@ -1,0 +1,4 @@
+{{inventory_hostname}} {% for neighbor, data in neighbors.items() %} 
+{{- hostvars[neighbor].ansible_host }} 
+{%- if not loop.last %} {% endif %}
+{%- endfor %}
