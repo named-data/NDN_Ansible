@@ -129,8 +129,9 @@
 
 #- name: install NLSR from source
 #  apt: name=nlsr state=latest update_cache=yes
+#  git: repo=http://github.com/named-data/NLSR
 - name: git nlsr
-  git: repo=http://github.com/named-data/NLSR
+  git: repo=https://github.com/agawande/NLSR
        dest=~/AnsibleBuild/NLSR
        version={{nlsr_version}}
        force=yes
@@ -138,8 +139,9 @@
   ignore_errors: yes
 
 # repeat it. There is a bug in this version of ansible that the "force" above gives an error but it still does the update needed.
+#  git: repo=http://github.com/named-data/NLSR
 - name: git nlsr
-  git: repo=http://github.com/named-data/NLSR
+  git: repo=http://github.com/agawande/NLSR
        dest=~/AnsibleBuild/NLSR
        version={{nlsr_version}}
        force=yes
@@ -184,6 +186,7 @@
 - command: ./waf  install
   args:
     chdir: ~/AnsibleBuild/NLSR
+  notify: restart nlsr
   #when: gitclone.changed
 
 - name: copy /etc/init/nlsr.conf
