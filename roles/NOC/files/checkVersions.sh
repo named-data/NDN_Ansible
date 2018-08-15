@@ -43,3 +43,18 @@ else
 fi
 NLSR_START_TIME_s=`date -d"$UTC0_NLSR_START_TIME" +%s`
 echo "NLSR_START_TIME_s: $NLSR_START_TIME_s" >> /usr/share/ndn/versions.txt
+
+#CERTBOT=`which certbot-auto`
+CERTBOT="/usr/local/bin/certbot-auto"
+
+if [ -n "$CERTBOT" -a -x $CERTBOT ]
+then
+  CERT_EXPIRY=`$CERTBOT  certificates 2> /dev/null | grep Expiry | awk '{print $3}'`
+  if [ -z "$CERT_EXPIRY" ]
+  then
+    CERT_EXPIRY="no_cert"
+  fi
+else
+  CERT_EXPIRY="no_cert"
+fi
+echo "TLS_CERT_Expires: $CERT_EXPIRY" >> /usr/share/ndn/versions.txt
