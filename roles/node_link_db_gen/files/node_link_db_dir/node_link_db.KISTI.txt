@@ -1,9 +1,0 @@
-node: KISTI
-KISTI hr_radius: 11.5531281288
-KISTI hr_angle: 2.98403796376
-link: KISTI - CSU cost: 106
-link: KISTI - BUPT cost: 33
-link: KISTI - INDONESIA cost: 150
-link: KISTI - ANYANG cost: 40
-link: KISTI - WASEDA cost: 39
-

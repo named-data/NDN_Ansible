@@ -1,9 +1,0 @@
-node: CAGLIARI
-CAGLIARI hr_radius: 13.5903793307
-CAGLIARI hr_angle: 1.139344
-link: CAGLIARI - URJC cost: 28
-link: CAGLIARI - CARUNA cost: 40
-link: CAGLIARI - PADUA cost: 25
-link: CAGLIARI - AFA cost: 25
-link: CAGLIARI - WU cost: 75
-

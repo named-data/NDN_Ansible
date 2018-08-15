@@ -1,9 +1,0 @@
-node: REMAP
-REMAP hr_radius: 16.5866430024
-REMAP hr_angle: 2.99911
-link: REMAP - CSU cost: 16
-link: REMAP - BYU cost: 9
-link: REMAP - ARIZONA cost: 25
-link: REMAP - UCLA cost: 1
-link: REMAP - UCI cost: 1
-

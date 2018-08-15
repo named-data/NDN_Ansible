@@ -1,7 +1,0 @@
-node: UASLP
-UASLP hr_radius: 19.0473935894
-UASLP hr_angle: 2.96488127257
-link: UASLP - UFPA cost: 100
-link: UASLP - ARIZONA cost: 32
-link: UASLP - MEMPHIS cost: 100
-
