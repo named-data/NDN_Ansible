@@ -10,3 +10,6 @@
 
 - name: start ndnmap-data-collector
   service: name=ndnmap-data-collector state=started enabled=yes
+
+- name: stop ndnmap-data-collector it is not working right now
+  service: name=ndnmap-data-collector state=stopped enabled=yes

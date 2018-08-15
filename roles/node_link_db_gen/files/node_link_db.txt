@@ -1,3 +1,10 @@
+node: AAU
+AAU hr_radius: 29.2553552716
+AAU hr_angle: 2.39085418464
+link: AAU - BASEL cost: 16
+link: AAU - BERN cost: 16
+link: AAU - PADUA cost: 15
+
 node: AFA
 AFA hr_radius: 10.3354428445
 AFA hr_angle: 1.12640207075
@@ -36,6 +43,7 @@ BASEL hr_angle: 2.41932
 link: BASEL - URJC cost: 14
 link: BASEL - MINHO cost: 23
 link: BASEL - NTNU cost: 30
+link: BASEL - AAU cost: 16
 link: BASEL - PADUA cost: 9
 link: BASEL - LIP6 cost: 7
 link: BASEL - GOETTINGEN cost: 10
@@ -46,6 +54,7 @@ link: BASEL - SYSTEMX cost: 9
 node: BERN
 BERN hr_radius: 13.2717666497
 BERN hr_angle: 2.41933
+link: BERN - AAU cost: 16
 link: BERN - BASEL cost: 2
 link: BERN - AFA cost: 15
 link: BERN - LIP6 cost: 18
@@ -73,10 +82,10 @@ node: CAGLIARI
 CAGLIARI hr_radius: 13.5903793307
 CAGLIARI hr_angle: 1.139344
 link: CAGLIARI - URJC cost: 28
-link: CAGLIARI - CARUNA cost: 40
 link: CAGLIARI - PADUA cost: 25
-link: CAGLIARI - AFA cost: 25
 link: CAGLIARI - WU cost: 75
+link: CAGLIARI - CORUNA cost: 40
+link: CAGLIARI - AFA cost: 25
 
 node: CAIDA
 CAIDA hr_radius: 17.6030443241
@@ -86,13 +95,6 @@ link: CAIDA - UFPA cost: 155
 link: CAIDA - UCLA cost: 3
 link: CAIDA - UCI cost: 3
 link: CAIDA - TONGJI cost: 93
-
-node: CARUNA
-CARUNA hr_radius: 13.6888312672
-CARUNA hr_angle: 1.1717
-link: CARUNA - URJC cost: 17
-link: CARUNA - CAGLIARI cost: 40
-link: CARUNA - MINHO cost: 27
 
 node: CNIC
 CNIC hr_radius: 13.0513265591
@@ -107,20 +109,27 @@ COPELABS hr_angle: 2.62082
 link: COPELABS - URJC cost: 13
 link: COPELABS - MINHO cost: 4
 link: COPELABS - AFA cost: 36
-link: COPELABS - PADUA cost: 24
-link: COPELABS - LIP6 cost: 22
 link: COPELABS - UFPA cost: 145
+link: COPELABS - LIP6 cost: 22
+link: COPELABS - PADUA cost: 24
+
+node: CORUNA
+CORUNA hr_radius: 13.6888312672
+CORUNA hr_angle: 1.1717
+link: CORUNA - URJC cost: 17
+link: CORUNA - CAGLIARI cost: 40
+link: CORUNA - MINHO cost: 27
 
 node: CSU
 CSU hr_radius: 14.1056931988
 CSU hr_angle: 2.99266609146
 link: CSU - REMAP cost: 16
 link: CSU - ARIZONA cost: 18
-link: CSU - KISTI cost: 106
 link: CSU - MICHIGAN cost: 15
 link: CSU - BYU cost: 8
-link: CSU - UCLA cost: 16
 link: CSU - UIUC cost: 14
+link: CSU - UCLA cost: 16
+link: CSU - KISTI cost: 106
 
 node: GOETTINGEN
 GOETTINGEN hr_radius: 12.2349274272
@@ -147,8 +156,8 @@ node: KISTI
 KISTI hr_radius: 11.5531281288
 KISTI hr_angle: 2.98403796376
 link: KISTI - CSU cost: 106
-link: KISTI - BUPT cost: 33
 link: KISTI - INDONESIA cost: 150
+link: KISTI - BUPT cost: 33
 link: KISTI - ANYANG cost: 40
 link: KISTI - WASEDA cost: 39
 
@@ -189,8 +198,8 @@ MINHO hr_radius: 16.206035855
 MINHO hr_angle: 2.62083
 link: MINHO - URJC cost: 13
 link: MINHO - BASEL cost: 23
-link: MINHO - CARUNA cost: 27
 link: MINHO - COPELABS cost: 4
+link: MINHO - CORUNA cost: 27
 link: MINHO - PADUA cost: 26
 
 node: MSU
@@ -255,6 +264,7 @@ link: PADUA - COPELABS cost: 24
 link: PADUA - MINHO cost: 26
 link: PADUA - BASEL cost: 9
 link: PADUA - AFA cost: 11
+link: PADUA - AAU cost: 15
 link: PADUA - UIUC cost: 80
 link: PADUA - GOETTINGEN cost: 14
 link: PADUA - CAGLIARI cost: 25
@@ -275,8 +285,8 @@ node: REMAP
 REMAP hr_radius: 16.5866430024
 REMAP hr_angle: 2.99911
 link: REMAP - CSU cost: 16
-link: REMAP - BYU cost: 9
 link: REMAP - ARIZONA cost: 25
+link: REMAP - BYU cost: 9
 link: REMAP - UCLA cost: 1
 link: REMAP - UCI cost: 1
 
@@ -321,9 +331,9 @@ link: TONGJI - ANYANG cost: 54
 node: UASLP
 UASLP hr_radius: 19.0473935894
 UASLP hr_angle: 2.96488127257
-link: UASLP - UFPA cost: 100
-link: UASLP - ARIZONA cost: 32
 link: UASLP - MEMPHIS cost: 100
+link: UASLP - ARIZONA cost: 32
+link: UASLP - UFPA cost: 100
 
 node: UCI
 UCI hr_radius: 19.2697694366
@@ -364,11 +374,11 @@ URJC hr_radius: 13.6888312672
 URJC hr_angle: 1.17169974116
 link: URJC - COPELABS cost: 13
 link: URJC - MINHO cost: 13
-link: URJC - CARUNA cost: 17
 link: URJC - BASEL cost: 14
 link: URJC - WU cost: 86
-link: URJC - PADUA cost: 15
+link: URJC - CORUNA cost: 17
 link: URJC - LIP6 cost: 15
+link: URJC - PADUA cost: 15
 link: URJC - CAGLIARI cost: 28
 
 node: UUM
@@ -399,6 +409,6 @@ link: WU - URJC cost: 86
 link: WU - MUMBAI_AWS cost: 122
 link: WU - UIUC cost: 9
 link: WU - ARIZONA cost: 33
-link: WU - CAGLIARI cost: 75
 link: WU - MEMPHIS cost: 17
+link: WU - CAGLIARI cost: 75
 

@@ -18,8 +18,35 @@
 - local_action: template src=node_link_coordinates.j2 dest=roles/node_link_db_gen/files/node_link_db_dir/node_link_db.{{inventory_hostname}}.txt 
   become: false
 
+- local_action: template src=node_address.j2 dest=roles/node_link_db_gen/files/node_link_db_dir/node_address.{{inventory_hostname}}.txt 
+  become: false
+
+- local_action: template src=node_prefix.j2 dest=roles/node_link_db_gen/files/node_link_db_dir/node_prefix.{{inventory_hostname}}.txt 
+  become: false
+
+- local_action: template src=node_neighbors.j2 dest=roles/node_link_db_gen/files/node_link_db_dir/node_neighbors.{{inventory_hostname}}.txt 
+  become: false
+
 # Combined all db files
 - name: Combined all db files
   local_action: shell cat roles/node_link_db_gen/files/node_link_db_dir/node_link_db.*.txt > roles/node_link_db_gen/files/node_link_db.txt
+  run_once: true 
+  become: false
+
+# Combined all node address files
+- name: Combined all node address files
+  local_action: shell cat roles/node_link_db_gen/files/node_link_db_dir/node_address.*.txt > roles/node_link_db_gen/files/node_list.txt
+  run_once: true 
+  become: false
+
+# Combined all node neighbor files
+- name: Combined all node neighbor files
+  local_action: shell cat roles/node_link_db_gen/files/node_link_db_dir/node_neighbors.*.txt > roles/node_link_db_gen/files/node_neighbors.txt
+  run_once: true 
+  become: false
+
+# Combined all node prefix files
+- name: Combined all node prefix files
+  local_action: shell cat roles/node_link_db_gen/files/node_link_db_dir/node_prefix.*.txt > roles/node_link_db_gen/files/node_prefix.txt
   run_once: true 
   become: false
