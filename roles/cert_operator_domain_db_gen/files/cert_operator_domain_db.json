@@ -1,4 +1,17 @@
-{
+"ROOT": {
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": false,
+    "email": "info@operators.named-data.net",
+    "name": "NDN Testbed Root",
+    "site_emails": "operators.named-data.net",
+    "site_name": "NDN Testbed Root",
+    "site_prefix": "/ndn",
+    "TLS_port": "CLOSED",
+    "key": ""
+ }
+
+,
 "AAU": {
     "allowGuests": false,
     "doNotSendOpRequests": false,
@@ -9,7 +22,7 @@
     "site_name": "Austrian Alpen-Adria-Universtat, Austria",
     "site_prefix": "/ndn/at/aau",
     "TLS_port": "CLOSED",
-    "key": "Bv0B8wcsCANuZG4IAmF0CANhYXUIA0tFWQgIM6lYiICLGBgIAk5BCAn9AAABYpbe4vgUCRgBAhkEADbugBX9ASYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDGbDXmJTvb25x7aJWItyLgR40YLsKOH35Nys1o3NWSxXdwM66D1uvNz9dF7rJzurfxaSPNDF7tXG/Hp91QbdGhppFhvueU3+ATb87gystxLtlZmtTCoC/ZGP5yrqKLAYC5rPVJt35fu3xOqv3qh6TcdPjdGaimHRJCCYDXqctxi6hAMotPh1X0bVWBt/uvj7KnQSzSwlGlZ2s+/0M5fZztrcdIYcFcSyHVkeA2Xiaex8oqC7MwzU/CI9LIEdjkY/ecoekVlKk9w08GltK+c+c3vTB2QSvYwxV3l7XxYRFBoK9pADtNNjqQ/eEteOuEZ2w7eNuKxOZvAVPG1y20jEOFAgMBAAEWRRsBAxwWBxQIA25kbggDS0VZCAhlnX+lxYEQff0A/Sb9AP4PMjAxODA0MDVUMDAwMDAw/QD/DzIwMTkwNDA1VDAwMDAwMBdHMEUCIQDANdd2/Z5Qlq2S4CFQkFkavBFWsXR5T98wrylCrQcpnwIgIiU6VDcUNOp+kVoS8cYe2PX9bFrx65Q/PKZWfPDn1zA="
+    "key": "Bv0B8wcsCANuZG4IAmF0CANhYXUIA0tFWQgIM6lYiICLGBgIAk5BCAn9AAABYv3zNrkUCRgBAhkEADbugBX9ASYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDGbDXmJTvb25x7aJWItyLgR40YLsKOH35Nys1o3NWSxXdwM66D1uvNz9dF7rJzurfxaSPNDF7tXG/Hp91QbdGhppFhvueU3+ATb87gystxLtlZmtTCoC/ZGP5yrqKLAYC5rPVJt35fu3xOqv3qh6TcdPjdGaimHRJCCYDXqctxi6hAMotPh1X0bVWBt/uvj7KnQSzSwlGlZ2s+/0M5fZztrcdIYcFcSyHVkeA2Xiaex8oqC7MwzU/CI9LIEdjkY/ecoekVlKk9w08GltK+c+c3vTB2QSvYwxV3l7XxYRFBoK9pADtNNjqQ/eEteOuEZ2w7eNuKxOZvAVPG1y20jEOFAgMBAAEWRRsBAxwWBxQIA25kbggDS0VZCAhlnX+lxYEQff0A/Sb9AP4PMjAxODA0MjVUMDAwMDAw/QD/DzIwMTkwNDI1VDAwMDAwMBdHMEUCIQCe9YuJc28qjr54MV6LW+27Nafd1zmSMp72Tm+qS4wc5gIgCkLWCiGYSBGnLz2b3GIMfP/obKNgTM7kxnji8wDpHTI="
  }
 ,
 "AFA": {
@@ -49,6 +62,19 @@
     "site_prefix": "/ndn/edu/arizona",
     "TLS_port": "OPEN",
     "key": "Bv0B+QcxCANuZG4IA2VkdQgHYXJpem9uYQgDS0VZCAg+wde1PoEXpQgCTkEICf0AAAFiIYQs1hQJGAECGQQANu6AFf0BJjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALxaDtgwTGk6fMV5Y+EoT3AM+6sXYiQfD0raF9NsrLbNJZ5cjft22xZNSxVbpohgdc9OlI0Gonc3FlLNgVh0kPtPuA/n4HaFKl75A+1SPX48tXcDxwgOTkSooyqqohJGqI+x7EJzBcsdgbTeW5xp1jjW7ky0pi68d3N4kdTtJAfFLb+cNyDd8jEv/nqZr4Sp9p3yenTdkN4vxu0rs9xCBunEy2w76LQbGsJ+oURFzUIssl2AHhDn9T7RerTyP7csqV5NHYtwdHZURpnyypZPg97lin04KKnhoG1tW7qJRrnJCNoFEcdqidJrnZofdYrWq/O50Mhihf7shckXoF8DYT8CAwEAARZFGwEDHBYHFAgDbmRuCANLRVkICGWdf6XFgRB9/QD9Jv0A/g8yMDE4MDMxM1QwMDAwMDD9AP8PMjAxOTAzMTNUMDAwMDAwF0gwRgIhANTAxseT48j2gkFNdjDChQ/KTfgp+I+gUSFq0T2cvUQ6AiEA0IgAPpKtn77ZyH6eV5wA4y0A7IlMDxezzKawuNYJn60="
+ }
+,
+"AVEIRO": {
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": false,
+    "email": "quevedo@av.it.pt",
+    "name": "Jose Quevedo",
+    "site_emails": ["av.it.pt"],
+    "site_name": "University of Aveiro, Portugal",
+    "site_prefix": "/ndn/pt/it/av",
+    "TLS_port": "CLOSED",
+    "key": ""
  }
 ,
 "BASEL": {
@@ -112,7 +138,7 @@
     "site_emails": ["unica.it", "diee.unica.it"],
     "site_name": "Universita degli studi di Cagliari",
     "site_prefix": "/ndn/it/unica",
-    "TLS_port": "CLOSED",
+    "TLS_port": "OPEN",
     "key": "Bv0B9QcuCANuZG4IAml0CAV1bmljYQgDS0VZCAhTB8M2QOM59wgCTkEICf0AAAFiJQry0BQJGAECGQQANu6AFf0BJjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANPCC6EHIbvaN5Dlb7BPaFt4G6y8ipeitow+HChJkOxb/NQ5CtypdViNnFsDHMCJ+wwp19KKcf7SJLUlyJlhTWfiTBxRkFWiMHDGC0K8WGyJkCgDrJZqtvXD+r+WdF8ObqhoCkyNSC0nVCPEtOfrwaCKWfWV5Di1ZSIFKLvyzFH4U1Y4fU22xuY5/DviEiaBiwRbsyXKTZkE0IrYnp4RLHJCMJnhn81f9fj5IXDyRR0adnMqdKvwtlD4rjWdU5VI7t+AA5W05y0jBdj8Ze0tMXsjPBAHdC02FK6OU0MSgQyseYtKGDzK7/7rTaNyPG8JoCRVJqgYzXPWmsnWnK+gH50CAwEAARZFGwEDHBYHFAgDbmRuCANLRVkICGWdf6XFgRB9/QD9Jv0A/g8yMDE4MDMxNFQwMDAwMDD9AP8PMjAxOTAzMTRUMDAwMDAwF0cwRQIhANhKrVdskxsh+DITfV7zLfAQPvefaKs3N4N96JkJniOvAiAY0TuUVFf0f5Mtbk5V007joxg4se+s84KrbcCSFmhnFQ=="
  }
 ,
@@ -164,7 +190,7 @@
     "site_emails": ["udc.es", "gtec.udc.es"],
     "site_name": "Universidade da Coruna (CORUNA)",
     "site_prefix": "/ndn/es/udc",
-    "TLS_port": "CLOSED",
+    "TLS_port": "OPEN",
     "key": "Bv0B8gcsCANuZG4IAmVzCAN1ZGMIA0tFWQgIxp+DYY8HRmkIAk5BCAn9AAABYiUK8wQUCRgBAhkEADbugBX9ASYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDOelHzHp9HvnPo+hqtTJbsbX6NOxevJsdceFDFqfHkKtL3XzmanskemOOk9Kpw6oa8C/mWL85vMjO1uDB9zZb5al9JxDqiUxqfDZyheOCwZJZDr5/nvxFdy4FOvJgWuraBqyeL3Ep0VzXnMUBtaawNDrP1WMkXxCIC4LL88aTKpmnB9gI/H7Dfn6cSU9FvkboscLtXPka0CxLEqvdIz0Q1trVhetYQ2aO9YaW80GMaZdpWVJ0mM4ucbpWGWKx2SCqYKO94uV3N4/RTAfABTmYO9eiPccj5rZJHcvfRtGyEjzJqs+1eYnCwVwfaqQVMXfmK0S1dT1pg3G42mBgscfHnAgMBAAEWRRsBAxwWBxQIA25kbggDS0VZCAhlnX+lxYEQff0A/Sb9AP4PMjAxODAzMTRUMDAwMDAw/QD/DzIwMTkwMzE0VDAwMDAwMBdGMEQCIEJ6HFaywuQ1E9eyA9qt3eS9AGAnJAEosY3e3N2PbPe7AiBURnbBz6Mf1G6OERYnZa6AE6bntdMhWHk42G0FcgH4WA=="
  }
 ,
@@ -179,6 +205,19 @@
     "site_prefix": "/ndn/edu/colostate",
     "TLS_port": "CLOSED",
     "key": "Bv0B+gczCANuZG4IA2VkdQgJY29sb3N0YXRlCANLRVkICO8i/+fsfUAECAJOQQgJ/QAAAWIhowuuFAkYAQIZBAA27oAV/QEmMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqMUdNKrANHhcmdoAI1VKecLQ7D/BElbXcMFQg2Qb1xKetTyf4sbGIw0BcK0j7+U440Rn7IBYQoyp2SscsmM4xCq6Mj0xnVSttRAfJEoZ3lqn5y8R3efRKsqpFDOKCLW+oAZC1ESUhSu7kcAjJc+IbSk/VuJ81PPAcgEu8HCma0G47Ab0geUgGV+pXqLUiz0xNqjyCT9rkJuqkBNWE+2KpRc/s6kjdegXuV+/LoYKNUBLfU3ukJkp94dp2sq9gsBtkRcCB9yTHFVaX8TfLQQ5huSD5iyCm//RVOcCAmetrl6rpYwwUGSoC7L//MqQMErmP+ECPsIi524TrtWQ5noCoQIDAQABFkUbAQMcFgcUCANuZG4IA0tFWQgIZZ1/pcWBEH39AP0m/QD+DzIwMTgwMzEzVDAwMDAwMP0A/w8yMDE5MDMxM1QwMDAwMDAXRzBFAiAYAEeKu5HTcAjBFCXtX37lZq6Br5cQhED5z83jGmjb8wIhAKKdSWNMMefF4oNsEA+n6V88rdYzKhftG+fEsQHg3CQW"
+ }
+,
+"GIST": {
+    "allowGuests": false,
+    "doNotSendOpRequests": false,
+    "doNotSendOpRequestsForGuests": false,
+    "email": "michele.scarlato@gmail.com",
+    "name": "Michele Scarlato",
+    "site_emails": "gist.ac.kr",
+    "site_name": "Gwangju Institute of Science and Technology (GIST)",
+    "site_prefix": "/ndn/kr/ac/gist",
+    "TLS_port": "CLOSED",
+    "key": ""
  }
 ,
 "GOETTINGEN": {
@@ -243,7 +282,7 @@
     "site_name": "The University of Memphis",
     "site_prefix": "/ndn/edu/memphis",
     "TLS_port": "CLOSED",
-    "key": "Bv0B9wcxCANuZG4IA2VkdQgHbWVtcGhpcwgDS0VZCAirawxTqynlNwgCTkEICf0AAAFiQ00RTBQJGAECGQQANu6AFf0BJjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALtDHTt03tCaRD1noziq16UAHf/wQxdgnXBNIG6r3J1904aIODwSPHlYRx6CZcar+uAupD+PAWX5vkZTyOEiLyKFY0tXZE5sb1FD7GRGBUtGSLatJPwLaUV2Mm0UhpcY6njwsKmSCK46sH6lfFgeQdEfKfdGiayUJF1XSXb1iOoslxgIFki0aMGj3zW7bugg9q4aEU7MuEeBj3rMnZRUGUekzVCOZ6gYtnDx3++4ayovCzMqVeYKnekqvSjNVzTL8Qy/5ZFIXvchxRfjch5K1JtuzQ6de/8U4mLOEjz/hFrKpLRlwwQAHxUgwZ/uAU0yQqP3f3eFua8TyEDnk3oThtMCAwEAARZFGwEDHBYHFAgDbmRuCANLRVkICGWdf6XFgRB9/QD9Jv0A/g8yMDE4MDMyMFQwMDAwMDD9AP8PMjAxOTAzMjBUMDAwMDAwF0YwRAIgKVUhtWnqU1/4fHxKzRvYqogbaTG6kw71Cdu1ijb6mpQCIE+xqJvkIXLUXUIpeyL9btPKpCaMB/Bkr6n/Rx92iVwC"
+    "key": "Bv0B+QcxCANuZG4IA2VkdQgHbWVtcGhpcwgDS0VZCAirawxTqynlNwgCTkEICf0AAAFi/fM4FRQJGAECGQQANu6AFf0BJjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALtDHTt03tCaRD1noziq16UAHf/wQxdgnXBNIG6r3J1904aIODwSPHlYRx6CZcar+uAupD+PAWX5vkZTyOEiLyKFY0tXZE5sb1FD7GRGBUtGSLatJPwLaUV2Mm0UhpcY6njwsKmSCK46sH6lfFgeQdEfKfdGiayUJF1XSXb1iOoslxgIFki0aMGj3zW7bugg9q4aEU7MuEeBj3rMnZRUGUekzVCOZ6gYtnDx3++4ayovCzMqVeYKnekqvSjNVzTL8Qy/5ZFIXvchxRfjch5K1JtuzQ6de/8U4mLOEjz/hFrKpLRlwwQAHxUgwZ/uAU0yQqP3f3eFua8TyEDnk3oThtMCAwEAARZFGwEDHBYHFAgDbmRuCANLRVkICGWdf6XFgRB9/QD9Jv0A/g8yMDE4MDQyNVQwMDAwMDD9AP8PMjAxOTA0MjVUMDAwMDAwF0gwRgIhAPoiiBQFwMCE84hI+cXnsFFyrgiZeVsQ7qzo1D0qrvAjAiEAnuBPS1XCrwRtBz3TFYugxeLGqsweuZND4usrpTTP7t0="
  }
 ,
 "MICHIGAN": {
@@ -255,7 +294,7 @@
     "site_emails": ["eecs.umich.edu"],
     "site_name": "University of Michigan",
     "site_prefix": "/ndn/edu/umich",
-    "TLS_port": "CLOSED",
+    "TLS_port": "OPEN",
     "key": "Bv0B9gcvCANuZG4IA2VkdQgFdW1pY2gIA0tFWQgIvUh+8p5gv7QIAk5BCAn9AAABYiG9jrcUCRgBAhkEADbugBX9ASYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDI+QqSYhba+2cu+vUq1yxxWw6PNGvxpf0IaRi6p/HT6nQ0jbYe9nE+7pxVbCiX2hZ4APpZMWZSlU0gMzrTGE/0ZQGAG/grUqV+nFaUui2PPdVW2sNQEu0WXAy9IBugjIp3P67LTqYwiPlim4t+SEiR9KQrBBGbLLbm70IZpEm6ubnS98+saIq3IWPxumW+Z4xde8SmcbqUBL1vYUFUdFsG5jmarDDYQ5vKBRAd2sHARAecfpTox9TiMZ6MF8se6gejgIgjUfmCBFQBpU0GqddXJNZe/yZKGApJNiapUVCKX//mYtuVRIpD1WundVld9rVgvqzH8I/vrWbmzs8jz0xVAgMBAAEWRRsBAxwWBxQIA25kbggDS0VZCAhlnX+lxYEQff0A/Sb9AP4PMjAxODAzMTNUMDAwMDAw/QD/DzIwMTkwMzEzVDAwMDAwMBdHMEUCIQCuUMxDfOXD1r9NJDk6JH6KhBoEpufutAYZX8GlN97D5QIgbsTgnjzcNhb5ovcv32sQYP8Q8MOGklml1o2mqB98Hb0="
  }
 ,
@@ -268,7 +307,7 @@
     "site_emails": ["di.minho.pt", "alunos.uminho.pt"],
     "site_name": "University of Mihno, Portugal",
     "site_prefix": "/ndn/pt/uminho",
-    "TLS_port": "OPEN",
+    "TLS_port": "CLOSED",
     "key": "Bv0B9gcvCANuZG4IAnB0CAZ1bWluaG8IA0tFWQgIrT1H5tYbepEIAk5BCAn9AAABYiG9jukUCRgBAhkEADbugBX9ASYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQD309I9ioB15zAxSGWsVD4nB67exi62dvbWqfVM8jaJGt30xDNeFevImwPA/fn2gyWLZqP47TKz1rDjJLNjyvBYRaQ0+b39LJagwKO7WZCm00lYAcOOQHQ6WRMAniuqHZ/qJGkN7Qjjot92P+RU0gKsuOsYPBKIbyzmP6A7SqeaaSCfqWTh+qQvggD4878dA1O/3fLMaVmG8uEXXV1fdW+61fJW8A7EH0FtmRcw843O7jHHjKVIR4TniuB6FNgsC4slCl0VooPb2sNd0G3eYWL4Apwn+/MqjUk2wcTN68thlUqtPkEXUuB335LL9kuBarFGMF2EgrMdUT4k4ttEQa7pAgMBAAEWRRsBAxwWBxQIA25kbggDS0VZCAhlnX+lxYEQff0A/Sb9AP4PMjAxODAzMTNUMDAwMDAw/QD/DzIwMTkwMzEzVDAwMDAwMBdHMEUCIQCRpbstTZSi1uWmQtJFCeQnn0Xj5KmrdoPAbE6lwcgjwQIgO0R3nKM4N8RhzJUVxyEzygL/JJf+3DCBUiUftTc5MPA="
  }
 ,
@@ -386,7 +425,7 @@
     "site_name": "The Center for Research in Engineering, Media and Performance (REMAP)",
     "site_prefix": "/ndn/edu/ucla/remap",
     "TLS_port": "OPEN",
-    "key": "Bv0Cwgc1CANuZG4IA2VkdQgEdWNsYQgFcmVtYXAIA0tFWQgINR/LAdihPLkIAk5BCAn9AAABYiahZe4UCRgBAhkEADbugBX9ASYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDJ2t3FmzTn8Pot4SFdBr/RhkrvKDaRhFgoxeW4aejzh57ecpEKCQLGpuJeyC0dwp2/oBbDVYpnp5e+bGwfWX6OhUymx/yIMwRsM3UNM806vHnFMQR10rb2s7Q14Z2QQ3kO0NPc0AJ4R2YegIi/E4OALpHSdJURZeOtMF8XHzNwBg6ljOrKH/s9ooNYhFeenjAMKW8mCO1XIHmsbXQNC1T86DDxD+RRW8GoqZY3pduZ4EBbFHdzveT9LPHoTrMfL7EBuNuDhYLSs0GOYzP16FmPq+dQD6E4lm1An05PRCMHoKyWr4FQXQRuWBzqlxH1R3RvSgR/y4jVUCeBasfA+b6HAgMBAAEWUBsBARwhBx8IA25kbggDZWR1CAR1Y2xhCANLRVkICJKBVl/kHB+m/QD9Jv0A/g8yMDE4MDMxNFQwMDAwMDD9AP8PMjAxOTAzMTRUMDAwMDAwF/0BAKlibS/Ow/LdS4TYldXi2zl++ru+/SgGgHVKepuidFO9sdkkmoOJ4zrTfm16vLLtGJNajkw/08HirlC/yeEP5EBLhHKD3nDXvBkikRF/M/UgRBBwOmgg5iRtwZiaCJwicm2hw5xieW+T/usXvneUYByKzyN/TYuFhF6vhxfu74/964RLcW2niUADlRUjagPqjX4TVoR1trOMfJnLYDCvp7wdrHo7EXAMLgJCehCRqhBeX5Z9rIDy/s+S3HYp1r0oz5zhJac+nfq7qQcdXCR2mpGcrUP0PqDnIu4iY/1vs6epajFziOKX+L50XMsPSHJLadWSQpAhDOgnuQtgGVEBVmA="
+    "key": "Bv0Cwgc1CANuZG4IA2VkdQgEdWNsYQgFcmVtYXAIA0tFWQgINR/LAdihPLkIAk5BCAn9AAABYv3zWiIUCRgBAhkEADbugBX9ASYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDJ2t3FmzTn8Pot4SFdBr/RhkrvKDaRhFgoxeW4aejzh57ecpEKCQLGpuJeyC0dwp2/oBbDVYpnp5e+bGwfWX6OhUymx/yIMwRsM3UNM806vHnFMQR10rb2s7Q14Z2QQ3kO0NPc0AJ4R2YegIi/E4OALpHSdJURZeOtMF8XHzNwBg6ljOrKH/s9ooNYhFeenjAMKW8mCO1XIHmsbXQNC1T86DDxD+RRW8GoqZY3pduZ4EBbFHdzveT9LPHoTrMfL7EBuNuDhYLSs0GOYzP16FmPq+dQD6E4lm1An05PRCMHoKyWr4FQXQRuWBzqlxH1R3RvSgR/y4jVUCeBasfA+b6HAgMBAAEWUBsBARwhBx8IA25kbggDZWR1CAR1Y2xhCANLRVkICJKBVl/kHB+m/QD9Jv0A/g8yMDE4MDQyNVQwMDAwMDD9AP8PMjAxOTA0MjVUMDAwMDAwF/0BAK5lyS+q4PU3WTw2LPQm+hz9y3GkX4qRAEV00Myd88/9pjJcly1c6uniKXsahElxr7K5mUZ3q3umPaM+mPwvpAkgoysV9qGw4bbXRD8IE0FNf42hQYD/xFo2VWzDO991pjXa3sG6ASIkcJGKzCzbTVAQwt2kVi8VQufA9eVhdROgosSLYUAnwH8/zMw6QX+awzUeYOnH8PPFfMgDE8yTmCfoQgB/aHkscdA5hAVWADfvrebu7P4NmQdcbY2q2g3QzR5PktOIJM3FF2vTKL5InQaMD+VNjIt56scp1rNYsBqIDZXZKqr7gZR4UiikljzU2lbwiydA3wMdL60/fa2hXLA="
  }
 ,
 "SRRU": {
@@ -451,7 +490,7 @@
     "site_name": "Universidad Autonoma de San Luis Potosi (UASLP)",
     "site_prefix": "/ndn/mx/uaslp",
     "TLS_port": "CLOSED",
-    "key": "Bv0B9AcuCANuZG4IAm14CAV1YXNscAgDS0VZCAgT0Seb1Y80iQgCTkEICf0AAAFiJRcksBQJGAECGQQANu6AFf0BJjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMRtXYrYPxPatGS77X+AEt7fnf/AoFWCKDwWBbjmwUlTPnRFGQxcZBWuwNlcbH0+XBxSb3LG/c8LtUAxapEoGcw0+VBDpQ8Mv/6QIauH/LHJmv3te6ymzXcuhlhIeDkq2kC/aG1WCED3j6ynUMxJtKwSKAgH6g311viI+3xqOtgjpYw9cUmV7oeZGmNWLbGj5Kmuhfqrs9ynl27jSAkWfv93hF2J1LxsNf60y18bDs9nGe4BYiVGRO+Xuo0y++k/CRae6tIjiGR3WZFzCqfCc8u+UOQdtoPGlLFFynLA198syi2SgArUzZXpvcvCBKfphHjPVpbQxdKNmQYbvxrwlK8CAwEAARZFGwEDHBYHFAgDbmRuCANLRVkICGWdf6XFgRB9/QD9Jv0A/g8yMDE4MDMxNFQwMDAwMDD9AP8PMjAxOTAzMTRUMDAwMDAwF0YwRAIgX5qOUQ4oBN2WMUp1bssnryhufM3/5Tw6AeceyvfV39oCIB2vPeVGN134zpo641YtPgexFWhtKq7UqUvjduIaCfAO"
+    "key": "Bv0B9AcuCANuZG4IAm14CAV1YXNscAgDS0VZCAgT0Seb1Y80iQgCTkEICf0AAAFjpPr6ixQJGAECGQQANu6AFf0BJjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMRtXYrYPxPatGS77X+AEt7fnf/AoFWCKDwWBbjmwUlTPnRFGQxcZBWuwNlcbH0+XBxSb3LG/c8LtUAxapEoGcw0+VBDpQ8Mv/6QIauH/LHJmv3te6ymzXcuhlhIeDkq2kC/aG1WCED3j6ynUMxJtKwSKAgH6g311viI+3xqOtgjpYw9cUmV7oeZGmNWLbGj5Kmuhfqrs9ynl27jSAkWfv93hF2J1LxsNf60y18bDs9nGe4BYiVGRO+Xuo0y++k/CRae6tIjiGR3WZFzCqfCc8u+UOQdtoPGlLFFynLA198syi2SgArUzZXpvcvCBKfphHjPVpbQxdKNmQYbvxrwlK8CAwEAARZFGwEDHBYHFAgDbmRuCANLRVkICGWdf6XFgRB9/QD9Jv0A/g8yMDE4MDUyN1QwMDAwMDD9AP8PMjAxOTA1MjdUMDAwMDAwF0YwRAIgGSx8gdrztiYtdHJPGJp9STVR9VHzwEQiCoSe1kNXBVQCIA9v8VT8NBSYOkNWCFFcmdZHqxi7U4qFO5xfJDSr32qm"
  }
 ,
 "UCI": {
@@ -515,7 +554,7 @@
     "site_emails": ["urjc.es", "alumnos.urjc.es"],
     "site_name": "Universidad Rey Juan Carlos, Spain",
     "site_prefix": "/ndn/es/urjc",
-    "TLS_port": "CLOSED",
+    "TLS_port": "OPEN",
     "key": "Bv0B9ActCANuZG4IAmVzCAR1cmpjCANLRVkICDjSWfFMomRNCAJOQQgJ/QAAAWIhvZElFAkYAQIZBAA27oAV/QEmMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7KZ4JdLbuVbxnL/JWxCKDD2wvYJeWk3mQgU/6PmNwT3u8lfV8nZUahS9GG5VFUoJMLZJv+KqbrilY1wAnX4rOKTSyFQ2SdQW4YrQ3mNoVHdod8bWS6IPi6+d+xprkr+b5TpIrbjJXPK0H0T4fsBk8gwwobXZvMM+EENn9QqaDriA/4ToZqvQmw7oEp46gEkW9OYqdMa3MEti8yfz7QtidMI3oTHn4BFqWAJXi+mAplQ5dt8pH+wtAybIKmjmoAFWgaSb4fkbqiRgakhMFBrkHXU3fsbUrW8uiWgdIit9WFVcPk0v29cEDXjrLArtBYDlrcdPUoyFpV05COpnaEwJnQIDAQABFkUbAQMcFgcUCANuZG4IA0tFWQgIZZ1/pcWBEH39AP0m/QD+DzIwMTgwMzEzVDAwMDAwMP0A/w8yMDE5MDMxM1QwMDAwMDAXRzBFAiBrLmhYJhHCwbb0bzwWlwE4lHt43qatr0dg/1L2UebZGgIhAOeMihsQIv++X0it3CZsaoih9BfeKtS7see4+RUJXwnE"
  }
 ,
@@ -528,7 +567,7 @@
     "site_emails": ["uum.edu.my"],
     "site_name": "Universiti Utara Malaysia (UUM)",
     "site_prefix": "/ndn/my/edu/uum",
-    "TLS_port": "CLOSED",
+    "TLS_port": "OPEN",
     "key": "Bv0B9wcxCANuZG4IAm15CANlZHUIA3V1bQgDS0VZCAi4nVMk1lUr8AgCTkEICf0AAAFiIb2RWRQJGAECGQQANu6AFf0BJjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOn5NQqDrCV0jBHmWfI95FSih8h0cg8vYsmpgG1Z4EDoSISl0WI50L/U6VLvf1VdK8Gx/s6V7XG6rCejpVTnwNL8yv5BgMkMYGdJYaeNEv09Sdfp0CjFK0Ie6K0tMo6GiiFkGMgFEafXq7BWIG4xH148agRJIDgTqGwettaelZMggDcWQosUtT2UeMu6+ePLnIDP52xu0sAEtQ8Pwdu9v7axkGo+wg/LdPRwm2wa7YjnTyey9MeUhjLz5zvkDNQgx44Jb5KHtnIjDbVoIOHW/hlSJKmOgZR2eMDHN76sYHFnd8uf1+YmqS9yjLEDa/PcYROWt82R2HFR/txc7Jm+BZcCAwEAARZFGwEDHBYHFAgDbmRuCANLRVkICGWdf6XFgRB9/QD9Jv0A/g8yMDE4MDMxM1QwMDAwMDD9AP8PMjAxOTAzMTNUMDAwMDAwF0YwRAIgQ6NRXGQfSpfMHUdDmRE7NtFpbCGiE82cSNduZ6knYrUCIFLHnRUGuNPnJBCevnbysndlg+qkAmX+SfIJFEphGPbb"
  }
 ,
