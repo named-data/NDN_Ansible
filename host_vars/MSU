@@ -1,7 +1,8 @@
 ---
 
 # file: host_vars/MSU
-ansible_host: 202.28.34.249
+#ansible_host: 202.28.34.249
+ansible_host: msu.testbed.named-data.net
 ethernet_device: ens3
 site: /th/ac/msu
 default_prefix: /ndn/th/ac/msu 

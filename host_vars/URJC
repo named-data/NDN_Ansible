@@ -1,8 +1,8 @@
 ---
 
 # file: host_vars/URJC
-#ansible_host: insula.gsyc.es
-ansible_host: 193.147.79.41
+ansible_host: insula.gsyc.es
+#ansible_host: 193.147.79.41
 site: /es/urjc
 ethernet_device: eth0:0
 default_prefix: /ndn/es/urjc 
@@ -10,6 +10,7 @@ advertised_prefixes: [/ndn/es/urjc]
 routable_prefixes: [/ndn/es/urjc]
 router_name: insula 
 neighbors: 
+  UNIVH2C: {link_cost: 52}
   CORUNA: {link_cost: 17}
   CAGLIARI: {link_cost: 28}
   MINHO: {link_cost: 13}

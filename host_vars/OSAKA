@@ -1,7 +1,8 @@
 ---
 
 # file: host_vars/OSAKA
-ansible_host: 133.1.17.51
+#ansible_host: 133.1.17.51
+ansible_host: ndn.ist.osaka-u.ac.jp
 ethernet_device: eth2
 site: /jp/ac/osaka-u
 default_prefix: /ndn/jp/ac/osaka-u 

@@ -2,7 +2,8 @@
 
 # file: host_vars/CNIC
 
-ansible_host: 159.226.186.32
+#ansible_host: 159.226.186.32
+ansible_host: cnic.testbed.named-data.net
 ethernet_device: eth0
 ansible_port: 50022
 site: /cn/cas/cnic

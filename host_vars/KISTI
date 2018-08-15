@@ -1,7 +1,8 @@
 ---
 
 # file: host_vars/KISTI
-ansible_host: 203.253.235.168
+#ansible_host: 203.253.235.168
+ansible_host: kisti.testbed.named-data.net
 ethernet_device: em1
 site: /kr/re/kisti
 default_prefix: /ndn/kr/re/kisti 
@@ -9,6 +10,7 @@ advertised_prefixes: [/ndn/kr/re/kisti]
 routable_prefixes: [/ndn/kr/re/kisti]
 router_name: router3 
 neighbors: 
+  GIST: {link_cost: 2}
   INDONESIA: {link_cost: 150}
   WASEDA: {link_cost: 39}
   CSU: {link_cost: 106}

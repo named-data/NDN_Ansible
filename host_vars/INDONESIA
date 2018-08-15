@@ -1,7 +1,8 @@
 ---
 
 # file: host_vars/INDONESIA
-ansible_host: 152.118.101.159
+#ansible_host: 152.118.101.159
+ansible_host: indonesia.testbed.named-data.net
 ethernet_device: eth1
 site: /id/ac/ui
 default_prefix: /ndn/id/ac/ui

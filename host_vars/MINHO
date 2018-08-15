@@ -9,6 +9,7 @@ advertised_prefixes: [/ndn/pt/uminho]
 routable_prefixes: [/ndn/pt/uminho]
 router_name: vnetlab 
 neighbors: 
+  AVEIRO: {link_cost: 2}
   CORUNA: {link_cost: 27}
   COPELABS: {link_cost: 4}
   BASEL: {link_cost: 23}

@@ -1,7 +1,8 @@
 ---
 
 # file: host_vars/COPELABS
-ansible_host: 193.137.75.171
+#ansible_host: 193.137.75.171
+ansible_host: copelabs.testbed.named-data.net
 ethernet_device: eth0
 site: /pt/ulusofona/copelabs
 default_prefix: /ndn/pt/ulusofona/copelabs
@@ -9,8 +10,10 @@ advertised_prefixes: [/ndn/pt/ulusofona/copelabs]
 routable_prefixes: [/ndn/pt/ulusofona/copelabs]
 router_name: ndn 
 neighbors: 
+  UNIVH2C: {link_cost: 50}
   AFA: {link_cost: 36}
   UFPA: {link_cost: 145}
+  AVEIRO: {link_cost: 4}
   MINHO: {link_cost: 4}
   LIP6: {link_cost: 22}
   URJC: {link_cost: 13}

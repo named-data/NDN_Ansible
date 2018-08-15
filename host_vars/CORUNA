@@ -1,7 +1,8 @@
 ---
 
 # file: host_vars/CORUNA
-ansible_host: 193.144.50.247
+#ansible_host: 193.144.50.247
+ansible_host: ndn.gtec.udc.es
 ethernet_device: eth0
 site: /es/udc
 default_prefix: /ndn/es/udc 

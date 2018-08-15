@@ -1,7 +1,8 @@
 ---
 
 # file: host_vars/MICHIGAN
-ansible_host: 198.111.224.197
+#ansible_host: 198.111.224.197
+ansible_host: michigan.testbed.named-data.net
 ethernet_device: eth0
 site: /edu/umich
 default_prefix: /ndn/edu/umich 

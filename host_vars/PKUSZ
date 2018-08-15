@@ -1,7 +1,8 @@
 ---
 
 # file: host_vars/PKUSZ
-ansible_host: 219.223.222.5
+#ansible_host: 219.223.222.5
+ansible_host: pkusz.testbed.named-data.net
 ethernet_device: eth0
 site: /cn/edu/pkusz
 default_prefix: /ndn/cn/edu/pkusz 

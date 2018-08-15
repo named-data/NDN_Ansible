@@ -11,6 +11,7 @@ routable_prefixes: [/ndn/it/unipd]
 router_name: ndnnode 
 neighbors: 
 #  SRRU: {link_cost: 126}
+  UNIVH2C: {link_cost: 50}
   AAU: {link_cost: 15}
   CAGLIARI: {link_cost: 25}
   AFA: {link_cost: 11}

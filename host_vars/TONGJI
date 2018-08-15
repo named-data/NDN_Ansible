@@ -1,7 +1,8 @@
 ---
 
 # file: host_vars/TONGJI
-ansible_host: 202.120.188.246
+#ansible_host: 202.120.188.246
+ansible_host: tongji.testbed.named-data.net
 ethernet_device: eth0
 ansible_port: 10413
 site: /cn/edu/tongji

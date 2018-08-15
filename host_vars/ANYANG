@@ -2,13 +2,15 @@
 
 # file: host_vars/ANYANG
 ethernet_device: eth0
-ansible_host: 210.114.89.49
+#ansible_host: 210.114.89.49
+ansible_host: anyang.testbed.named-data.net
 site: /kr/anyang
 default_prefix: /ndn/kr/anyang 
 advertised_prefixes: [/ndn/kr/anyang]
 routable_prefixes: [/ndn/kr/anyang]
 router_name: anyanghub 
 neighbors: 
+  GIST: {link_cost: 4}
   SRRU: {link_cost: 57}
   MSU: {link_cost: 70}
   OSAKA: {link_cost: 36}
