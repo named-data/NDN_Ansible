@@ -97,18 +97,18 @@
 - name: create NOC directories
   file: path=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests state=directory owner={{ansible_user}} group={{ansible_user}} mode=0755
 
-- name: copy testfiles for ping tests
+- name: list copy testfiles for ping tests
   copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests/node_list.txt  src=roles/node_link_db_gen/files/node_list.txt owner={{ansible_user}} group={{ansible_user}} mode=0644
 
-- name: copy testfiles for ping tests
+- name: neighbors copy testfiles for ping tests
   copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests/node_neighbors.txt  src=roles/node_link_db_gen/files/node_neighbors.txt owner={{ansible_user}} group={{ansible_user}} mode=0644
 
-- name: copy testfiles for ping tests
+- name: prefix copy testfiles for ping tests
   copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests/node_prefix.txt  src=roles/node_link_db_gen/files/node_prefix.txt owner={{ansible_user}} group={{ansible_user}} mode=0644
 
 
 
-#- name: copy ndnping parallel test script
+- name: copy ndnping parallel test script
   copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests/./getTestbedDelays_ndnping_parallel.sh  src=roles/NOC/files/./getTestbedDelays_ndnping_parallel.sh owner={{ansible_user}} group={{ansible_user}} mode=0755
 
 #- name: copy ndnping parallel test prefix list
@@ -163,22 +163,11 @@
 #  apt_repository: repo='ppa:named-data/ppa' state=present
 #  when: ansible_distribution == "Ubuntu" 
 
-- command: add-apt-repository -y -r ppa:named-data/ppa
-  become: yes
-
-- command: add-apt-repository -y  ppa:named-data/ppa
-  become: yes
-
 - command: apt-get -y update
   become: yes
 
 - command: apt-get -y upgrade
   become: yes
-
-- name: remove Ashlesh experimental ndn repository
-  #apt_repository: repo='ppa:agawande/named-data-exp' state=present
-  apt_repository: repo='ppa:agawande/named-data-exp' state=absent
-  when: ansible_distribution == "Ubuntu" 
 
 - name: install general ubuntu packages 
   when: ansible_distribution == "Ubuntu" 
@@ -226,6 +215,17 @@
 #         when {{ ansible_distribution_major_version }} == 14 
 #       - liblog4cxx10v5
 #         when {{ ansible_distribution_major_version }} == 16 
+
+- command: add-apt-repository -y -r ppa:named-data/ppa
+  become: yes
+
+- command: add-apt-repository -y  ppa:named-data/ppa
+  become: yes
+
+- name: remove Ashlesh experimental ndn repository
+  #apt_repository: repo='ppa:agawande/named-data-exp' state=present
+  apt_repository: repo='ppa:agawande/named-data-exp' state=absent
+  when: ansible_distribution == "Ubuntu" 
 
 #- name: install base ndn libraries 
 #  action: >
