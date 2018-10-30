@@ -38,12 +38,24 @@
   copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/checkAndRestart_nlsr.sh  src=roles/NOC/files/checkAndRestart_nlsr.sh.14.04 owner={{ansible_user}} group={{ansible_user}} mode=0755
   when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "14")
 
-- cron: name="check and restart nlsr" state="present" user="{{ansible_user}}" minute="*/30" job="/home/{{ansible_user}}/ndn-ops/NOC/bin/checkAndRestart_nlsr.sh  "
+- cron: name="check and restart nlsr" state="absent" user="{{ansible_user}}" minute="*/30" job="/home/{{ansible_user}}/ndn-ops/NOC/bin/checkAndRestart_nlsr.sh  "
 
 - name: copy checkVersions.sh to NOC/bin
   copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/checkVersions.sh  src=roles/NOC/files/checkVersions.sh owner={{ansible_user}} group={{ansible_user}} mode=0755
 
-- cron: name="check NDN versions" state="present" user="root" minute="*/5" job="/home/{{ansible_user}}/ndn-ops/NOC/bin/checkVersions.sh  "
+- name: copy weeklyNdnMaintenance.sh to NOC/bin
+  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/weeklyNdnMaintenance.sh  src=roles/NOC/files/weeklyNdnMaintenance.sh owner={{ansible_user}} group={{ansible_user}} mode=0755
+
+- cron: name="weekly maintenance" state="present" user="root" weekday=0 hour=2 job="/home/{{ansible_user}}/ndn-ops/NOC/bin/weeklyNdnMaintenance.sh  "
+
+- name: copy monthlyNdnMaintenance.sh to NOC/bin
+  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/monthlyNdnMaintenance.sh  src=roles/NOC/files/monthlyNdnMaintenance.sh owner={{ansible_user}} group={{ansible_user}} mode=0755
+
+- cron: name="monthly maintenance" state="present" user="root" day=5 hour=3 job="/home/{{ansible_user}}/ndn-ops/NOC/bin/monthlyNdnMaintenance.sh  "
+
+#- cron: name="check NDN versions" state="present" user="root" minute="3,13,23,33,43,53" job="/home/{{ansible_user}}/ndn-ops/NOC/bin/checkVersions.sh  "
+
+- cron: name="check NDN versions" state="present" user="root" minute="3,13,23,33,43,53" job="/home/{{ansible_user}}/ndn-ops/NOC/bin/checkVersions.sh  "
 
 - name: copy rotateLogs.sh to NOC/bin
   copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/rotateLogs.sh  src=roles/NOC/files/rotateLogs.sh owner={{ansible_user}} group={{ansible_user}} mode=0755
@@ -247,6 +259,10 @@
 #- command: /usr/bin/easy_install3 pip
 #  become: yes
 #  become_user: root
+
+# looks like sometimes need to upgrade pyOpenSSL first before upgrading pip
+- command: python -m easy_install --upgrade pyOpenSSL
+  become: yes
 
 - command: python3 -m pip install --upgrade pip
   become: yes

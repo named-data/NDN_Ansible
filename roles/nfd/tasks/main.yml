@@ -53,14 +53,14 @@
   template: src=nfd.conf.j2 dest=/etc/ndn/nfd.conf owner=root group=root mode="u=rw,g=r,o=r"
   notify: restart nfd
 
-- name: install nfd
-  apt: name=nfd state=latest update_cache=yes
+#- name: install nfd
+#  apt: name=nfd state=latest update_cache=yes
 
-- name: install nfd-dbg
-  apt: name=nfd-dbg state=latest update_cache=yes
+#- name: install nfd-dbg
+#  apt: name=nfd-dbg state=latest update_cache=yes
 
-- name: start nfd
-  service: name=nfd state=started enabled=yes
+#- name: start nfd
+#  service: name=nfd state=started enabled=yes
 
 # The problem is that we want to restart nfd sometimes before something like NLSR restarts
 # and sometimes after NLSR restarts...
