@@ -9,6 +9,7 @@ advertised_prefixes: [/ndn/edu/uci]
 routable_prefixes: [/ndn/edu/uci]
 router_name: ndnhub 
 neighbors: 
+  ARIZONA: {link_cost: 25}
   UCLA: {link_cost: 1}
   REMAP: {link_cost: 1}
   CAIDA: {link_cost: 3}
