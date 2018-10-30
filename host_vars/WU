@@ -11,7 +11,11 @@ router_name: wundngw
 neighbors: 
 #  WURHEL: {link_cost: 1}
   MUMBAI_AWS: {link_cost: 122}
+  AVEIRO: {link_cost: 75}
+  UNIVH2C: {link_cost: 75}
+ # UFPA: {link_cost: 65}
   CAGLIARI: {link_cost: 75}
+  UCLA: {link_cost: 30}
   URJC: {link_cost: 86}
   ARIZONA: {link_cost: 33}
   MEMPHIS: {link_cost: 17}

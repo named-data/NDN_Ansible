@@ -9,6 +9,8 @@ advertised_prefixes: [/ndn/ma/univh2c]
 routable_prefixes: [/ndn/ma/univh2c]
 router_name: ubuntu-ndn 
 neighbors: 
+  WU: {link_cost: 75}
+#  UFPA: {link_cost: 125}
   PADUA: {link_cost: 50}
   COPELABS: {link_cost: 50}
   CAGLIARI: {link_cost: 50}

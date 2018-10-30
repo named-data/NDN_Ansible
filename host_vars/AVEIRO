@@ -9,6 +9,8 @@ advertised_prefixes: [/ndn/pt/it/av]
 routable_prefixes: [/ndn/pt/it/av]
 router_name: selficn 
 neighbors: 
+  WU: {link_cost: 75}
+  URJC: {link_cost: 15}
   MINHO: {link_cost: 2}
   COPELABS: {link_cost: 4}
   SYSTEMX: {link_cost: 18}

@@ -10,7 +10,7 @@ routable_prefixes: [/ndn/edu/byu]
 router_name: pasta10 
 neighbors: 
   REMAP: {link_cost: 9}
-  CSU: {link_cost: 8}
+#  CSU: {link_cost: 8}
   ARIZONA: {link_cost: 30}
 network_regions: [/ndn/edu/byu]
 hr_radius: 19.353845431776

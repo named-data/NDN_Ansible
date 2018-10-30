@@ -11,6 +11,7 @@ routable_prefixes: [/ndn/es/urjc]
 router_name: insula 
 neighbors: 
   UNIVH2C: {link_cost: 52}
+  AVEIRO: {link_cost: 15}
   CORUNA: {link_cost: 17}
   CAGLIARI: {link_cost: 28}
   MINHO: {link_cost: 13}
@@ -24,6 +25,7 @@ network_regions: [/ndn/es/urjc]
 hr_radius: 13.6888312671789
 hr_angle: 1.17169974115617
 #cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fes%2Furjc%2Fksk-1413220611357%2FID-CERT%2F%25FD%2500%2500%2501SRad8
+cert_url: https://ndncert.named-data.net/cert/get/?name=%2Fndn%2Fes%2Furjc%2FKEY%2F%2597%251B%2587T%25C1%25EE5%25F3%2FNA%2F%25FD%2500%2500%2501eb%25D8%2522%25A8
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Pedro de las Heras Quiros"
 operator_email: pheras@gsyc.es

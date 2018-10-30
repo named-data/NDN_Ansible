@@ -11,7 +11,7 @@ routable_prefixes: [/ndn/edu/umich]
 router_name: ndn0 
 neighbors: 
   NIST: {link_cost: 13}
-  CSU: {link_cost: 15}
+#  CSU: {link_cost: 15}
   UIUC: {link_cost: 5}
   MEMPHIS: {link_cost: 12}
   NEU: {link_cost: 14}

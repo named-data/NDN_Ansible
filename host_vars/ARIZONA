@@ -10,9 +10,10 @@ advertised_prefixes: [/ndn/edu/arizona]
 routable_prefixes: [/ndn/edu/arizona]
 router_name: hobo 
 neighbors: 
-  UASLP: {link_cost: 32}
+  #UASLP: {link_cost: 32}
+  UCLA: {link_cost: 25}
   REMAP: {link_cost: 25}
-  CSU: {link_cost: 18}
+#  CSU: {link_cost: 18}
   MEMPHIS: {link_cost: 17}
   WU: {link_cost: 33}
   WASEDA: {link_cost: 75}

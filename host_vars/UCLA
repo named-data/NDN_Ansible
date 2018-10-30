@@ -10,8 +10,10 @@ routable_prefixes: [ndn/edu/ucla,/ndn/guest,/ndn/edu/ucla/cs]
 secondary_ping_prefix: /ndn/edu/ucla/cs
 router_name: cs/spurs 
 neighbors:
+  ARIZONA: {link_cost: 25}
+  WU: {link_cost: 30}
   REMAP: {link_cost: 1}
-  CSU: {link_cost: 16}
+#  CSU: {link_cost: 16}
   CAIDA: {link_cost: 3}
   UCI: {link_cost: 1}
   MSU: {link_cost: 150}

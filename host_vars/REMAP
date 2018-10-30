@@ -12,7 +12,7 @@ router_name: cs/aleph
 neighbors:
   BYU: {link_cost: 9}
   UCLA: {link_cost: 1}
-  CSU: {link_cost: 16}
+#  CSU: {link_cost: 16}
   ARIZONA: {link_cost: 25}
   UCI: {link_cost: 1}
 network_regions: [/ndn/edu/ucla/remap]

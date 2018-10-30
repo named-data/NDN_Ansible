@@ -15,7 +15,8 @@ neighbors:
   MINHO: {link_cost: 27}
 network_regions: [/ndn/es/uc]
 hr_radius: 13.6888312671789
-hr_angle: 1.17170000000000
+hr_angle: 1.17180000000000
+#hr_angle: 1.17170000000000
 #hr_angle: 1.17169974115617
 # AS766
 #766     1.17169974115617        13.6888312671789

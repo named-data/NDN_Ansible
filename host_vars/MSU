@@ -9,6 +9,7 @@ default_prefix: /ndn/th/ac/msu
 advertised_prefixes: [/ndn/th/ac/msu]
 routable_prefixes: [/ndn/th/ac/msu]
 router_name: isan-ndn 
+udp_port: 36363
 neighbors: 
   UUM: {link_cost: 26}
   PKUSZ: {link_cost: 71}

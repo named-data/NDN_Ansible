@@ -13,7 +13,7 @@ neighbors:
   GIST: {link_cost: 2}
   INDONESIA: {link_cost: 150}
   WASEDA: {link_cost: 39}
-  CSU: {link_cost: 106}
+#  CSU: {link_cost: 106}
   ANYANG: {link_cost: 40}
   BUPT: {link_cost: 33}
 network_regions: [/ndn/kr/re/kisti]
