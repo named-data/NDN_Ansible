@@ -9,8 +9,8 @@
        update=yes
 
 #- name: configure ndnTestbedDataCollector
-#- command: ./waf configure
-- command: ./waf --boost-libs="{{ boost_base_location }}"/lib --boost-includes="{{ boost_base_location }}"/include configure
+#- command: ./waf --boost-libs="{{ boost_base_location }}"/lib --boost-includes="{{ boost_base_location }}"/include configure
+- command: ./waf configure
   args:
     chdir: /tmp/ndnTestbedDataCollector
   environment:

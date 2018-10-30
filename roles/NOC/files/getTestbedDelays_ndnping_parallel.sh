@@ -36,7 +36,8 @@ DATE_AND_TIME_UTC=`date -u`
 mkdir -p TESTBED_DELAYS/$THISNODE
 
 
-filename="full_prefix_list_UP.txt"
+#filename="full_prefix_list_UP.txt"
+filename="node_prefix.txt"
 while read -a LINE ;
 do
   NODENAME=${LINE[0]}
