@@ -13,7 +13,7 @@ neighbors:
   MUMBAI_AWS: {link_cost: 122}
   AVEIRO: {link_cost: 75}
   UNIVH2C: {link_cost: 75}
- # UFPA: {link_cost: 65}
+  UFPA: {link_cost: 65}
   CAGLIARI: {link_cost: 75}
   UCLA: {link_cost: 30}
   URJC: {link_cost: 86}

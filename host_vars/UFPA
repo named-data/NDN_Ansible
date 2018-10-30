@@ -10,8 +10,8 @@ advertised_prefixes: [/ndn/br/ufpa]
 routable_prefixes: [/ndn/br/ufpa]
 router_name: hostname 
 neighbors: 
-#  WU: {link_cost: 65}
-#  UNIVH2C: {link_cost: 125}
+  WU: {link_cost: 65}
+  UNIVH2C: {link_cost: 125}
   UASLP: {link_cost: 100}
   CAIDA: {link_cost: 155}
   MEMPHIS: {link_cost: 115}
