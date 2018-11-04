@@ -15,8 +15,10 @@ neighbors:
   MEMPHIS: {link_cost: 100}
 network_regions: [/ndn/mx/uaslp]
 # AS17072	2.96488127257358	19.0473935893716
-hr_radius: 19.0473935893716
-hr_angle: 2.96488127257358
+#hr_radius: 19.0473935893716
+#hr_angle: 2.96488127257358
+hr_angle: 2.96488
+hr_radius: 19.0473
 # certificate related variables
 # default name is same as default_prefix
 #cert_url: "http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fedu%2Fwustl%2Fksk-1412971440713%2FID-CERT%2F%25FD%2500%2500%2501SO%2596%2540n"

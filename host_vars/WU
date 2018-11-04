@@ -21,8 +21,10 @@ neighbors:
   MEMPHIS: {link_cost: 17}
   UIUC: {link_cost: 9}
 network_regions: [/ndn/edu/wustl]
-hr_radius: 19.426848571939
-hr_angle: 4.31067173953721
+#hr_radius: 19.426848571939
+#hr_angle: 4.31067173953721
+hr_angle: 4.31067
+hr_radius: 19.4268
 # certificate related variables
 # default name is same as default_prefix
 #cert_url: "http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fedu%2Fwustl%2Fksk-1412971440713%2FID-CERT%2F%25FD%2500%2500%2501SO%2596%2540n"

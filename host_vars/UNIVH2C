@@ -16,8 +16,10 @@ neighbors:
   CAGLIARI: {link_cost: 50}
   URJC: {link_cost: 52}
 network_regions: [/ndn/ma/univh2c]
-hr_radius: 15.7232000669204
-hr_angle: 3.03408110440034
+#hr_radius: 15.7232000669204
+#hr_angle: 3.03408110440034
+hr_angle: 3.03408
+hr_radius: 15.7232
 # certificate related variables
 # default name is same as default_prefix
 cert_url: "https://ndncert.named-data.net/cert/get/?name=%2Fndn%2Fma%2Funivh2c%2FKEY%2F%2508%253E%25E4%2506%25D7%2526%251Dv%2FNA%2F%25FD%2500%2500%2501e%2505U%25D3%25A5"

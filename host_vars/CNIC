@@ -17,8 +17,10 @@ neighbors:
   OSAKA: {link_cost: 45}
 network_regions: [/ndn/cn/cas/cnic]
 #AS# 7497    2.87446074201898        13.0513265590607
-hr_radius: 13.0513265590607
-hr_angle: 2.87446074201898
+#hr_radius: 13.0513265590607
+#hr_angle: 2.87446074201898
+hr_angle: 2.87446
+hr_radius: 13.05132
 #cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fcn%2Fedu%2Fbupt%2Fksk-1475868963662%2FID-CERT%2F%25FD%2500%2500%2501W%25A0%25A76%2521
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Shanshan Shi"
