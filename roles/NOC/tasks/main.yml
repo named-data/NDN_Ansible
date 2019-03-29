@@ -249,17 +249,18 @@
 - command: add-apt-repository -y  ppa:named-data/ppa
   become: yes
 
-- name: remove Ashlesh experimental ndn repository
-  #apt_repository: repo='ppa:agawande/named-data-exp' state=present
-  apt_repository: repo='ppa:agawande/named-data-exp' state=absent
-  when: ansible_distribution == "Ubuntu" 
+#- name: remove Ashlesh experimental ndn repository
+#  #apt_repository: repo='ppa:agawande/named-data-exp' state=present
+#  apt_repository: repo='ppa:agawande/named-data-exp' state=absent
+#  when: ansible_distribution == "Ubuntu" 
 
-#- name: install base ndn libraries 
-#  action: >
-#       {{ ansible_pkg_mgr }} name={{ item }} state=latest update_cache=yes
-#  with_items:
-#       - ndn-cxx
-#       - ndn-cxx-dev
+- name: install basic ndn packages (ndn-cxx, nfd, ndnsec)
+  apt:
+    name: ['ndn-cxx', 'ndn-cxx-dev', 'nfd', 'ndnsec']
+    update_cache: yes
+    autoclean: yes
+    autoremove: yes
+  when: ansible_distribution == "Ubuntu" 
 
 #- name: remove python3 stuff
 #  apt: 
@@ -299,8 +300,8 @@
   copy: dest=/usr/local/bin/ndnop-process-requests src=roles/NOC/files/ndnop-process-requests.testbed owner=root group=root mode=0755
   when: inventory_hostname != "UCLA"
 
-- name: copy nfdcLog.sh
-  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/nfdcLog.sh  src=roles/NOC/files/nfdcLog.sh owner={{ansible_user}} group={{ansible_user}} mode=0755
+#- name: copy nfdcLog.sh
+#  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/nfdcLog.sh  src=roles/NOC/files/nfdcLog.sh owner={{ansible_user}} group={{ansible_user}} mode=0755
 
 #- cron: name="nfdc face list " user="root" state=present disabled=yes minute="*/1" job="/home/{{ansible_user}}/ndn-ops/NOC/bin/nfdcLog.sh"
 #  when: ansible_distribution_major_version == 14 
