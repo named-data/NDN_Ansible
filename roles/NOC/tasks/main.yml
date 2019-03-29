@@ -46,12 +46,12 @@
 - name: copy weeklyNdnMaintenance.sh to NOC/bin
   copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/weeklyNdnMaintenance.sh  src=roles/NOC/files/weeklyNdnMaintenance.sh owner={{ansible_user}} group={{ansible_user}} mode=0755
 
-- cron: name="weekly maintenance" state="present" user="root" weekday=0 hour=2 job="/home/{{ansible_user}}/ndn-ops/NOC/bin/weeklyNdnMaintenance.sh  "
+- cron: name="weekly maintenance" state="present" user="root" minute=5 weekday=0 hour=2 job="/home/{{ansible_user}}/ndn-ops/NOC/bin/weeklyNdnMaintenance.sh  "
 
 - name: copy monthlyNdnMaintenance.sh to NOC/bin
   copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/monthlyNdnMaintenance.sh  src=roles/NOC/files/monthlyNdnMaintenance.sh owner={{ansible_user}} group={{ansible_user}} mode=0755
 
-- cron: name="monthly maintenance" state="present" user="root" day=5 hour=3 job="/home/{{ansible_user}}/ndn-ops/NOC/bin/monthlyNdnMaintenance.sh  "
+- cron: name="monthly maintenance" state="present" user="root" minute=5 day=5 hour=3 job="/home/{{ansible_user}}/ndn-ops/NOC/bin/monthlyNdnMaintenance.sh  "
 
 #- cron: name="check NDN versions" state="present" user="root" minute="3,13,23,33,43,53" job="/home/{{ansible_user}}/ndn-ops/NOC/bin/checkVersions.sh  "
 
@@ -167,6 +167,10 @@
 #  apt_repository: repo='ppa:named-data/ppa-dev' state=absent
 #  when: ansible_distribution == "Ubuntu" 
 
+#- name: add ndn dev repository
+#  apt_repository: repo='ppa:named-data/ppa-dev' state=present
+#  when: ansible_distribution == "Ubuntu" 
+
 #- name: remove ndn repository (we will then re-add it to make sure we get new OS version covered)
 #  apt_repository: repo='ppa:named-data/ppa' state=absent
 #  when: ansible_distribution == "Ubuntu" 
@@ -190,6 +194,8 @@
        - git
        - openssl 
        - python-openssl 
+       - libffi-dev
+       - python-cffi
        - libssl-dev 
        - expat 
        - libexpat-dev 
