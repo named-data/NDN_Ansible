@@ -230,7 +230,7 @@
 - name: install general ubuntu packages 
   apt:
     name: ['build-essential', 'git', 'openssl', 'python-openssl', 'libffi-dev', 'python-cffi', 'libssl-dev', 'expat', 'libexpat-dev', 'libpcap-dev', 'gawk', 'texinfo', 'asciidoc',
-       'finger', 'python-software-properties', 'software-properties-common', 'ntp', 'autoconf', 'libtool', 'python-dev', 'g++', 'autotools-dev', 'libicu-dev', 'libbz2-dev', 'sqlite3', 'pkg-config', 'libssl-dev', 'libsqlite3-dev', 'libcrypto++-dev', 'aptitude', 'python3-dev', 'python3-setuptools', 'python3-pip', 'python-pip', 'fail2ban', 'liblog4cxx10-dev' ]
+       'finger', 'python-software-properties', 'software-properties-common', 'ntp', 'autoconf', 'libtool', 'python-dev', 'g++', 'autotools-dev', 'libicu-dev', 'libbz2-dev', 'sqlite3', 'pkg-config', 'libssl-dev', 'libsqlite3-dev', 'libcrypto++-dev', 'aptitude', 'python3-dev', 'python3-setuptools', 'python3-pip', 'python-pip', 'python-netaddr', 'fail2ban', 'liblog4cxx10-dev' ]
     update_cache: yes
     autoclean: yes
     autoremove: yes
