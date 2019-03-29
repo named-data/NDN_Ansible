@@ -1,15 +1,15 @@
 ---
 # tasks file for ndnsec
 
-- name: add ndnsec user
-  user: name=ndnsec state=present shell=/bin/bash password=LrVkOUM1s16xE
-
-- name: install ndnsec libraries 
-  action: >
-       {{ ansible_pkg_mgr }} name={{ item }} state=latest update_cache=yes
-  with_items:
-       - ndnsec
-
+#- name: add ndnsec user
+#  user: name=ndnsec state=present shell=/bin/bash password=LrVkOUM1s16xE
+#
+#- name: install ndnsec libraries 
+#  action: >
+#       {{ ansible_pkg_mgr }} name={{ item }} state=latest update_cache=yes
+#  with_items:
+#       - ndnsec
+#
 
 - cron: name="auto-approve guest certs" state=present user="ndnsec" minute="*/5" job="/usr/local/bin/ndnop-process-requests --guest-only --auto-approve"
   when: supports_guest_certs and inventory_hostname != "UCLA"
@@ -19,11 +19,11 @@
 
 # if we have a cert_url defined then we assume everything has been done for key and cert already. we just need to install the cert from cert_url
 
-- get_url:
-    url: "{{ cert_url }}"
-    dest: /etc/ndn/keys/default.ndncert
-    mode: 0644
-  when: cert_url is defined
-
-- script: roles/ndnsec/files/installCertFromURL.sh "{{ cert_url }}"  "{{ default_prefix }}"
-  when: cert_url is defined
+#- get_url:
+#    url: "{{ cert_url }}"
+#    dest: /etc/ndn/keys/default.ndncert
+#    mode: 0644
+#  when: cert_url is defined
+#
+#- script: roles/ndnsec/files/installCertFromURL.sh "{{ cert_url }}"  "{{ default_prefix }}"
+#  when: cert_url is defined
