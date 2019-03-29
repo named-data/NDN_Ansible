@@ -19,6 +19,15 @@ general
   ; InterestLifetime (in seconds) for LSA fetching
   lsa-interest-lifetime 4    ; default value 4. Valid values 1-60
 
+  ; select sync protocol: chronosync or psync
+  sync-protocol psync
+  ;sync-protocol chronosync
+
+  ; sync interest lifetime of ChronoSync/PSync in milliseconds
+  sync-interest-lifetime 60000  ; default value 60000. Valid values 1000-120,000
+
+  state-dir       /var/lib/ndn/nlsr        ; path for intermediate state files including sequence directory (Absolute path)
+
   ; log-level is used to set the logging level for NLSR.
   ; All debugging levels listed above the selected value are enabled.
   ;
@@ -84,7 +93,8 @@ neighbors
    neighbor   ; {{ neighbor }}
    {
        name {{ ndnNetwork }}{{hostvars[neighbor].site }}/%C1.Router/{{ hostvars[neighbor].router_name }}
-       face-uri  udp4://{{ hostvars[neighbor].ansible_host }}
+       ;face-uri  udp4://{{ hostvars[neighbor].ansible_host }}
+       face-uri  udp4://{{ hostvars[neighbor].host_ip }}
        link-cost {{ data['link_cost'] }}
    }
 {% endfor %}
