@@ -2,6 +2,7 @@
 
 # file: host_vars/MEMPHIS
 ansible_host: titan.cs.memphis.edu
+host_ip: 141.225.11.173
 ethernet_device: eth1
 site: /edu/memphis
 default_prefix: /ndn/edu/memphis 
@@ -13,6 +14,7 @@ neighbors:
   UFPA: {link_cost: 115}
   ARIZONA: {link_cost: 17}
   WU: {link_cost: 17}
+  WU2: {link_cost: 17}
   MICHIGAN: {link_cost: 12}
   NEU: {link_cost: 21}
 network_regions: [/ndn/edu/memphis]

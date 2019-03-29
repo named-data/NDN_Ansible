@@ -1,0 +1,31 @@
+---
+
+# file: host_vars/WU2
+ansible_host: forest1.arl.wustl.edu
+host_ip: 128.252.153.21
+ethernet_device: eth0
+site: /edu/wustl2
+default_prefix: /ndn/edu/wustl2 
+advertised_prefixes: [/ndn/edu/wustl2]
+routable_prefixes: [/ndn/edu/wustl2]
+router_name: forest1 
+neighbors: 
+  WU: {link_cost: 1}
+  MEMPHIS: {link_cost: 17}
+network_regions: [/ndn/edu/wustl2]
+#hr_radius: 19.426848571939
+#hr_angle: 4.31067173953721
+hr_angle: 4.31068
+hr_radius: 19.4269
+# certificate related variables
+# default name is same as default_prefix
+#cert_url: 
+supports_guest_certs: false
+nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
+operator_name: "John DeHart"
+operator_email: jdd@wustl.edu
+site_email_domain: ["wustl.edu"]
+allowGuests: false
+doNotSendOpRequests: true
+doNotSendOpRequestsForGuests: true
+site_name: "Washington University in St. Louis 2"

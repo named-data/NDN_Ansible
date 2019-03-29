@@ -2,6 +2,7 @@
 
 # file: host_vars/WU
 ansible_host: wundngw.arl.wustl.edu
+host_ip: 128.252.153.194
 ethernet_device: eth0
 site: /edu/wustl
 default_prefix: /ndn/edu/wustl 
@@ -9,7 +10,7 @@ advertised_prefixes: [/ndn/edu/wustl]
 routable_prefixes: [/ndn/edu/wustl]
 router_name: wundngw 
 neighbors: 
-#  WURHEL: {link_cost: 1}
+  WU2: {link_cost: 1}
   MUMBAI_AWS: {link_cost: 122}
   AVEIRO: {link_cost: 75}
   UNIVH2C: {link_cost: 75}
