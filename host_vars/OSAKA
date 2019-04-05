@@ -3,6 +3,7 @@
 # file: host_vars/OSAKA
 #ansible_host: 133.1.17.51
 ansible_host: ndn.ist.osaka-u.ac.jp
+host_ip: 133.1.17.51
 ethernet_device: eth2
 site: /jp/ac/osaka-u
 default_prefix: /ndn/jp/ac/osaka-u 
@@ -12,7 +13,7 @@ router_name: NDNtestbed
 neighbors: 
   UUM: {link_cost: 42}
   CNIC: {link_cost: 45}
-  PKUSZ: {link_cost: 63}
+  #PKUSZ: {link_cost: 63}
   SRRU: {link_cost: 67}
   ANYANG: {link_cost: 36}
   TONGJI: {link_cost: 63}

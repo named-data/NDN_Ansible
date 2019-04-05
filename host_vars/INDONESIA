@@ -3,6 +3,7 @@
 # file: host_vars/INDONESIA
 #ansible_host: 152.118.101.159
 ansible_host: indonesia.testbed.named-data.net
+host_ip: 152.118.101.159
 ethernet_device: eth1
 site: /id/ac/ui
 default_prefix: /ndn/id/ac/ui
@@ -15,7 +16,7 @@ neighbors:
   KISTI: {link_cost: 150}
   SRRU: {link_cost: 32}
   WASEDA: {link_cost: 49}
-  BUPT: {link_cost: 54}
+  #BUPT: {link_cost: 54}
   TONGJI: {link_cost: 61}
 network_regions: [/ndn/id/ac/ui]
 #hr_radius: 29.2553552716

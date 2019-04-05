@@ -4,6 +4,7 @@
 ethernet_device: eth0
 #ansible_host: 210.114.89.49
 ansible_host: anyang.testbed.named-data.net
+host_ip: 210.114.89.49
 site: /kr/anyang
 default_prefix: /ndn/kr/anyang 
 advertised_prefixes: [/ndn/kr/anyang]
@@ -16,7 +17,7 @@ neighbors:
   OSAKA: {link_cost: 36}
   KISTI: {link_cost: 40}
   WASEDA: {link_cost: 40}
-  BUPT: {link_cost: 33}
+  #BUPT: {link_cost: 33}
   TONGJI: {link_cost: 54}
 network_regions: [/ndn/kr/anyang]
 #hr_radius: 14.3378634978013

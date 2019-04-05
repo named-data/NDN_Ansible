@@ -3,6 +3,7 @@
 # file: host_vars/UUM
 #ansible_host: 203.80.17.88
 ansible_host: uum.testbed.named-data.net
+host_ip: 203.80.17.88
 ethernet_device: eth0
 site: /my/edu/uum
 default_prefix: /ndn/my/edu/uum 
