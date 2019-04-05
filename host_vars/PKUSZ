@@ -3,6 +3,7 @@
 # file: host_vars/PKUSZ
 #ansible_host: 219.223.222.5
 ansible_host: pkusz.testbed.named-data.net
+host_ip: 219.223.222.5
 ethernet_device: eth0
 site: /cn/edu/pkusz
 default_prefix: /ndn/cn/edu/pkusz 
@@ -15,7 +16,7 @@ neighbors:
   WASEDA: {link_cost: 98}
   TONGJI: {link_cost: 54}
   PADUA: {link_cost: 170}
-  BUPT: {link_cost: 54}
+  #BUPT: {link_cost: 54}
   MSU: {link_cost: 71}
   SRRU: {link_cost: 71}
 network_regions: [/ndn/cn/edu/pkusz]
