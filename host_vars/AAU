@@ -3,6 +3,7 @@
 # file: host_vars/AAU
 ethernet_device: enp6s0
 ansible_host: ndn-itec.aau.at
+host_ip: 143.205.172.10
 site: /at/aau
 default_prefix: /ndn/at/aau
 advertised_prefixes: [/ndn/at/aau]

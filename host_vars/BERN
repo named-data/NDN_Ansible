@@ -3,6 +3,7 @@
 # file: host_vars/BERN
 ethernet_device: ens3
 ansible_host: os-float172.cnds.unibe.ch
+host_ip: 130.92.70.172
 #ansible_host: 130.92.70.172 #
 site: /ch/unibe
 default_prefix: /ndn/ch/unibe 
@@ -11,6 +12,7 @@ routable_prefixes: [/ndn/ch/unibe]
 router_name: ndn-1
 neighbors: 
   AAU: {link_cost: 16}
+  LACL: {link_cost: 18}
   LIP6: {link_cost: 18}
   BASEL: {link_cost: 2}
   AFA: {link_cost: 15}

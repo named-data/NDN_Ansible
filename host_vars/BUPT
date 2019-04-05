@@ -3,6 +3,7 @@
 # file: host_vars/BUPT
 #ansible_host: 114.247.165.44
 ansible_host: bupt.testbed.named-data.net
+host_ip: 114.247.165.44
 ethernet_device: eth0
 site: /cn/edu/bupt
 default_prefix: /ndn/cn/edu/bupt 
@@ -11,7 +12,7 @@ routable_prefixes: [/ndn/cn/edu/bupt]
 router_name: bupthub 
 neighbors: 
   CNIC: {link_cost: 10}
-  PKUSZ: {link_cost: 54}
+  #PKUSZ: {link_cost: 54}
   SRRU: {link_cost: 72}
   INDONESIA: {link_cost: 54}
   KISTI: {link_cost: 33}

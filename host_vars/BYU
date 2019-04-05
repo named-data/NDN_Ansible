@@ -2,6 +2,7 @@
 
 # file: host_vars/BYU
 ansible_host: pasta10.cs.byu.edu
+host_ip: 128.187.81.12
 ethernet_device: p128p1
 site: /edu/byu
 default_prefix: /ndn/edu/byu 
