@@ -3,6 +3,7 @@
 # file: host_vars/UASLP
 #ansible_host: 148.224.92.99
 ansible_host: uaslp.testbed.named-data.net
+host_ip: 148.224.92.99
 ethernet_device: eth0
 site: /mx/uaslp
 default_prefix: /ndn/mx/uaslp 

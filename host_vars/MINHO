@@ -2,6 +2,7 @@
 
 # file: host_vars/MINHO
 ansible_host: vnetlab.gcom.di.uminho.pt
+host_ip: 193.136.9.206
 ethernet_device: eth0
 site: /pt/uminho
 default_prefix: /ndn/pt/uminho 

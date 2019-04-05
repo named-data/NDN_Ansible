@@ -3,6 +3,7 @@
 # file: host_vars/KISTI
 #ansible_host: 203.253.235.168
 ansible_host: kisti.testbed.named-data.net
+host_ip: 203.253.235.168
 ethernet_device: em1
 site: /kr/re/kisti
 default_prefix: /ndn/kr/re/kisti 
@@ -13,9 +14,9 @@ neighbors:
   GIST: {link_cost: 2}
   INDONESIA: {link_cost: 150}
   WASEDA: {link_cost: 39}
-#  CSU: {link_cost: 106}
+  CSU: {link_cost: 106}
   ANYANG: {link_cost: 40}
-  BUPT: {link_cost: 33}
+  #BUPT: {link_cost: 33}
 network_regions: [/ndn/kr/re/kisti]
 #hr_radius: 11.5531281288249
 #hr_angle: 2.98403796376186

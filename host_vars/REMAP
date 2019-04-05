@@ -3,6 +3,7 @@
 # file: host_vars/REMAP
 ansible_host: ndn-remap-p05.it.ucla.edu
 #ansible_host: 128.97.98.7 #
+host_ip: 128.97.98.7 #
 ethernet_device: eth0
 site: /edu/ucla/remap
 default_prefix: /ndn/edu/ucla/remap 
@@ -10,7 +11,7 @@ advertised_prefixes: [/ndn/edu/ucla/remap,/org/openmhealth]
 routable_prefixes: [/ndn/edu/ucla/remap,/org/openmhealth]
 router_name: cs/aleph 
 neighbors:
-  BYU: {link_cost: 9}
+  #BYU: {link_cost: 9}
   UCLA: {link_cost: 1}
 #  CSU: {link_cost: 16}
   ARIZONA: {link_cost: 25}

@@ -2,6 +2,7 @@
 
 # file: host_vars/SYSTEMX
 ansible_host: systemx-ndn-1.enst.fr
+host_ip: 137.194.54.81
 ethernet_device: eth0
 site: /fr/irt-systemx
 default_prefix: /ndn/fr/irt-systemx 
@@ -12,6 +13,7 @@ neighbors:
   AVEIRO: {link_cost: 18}
   GOETTINGEN: {link_cost: 10}
   NTNU: {link_cost: 24}
+  LACL: {link_cost: 4}
   LIP6: {link_cost: 1}
   BASEL: {link_cost: 9}
 network_regions: [/ndn/fr/irt-systemx]

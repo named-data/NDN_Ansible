@@ -3,6 +3,7 @@
 # file: host_vars/UFPA
 #ansible_host: 200.239.93.10
 ansible_host: ufpa.testbed.named-data.net
+host_ip: 200.239.93.10
 ethernet_device: eth0
 site: /br/ufpa
 default_prefix: /ndn/br/ufpa 

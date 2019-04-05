@@ -2,6 +2,7 @@
 
 # file: host_vars/UCLA
 ansible_host: spurs.cs.ucla.edu
+host_ip: 131.179.196.46
 ethernet_device: eth0
 site: /edu/ucla
 default_prefix: /ndn/edu/ucla
@@ -13,7 +14,7 @@ neighbors:
   ARIZONA: {link_cost: 25}
   WU: {link_cost: 30}
   REMAP: {link_cost: 1}
-#  CSU: {link_cost: 16}
+  CSU: {link_cost: 16}
   CAIDA: {link_cost: 3}
   UCI: {link_cost: 1}
   MSU: {link_cost: 150}

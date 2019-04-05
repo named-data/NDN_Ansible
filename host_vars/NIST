@@ -5,6 +5,7 @@
 #ansible_host: 129.6.112.51
 #ansible_host: nist.testbed.named-data.net
 ansible_host: 129.6.112.67
+host_ip: 129.6.112.67
 ansible_user: antd
 ethernet_device: enp1s0f0
 site: /gov/nist

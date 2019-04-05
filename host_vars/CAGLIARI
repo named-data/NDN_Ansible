@@ -3,6 +3,7 @@
 # file: host_vars/CAGLIARI
 #ansible_host: 192.167.131.70
 ansible_host: lumiere.diee.unica.it
+host_ip: 192.167.133.17
 ethernet_device: eth0
 site: /it/unica
 ansible_port: 8081

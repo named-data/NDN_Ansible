@@ -5,6 +5,7 @@
 #ansible_host: dyn-148-53.dhcp.ece.neu.edu
 #ansible_host: 129.10.52.193 #
 ansible_host: neu.testbed.named-data.net
+host_ip: 129.10.224.42
 ethernet_device: eth0
 site: /edu/neu
 default_prefix: /ndn/edu/neu 
@@ -12,6 +13,7 @@ advertised_prefixes: [/ndn/edu/neu]
 routable_prefixes: [/ndn/edu/neu]
 router_name: ndnrtr 
 neighbors: 
+  SAVI: {link_cost: 15}
   NIST: {link_cost: 12}
   NTNU: {link_cost: 69}
   MICHIGAN: {link_cost: 14}

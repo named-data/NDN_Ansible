@@ -3,6 +3,7 @@
 # file: host_vars/URJC
 ansible_host: insula.gsyc.es
 #ansible_host: 193.147.79.41
+host_ip: 193.147.79.41
 site: /es/urjc
 ethernet_device: eth0:0
 default_prefix: /ndn/es/urjc 

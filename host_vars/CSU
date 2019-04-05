@@ -2,6 +2,7 @@
 
 # file: host_vars/CSU
 ansible_host: ndn.netsec.colostate.edu
+host_ip: 129.82.138.48
 ethernet_device: eth0
 site: /edu/colostate
 default_prefix: /ndn/edu/colostate 
@@ -13,7 +14,7 @@ neighbors:
   UCLA: {link_cost: 16}
   REMAP: {link_cost: 16}
   KISTI: {link_cost: 106}
-  BYU: {link_cost: 8}
+  #BYU: {link_cost: 8}
   MICHIGAN: {link_cost: 15}
   UIUC: {link_cost: 14}
 network_regions: [/ndn/edu/colostate]

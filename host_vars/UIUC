@@ -2,6 +2,7 @@
 
 # file: host_vars/UIUC
 ansible_host: ndnx.cs.illinois.edu
+host_ip: 72.36.112.82
 ethernet_device: eth0
 site: /edu/illinois
 default_prefix: /ndn/edu/illinois 
@@ -10,7 +11,7 @@ routable_prefixes: [/ndn/edu/illinois,/ndn/edu/uiuc]
 router_name: ndnx 
 neighbors: 
   MICHIGAN: {link_cost: 5}
-#  CSU: {link_cost: 14}
+  CSU: {link_cost: 14}
   NIST: {link_cost: 12}
   WU: {link_cost: 9}
   PADUA: {link_cost: 80}

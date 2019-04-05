@@ -2,6 +2,7 @@
 
 # file: host_vars/UNIVH2C
 ansible_host: 196.200.164.99
+host_ip: 196.200.164.99
 ethernet_device: eth0
 site: /ma/univh2c
 default_prefix: /ndn/ma/univh2c 
@@ -10,6 +11,7 @@ routable_prefixes: [/ndn/ma/univh2c]
 router_name: ubuntu-ndn 
 neighbors: 
   WU: {link_cost: 75}
+  LACL: {link_cost: 50}
   UFPA: {link_cost: 125}
   PADUA: {link_cost: 50}
   COPELABS: {link_cost: 50}

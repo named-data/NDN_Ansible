@@ -2,6 +2,7 @@
 
 # file: host_vars/LIP6
 ansible_host: ndnhub.ipv6.lip6.fr
+host_ip: 132.227.62.163
 ethernet_device: eth0
 site: /fr/lip6
 default_prefix: /ndn/fr/lip6 
@@ -9,6 +10,7 @@ advertised_prefixes: [/ndn/fr/lip6]
 routable_prefixes: [/ndn/fr/lip6]
 router_name: ndnhub 
 neighbors: 
+  LACL: {link_cost: 4}
   BERN: {link_cost: 18}
   TNO: {link_cost: 9}
   COPELABS: {link_cost: 22}

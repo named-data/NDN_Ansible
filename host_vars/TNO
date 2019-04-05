@@ -3,6 +3,7 @@
 # file: host_vars/TNO
 #ansible_host: 134.221.116.42
 ansible_host: tno.testbed.named-data.net
+host_ip: 134.221.116.42
 ethernet_device: eth0
 site: /nl/tno
 default_prefix: /ndn/nl/tno 

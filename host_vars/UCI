@@ -2,6 +2,7 @@
 
 # file: host_vars/UCI
 ansible_host: ndnhub.ics.uci.edu
+host_ip: 128.195.4.36
 ethernet_device: eth0
 site: /edu/uci
 default_prefix: /ndn/edu/uci 

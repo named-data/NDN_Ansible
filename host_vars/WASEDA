@@ -3,6 +3,7 @@
 # file: host_vars/WASEDA
 ansible_host: ndn-tb.nz.comm.waseda.ac.jp
 #ansible_host: 133.9.67.98 #
+host_ip: 133.9.67.98 #
 ethernet_device: eno1
 site: /jp/waseda
 default_prefix: /ndn/jp/waseda 
@@ -10,14 +11,14 @@ advertised_prefixes: [/ndn/jp/waseda]
 routable_prefixes: [/ndn/jp/waseda]
 router_name: ndn-tb 
 neighbors: 
-  PKUSZ: {link_cost: 98}
+  #PKUSZ: {link_cost: 98}
   OSAKA: {link_cost: 5}
   INDONESIA: {link_cost: 49}
   KISTI: {link_cost: 39}
   ANYANG: {link_cost: 40}
   ARIZONA: {link_cost: 75}
   TONGJI: {link_cost: 98}
-  BUPT: {link_cost: 48}
+  #BUPT: {link_cost: 48}
 network_regions: [/ndn/jp/waseda]
 #hr_radius: 19.3583257471934
 #hr_angle: 2.99935233160622
