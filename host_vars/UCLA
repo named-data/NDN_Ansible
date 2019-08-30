@@ -6,7 +6,7 @@ host_ip: 131.179.196.46
 ethernet_device: eth0
 site: /edu/ucla
 default_prefix: /ndn/edu/ucla
-advertised_prefixes: [/KEY,/ndn/KEY,/ndn/edu/ucla,/ndn/guest,/ndn/edu/ucla/cs]
+advertised_prefixes: [/ndn/web/KEY, /KEY,/ndn/KEY,/ndn/edu/ucla,/ndn/guest,/ndn/edu/ucla/cs]
 routable_prefixes: [ndn/edu/ucla,/ndn/guest,/ndn/edu/ucla/cs]
 secondary_ping_prefix: /ndn/edu/ucla/cs
 router_name: cs/spurs 
@@ -15,7 +15,7 @@ neighbors:
   WU: {link_cost: 30}
   REMAP: {link_cost: 1}
   CSU: {link_cost: 16}
-  CAIDA: {link_cost: 3}
+  #CAIDA: {link_cost: 3}
   UCI: {link_cost: 1}
   MSU: {link_cost: 150}
 network_regions: [/ndn/edu/ucla,/ndn/edu/ucla/cs,/ndn/guest]

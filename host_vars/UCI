@@ -13,7 +13,7 @@ neighbors:
   ARIZONA: {link_cost: 25}
   UCLA: {link_cost: 1}
   REMAP: {link_cost: 1}
-  CAIDA: {link_cost: 3}
+  #CAIDA: {link_cost: 3}
 network_regions: [/ndn/edu/uci]
 #hr_radius: 19.2697694366069
 #hr_angle: 2.94186046511628

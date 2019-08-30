@@ -4,6 +4,7 @@
 ethernet_device: eth0
 ansible_host: hobo.cs.arizona.edu
 #ansible_host: 128.196.203.36
+host_ip: 128.196.203.36
 site: /edu/arizona
 default_prefix: /ndn/edu/arizona 
 advertised_prefixes: [/ndn/edu/arizona]
@@ -14,12 +15,12 @@ neighbors:
   UCI: {link_cost: 25}
   UCLA: {link_cost: 25}
   REMAP: {link_cost: 25}
-#  CSU: {link_cost: 18}
+  CSU: {link_cost: 18}
   MEMPHIS: {link_cost: 17}
   WU: {link_cost: 33}
   WASEDA: {link_cost: 75}
-  CAIDA: {link_cost: 25}
-  BYU: {link_cost: 30}
+  #CAIDA: {link_cost: 25}
+  #BYU: {link_cost: 30}
 network_regions: [/ndn/edu/arizona]
 #hr_radius: 16.2305391313912
 #hr_angle: 2.97033285094067

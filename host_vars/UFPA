@@ -14,7 +14,7 @@ neighbors:
   WU: {link_cost: 65}
   UNIVH2C: {link_cost: 125}
   UASLP: {link_cost: 100}
-  CAIDA: {link_cost: 155}
+  #CAIDA: {link_cost: 155}
   MEMPHIS: {link_cost: 115}
   COPELABS: {link_cost: 145}
   INDONESIA: {link_cost: 200}

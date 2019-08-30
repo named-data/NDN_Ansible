@@ -2,6 +2,7 @@
 
 # file: host_vars/AVEIRO
 ansible_host: selficn.av.it.pt
+host_ip: 193.136.92.155
 ethernet_device: ens18
 site: /pt/it/av
 default_prefix: /ndn/pt/it/av 
@@ -18,8 +19,10 @@ neighbors:
 network_regions: [/ndn/pt/it/av]
 # AS1930
 # AS1930    2.62082874954162        16.2060358549513
-hr_radius: 16.2060358549513
-hr_angle: 2.62084
+#hr_radius: 16.2060358549513
+#hr_angle: 2.62084
+hr_angle: 2.62081
+hr_radius: 16.2060
 cert_url: https://ndncert.named-data.net/cert/get/?name=%2Fndn%2Fpt%2Fit%2Fav%2FKEY%2F7D%250B%253C%25EE%250D%2500%25E9%2FNA%2F%25FD%2500%2500%2501d%25ECzg%25E3
 #nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Jose Quevedo"

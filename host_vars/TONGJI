@@ -17,7 +17,7 @@ neighbors:
   INDONESIA: {link_cost: 61}
   ANYANG: {link_cost: 54}
   WASEDA: {link_cost: 98}
-  CAIDA: {link_cost: 93}
+  #CAIDA: {link_cost: 93}
   #BUPT: {link_cost: 18}
 network_regions: [/ndn/cn/edu/tongji]
 #hr_radius: 11.1495655496376
