@@ -7,6 +7,12 @@
   file: path=/var/lib/ndn/repo-ng state=directory owner=ndn group=ndn mode=0755
 - file: path=/var/lib/ndn/repo-ng-2 state=directory owner=ndn group=ndn mode=0755
 
+# copy restoreMissingCertFibEntries.sh to /etc/ndn/
+- name: copy restoreMissingCertFibEntries.sh to /etc/ndn/
+  copy: src=roles/repo-ng/files/restoreMissingCertFibEntries.sh  dest=/etc/ndn/restoreMissingCertFibEntries.sh owner=root mode=0750
+
+- cron: name="restore missing repo CERT fib entries" state="absent" user="root" minute="*/10" job="/etc/ndn/restoreMissingCertFibEntries.sh  "
+
 # copy repo-ng-2 /etc/init/ conf file
 - name: create repo-ng-2 /etc/init conf file
   copy: src=roles/repo-ng/files/repo-ng-2.conf dest=/etc/init/repo-ng-2.conf
@@ -48,3 +54,4 @@
 
 - name: start repo-ng-2
   service: name=repo-ng-2 state=started enabled=yes
+
