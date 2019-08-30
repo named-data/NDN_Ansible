@@ -30,6 +30,8 @@ After=nfd.service
 
 [Service]
 Environment=HOME=/var/lib/ndn/nfd-status-http-server
+User=ndn
+Group=ndn
 EnvironmentFile=-/etc/default/nfd-status-http-server
 ExecStart=/usr/bin/nfd-status-http-server $FLAGS
 Restart=on-failure

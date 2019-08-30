@@ -17,6 +17,9 @@
 - name: start nfd-status-http-server
   service: name=nfd-status-http-server state=started enabled=yes
 
+- name: copy port 6380 default file 
+  copy: dest=/etc/default/nfd-status-http-server src=roles/nfd-status-http-server/files/nfd-status-http-server.default.6380 owner=root group=root mode=0644
+
 - name: copy port 80 default file to RedHat systems
   copy: dest=/etc/default/nfd-status-http-server src=roles/nfd-status-http-server/files/nfd-status-http-server.default.80 owner=root group=root mode=0644
   when: ansible_distribution == "RedHat"
@@ -30,13 +33,43 @@
   shell: service nfd-status-http-server stop
   when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16") 
 
+- name: purge apache2
+  apt: name=apache2 state=absent update_cache=yes purge=yes
+  when: ansible_distribution == "Ubuntu" 
+
+- name: Add key for nginx
+  apt_key:
+    url: http://nginx.org/keys/nginx_signing.key
+    state: present
+
+#- name: add nginx repository
+- apt_repository: 
+    repo: deb http://nginx.org/packages/mainline/ubuntu/ xenial nginx
+    state: present
+  when: ansible_distribution == "Ubuntu" 
+
+#- name: get nginx repo key
+#  get_url:
+#    url: http://nginx.org/keys/nginx_signing.key
+#    dest: /tmp/nginx_signing.key
+#    mode: '0644'
+
 - name: install nginx
   apt: name=nginx state=latest update_cache=yes
   when: ansible_distribution == "Ubuntu" 
 
-- name: remove nginx default site
-  file: path=/etc/nginx/sites-enabled/default state=absent
-  when: ansible_distribution == "Ubuntu" 
+- name: stop nginx for Ubuntu 16.04
+  shell: service nginx stop
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16") 
+
+
+#- name: remove nginx default site
+#  file: path=/etc/nginx/sites-enabled/default state=absent
+#  when: ansible_distribution == "Ubuntu" 
+
+#- name: overwrite systemd file for nginx
+#  copy: dest=/lib/systemd/system/nginx.service src=roles/nfd-status-http-server/files/nginx.service owner=root group=root mode=0644
+#  when: ansible_distribution == "Ubuntu" 
 
 - name: install certbot-auto from EFF
   get_url: url=https://dl.eff.org/certbot-auto dest=/usr/local/bin/certbot-auto mode=0755
@@ -52,14 +85,31 @@
   when: ansible_distribution == "Ubuntu" 
   ignore_errors: yes
 
-- name: create /etc/nginx/sites-available/nfd
-  template: src=nfd_site.j2 dest=/etc/nginx/sites-available/nfd  owner=root group=root mode="u=rw,g=r,o=r"
-  when: ansible_distribution == "Ubuntu" 
+#- name: create /etc/nginx/sites-available/nfd
+#  template: src=nfd_site.j2 dest=/etc/nginx/sites-available/nfd  owner=root group=root mode="u=rw,g=r,o=r"
+#  when: ansible_distribution == "Ubuntu" 
+#
+#- file: path=/etc/nginx/sites-enabled/nfd state=link  src=/etc/nginx/sites-available/nfd
+#  when: ansible_distribution == "Ubuntu"
 
-- file: path=/etc/nginx/sites-enabled/nfd state=link  src=/etc/nginx/sites-available/nfd
-  when: ansible_distribution == "Ubuntu"
+- name: create /etc/nginx/conf.d/nfd.conf
+  template: src=nfd_site.j2 dest=/etc/nginx/conf.d/nfd.conf  owner=root group=root mode="u=rw,g=r,o=r"
+  when: (ansible_distribution == "Ubuntu") and (inventory_hostname != "LACL") and (inventory_hostname != "OSAKA")
 
-- cron: name="renew certbot" user="root" day="28" hour="1" minute="30" job="/usr/local/bin/certbot-auto renew --standalone --pre-hook \"service nfd-status-http-server stop; service nginx stop\" --post-hook \"service nfd-status-http-server start; service nginx start\""
+- name: overwrite /etc/nginx/conf.d/default.conf
+  copy: dest=/etc/nginx/conf.d/default.conf src=roles/nfd-status-http-server/files/nginx.default owner=root group=root mode=0644
+  when: (ansible_distribution == "Ubuntu") and (inventory_hostname != "LACL") and (inventory_hostname != "OSAKA")
+
+- name: create /etc/nginx/conf.d/nfd.conf.disable
+  template: src=nfd_site.j2 dest=/etc/nginx/conf.d/nfd.conf.disable  owner=root group=root mode="u=rw,g=r,o=r"
+  when: (ansible_distribution == "Ubuntu") and ((inventory_hostname == "LACL") or (inventory_hostname == "OSAKA"))
+
+- name: overwrite /etc/nginx/conf.d/default.conf
+  copy: dest=/etc/nginx/conf.d/default.conf src=roles/nfd-status-http-server/files/nginx.default.no.https owner=root group=root mode=0644
+  when: (ansible_distribution == "Ubuntu") and ((inventory_hostname == "LACL") or (inventory_hostname == "OSAKA"))
+
+
+- cron: name="renew certbot" user="root" day="13,28" hour="1" minute="30" job="/usr/local/bin/certbot-auto renew --standalone --pre-hook \"service nfd-status-http-server stop; service nginx stop\" --post-hook \"service nfd-status-http-server start; service nginx start\" > /dev/null"
 
 #- cron: name="renew certbot" user="root" day="28" hour="1" minute="30" job="/usr/local/bin/certbot-auto renew --standalone --pre-hook \"initctl stop nfd-status-http-server; service nginx stop\" --post-hook \"initctl start nfd-status-http-server; service nginx start\""
 #  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "14") 
@@ -74,5 +124,9 @@
 
 - name: start nfd-status-http-server.server for Ubuntu 16.04
   shell: service nfd-status-http-server start
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16") 
+
+- name: start nginx for Ubuntu 16.04
+  shell: service nginx start
   when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16") 
 
