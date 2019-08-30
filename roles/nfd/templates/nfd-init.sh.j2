@@ -24,6 +24,7 @@ sleep 15
 {% endif %}
 
 # set broadcast strategy
+/usr/bin/nfdc strategy set  /ndn/multicast /localhost/nfd/strategy/multicast
 /usr/bin/nfdc strategy set  /ndn/broadcast /localhost/nfd/strategy/multicast
 /usr/bin/nfdc strategy set  /localhost     /localhost/nfd/strategy/multicast
 
@@ -50,7 +51,8 @@ nfdc route add /ndn/edu/wustl/ndnstatus udp4://128.252.153.28:6363
   # {{ inventory_hostname}}  Neighbors: {{ neighbors }}
 {% for neighbor, data in neighbors.items() %}
    # {{ neighbor }} {{ hostvars[neighbor].ansible_host }}
-nfdc face create udp4://{{ hostvars[neighbor].ansible_host }}:{{ hostvars[neighbor].udp_port }} persistency permanent
+#nfdc face create udp4://{{ hostvars[neighbor].ansible_host }}:{{ hostvars[neighbor].udp_port }} persistency permanent
+nfdc face create udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }} persistency permanent reliability on
 
 {% endfor %}
 
