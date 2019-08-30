@@ -163,9 +163,9 @@
        - protobuf-devel
        - log4cxx.x86_64
 
-#- name: remove ndn dev repository
-#  apt_repository: repo='ppa:named-data/ppa-dev' state=absent
-#  when: ansible_distribution == "Ubuntu" 
+- name: remove ndn dev repository
+  apt_repository: repo='ppa:named-data/ppa-dev' state=absent
+  when: ansible_distribution == "Ubuntu" 
 
 #- name: add ndn dev repository
 #  apt_repository: repo='ppa:named-data/ppa-dev' state=present
@@ -285,6 +285,10 @@
 
 - command: python -m pip install --upgrade pip
   become: yes
+
+- pip: name=dnspython state=latest executable=pip
+
+- pip: name=dnspython state=latest executable=pip3
 
 - pip: name=setuptools state=latest executable=pip3
 
