@@ -1,0 +1,3 @@
+# nfd-status-http-server flags
+#FLAGS="-a 0.0.0.0 -p 80"
+FLAGS="-a 127.0.0.1 -p 6380"
