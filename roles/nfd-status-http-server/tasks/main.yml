@@ -44,7 +44,12 @@
 
 #- name: add nginx repository
 - apt_repository: 
-    repo: deb http://nginx.org/packages/mainline/ubuntu/ xenial nginx
+    repo: deb http://nginx.org/packages/mainlin/ubuntu/ xenial nginx
+    state: absent
+  when: ansible_distribution == "Ubuntu" 
+
+- apt_repository: 
+    repo: deb http://nginx.org/packages/ubuntu/ xenial nginx
     state: present
   when: ansible_distribution == "Ubuntu" 
 
@@ -92,21 +97,33 @@
 #- file: path=/etc/nginx/sites-enabled/nfd state=link  src=/etc/nginx/sites-available/nfd
 #  when: ansible_distribution == "Ubuntu"
 
+- name: remove /etc/nginx/conf.d/nfd.conf if present
+  file: path=/etc/nginx/conf.d/nfd.conf state=absent
+  when: (ansible_distribution == "Ubuntu")  and ((inventory_hostname == "BUPT") or (inventory_hostname == "TONGJI") or (inventory_hostname == "LACL") or (inventory_hostname == "WU2") or (inventory_hostname == "NEU") or (inventory_hostname == "GOETTINGEN") or (inventory_hostname == "KISTI") or (inventory_hostname == "OSAKA"))
+
 - name: create /etc/nginx/conf.d/nfd.conf
   template: src=nfd_site.j2 dest=/etc/nginx/conf.d/nfd.conf  owner=root group=root mode="u=rw,g=r,o=r"
-  when: (ansible_distribution == "Ubuntu") and (inventory_hostname != "LACL") and (inventory_hostname != "OSAKA")
+  when: (ansible_distribution == "Ubuntu") and (inventory_hostname != "BUPT") and (inventory_hostname != "TONGJI") and (inventory_hostname != "LACL") and (inventory_hostname != "WU2") and (inventory_hostname != "NEU") and (inventory_hostname != "GOETTINGEN") and (inventory_hostname != "KISTI") and (inventory_hostname != "OSAKA")
 
 - name: overwrite /etc/nginx/conf.d/default.conf
   copy: dest=/etc/nginx/conf.d/default.conf src=roles/nfd-status-http-server/files/nginx.default owner=root group=root mode=0644
-  when: (ansible_distribution == "Ubuntu") and (inventory_hostname != "LACL") and (inventory_hostname != "OSAKA")
+  when: (ansible_distribution == "Ubuntu")   and (inventory_hostname != "BUPT") and (inventory_hostname != "TONGJI") and (inventory_hostname != "LACL") and (inventory_hostname != "WU2") and (inventory_hostname != "NEU") and (inventory_hostname != "GOETTINGEN") and (inventory_hostname != "KISTI") and (inventory_hostname != "OSAKA")
 
 - name: create /etc/nginx/conf.d/nfd.conf.disable
   template: src=nfd_site.j2 dest=/etc/nginx/conf.d/nfd.conf.disable  owner=root group=root mode="u=rw,g=r,o=r"
-  when: (ansible_distribution == "Ubuntu") and ((inventory_hostname == "LACL") or (inventory_hostname == "OSAKA"))
+  when: (ansible_distribution == "Ubuntu") and ((inventory_hostname == "BUPT") or (inventory_hostname == "TONGJI") or (inventory_hostname == "LACL") or (inventory_hostname == "WU2") or (inventory_hostname == "NEU") or (inventory_hostname == "GOETTINGEN") or (inventory_hostname == "KISTI") or (inventory_hostname == "OSAKA"))
 
 - name: overwrite /etc/nginx/conf.d/default.conf
   copy: dest=/etc/nginx/conf.d/default.conf src=roles/nfd-status-http-server/files/nginx.default.no.https owner=root group=root mode=0644
-  when: (ansible_distribution == "Ubuntu") and ((inventory_hostname == "LACL") or (inventory_hostname == "OSAKA"))
+  when: (ansible_distribution == "Ubuntu") and ( (inventory_hostname == "LACL") or (inventory_hostname == "WU2") or (inventory_hostname == "NEU") or (inventory_hostname == "GOETTINGEN") or (inventory_hostname == "KISTI") or (inventory_hostname == "OSAKA"))
+
+- name: overwrite /etc/nginx/conf.d/default.conf
+  copy: dest=/etc/nginx/conf.d/default.conf src=roles/nfd-status-http-server/files/nginx.default.no.https.8080 owner=root group=root mode=0644
+  when: (ansible_distribution == "Ubuntu") and (inventory_hostname == "BUPT") 
+
+- name: overwrite /etc/nginx/conf.d/default.conf
+  copy: dest=/etc/nginx/conf.d/default.conf src=roles/nfd-status-http-server/files/nginx.default.no.https.10421 owner=root group=root mode=0644
+  when: (ansible_distribution == "Ubuntu") and (inventory_hostname == "TONGJI") 
 
 
 - cron: name="renew certbot" user="root" day="13,28" hour="1" minute="30" job="/usr/local/bin/certbot-auto renew --standalone --pre-hook \"service nfd-status-http-server stop; service nginx stop\" --post-hook \"service nfd-status-http-server start; service nginx start\" > /dev/null"
