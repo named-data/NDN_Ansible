@@ -1,0 +1,13 @@
+---
+# tasks file for collectStatsFromAllNodes
+
+
+#- script: roles/collectStatsFromAllNodes/files/collectStats.sh 
+#  register: output
+
+- name: check netstat reass
+#  command: "netstat -s | grep reass"
+  script: roles/collectStatsFromAllNodes/files/collectStats.sh 
+  register: netstat_reass
+
+- debug: msg="{{ netstat_reass.stdout }}"
