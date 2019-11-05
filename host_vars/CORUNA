@@ -11,9 +11,10 @@ advertised_prefixes: [/ndn/es/udc]
 routable_prefixes: [/ndn/es/udc]
 router_name: ndn-node-coruna
 neighbors:
-  CAGLIARI: {link_cost: 40}
+  #CAGLIARI: {link_cost: 40}
   URJC: {link_cost: 17}
   MINHO: {link_cost: 27}
+  WU: {link_cost: 85}
 network_regions: [/ndn/es/uc]
 #hr_radius: 13.6888312671789
 #hr_angle: 1.17180000000000

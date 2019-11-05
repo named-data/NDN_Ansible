@@ -1,9 +1,8 @@
 ---
 
 # file: host_vars/GIST
-#ansible_host: 210.125.84.33
-ansible_host: 103.22.221.33
-#ansible_host: gist.testbed.named-data.net
+#ansible_host: 103.22.221.33
+ansible_host: gist.testbed.named-data.net
 host_ip: 103.22.221.33
 ansible_port: 9000
 ethernet_device: ens3

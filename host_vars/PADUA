@@ -14,7 +14,7 @@ neighbors:
 #  SRRU: {link_cost: 126}
   UNIVH2C: {link_cost: 50}
   AAU: {link_cost: 15}
-  CAGLIARI: {link_cost: 25}
+  #CAGLIARI: {link_cost: 25}
   AFA: {link_cost: 11}
   #PKUSZ: {link_cost: 170}
   MINHO: {link_cost: 26}

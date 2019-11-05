@@ -7,12 +7,12 @@ ansible_host: hobo.cs.arizona.edu
 host_ip: 128.196.203.36
 site: /edu/arizona
 default_prefix: /ndn/edu/arizona 
-advertised_prefixes: [/ndn/edu/arizona]
+advertised_prefixes: [/ndn/edu/arizona,/ndn/web/stats]
 routable_prefixes: [/ndn/edu/arizona]
 router_name: hobo 
 neighbors: 
   UASLP: {link_cost: 32}
-  UCI: {link_cost: 25}
+  #UCI: {link_cost: 25}
   UCLA: {link_cost: 25}
   REMAP: {link_cost: 25}
   CSU: {link_cost: 18}

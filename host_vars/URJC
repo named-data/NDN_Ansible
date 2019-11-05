@@ -14,7 +14,7 @@ neighbors:
   UNIVH2C: {link_cost: 52}
   AVEIRO: {link_cost: 15}
   CORUNA: {link_cost: 17}
-  CAGLIARI: {link_cost: 28}
+  #CAGLIARI: {link_cost: 28}
   MINHO: {link_cost: 13}
   COPELABS: {link_cost: 13}
   PADUA: {link_cost: 15}

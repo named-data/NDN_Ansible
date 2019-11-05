@@ -12,7 +12,7 @@ routable_prefixes: [/ndn/it/afasystems]
 router_name: ndn 
 neighbors: 
   AVEIRO: {link_cost: 45}
-  CAGLIARI: {link_cost: 25}
+  #CAGLIARI: {link_cost: 25}
   MUMBAI_AWS: {link_cost: 72}
   PADUA: {link_cost: 11}
   COPELABS: {link_cost: 36}

@@ -16,7 +16,7 @@ neighbors:
   REMAP: {link_cost: 1}
   CSU: {link_cost: 16}
   #CAIDA: {link_cost: 3}
-  UCI: {link_cost: 1}
+  #UCI: {link_cost: 1}
   MSU: {link_cost: 150}
 network_regions: [/ndn/edu/ucla,/ndn/edu/ucla/cs,/ndn/guest]
 #hr_radius: 16.5866430024476

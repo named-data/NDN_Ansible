@@ -15,7 +15,7 @@ neighbors:
   UCLA: {link_cost: 1}
 #  CSU: {link_cost: 16}
   ARIZONA: {link_cost: 25}
-  UCI: {link_cost: 1}
+  #UCI: {link_cost: 1}
 network_regions: [/ndn/edu/ucla/remap]
 #hr_radius: 16.5866430024476
 #hr_angle: 2.9991100000

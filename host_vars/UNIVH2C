@@ -1,7 +1,8 @@
 ---
 
 # file: host_vars/UNIVH2C
-ansible_host: 196.200.164.99
+#ansible_host: 196.200.164.99
+ansible_host: univh2c.testbed.named-data.net
 host_ip: 196.200.164.99
 ethernet_device: eth0
 site: /ma/univh2c
@@ -15,7 +16,7 @@ neighbors:
   UFPA: {link_cost: 125}
   PADUA: {link_cost: 50}
   COPELABS: {link_cost: 50}
-  CAGLIARI: {link_cost: 50}
+  #CAGLIARI: {link_cost: 50}
   URJC: {link_cost: 52}
 network_regions: [/ndn/ma/univh2c]
 #hr_radius: 15.7232000669204
