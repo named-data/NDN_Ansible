@@ -1,0 +1,11 @@
+---
+- name: quick command run on each testbed nodes
+  gather_facts: no
+  hosts: ndngateways 
+  remote_user: ndnops
+  become: yes
+
+
+  roles: 
+  - {role: 'quickCommandUpdate', tags: 'quickCommandUpdate'} 
+
