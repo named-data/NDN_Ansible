@@ -19,7 +19,7 @@
   - {role: 'ndn-tools', tags: 'ndn-tools'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndn-tools"
   - {role: 'nfd-autoreg', tags: 'nfd-autoreg'} 
 
-#  - {role: 'ndnmap-data-collector', tags: 'ndnmap-data-collector'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnmap-data-collector"
+  - {role: 'ndnmap-data-collector', tags: 'ndnmap-data-collector'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnmap-data-collector"
 #  - {role: 'ndnTestbedDataCollector', tags: 'ndnTestbedDataCollector'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnTestbedDataCollector"
 
 - name: install ndn gateways (RHEL)
