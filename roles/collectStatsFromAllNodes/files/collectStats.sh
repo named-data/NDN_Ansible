@@ -1,5 +1,5 @@
 #!/bin/bash
 
-#netstat -s | grep -i reass
+netstat -s | grep -i reass
 
-cat /proc/meminfo | grep MemTotal
+#cat /proc/meminfo | grep MemTotal
