@@ -9,6 +9,8 @@ default_prefix: /ndn/org/caida
 advertised_prefixes: [/ndn/org/caida]
 routable_prefixes: [/ndn/org/caida]
 router_name: click 
+#memsize: unknown
+memsize: 2
 neighbors: 
   UFPA: {link_cost: 155}
   UCLA: {link_cost: 3}

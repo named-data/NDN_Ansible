@@ -11,6 +11,8 @@ default_prefix: /ndn/it/unica
 advertised_prefixes: [/ndn/it/unica]
 routable_prefixes: [/ndn/it/unica]
 router_name: lumiere 
+#memsize: unknown
+memsize: 2
 neighbors:
   UNIVH2C: {link_cost: 50}
   CORUNA: {link_cost: 40}

@@ -7,6 +7,8 @@ default_prefix: /ndn/edu/wustl/rhel
 advertised_prefixes: [/ndn/edu/wustl/rhel]
 routable_prefixes: [/ndn/edu/wustl/rhel]
 router_name: momcat 
+#memsize: unknown
+memsize: 2
 neighbors: 
   WU: {link_cost: 1}
 network_regions: [/ndn/edu/wustl/rhel]

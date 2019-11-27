@@ -9,6 +9,8 @@ default_prefix: /ndn/edu/byu
 advertised_prefixes: [/ndn/edu/byu]
 routable_prefixes: [/ndn/edu/byu]
 router_name: pasta10 
+# memsize: unknown
+memsize: 2
 neighbors: 
   REMAP: {link_cost: 9}
 #  CSU: {link_cost: 8}

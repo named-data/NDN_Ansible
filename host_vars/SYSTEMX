@@ -9,6 +9,8 @@ default_prefix: /ndn/fr/irt-systemx
 advertised_prefixes: [/ndn/fr/irt-systemx]
 routable_prefixes: [/ndn/fr/irt-systemx]
 router_name: systemx-ndn-1 
+# memsize: unkown
+memsize: 2
 neighbors: 
   AVEIRO: {link_cost: 18}
   GOETTINGEN: {link_cost: 10}

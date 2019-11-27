@@ -9,6 +9,8 @@ default_prefix: /ndn/edu/uci
 advertised_prefixes: [/ndn/edu/uci]
 routable_prefixes: [/ndn/edu/uci]
 router_name: ndnhub 
+# memsize: unknown
+memsize: 2
 neighbors: 
   ARIZONA: {link_cost: 25}
   UCLA: {link_cost: 1}
