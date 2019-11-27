@@ -10,6 +10,8 @@ default_prefix: /ndn/edu/arizona
 advertised_prefixes: [/ndn/edu/arizona,/ndn/web/stats]
 routable_prefixes: [/ndn/edu/arizona]
 router_name: hobo 
+http_access: https
+memsize: 8
 neighbors: 
   UASLP: {link_cost: 32}
   #UCI: {link_cost: 25}

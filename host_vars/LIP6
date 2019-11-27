@@ -9,6 +9,8 @@ default_prefix: /ndn/fr/lip6
 advertised_prefixes: [/ndn/fr/lip6]
 routable_prefixes: [/ndn/fr/lip6]
 router_name: ndnhub 
+http_access: https
+memsize: 4
 neighbors: 
   LACL: {link_cost: 4}
   BERN: {link_cost: 18}

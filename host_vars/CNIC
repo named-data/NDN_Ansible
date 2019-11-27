@@ -12,6 +12,8 @@ default_prefix: /ndn/cn/cas/cnic
 advertised_prefixes: [/ndn/cn/cas/cnic]
 routable_prefixes: [/ndn/cn/cas/cnic]
 router_name: ubuntu 
+http_access: http
+memsize: 16
 neighbors: 
   #PKUSZ: {link_cost: 20}
   #BUPT: {link_cost: 10}

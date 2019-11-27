@@ -9,6 +9,8 @@ default_prefix: /ndn/edu/illinois
 advertised_prefixes: [/ndn/edu/illinois,/ndn/edu/uiuc]
 routable_prefixes: [/ndn/edu/illinois,/ndn/edu/uiuc]
 router_name: ndnx 
+http_access: https
+memsize: 8
 neighbors: 
   MICHIGAN: {link_cost: 5}
   CSU: {link_cost: 14}

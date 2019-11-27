@@ -10,6 +10,8 @@ default_prefix: /ndn/my/edu/uum
 advertised_prefixes: [/ndn/my/edu/uum]
 routable_prefixes: [/ndn/my/edu/uum]
 router_name: isan-ndn 
+http_access: https
+memsize: 16
 neighbors: 
   MSU: {link_cost: 26}
   SRRU: {link_cost: 42}

@@ -9,6 +9,8 @@ default_prefix: /ndn/ch/unibas
 advertised_prefixes: [/ndn/ch/unibas]
 routable_prefixes: [/ndn/ch/unibas]
 router_name: dmi-ndn-testbed1 
+http_access: https
+memsize: 2
 neighbors: 
   AAU: {link_cost: 16}
   BERN: {link_cost: 2}

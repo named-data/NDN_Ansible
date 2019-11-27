@@ -12,6 +12,9 @@ default_prefix: /ndn/edu/neu
 advertised_prefixes: [/ndn/edu/neu]
 routable_prefixes: [/ndn/edu/neu]
 router_name: ndnrtr 
+http_access: http
+# memsize: unknown
+memsize: 2
 neighbors: 
   SAVI: {link_cost: 15}
   NIST: {link_cost: 12}

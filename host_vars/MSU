@@ -4,6 +4,7 @@
 #ansible_host: 202.28.34.249
 ansible_host: msu.testbed.named-data.net
 host_ip: 202.28.34.249
+ansible_user: ndnops2
 ethernet_device: ens3
 site: /th/ac/msu
 default_prefix: /ndn/th/ac/msu 
@@ -11,6 +12,9 @@ advertised_prefixes: [/ndn/th/ac/msu]
 routable_prefixes: [/ndn/th/ac/msu]
 router_name: isan-ndn 
 udp_port: 36363
+http_access: http
+# memsize: unknown
+memsize: 2
 neighbors: 
   UUM: {link_cost: 26}
   #PKUSZ: {link_cost: 71}

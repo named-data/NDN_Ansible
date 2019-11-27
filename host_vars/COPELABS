@@ -10,10 +10,12 @@ default_prefix: /ndn/pt/ulusofona/copelabs
 advertised_prefixes: [/ndn/pt/ulusofona/copelabs]
 routable_prefixes: [/ndn/pt/ulusofona/copelabs]
 router_name: ndn 
+http_access: http
+memsize: 1
 neighbors: 
   UNIVH2C: {link_cost: 50}
   AFA: {link_cost: 36}
-  UFPA: {link_cost: 145}
+  UFBA: {link_cost: 145}
   AVEIRO: {link_cost: 4}
   MINHO: {link_cost: 4}
   LIP6: {link_cost: 22}

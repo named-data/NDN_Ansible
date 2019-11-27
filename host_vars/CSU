@@ -9,6 +9,8 @@ default_prefix: /ndn/edu/colostate
 advertised_prefixes: [/ndn/edu/colostate]
 routable_prefixes: [/ndn/edu/colostate]
 router_name: mccoy 
+http_access: http
+memsize: 4
 neighbors: 
   ARIZONA: {link_cost: 18}
   UCLA: {link_cost: 16}

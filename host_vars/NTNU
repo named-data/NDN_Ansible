@@ -10,6 +10,9 @@ default_prefix: /ndn/no/ntnu
 advertised_prefixes: [/ndn/no/ntnu]
 routable_prefixes: [/ndn/no/ntnu]
 router_name: ndnnode 
+http_access: https
+# memsize: unknown
+memsize: 2
 neighbors: 
   GOETTINGEN: {link_cost: 40}
   NEU: {link_cost: 69}

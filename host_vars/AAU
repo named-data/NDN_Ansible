@@ -9,6 +9,8 @@ default_prefix: /ndn/at/aau
 advertised_prefixes: [/ndn/at/aau]
 routable_prefixes: [/ndn/at/aau]
 router_name: ndn 
+http_access: https
+memsize: 4
 neighbors: 
   PADUA: {link_cost: 15}
   BERN: {link_cost: 16}

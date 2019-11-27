@@ -9,6 +9,9 @@ default_prefix: /ndn/fr/lacl
 advertised_prefixes: [/ndn/fr/lacl]
 routable_prefixes: [/ndn/fr/lacl]
 router_name: ndn 
+http_access: http
+# memsize: unkwown
+memsize: 2
 neighbors: 
   BERN: {link_cost: 18}
   LIP6: {link_cost: 4}

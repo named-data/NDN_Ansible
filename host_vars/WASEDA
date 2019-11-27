@@ -10,6 +10,9 @@ default_prefix: /ndn/jp/waseda
 advertised_prefixes: [/ndn/jp/waseda]
 routable_prefixes: [/ndn/jp/waseda]
 router_name: ndn-tb 
+http_access: http
+# memsize: unknown
+memsize: 2
 neighbors: 
   #PKUSZ: {link_cost: 98}
   OSAKA: {link_cost: 5}

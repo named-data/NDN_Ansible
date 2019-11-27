@@ -10,10 +10,13 @@ default_prefix: /ndn/ma/univh2c
 advertised_prefixes: [/ndn/ma/univh2c]
 routable_prefixes: [/ndn/ma/univh2c]
 router_name: ubuntu-ndn 
+http_access: http
+# memsize: unknown
+memsize: 2
 neighbors: 
   WU: {link_cost: 75}
   LACL: {link_cost: 50}
-  UFPA: {link_cost: 125}
+  UFBA: {link_cost: 125}
   PADUA: {link_cost: 50}
   COPELABS: {link_cost: 50}
   #CAGLIARI: {link_cost: 50}

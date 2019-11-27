@@ -9,12 +9,14 @@ default_prefix: /ndn/edu/wustl
 advertised_prefixes: [/ndn/edu/wustl]
 routable_prefixes: [/ndn/edu/wustl]
 router_name: wundngw 
+http_access: https
+memsize: 2
 neighbors: 
   WU2: {link_cost: 1}
   MUMBAI_AWS: {link_cost: 122}
   AVEIRO: {link_cost: 75}
   UNIVH2C: {link_cost: 75}
-  UFPA: {link_cost: 65}
+  UFBA: {link_cost: 65}
   CORUNA: {link_cost: 85}
   #CAGLIARI: {link_cost: 75}
   UCLA: {link_cost: 30}

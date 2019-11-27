@@ -10,6 +10,8 @@ default_prefix: /ndn/th/ac/srru
 advertised_prefixes: [/ndn/th/ac/srru]
 routable_prefixes: [/ndn/th/ac/srru]
 router_name: comsci2
+http_access: http
+memsize: 8
 neighbors: 
   UUM: {link_cost: 42}
   #PKUSZ: {link_cost: 71}

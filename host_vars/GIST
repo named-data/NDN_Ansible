@@ -11,6 +11,9 @@ default_prefix: /ndn/kr/ac/gist
 advertised_prefixes: [/ndn/kr/ac/gist]
 routable_prefixes: [/ndn/kr/ac/gist]
 router_name: ndn-gw-gist 
+http_access: http
+#memsize: unknown
+memsize: 2
 neighbors: 
   ANYANG: {link_cost: 4}
   KISTI: {link_cost: 2}

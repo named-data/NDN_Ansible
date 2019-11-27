@@ -10,6 +10,9 @@ default_prefix: /ndn/es/udc
 advertised_prefixes: [/ndn/es/udc]
 routable_prefixes: [/ndn/es/udc]
 router_name: ndn-node-coruna
+http_access: https
+# memsize: unknown
+memsize: 2
 neighbors:
   #CAGLIARI: {link_cost: 40}
   URJC: {link_cost: 17}

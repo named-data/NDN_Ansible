@@ -9,6 +9,8 @@ default_prefix: /ndn/edu/wustl2
 advertised_prefixes: [/ndn/edu/wustl2]
 routable_prefixes: [/ndn/edu/wustl2]
 router_name: forest1 
+http_access: http
+memsize: 4
 neighbors: 
   WU: {link_cost: 1}
   MEMPHIS: {link_cost: 17}

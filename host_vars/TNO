@@ -10,6 +10,8 @@ default_prefix: /ndn/nl/tno
 advertised_prefixes: [/ndn/nl/tno]
 routable_prefixes: [/ndn/nl/tno]
 router_name: tno-ndntestbed-bordernode 
+http_access: http
+memsize: 4
 neighbors: 
   GOETTINGEN: {link_cost: 12}
   LIP6: {link_cost: 9}

@@ -10,6 +10,9 @@ default_prefix: /ndn/cn/edu/pkusz
 advertised_prefixes: [/ndn/cn/edu/pkusz]
 routable_prefixes: [/ndn/cn/edu/pkusz]
 router_name: PE2950 
+http_access: http
+# memsize: unknown
+memsize: 2
 neighbors: 
   CNIC: {link_cost: 20}
   OSAKA: {link_cost: 63}

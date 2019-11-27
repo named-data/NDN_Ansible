@@ -9,6 +9,9 @@ site: /cn/edu/bupt
 default_prefix: /ndn/cn/edu/bupt 
 advertised_prefixes: [/ndn/cn/edu/bupt]
 routable_prefixes: [/ndn/cn/edu/bupt]
+http_access: http
+# memsize: unknown
+memsize: 2
 router_name: bupthub 
 neighbors: 
   CNIC: {link_cost: 10}

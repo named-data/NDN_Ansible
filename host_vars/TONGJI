@@ -11,6 +11,8 @@ default_prefix: /ndn/cn/edu/tongji
 advertised_prefixes: [/ndn/cn/edu/tongji]
 routable_prefixes: [/ndn/cn/edu/tongji]
 router_name: ndn 
+http_access: http
+memsize: 64
 neighbors: 
   #PKUSZ: {link_cost: 54}
   OSAKA: {link_cost: 63}

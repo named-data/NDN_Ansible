@@ -10,6 +10,9 @@ default_prefix: /ndn/jp/ac/osaka-u
 advertised_prefixes: [/ndn/jp/ac/osaka-u]
 routable_prefixes: [/ndn/jp/ac/osaka-u]
 router_name: NDNtestbed 
+http_access: http
+# memsize: unknown
+memsize: 16
 neighbors: 
   UUM: {link_cost: 42}
   CNIC: {link_cost: 45}

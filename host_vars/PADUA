@@ -10,6 +10,9 @@ default_prefix: /ndn/it/unipd
 advertised_prefixes: [/ndn/it/unipd]
 routable_prefixes: [/ndn/it/unipd]
 router_name: ndnnode 
+http_access: https
+# memsize: unknown
+memsize: 2
 neighbors: 
 #  SRRU: {link_cost: 126}
   UNIVH2C: {link_cost: 50}

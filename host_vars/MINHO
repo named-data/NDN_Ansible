@@ -9,6 +9,8 @@ default_prefix: /ndn/pt/uminho
 advertised_prefixes: [/ndn/pt/uminho]
 routable_prefixes: [/ndn/pt/uminho]
 router_name: vnetlab 
+http_access: https
+memsize: 4
 neighbors: 
   AVEIRO: {link_cost: 2}
   CORUNA: {link_cost: 27}

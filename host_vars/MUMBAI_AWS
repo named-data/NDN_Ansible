@@ -13,6 +13,8 @@ default_prefix: /ndn/aws/mumbai
 advertised_prefixes: [/ndn/aws/mumbai]
 routable_prefixes: [/ndn/aws/mumbai]
 router_name: ubuntu 
+http_access: https
+memsize: 1
 neighbors: 
   WU: {link_cost: 122}
   AFA: {link_cost: 72}

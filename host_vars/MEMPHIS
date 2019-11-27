@@ -9,9 +9,11 @@ default_prefix: /ndn/edu/memphis
 advertised_prefixes: [/ndn/edu/memphis]
 routable_prefixes: [/ndn/edu/memphis]
 router_name: titan 
+http_access: https
+memsize: 4
 neighbors:
   UASLP: {link_cost: 100}
-  UFPA: {link_cost: 115}
+  UFBA: {link_cost: 115}
   ARIZONA: {link_cost: 17}
   WU: {link_cost: 17}
   WU2: {link_cost: 17}

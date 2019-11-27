@@ -13,6 +13,9 @@ default_prefix: /ndn/gov/nist
 advertised_prefixes: [/ndn/gov/nist]
 routable_prefixes: [/ndn/gov/nist]
 router_name: hostname 
+http_access: https
+# memsize: unknown
+memsize: 2
 neighbors: 
   NEU: {link_cost: 12}
   MICHIGAN: {link_cost: 13}

@@ -10,6 +10,9 @@ default_prefix: /ndn/ch/unibe
 advertised_prefixes: [/ndn/ch/unibe]
 routable_prefixes: [/ndn/ch/unibe]
 router_name: ndn-1
+http_access: http
+# memsize: unknown
+memsize: 2
 neighbors: 
   AAU: {link_cost: 16}
   LACL: {link_cost: 18}

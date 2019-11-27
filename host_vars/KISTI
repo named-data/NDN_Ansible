@@ -10,6 +10,8 @@ default_prefix: /ndn/kr/re/kisti
 advertised_prefixes: [/ndn/kr/re/kisti]
 routable_prefixes: [/ndn/kr/re/kisti]
 router_name: router3 
+http_access: http
+memsize: 8
 neighbors: 
   GIST: {link_cost: 2}
   INDONESIA: {link_cost: 150}

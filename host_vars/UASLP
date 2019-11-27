@@ -10,8 +10,10 @@ default_prefix: /ndn/mx/uaslp
 advertised_prefixes: [/ndn/mx/uaslp]
 routable_prefixes: [/ndn/mx/uaslp]
 router_name: NDN 
+http_access: http
+memsize: 8
 neighbors: 
-  UFPA: {link_cost: 100}
+  UFBA: {link_cost: 100}
   ARIZONA: {link_cost: 32}
   MEMPHIS: {link_cost: 100}
 network_regions: [/ndn/mx/uaslp]

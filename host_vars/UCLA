@@ -10,6 +10,8 @@ advertised_prefixes: [/ndn/web/KEY, /KEY,/ndn/KEY,/ndn/edu/ucla,/ndn/guest,/ndn/
 routable_prefixes: [ndn/edu/ucla,/ndn/guest,/ndn/edu/ucla/cs]
 secondary_ping_prefix: /ndn/edu/ucla/cs
 router_name: cs/spurs 
+http_access: https
+memsize: 2
 neighbors:
   ARIZONA: {link_cost: 25}
   WU: {link_cost: 30}

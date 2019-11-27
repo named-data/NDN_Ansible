@@ -10,6 +10,8 @@ default_prefix: /ndn/de/uni-goettingen
 advertised_prefixes: [/ndn/de/uni-goettingen]
 routable_prefixes: [/ndn/de/uni-goettingen]
 router_name: ndntestbed 
+http_access: http
+memsize: 3
 neighbors: 
   TNO: {link_cost: 12}
   OSAKA: {link_cost: 136}
