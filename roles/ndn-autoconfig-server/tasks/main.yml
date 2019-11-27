@@ -11,17 +11,17 @@
 
 - name: copy /lib/systemd/system/ndn-autoconfig-server.service
   copy: dest=/lib/systemd/system/ndn-autoconfig-server.service src=roles/ndn-autoconfig-server/files/ndn-autoconfig-server.service owner=root group=root mode=0644
-  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" )
 
 - file: path=/etc/systemd/system/multi-user.target.wants/ndn-autoconfig-server.service  state=link  src=/lib/systemd/system/ndn-autoconfig-server.service
-  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" )
 
 - command: systemctl daemon-reload
   when: ansible_distribution == "RedHat" 
 
 - command: systemctl enable ndn-autoconfig-server.service
   become: yes
-  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" )
 
 
 - name: start ndn-autoconfig-server

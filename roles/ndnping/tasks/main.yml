@@ -6,18 +6,18 @@
 # copy ndnping /lib/systemd/ conf file
 - name: create ndnping /lib/systemd conf file
   copy: src=roles/ndnping/files/ndnping.service dest=/lib/systemd/system/ndnping.service
-  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+  when: ansible_distribution == "RedHat" or (ansible_distribution )
 
 - file: path=/etc/systemd/system/multi-user.target.wants/ndnping.service state=link src=/lib/systemd/system/ndnping.service
-  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+  when: ansible_distribution == "RedHat" or (ansible_distribution )
 
 # copy ndnping2 /lib/systemd/ conf file
 - name: create ndnping2 /lib/systemd conf file
   copy: src=roles/ndnping/files/ndnping2.service dest=/lib/systemd/system/ndnping2.service
-  when: inventory_hostname == "UCLA" and (ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16"))
+  when: inventory_hostname == "UCLA" and (ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" ))
 
 - file: path=/etc/systemd/system/multi-user.target.wants/ndnping2.service state=link src=/lib/systemd/system/ndnping2.service
-  when: inventory_hostname == "UCLA" and (ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16"))
+  when: inventory_hostname == "UCLA" and (ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" ))
 
 - name: create /etc/default/ndnping
   template: src=ndnping.j2 dest=/etc/default/ndnping  owner=root group=root mode="u=rw,g=r,o=r"
@@ -33,11 +33,11 @@
 
 - command: systemctl enable ndnping.service
   become: yes
-  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" )
 
 - command: systemctl enable ndnping2.service
   become: yes
-  when: (inventory_hostname == "UCLA") and (ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16"))
+  when: (inventory_hostname == "UCLA") and (ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" ))
 
 - name: start ndnping
   service: name=ndnping state=started enabled=yes

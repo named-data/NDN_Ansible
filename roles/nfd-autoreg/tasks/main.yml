@@ -14,10 +14,10 @@
 
 - name: copy /lib/systemd/system/nfd-autoreg.service
   copy: dest=/lib/systemd/system/nfd-autoreg.service src=roles/nfd-autoreg/files/nfd-autoreg.service owner=root group=root mode=0644
-  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" )
 
 - file: path=/etc/systemd/system/multi-user.target.wants/nfd-autoreg.service  state=link  src=/lib/systemd/system/nfd-autoreg.service
-  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" )
 
 - command: systemctl daemon-reload
   when: ansible_distribution == "RedHat"
@@ -25,7 +25,7 @@
 
 - command: systemctl enable nfd-autoreg.service
   become: yes
-  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" )
 
 - name: start nfd-autoreg
   service: name=nfd-autoreg state=started enabled=yes
