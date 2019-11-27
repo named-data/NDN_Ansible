@@ -6,10 +6,10 @@
 
 - name: copy /lib/systemd/system/nfd-status-http-server.service
   copy: dest=/lib/systemd/system/nfd-status-http-server.service src=roles/nfd-status-http-server/files/nfd-status-http-server.service owner=root group=root mode=0644
-  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" )
 
 - file: path=/etc/systemd/system/multi-user.target.wants/nfd-status-http-server.service  state=link  src=/lib/systemd/system/nfd-status-http-server.service
-  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" )
 
 - command: systemctl daemon-reload
   when: ansible_distribution == "RedHat"
@@ -31,7 +31,7 @@
 # Set up TLS websocket support
 - name: stop nfd-status-http-server for Ubuntu 16.04
   shell: service nfd-status-http-server stop
-  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16") 
+  when: (ansible_distribution == "Ubuntu" )
 
 - name: purge apache2
   apt: name=apache2 state=absent update_cache=yes purge=yes
@@ -65,7 +65,7 @@
 
 - name: stop nginx for Ubuntu 16.04
   shell: service nginx stop
-  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16") 
+  when: (ansible_distribution == "Ubuntu" )
 
 
 #- name: remove nginx default site
@@ -99,23 +99,27 @@
 
 - name: remove /etc/nginx/conf.d/nfd.conf if present
   file: path=/etc/nginx/conf.d/nfd.conf state=absent
-  when: (ansible_distribution == "Ubuntu")  and ((inventory_hostname == "BUPT") or (inventory_hostname == "TONGJI") or (inventory_hostname == "LACL") or (inventory_hostname == "WU2") or (inventory_hostname == "NEU") or (inventory_hostname == "GOETTINGEN") or (inventory_hostname == "KISTI") or (inventory_hostname == "OSAKA"))
+  when: (ansible_distribution == "Ubuntu")  and (http_access == "http")
 
 - name: create /etc/nginx/conf.d/nfd.conf
   template: src=nfd_site.j2 dest=/etc/nginx/conf.d/nfd.conf  owner=root group=root mode="u=rw,g=r,o=r"
-  when: (ansible_distribution == "Ubuntu") and (inventory_hostname != "BUPT") and (inventory_hostname != "TONGJI") and (inventory_hostname != "LACL") and (inventory_hostname != "WU2") and (inventory_hostname != "NEU") and (inventory_hostname != "GOETTINGEN") and (inventory_hostname != "KISTI") and (inventory_hostname != "OSAKA")
+  when: (ansible_distribution == "Ubuntu") and (http_access == "https")
 
 - name: overwrite /etc/nginx/conf.d/default.conf
   copy: dest=/etc/nginx/conf.d/default.conf src=roles/nfd-status-http-server/files/nginx.default owner=root group=root mode=0644
-  when: (ansible_distribution == "Ubuntu")   and (inventory_hostname != "BUPT") and (inventory_hostname != "TONGJI") and (inventory_hostname != "LACL") and (inventory_hostname != "WU2") and (inventory_hostname != "NEU") and (inventory_hostname != "GOETTINGEN") and (inventory_hostname != "KISTI") and (inventory_hostname != "OSAKA")
+  when: (ansible_distribution == "Ubuntu")   and (http_access == "https")
 
 - name: create /etc/nginx/conf.d/nfd.conf.disable
   template: src=nfd_site.j2 dest=/etc/nginx/conf.d/nfd.conf.disable  owner=root group=root mode="u=rw,g=r,o=r"
-  when: (ansible_distribution == "Ubuntu") and ((inventory_hostname == "BUPT") or (inventory_hostname == "TONGJI") or (inventory_hostname == "LACL") or (inventory_hostname == "WU2") or (inventory_hostname == "NEU") or (inventory_hostname == "GOETTINGEN") or (inventory_hostname == "KISTI") or (inventory_hostname == "OSAKA"))
+  when: (ansible_distribution == "Ubuntu") and (http_access == "http")
+
+- name: remove /etc/nginx/conf.d/nfd.conf.disable if present
+  file: path=/etc/nginx/conf.d/nfd.conf.disable state=absent
+  when: (ansible_distribution == "Ubuntu")  and (http_access == "https")
 
 - name: overwrite /etc/nginx/conf.d/default.conf
   copy: dest=/etc/nginx/conf.d/default.conf src=roles/nfd-status-http-server/files/nginx.default.no.https owner=root group=root mode=0644
-  when: (ansible_distribution == "Ubuntu") and ( (inventory_hostname == "LACL") or (inventory_hostname == "WU2") or (inventory_hostname == "NEU") or (inventory_hostname == "GOETTINGEN") or (inventory_hostname == "KISTI") or (inventory_hostname == "OSAKA"))
+  when: (ansible_distribution == "Ubuntu") and (http_access == "http")
 
 - name: overwrite /etc/nginx/conf.d/default.conf
   copy: dest=/etc/nginx/conf.d/default.conf src=roles/nfd-status-http-server/files/nginx.default.no.https.8080 owner=root group=root mode=0644
@@ -137,13 +141,13 @@
 
 - command: systemctl enable nfd-status-http-server.service
   become: yes
-  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+  when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" )
 
 - name: start nfd-status-http-server.server for Ubuntu 16.04
   shell: service nfd-status-http-server start
-  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16") 
+  when: (ansible_distribution == "Ubuntu" )
 
 - name: start nginx for Ubuntu 16.04
   shell: service nginx start
-  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16") 
+  when: (ansible_distribution == "Ubuntu" )
 
