@@ -10,8 +10,13 @@
 # Once a week, perform the following maintenance:
 # apt-get autoremove; apt-get update; apt-get upgrade; apt-get autoremove
 
+LOGDIR="/home/ndnops/tmp"
+mkdir -p $LOGDIR
+chown ndnops.ndnops $LOGDIR
+chmod 755 $LOGDIR
+
 DATE=`date +%Y.%B.%d.%H.%M.%S`
-LOGFILE="/home/ndnops/tmp/weeklyNdnMaintenance.${DATE}.log"
+LOGFILE="$LOGDIR/weeklyNdnMaintenance.${DATE}.log"
 
 echo $DATE  >& $LOGFILE
 
