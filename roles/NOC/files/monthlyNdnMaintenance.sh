@@ -11,7 +11,7 @@
 # apt-get autoremove; apt-get update; apt-get upgrade; apt-get autoremove
 
 
-LOGFILE="/tmp/monthlyNdnMaintenance.log"
+LOGFILE="/home/ndnops/tmp/monthlyNdnMaintenance.log"
 date >& $LOGFILE
 /usr/sbin/service nfd restart >> $LOGFILE
 

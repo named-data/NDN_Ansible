@@ -10,9 +10,11 @@
 # Once a week, perform the following maintenance:
 # apt-get autoremove; apt-get update; apt-get upgrade; apt-get autoremove
 
-LOGFILE="/tmp/weeklyNdnMaintenance.log"
+DATE=`date +%Y.%B.%d.%H.%M.%S`
+LOGFILE="/home/ndnops/tmp/weeklyNdnMaintenance.${DATE}.log"
 
-date >& $LOGFILE
+echo $DATE  >& $LOGFILE
+
 echo "------ df------" >> $LOGFILE
 df -h >> $LOGFILE
 echo "------ apt-get -y autoremove ------" >> $LOGFILE
