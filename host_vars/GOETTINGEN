@@ -17,7 +17,7 @@ neighbors:
   OSAKA: {link_cost: 136}
   NTNU: {link_cost: 40}
   PADUA: {link_cost: 14}
-  SYSTEMX: {link_cost: 10}
+  #SYSTEMX: {link_cost: 10}
   BASEL: {link_cost: 10}
 network_regions: [/ndn/de/uni-goettingen]
 #hr_radius: 12.2349274272087

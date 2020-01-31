@@ -15,6 +15,7 @@ memsize: 8
 neighbors: 
   UASLP: {link_cost: 32}
   #UCI: {link_cost: 25}
+  UCLA2: {link_cost: 25}
   UCLA: {link_cost: 25}
   REMAP: {link_cost: 25}
   CSU: {link_cost: 18}

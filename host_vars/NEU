@@ -16,6 +16,7 @@ http_access: http
 # memsize: unknown
 memsize: 2
 neighbors: 
+  QUB: {link_cost: 60}
   SAVI: {link_cost: 15}
   NIST: {link_cost: 12}
   NTNU: {link_cost: 69}

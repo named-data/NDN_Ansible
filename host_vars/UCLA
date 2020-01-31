@@ -13,6 +13,7 @@ router_name: cs/spurs
 http_access: https
 memsize: 2
 neighbors:
+  UCLA2: {link_cost: 1}
   ARIZONA: {link_cost: 25}
   WU: {link_cost: 30}
   REMAP: {link_cost: 1}

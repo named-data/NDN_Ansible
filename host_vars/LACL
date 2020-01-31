@@ -15,7 +15,7 @@ memsize: 2
 neighbors: 
   BERN: {link_cost: 18}
   LIP6: {link_cost: 4}
-  SYSTEMX: {link_cost: 4}
+  #SYSTEMX: {link_cost: 4}
   UNIVH2C: {link_cost: 50}
 network_regions: [/ndn/fr/lacl]
 # AS2200    2.62295081967213        12.5143551341424

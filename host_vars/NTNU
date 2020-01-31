@@ -16,7 +16,7 @@ memsize: 2
 neighbors: 
   GOETTINGEN: {link_cost: 40}
   NEU: {link_cost: 69}
-  SYSTEMX: {link_cost: 24}
+  #SYSTEMX: {link_cost: 24}
   BASEL: {link_cost: 30}
   LIP6: {link_cost: 25}
 network_regions: [/ndn/no/ntnu]

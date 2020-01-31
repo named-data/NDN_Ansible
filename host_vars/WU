@@ -12,6 +12,7 @@ router_name: wundngw
 http_access: https
 memsize: 2
 neighbors: 
+  QUB: {link_cost: 60}
   WU2: {link_cost: 1}
   MUMBAI_AWS: {link_cost: 122}
   AVEIRO: {link_cost: 75}
@@ -19,6 +20,7 @@ neighbors:
   UFBA: {link_cost: 65}
   CORUNA: {link_cost: 85}
   #CAGLIARI: {link_cost: 75}
+  UCLA2: {link_cost: 30}
   UCLA: {link_cost: 30}
   URJC: {link_cost: 86}
   ARIZONA: {link_cost: 33}

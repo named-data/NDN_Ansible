@@ -16,7 +16,7 @@ neighbors:
   URJC: {link_cost: 15}
   MINHO: {link_cost: 2}
   COPELABS: {link_cost: 4}
-  SYSTEMX: {link_cost: 18}
+  #SYSTEMX: {link_cost: 18}
   AFA: {link_cost: 45}
 network_regions: [/ndn/pt/it/av]
 # AS1930
