@@ -10,6 +10,7 @@
 # Once a week, perform the following maintenance:
 # apt-get autoremove; apt-get update; apt-get upgrade; apt-get autoremove
 
+PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 LOGDIR="/home/ndnops/tmp"
 mkdir -p $LOGDIR
 chown ndnops.ndnops $LOGDIR
