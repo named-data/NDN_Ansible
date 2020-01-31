@@ -12,9 +12,9 @@
 - file: path=/var/lib/ndn state=directory owner=ndn group=ndn mode=0755
 - file: path=/var/log/ndn state=directory owner=ndn group=ndn mode=0755
 
-- name: set up rsyslog for nfd.log for Ubuntu 16.04
-  copy: dest=/etc/rsyslog.d/25-nfd.conf src=roles/nfd/files/rsyslogd.25-nfd.conf owner=root group=root mode=0644
-  when: (ansible_distribution == "Ubuntu" )
+#- name: set up rsyslog for nfd.log for Ubuntu 16.04
+#  copy: dest=/etc/rsyslog.d/25-nfd.conf src=roles/nfd/files/rsyslogd.25-nfd.conf owner=root group=root mode=0644
+#  when: (ansible_distribution == "Ubuntu" )
 
 - name: initialize nfd.log
   file: path=/var/log/ndn/nfd.log state=touch owner=syslog group=adm mode=0644
