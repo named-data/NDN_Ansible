@@ -6,7 +6,7 @@ host_ip: 131.179.196.46
 ethernet_device: eth0
 site: /edu/ucla
 default_prefix: /ndn/edu/ucla
-advertised_prefixes: [/ndn/web/KEY, /KEY,/ndn/KEY,/ndn/edu/ucla,/ndn/guest,/ndn/edu/ucla/cs]
+advertised_prefixes: [/ndn/video/stats/KEY, /ndn/web/KEY, /KEY,/ndn/KEY,/ndn/edu/ucla,/ndn/guest,/ndn/edu/ucla/cs]
 routable_prefixes: [ndn/edu/ucla,/ndn/guest,/ndn/edu/ucla/cs]
 secondary_ping_prefix: /ndn/edu/ucla/cs
 router_name: cs/spurs 
