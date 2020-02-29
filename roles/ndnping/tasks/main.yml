@@ -13,7 +13,7 @@
 
 # copy ndnping2 /lib/systemd/ conf file
 - name: create ndnping2 /lib/systemd conf file
-  copy: src=roles/ndnping/files/ndnping2.service dest=/lib/systemd/system/ndnping2.service
+  copy: src=roles/ndnping/files/ndnping.service dest=/lib/systemd/system/ndnping2.service
   when: inventory_hostname == "UCLA" and (ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" ))
 
 - file: path=/etc/systemd/system/multi-user.target.wants/ndnping2.service state=link src=/lib/systemd/system/ndnping2.service
