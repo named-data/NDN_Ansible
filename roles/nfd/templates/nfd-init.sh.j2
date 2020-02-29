@@ -20,8 +20,8 @@ sleep 15
 # set default strategy to best-route (bestroute2)
 {% if hyperbolic_state == "on" %}
 #/usr/bin/nfdc strategy set  ndn:/ ndn:/localhost/nfd/strategy/asf
-#/usr/bin/nfdc strategy set ndn:/ ndn:/localhost/nfd/strategy/asf/%FD%02/n-silent-timeouts=2
-/usr/bin/nfdc strategy set ndn:/ ndn:/localhost/nfd/strategy/asf
+/usr/bin/nfdc strategy set ndn:/ ndn:/localhost/nfd/strategy/asf/%FD%03/n-silent-timeouts~3
+#/usr/bin/nfdc strategy set ndn:/ ndn:/localhost/nfd/strategy/asf
 /usr/bin/nfdc strategy set /ndn/web ndn:/localhost/nfd/strategy/asf/%FD%03/n-silent-timeouts~5
 # set /ndn/web/stats up with
 nfdc strategy set  ndn:/ndn/web/stats  ndn:/localhost/nfd/strategy/best-route
@@ -64,12 +64,20 @@ iptables -A INPUT -s {{ hostvars[neighbor].host_ip }}  -j DROP
 # This is a temporary fix because an update of a face with mtu change does not currently work.
 nfdc face destroy udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }}
 
-{% if neighbor == "LACL"  %}
-nfdc face create udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }} persistency permanent 
-{% elif  neighbor == "NEU" %}
+#{% if neighbor == "NEU"  %}
+#nfdc face create udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }} persistency permanent 
+#{% else %}
+#nfdc face create udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }} persistency permanent reliability on mtu 1450
+#{% endif %}
+
+## Turn off everywhere except LACL - let them continue as is until 0.7 release...
+#{% if neighbor == "LACL"  %}
+#nfdc face create udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }} persistency permanent reliability on mtu 1450
+#{% elif neighbor == "NEU" %}
+{% if neighbor == "NEU" %}
 nfdc face create udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }} persistency permanent 
 {% else %}
-nfdc face create udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }} persistency permanent reliability on mtu 1450
+nfdc face create udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }} persistency permanent mtu 1450
 {% endif %}
 
 iptables -D INPUT -s {{ hostvars[neighbor].host_ip }}  -j DROP
