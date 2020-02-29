@@ -13,11 +13,11 @@ sudo rm /etc/ndn/nlsr/keys/operator.cert
 sudo rm /etc/ndn/nlsr/keys/router.cert
 sudo rm -rf /var/lib/ndn/nlsr/.ndn
 
-if [ ! -s /home/nlsr/unsigned_nlsr.cert ]
-then
-  sudo su - nlsr -c "export HOME=/var/lib/ndn/nlsr/; ndnsec-key-gen -n ${PREFIX}/nlsr > /home/nlsr/unsigned_nlsr.cert"
-  sudo su - nlsr -c "export HOME=/var/lib/ndn/nlsr/; ndnsec-set-default -n ${PREFIX}/nlsr"
-fi
+#if [ ! -s /home/nlsr/unsigned_nlsr.cert ]
+#then
+#  sudo su - nlsr -c "export HOME=/var/lib/ndn/nlsr/; ndnsec-key-gen -n ${PREFIX}/nlsr > /home/nlsr/unsigned_nlsr.cert"
+#  sudo su - nlsr -c "export HOME=/var/lib/ndn/nlsr/; ndnsec-set-default -n ${PREFIX}/nlsr"
+#fi
 
 if [ ! -s /etc/ndn/nlsr/keys/operator.cert ]
 then
@@ -27,6 +27,16 @@ then
   sudo su - nlsr -c "export HOME=/var/lib/ndn/nlsr/; ndnsec-cert-install -f /etc/ndn/nlsr/keys/operator.cert"
   sudo su - ndnsec -c "rm /tmp/operator.cert"
 fi
+
+#if [ ! -s /etc/ndn/nlsr/keys/operator.cert ]
+#then
+#  cmd="export HOME=/var/lib/ndn/nlsr/; ndnsec-key-gen -n ${PREFIX}/%C1.Operator/${OPERATOR} > ~nlsr/unsigned_operator.cert"
+#  sudo su - nlsr -c "$cmd"
+#
+#  cmd="export HOME=/var/lib/ndn/nlsr/; ndnsec-cert-gen -S 201802010000 -E 202802010000 -s ${PREFIX} -r ~nlsr/unsigned_operator.cert > /etc/ndn/nlsr/keys/operator.cert"
+#  sudo su - nlsr -c "$cmd"
+#  sudo su - nlsr -c "export HOME=/var/lib/ndn/nlsr/; ndnsec-cert-install -f /etc/ndn/nlsr/keys/operator.cert"
+#fi
 
 if [ ! -s /etc/ndn/nlsr/keys/router.cert ]
 then
