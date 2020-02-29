@@ -30,9 +30,9 @@
 - name: create NOC bin directory
   file: path=/home/{{ansible_user}}/ndn-ops/NOC/bin state=directory owner={{ansible_user}} group={{ansible_user}} mode=0755
 
-- name: copy checkAndRestart_nlsr.sh to NOC/bin
-  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/checkAndRestart_nlsr.sh  src=roles/NOC/files/checkAndRestart_nlsr.sh.16.04 owner={{ansible_user}} group={{ansible_user}} mode=0755
-  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+#- name: copy checkAndRestart_nlsr.sh to NOC/bin
+#  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/checkAndRestart_nlsr.sh  src=roles/NOC/files/checkAndRestart_nlsr.sh.16.04 owner={{ansible_user}} group={{ansible_user}} mode=0755
+#  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
 
 - name: copy checkAndRestart_nlsr.sh to NOC/bin
   copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/checkAndRestart_nlsr.sh  src=roles/NOC/files/checkAndRestart_nlsr.sh.14.04 owner={{ansible_user}} group={{ansible_user}} mode=0755
@@ -232,7 +232,7 @@
 
 - name: install general ubuntu packages 
   apt:
-    name: ['build-essential', 'git', 'openssl', 'python-openssl', 'libffi-dev', 'python-cffi', 'libssl-dev', 'expat', 'libexpat-dev', 'libpcap-dev', 'gawk', 'texinfo', 'asciidoc', 'finger', 'software-properties-common', 'ntp', 'autoconf', 'libtool', 'python-dev', 'g++', 'autotools-dev', 'libicu-dev', 'libbz2-dev', 'sqlite3', 'pkg-config', 'libssl-dev', 'libsqlite3-dev', 'libcrypto++-dev', 'aptitude', 'python3-setuptools', 'python3-dev', 'python3-pip', 'python-pip', 'python-netaddr', 'fail2ban' ]
+    name: ['build-essential', 'git', 'openssl', 'python-openssl', 'libffi-dev', 'python-cffi', 'libssl-dev', 'expat', 'libexpat-dev', 'libpcap-dev', 'gawk', 'texinfo', 'asciidoc', 'finger', 'software-properties-common', 'ntp', 'autoconf', 'libtool', 'python-dev', 'g++', 'autotools-dev', 'libicu-dev', 'libbz2-dev', 'sqlite3', 'pkg-config', 'libssl-dev', 'libsqlite3-dev', 'libcrypto++-dev', 'aptitude', 'python3-setuptools', 'python3-dev', 'python3-pip', 'python-pip', 'python-netaddr', 'fail2ban' , 'iperf', 'iperf3' ]
     update_cache: yes
     autoclean: yes
     autoremove: yes
