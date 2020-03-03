@@ -4,7 +4,7 @@ export LC_ALL=C
 # set TZ to UTC 0
 export TZ=UTC0
 
-dpkg -l | grep "nfd\ \|ndn-tools\|nlsr\|libndn-cxx\ \|libchronosync" > /usr/share/ndn/versions.txt
+dpkg -l | grep "nfd\ \|ndn-tools\|nlsr\|libndn-cxx\ \|libchronosync\|libpsync" > /usr/share/ndn/versions.txt
 lsb_release -a | grep Description >> /usr/share/ndn/versions.txt
 
 echo -n "Current Time: " >> /usr/share/ndn/versions.txt
