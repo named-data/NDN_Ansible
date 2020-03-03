@@ -44,6 +44,14 @@ fi
 NLSR_START_TIME_s=`date -d"$UTC0_NLSR_START_TIME" +%s`
 echo "NLSR_START_TIME_s: $NLSR_START_TIME_s" >> /usr/share/ndn/versions.txt
 
+SITE_CERT_EXPIRY_FULL=`ndnsec-cert-dump -p -f /etc/ndn/keys/default.ndncert | grep NotAfter | awk '{print $2}' | cut -c 1-8`
+SITE_CERT_EXPIRY_YEAR=`echo $SITE_CERT_EXPIRY_FULL | cut -c 1-4`
+SITE_CERT_EXPIRY_MONTH=`echo $SITE_CERT_EXPIRY_FULL | cut -c 5-6`
+SITE_CERT_EXPIRY_DAY=`echo $SITE_CERT_EXPIRY_FULL | cut -c 7-8`
+SITE_CERT_EXPIRY="${SITE_CERT_EXPIRY_YEAR}-${SITE_CERT_EXPIRY_MONTH}-${SITE_CERT_EXPIRY_DAY}"
+echo "SITE_CERT_EXPIRES: $SITE_CERT_EXPIRY" >> /usr/share/ndn/versions.txt
+
+
 #CERTBOT=`which certbot-auto`
 CERTBOT="/usr/local/bin/certbot-auto"
 
