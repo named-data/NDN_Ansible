@@ -5,16 +5,6 @@ set +e
 
 # Some issues with startup time, we need to sleep to make sure nfd is fully up
 
-#{% if inventory_hostname != "BERN" %}
-## for debug purposes, grab the current set of nfd.log files:
-#DATE=`date +%s.%N`
-#SAVEDIR=/var/log/ndn/SAVE_LOGS_${DATE}
-#mkdir ${SAVEDIR}
-##cp -p /var/log/ndn/nfd.log.?.gz  /var/log/ndn/nfd.log.??.gz  /var/log/ndn/nfd.log  /var/log/ndn/nfdc.face.list.log ${SAVEDIR}
-#cp -p /var/log/ndn/nfd.log.?.gz  /var/log/ndn/nfd.log.??.gz  /var/log/ndn/nfd.log  ${SAVEDIR}
-#mv  /var/log/ndn/nfdc.face.list.log ${SAVEDIR}
-#{% endif %}
-
 sleep 15
 
 # set default strategy to best-route (bestroute2)
@@ -56,7 +46,6 @@ nfdc route add /ndn/edu/wustl/ndnstatus udp4://128.252.153.28:6363
 # Build the faces that NLSR will need:
   # {{ inventory_hostname}}  Neighbors: {{ neighbors }}
 {% for neighbor, data in neighbors.items() %}
-   # {{ neighbor }} {{ hostvars[neighbor].ansible_host }}
 
 iptables -A INPUT -s {{ hostvars[neighbor].host_ip }}  -j DROP
 
@@ -64,16 +53,6 @@ iptables -A INPUT -s {{ hostvars[neighbor].host_ip }}  -j DROP
 # This is a temporary fix because an update of a face with mtu change does not currently work.
 nfdc face destroy udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }}
 
-#{% if neighbor == "NEU"  %}
-#nfdc face create udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }} persistency permanent 
-#{% else %}
-#nfdc face create udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }} persistency permanent reliability on mtu 1450
-#{% endif %}
-
-## Turn off everywhere except LACL - let them continue as is until 0.7 release...
-#{% if neighbor == "LACL"  %}
-#nfdc face create udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }} persistency permanent reliability on mtu 1450
-#{% elif neighbor == "NEU" %}
 {% if neighbor == "NEU" %}
 nfdc face create udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }} persistency permanent 
 {% else %}
