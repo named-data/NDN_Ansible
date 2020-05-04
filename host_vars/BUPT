@@ -17,8 +17,8 @@ neighbors:
   CNIC: {link_cost: 10}
   #PKUSZ: {link_cost: 54}
   SRRU: {link_cost: 72}
-  INDONESIA: {link_cost: 54}
-  KISTI: {link_cost: 33}
+  #INDONESIA: {link_cost: 54}
+  #KISTI: {link_cost: 33}
   ANYANG: {link_cost: 33}
   WASEDA: {link_cost: 48}
   TONGJI: {link_cost: 18}

@@ -16,7 +16,7 @@ memsize: 2
 neighbors: 
   UUM: {link_cost: 100}
   UFBA: {link_cost: 200}
-  KISTI: {link_cost: 150}
+  #KISTI: {link_cost: 150}
   SRRU: {link_cost: 32}
   WASEDA: {link_cost: 49}
   #BUPT: {link_cost: 54}

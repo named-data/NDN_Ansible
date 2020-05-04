@@ -14,9 +14,6 @@ memsize: 4
 neighbors: 
   ARIZONA: {link_cost: 18}
   UCLA: {link_cost: 16}
-  REMAP: {link_cost: 16}
-  KISTI: {link_cost: 106}
-  #BYU: {link_cost: 8}
   MICHIGAN: {link_cost: 15}
   UIUC: {link_cost: 14}
 network_regions: [/ndn/edu/colostate]

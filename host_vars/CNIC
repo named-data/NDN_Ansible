@@ -15,6 +15,8 @@ router_name: ubuntu
 http_access: http
 memsize: 16
 neighbors: 
+  TONGJI: {link_cost: 18}
+  ANYANG: {link_cost: 33}
   #PKUSZ: {link_cost: 20}
   #BUPT: {link_cost: 10}
   OSAKA: {link_cost: 45}

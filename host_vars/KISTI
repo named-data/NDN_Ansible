@@ -14,7 +14,7 @@ http_access: http
 memsize: 8
 neighbors: 
   GIST: {link_cost: 2}
-  INDONESIA: {link_cost: 150}
+  #INDONESIA: {link_cost: 150}
   WASEDA: {link_cost: 39}
   CSU: {link_cost: 106}
   ANYANG: {link_cost: 40}
