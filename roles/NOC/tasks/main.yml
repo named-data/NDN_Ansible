@@ -314,6 +314,10 @@
   copy: dest=/usr/local/bin/ndnop-process-requests src=roles/NOC/files/ndnop-process-requests.testbed owner=root group=root mode=0755
   when: inventory_hostname != "UCLA"
 
+- name: copy timesyndc.conf to ARIZONA
+  copy: dest=/etc/systemd/timesyncd.conf src=roles/NOC/files/arizona.systemd.timesyncd.conf owner=root group=root mode=0644
+  when: inventory_hostname == "ARIZONA"
+
 #- name: copy nfdcLog.sh
 #  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/nfdcLog.sh  src=roles/NOC/files/nfdcLog.sh owner={{ansible_user}} group={{ansible_user}} mode=0755
 
