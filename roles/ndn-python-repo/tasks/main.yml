@@ -1,0 +1,34 @@
+---
+# tasks file for ndn-python-repo
+
+- pip: name=ndn-python-repo state=latest executable=pip3
+
+- name: make ndn-python-repo required directories
+  file: path=/var/lib/ndn/ndn-python-repo state=directory owner=ndn group=ndn mode=0755
+
+# We are going to use mongodb. It should be installed by the NOC role
+# update /etc/mongodb.conf so it uses NDN specific directories
+- name: make ndn-python-repo mongodb required directories
+  file: path=/var/lib/ndn/ndn-python-repo/mongodb state=directory owner=mongodb group=mongodb mode=0755
+  notify: restart mongodb
+
+- name: create ndn-python-repo /lib/systemd conf file
+  copy: src=roles/ndn-python-repo/files/ndn-python-repo.service dest=/lib/systemd/system/ndn-python-repo.service
+
+- command: systemctl daemon-reload
+
+
+- file: path=/etc/systemd/system/multi-user.target.wants/ndn-python-repo.service state=link src=/lib/systemd/system/ndn-python-repo.service
+
+
+- name: copy mongodb.conf file 
+  copy: dest=/etc/mongodb.conf src=roles/ndn-python-repo/files/mongodb.conf group=root mode=644
+  notify: restart mongodb
+  notify: restart ndn-python-repo
+
+- name: create ndn-python-repo.conf
+  template: src=ndn-python-repo.conf.j2 dest=/etc/ndn/ndn-python-repo.conf owner=ndn group=ndn mode=644
+  notify: restart ndn-python-repo
+
+- name: start ndn-python-repo
+  service: name=ndn-python-repo state=started enabled=yes

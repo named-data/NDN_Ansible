@@ -1,0 +1,34 @@
+---
+repo_config:
+  # the repo's routable prefix
+  repo_name: '{{default_prefix}}'
+  # if true, the repo registers the root prefix. If false, client needs to tell repo
+  # which prefix to register/unregister
+  register_root: False
+
+
+db_config:
+  # choose one among sqlite3, leveldb, and mongodb
+  db_type: 'mongodb'
+
+  # only the chosen db's config will be read
+  sqlite3:
+    'path': '~/.ndn/ndn-python-repo/sqlite3.db'   # filepath to sqlite3 database file
+  leveldb:
+    'dir': '~/.ndn/ndn-python-repo/leveldb/'      # directory to leveldb database files
+  mongodb:
+    'db': '{{inventory_hostname}}_cert_repo'
+    'collection': 'certs'
+
+
+tcp_bulk_insert:
+  'addr': '0.0.0.0'
+  'port': '7378'
+
+
+logging_config:
+  # one of 'CRITICAL', 'ERROR', 'WARNING', 'INFO', 'DEBUG'
+  'level': 'INFO'
+  # absolute path to log file. If not given, logs to stdout
+  # 'file': 'repo.log'
+

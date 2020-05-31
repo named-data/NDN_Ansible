@@ -1,0 +1,12 @@
+[Unit]
+Description=NDN Repo Service
+BindsTo=nfd.service
+After=nfd.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/ndn-python-repo -c /etc/ndn/ndn-python-repo.conf
+
+[Install]
+WantedBy=multi-user.target
+WantedBy=nfd.service

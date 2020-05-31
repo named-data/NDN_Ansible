@@ -1,0 +1,8 @@
+---
+# handlers file for ndn-python-repo
+- name: restart ndn-python-repo
+  service: name=ndn-python-repo state=restarted
+
+- name: restart mongodb
+  service: name=mongodb state=restarted
+
