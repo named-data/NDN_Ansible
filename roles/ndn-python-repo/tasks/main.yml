@@ -15,6 +15,12 @@
 - name: create ndn-python-repo /lib/systemd conf file
   copy: src=roles/ndn-python-repo/files/ndn-python-repo.service dest=/lib/systemd/system/ndn-python-repo.service
 
+- name: remove installed ndn-python-repo.service file so ours takes affect
+  file:
+    path: /etc/systemd/system/ndn-python-repo.service
+    state: absent
+
+
 - command: systemctl daemon-reload
 
 
