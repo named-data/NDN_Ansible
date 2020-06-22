@@ -1,0 +1,2 @@
+To retrieve tar file of files for NDNts status page:
+curl -sL -o ndnts_status.txz https://nfd-status-page.ndn.today/NDNts-NFD-status-page_c0971b6791cca7ffd9543febb2bf8c036655c704.txz

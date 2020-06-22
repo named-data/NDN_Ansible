@@ -1,0 +1,48 @@
+---
+# tasks file for NDNts_nfd_status
+
+- name: remove ndnts nfd status required directory /usr/share/ndn/n
+  file: path=/usr/share/ndn/n state=absent 
+
+- name: make ndnts nfd status required directory
+  file: path=/usr/share/ndn/n state=directory owner=root group=root mode=0755
+
+
+- name: download tarball.txt to get URL for tarball
+  #get_url: url=https://nfd-status-page.ndn.today/tarball.txt dest=/Users/jdd/Google\ Drive/NDN/NDN_CRI/NDN_Testbed/roles/NDNts_nfd_status/files/tarball.txt mode=0644
+  #get_url: url=https://nfd-status-page.ndn.today/tarball.txt dest=roles/NDNts_nfd_status/files/tarball.txt mode=0644
+  get_url: url=https://nfd-status-page.ndn.today/tarball.txt dest=/tmp/tarball.txt mode=0644
+  delegate_to: 127.0.0.1
+  when: ansible_distribution == "Ubuntu"
+  ignore_errors: yes
+  #vars:
+  #  contents: "{{ lookup('file', '/tmp/tarball.txt') }}"
+  #tasks:
+  ##  debug: msg="the value of tarball.txt is {{ contents }}"
+
+- name: get contents of file /tmp/tarball.txt
+  vars:
+    contents: "{{ lookup('file', '/tmp/tarball.txt') }}"
+  debug: msg="the value of tarball.txt is {{ contents }}"
+
+- name: download tarball specified in tarball.txt
+  vars:
+    contents: "{{ lookup('file', '/tmp/tarball.txt') }}"
+  get_url: url=https://nfd-status-page.ndn.today/{{ contents }} dest=/usr/share/ndn//{{ contents }}  mode=0644
+
+- name: unarchive tarball
+  vars:
+    contents: "{{ lookup('file', '/tmp/tarball.txt') }}"
+  unarchive: remote_src=true src=/usr/share/ndn/{{ contents }} dest=/usr/share/ndn/n
+
+#- name: "copy tarball.txt file contents into variable"
+#    filename: "{{ lookup('file', '/tmp/tarball.txt') }}"
+#  delegate_to: 127.0.0.1
+
+#- debug: msg="filename in tarball.txt: {{ filename }}"
+
+#vars:
+#  tarball_filename: "{{ lookup('file', 'tarball.txt') }}"
+#tasks:
+#  - debug: msg="filename in tarball.txt: {{ tarball_filename }}"
+
