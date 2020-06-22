@@ -17,7 +17,7 @@ neighbors:
   BERN: {link_cost: 18}
   TNO: {link_cost: 9}
   COPELABS: {link_cost: 22}
-  NTNU: {link_cost: 25}
+  #NTNU: {link_cost: 25}
   #SYSTEMX: {link_cost: 1}
   BASEL: {link_cost: 7}
   URJC: {link_cost: 15}

@@ -14,7 +14,7 @@ http_access: https
 memsize: 4
 neighbors: 
   SAVI: {link_cost: 15}
-  NIST: {link_cost: 13}
+  #NIST: {link_cost: 13}
   CSU: {link_cost: 15}
   UIUC: {link_cost: 5}
   MEMPHIS: {link_cost: 12}

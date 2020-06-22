@@ -14,7 +14,7 @@ http_access: https
 memsize: 8
 neighbors: 
   UASLP: {link_cost: 32}
-  UCLA2: {link_cost: 25}
+  UCLACS: {link_cost: 25}
   UCLA: {link_cost: 25}
   CSU: {link_cost: 18}
   MEMPHIS: {link_cost: 17}
