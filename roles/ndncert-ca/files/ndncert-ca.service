@@ -1,0 +1,20 @@
+[Unit]
+Description=NDN Certificate Authority Server
+Documentation=man:ndncert
+BindsTo=nfd.service
+After=nfd.service
+
+[Service]
+Environment=HOME=/var/lib/ndn/ndncert-ca
+User=ndn
+Group=ndn
+ExecStart=/usr/local/bin/ndncert-ca-server -c /etc/ndn/ndncert/ca.conf -r -H 127.0.0.1 -P 7378
+Restart=on-failure
+ProtectSystem=full
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectHome=yes
+
+[Install]
+WantedBy=multi-user.target
+WantedBy=nfd.service

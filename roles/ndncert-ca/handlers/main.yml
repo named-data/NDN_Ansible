@@ -1,0 +1,4 @@
+---
+# handlers file for ndncert-ca
+- name: restart ndncert-ca
+  service: name=ndncert-ca state=restarted

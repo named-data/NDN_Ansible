@@ -1,0 +1,32 @@
+---
+# tasks file for ndncert-ca
+# This is for suns.cs.ucla.edu (UCLA2 to be changed to UCLA when this is running successfully) only.
+
+# install
+# sudo apt-get install ndncert
+- name: install ndncert-ca
+  apt: name=ndncert state=latest update_cache=yes
+  when: inventory_hostname == "UCLA"
+
+- name: make ndncert-ca required directories
+  file: path=/etc/ndn/ndncert state=directory owner=ndn group=ndn mode=0755
+  when: inventory_hostname == "UCLA"
+
+
+# Set up config file /etc/ndn/ndncert/ca.conf
+- name: copy ndncert CA conf file testbed.root.ca.conf  to /etc/ndn/ndncert/ca.conf
+  copy: dest=/etc/ndn/ndncert/ca.conf  src=roles/ndncert-ca/files/testbed.root.ca.conf owner=root group=root mode=0644
+  when: inventory_hostname == "UCLA"
+  notify: restart ndncert-ca
+
+# copy ndncert-ca.service /lib/systemd/ conf file
+- name: copy ndncert-ca.service to /lib/systemd/system/ndncert.service
+  copy: dest=/lib/systemd/system/ndncert-ca.service src=roles/ndncert-ca/files/ndncert-ca.service  owner=root group=root mode=0644
+  when: inventory_hostname == "UCLA"
+  notify: restart ndncert-ca
+
+# Set up systemd service file /etc/systemd/system/multi-user.target.wants/ndncert-ca.service
+- file: path=/etc/systemd/system/multi-user.target.wants/ndncert-ca.service state=link src=/lib/systemd/system/ndncert-ca.service
+  when: inventory_hostname == "UCLA"
+
+
