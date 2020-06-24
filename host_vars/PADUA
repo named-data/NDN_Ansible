@@ -16,7 +16,7 @@ memsize: 2
 neighbors: 
 #  SRRU: {link_cost: 126}
   UNIVH2C: {link_cost: 50}
-  AAU: {link_cost: 15}
+  #AAU: {link_cost: 15}
   #CAGLIARI: {link_cost: 25}
   AFA: {link_cost: 11}
   #PKUSZ: {link_cost: 170}

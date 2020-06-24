@@ -12,7 +12,7 @@ router_name: dmi-ndn-testbed1
 http_access: https
 memsize: 2
 neighbors: 
-  AAU: {link_cost: 16}
+  #AAU: {link_cost: 16}
   BERN: {link_cost: 2}
   TNO: {link_cost: 14}
   MINHO: {link_cost: 23}
