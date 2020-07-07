@@ -1,9 +1,0 @@
-"MEMPHIS": {
-    "allowGuests": true,
-    "doNotSendOpRequests": false,
-    "doNotSendOpRequestsForGuests": true,
-    "email": "agawande@memphis.edu",
-    "name": "Ashlesh Gawande",
-    "site_emails": "memphis.edu",
-    "site_name": "The University of Memphis",
-    "site_prefix": "/ndn/edu/memphis",
