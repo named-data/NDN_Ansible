@@ -22,6 +22,7 @@ neighbors:
   TONGJI: {link_cost: 63}
   GOETTINGEN: {link_cost: 136}
   WASEDA: {link_cost: 5}
+  ARIZONA: {link_cost: 100}
 network_regions: [/ndn/jp/ac/osaka-u]
 #hr_radius: 19.357383439933
 #hr_angle: 3.53687143597719

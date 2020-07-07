@@ -20,6 +20,7 @@ neighbors:
   MEMPHIS: {link_cost: 17}
   WU: {link_cost: 33}
   WASEDA: {link_cost: 75}
+  OSAKA: {link_cost: 100}
 network_regions: [/ndn/edu/arizona]
 #hr_radius: 16.2305391313912
 #hr_angle: 2.97033285094067
