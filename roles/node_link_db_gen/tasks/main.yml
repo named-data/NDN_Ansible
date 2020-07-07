@@ -1,5 +1,20 @@
 ---
 # tasks file for node_link_db_gen
+- name: create db files dir
+  local_action: file path=roles/node_link_db_gen/files/json_files  state=directory 
+  run_once: true 
+  become: false
+
+- name: create node link json file
+  #template: src=node_link_json.j2 dest=roles/node_link_db_gen_files/json_files/{{inventory_hostname}}_links.json
+  template: src=node_link_json.j2 dest=/tmp/{{inventory_hostname}}_links.json
+  become: false
+  delegate_to: localhost
+
+- name: mv file from /tmp
+  local_action: shell mv /tmp/{{inventory_hostname}}_links.json   roles/node_link_db_gen/files/json_files/{{inventory_hostname}}_links.json
+  become: false
+
 - name: clear db files dir
   local_action: file path=roles/node_link_db_gen/files/node_link_db_dir state=absent 
   run_once: true 
@@ -50,3 +65,4 @@
   local_action: shell cat roles/node_link_db_gen/files/node_link_db_dir/node_prefix.*.txt > roles/node_link_db_gen/files/node_prefix.txt
   run_once: true 
   become: false
+
