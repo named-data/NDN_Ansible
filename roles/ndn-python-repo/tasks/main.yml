@@ -6,6 +6,10 @@
 - name: make ndn-python-repo required directories
   file: path=/var/lib/ndn/ndn-python-repo state=directory owner=ndn group=ndn mode=0755
 
+- git: 
+    repo: http://github.com/JonnyKong/ndn-python-repo/
+    dest: /home/ndnsec/ndn-python-repo
+
 # We are going to use mongodb. It should be installed by the NOC role
 # update /etc/mongodb.conf so it uses NDN specific directories
 - name: make ndn-python-repo mongodb required directories
@@ -38,3 +42,20 @@
 
 - name: start ndn-python-repo
   service: name=ndn-python-repo state=started enabled=yes
+
+#- name: copy root.cert` file 
+#  copy: dest=/etc/ndn/keys/root.cert src=roles/ndn-python-repo/files/root.cert group=root mode=644
+
+- name: erase root cert from CS before inserting
+  command: nfdc cs erase /ndn/KEY/e%9D%7F%A5%C5%81%10%7D/ndn/%FD%00%00%01%60qJQ%9B 
+  become: yes
+  become_user: ndnsec
+
+- name: add root cert to python repo 
+  #command: ./examples/putfile.py -r {{default_prefix}} -f /etc/ndn/keys/root.cert -n  /ndn/KEY/e%9D%7F%A5%C5%81%10%7D/ndn/%FD%00%00%01%60qJQ%9B
+  shell: base64 -d /etc/ndn/keys/ndn-testbed-root.ndncert.base64 | nc -q 2 127.0.0.1 7378
+  become: yes
+  become_user: ndnsec
+  args: 
+    chdir: /home/ndnsec/ndn-python-repo
+
