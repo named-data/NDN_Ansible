@@ -1,0 +1,54 @@
+---
+# tasks file for serve-certs
+
+- name: make serve-certs required directories
+  file: path=/var/lib/ndn/serve-certs state=directory owner=ndn group=ndn mode=0755
+
+# git repo https://github.com/yoursunny/ndn6-tools
+- git:
+    repo: https://github.com/yoursunny/ndn6-tools
+    dest: /home/ndnops/ndn6-tools
+    version: 7d476edcb90204e6ba1206f71e8f0fde728af9eb
+    update: yes
+#    notify: restart serve-certs
+
+# make install
+- make:
+    chdir: /home/ndnops/ndn6-tools
+    target: install
+  become: yes
+  notify: restart serve-certs
+
+# set up systemd service file
+- name: copy serve-certs.service to /lib/systemd/system
+  command: cp /home/ndnops/ndn6-tools/serve-certs.service /lib/systemd/system
+  become: yes
+  notify: restart serve-certs
+
+# enable serve-certs systemd service
+- name: enable serve-certs systemd service
+  systemd: 
+    name: serve-certs.service
+    enabled: yes
+    masked: no
+  notify: restart serve-certs
+
+
+- name: copy x2 root cert to /var/lib/ndn/serve-certs
+  command: cp /etc/ndn/keys/anchors/ndn-testbed-root.ndncert.x2.base64 /var/lib/ndn/serve-certs/ndn-testbed-root.x2.ndncert
+  become: yes
+  notify: restart serve-certs
+
+- name: copy x3 root cert to /var/lib/ndn/serve-certs
+  command: cp /etc/ndn/keys/anchors/ndn-testbed-root.ndncert.x3.base64 /var/lib/ndn/serve-certs/ndn-testbed-root.x3.ndncert
+  become: yes
+  notify: restart serve-certs
+
+- name: chown all cert files to be ndn.ndn
+  file:
+    path: /var/lib/ndn/serve-certs/
+    state: directory
+    recurse: yes
+    owner: ndn
+    group: ndn
+

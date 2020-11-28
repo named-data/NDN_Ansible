@@ -1,0 +1,4 @@
+---
+# handlers file for serve-certs
+- name: restart serve-certs
+  service: name=serve-certs state=restarted

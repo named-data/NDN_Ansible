@@ -21,6 +21,7 @@
   - {role: 'ndn-python-repo', tags: 'ndn-python-repo'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndn-python-repo"
   - {role: 'ndn-tools', tags: 'ndn-tools'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndn-tools"
   - {role: 'nfd-autoreg', tags: 'nfd-autoreg'} 
+  - {role: 'serve-certs', tags: 'serve-certs'} 
 
   - {role: 'ndnmap-data-collector', tags: 'ndnmap-data-collector'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnmap-data-collector"
 #  - {role: 'ndnTestbedDataCollector', tags: 'ndnTestbedDataCollector'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnTestbedDataCollector"
