@@ -9,12 +9,13 @@
 - name: make ndn required directories
   file: path=/etc/ndn state=directory owner=ndn group=ndn mode=0755
 - file: path=/etc/ndn/keys state=directory owner=ndn group=ndn mode=0755
+- file: path=/etc/ndn/keys/anchors state=directory owner=ndn group=ndn mode=0755
 - file: path=/var/lib/ndn state=directory owner=ndn group=ndn mode=0755
 - file: path=/var/log/ndn state=directory owner=ndn group=ndn mode=0755
 
-#- name: set up rsyslog for nfd.log for Ubuntu 16.04
-#  copy: dest=/etc/rsyslog.d/25-nfd.conf src=roles/nfd/files/rsyslogd.25-nfd.conf owner=root group=root mode=0644
-#  when: (ansible_distribution == "Ubuntu" )
+- name: set up rsyslog for nfd.log for Ubuntu 16.04
+  copy: dest=/etc/rsyslog.d/25-nfd.conf src=roles/nfd/files/rsyslogd.25-nfd.conf owner=root group=root mode=0644
+  when: (ansible_distribution == "Ubuntu" )
 
 - name: initialize nfd.log
   file: path=/var/log/ndn/nfd.log state=touch owner=syslog group=adm mode=0644
@@ -36,12 +37,20 @@
   when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
   ignore_errors: yes
 
-- name: copy root key
-  #copy: dest=/etc/ndn/keys/ansible_ndn-testbed-root.ndncert.base64 src=roles/nfd/files/ndn-testbed-root.ndncert.base64 owner=root group=root mode=0644
-  copy: dest=/etc/ndn/keys/ndn-testbed-root.ndncert.base64 src=roles/nfd/files/ndn-testbed-root.ndncert.base64 owner=root group=root mode=0644
+#- name: copy root key X2
+#  copy: dest=/etc/ndn/keys/ndn-testbed-root.ndncert.x2.base64 src=roles/nfd/files/ndn-testbed-root.ndncert.x2.base64 owner=root group=root mode=0644
+#
+#- name: copy root key X3
+#  copy: dest=/etc/ndn/keys/ndn-testbed-root.ndncert.x3.base64 src=roles/nfd/files/ndn-testbed-root.ndncert.x3.base64 owner=root group=root mode=0644
+#
+- name: copy root key X2
+  copy: dest=/etc/ndn/keys/anchors/ndn-testbed-root.ndncert.x2.base64 src=roles/nfd/files/ndn-testbed-root.ndncert.x2.base64 owner=root group=root mode=0644
 
-- name: copy openmhealth key
-  copy: dest=/etc/ndn/keys/openmhealth.cert src=roles/nfd/files/openmhealth.cert owner=root group=root mode=0644
+- name: copy root key X3
+  copy: dest=/etc/ndn/keys/anchors/ndn-testbed-root.ndncert.x3.base64 src=roles/nfd/files/ndn-testbed-root.ndncert.x3.base64 owner=root group=root mode=0644
+
+#- name: copy openmhealth key
+#  copy: dest=/etc/ndn/keys/openmhealth.cert src=roles/nfd/files/openmhealth.cert owner=root group=root mode=0644
 
 - name: create nfd-init.sh
   #template: src=nfd-init.sh.j2 dest=/etc/ndn/ansible_nfd-init.sh  owner=root group=root mode="u=rwx,g=rx,o=rx"
