@@ -1,9 +1,9 @@
 ---
 # tasks file for ndnsec
 
-#- name: add ndnsec user
-#  user: name=ndnsec state=present shell=/bin/bash password=LrVkOUM1s16xE
-#
+- name: add ndnsec user
+  user: name=ndnsec state=present shell=/bin/bash password=LrVkOUM1s16xE
+
 #- name: install ndnsec libraries 
 #  action: >
 #       {{ ansible_pkg_mgr }} name={{ item }} state=latest update_cache=yes
