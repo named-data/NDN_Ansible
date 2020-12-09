@@ -20,7 +20,7 @@ neighbors:
   #CAIDA: {link_cost: 155}
   MEMPHIS: {link_cost: 115}
   COPELABS: {link_cost: 145}
-  INDONESIA: {link_cost: 200}
+  #INDONESIA: {link_cost: 200}
 network_regions: [/ndn/br/ufba]
 #hr_radius: 29.2553552716
 #hr_angle: 3.51898188093184
@@ -37,4 +37,4 @@ site_email_domain: ["pop-ba.rnp.br"]
 allowGuests: true
 doNotSendOpRequests: false
 doNotSendOpRequestsForGuests: true
-site_name: "Federal University of Para, Brazil"
+site_name: "Federal University of Bahia, Brazil"
