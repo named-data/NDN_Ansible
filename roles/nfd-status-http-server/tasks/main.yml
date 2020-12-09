@@ -29,7 +29,7 @@
   when: inventory_hostname == "BUPT"
 
 # Set up TLS websocket support
-- name: stop nfd-status-http-server for Ubuntu 16.04
+- name: stop nfd-status-http-server for Ubuntu 
   shell: service nfd-status-http-server stop
   when: (ansible_distribution == "Ubuntu" )
 
@@ -63,7 +63,7 @@
   apt: name=nginx state=latest update_cache=yes
   when: ansible_distribution == "Ubuntu" 
 
-- name: stop nginx for Ubuntu 16.04
+- name: stop nginx for Ubuntu 
   shell: service nginx stop
   when: (ansible_distribution == "Ubuntu" )
 
@@ -143,11 +143,11 @@
   become: yes
   when: ansible_distribution == "RedHat" or (ansible_distribution == "Ubuntu" )
 
-- name: start nfd-status-http-server.server for Ubuntu 16.04
+- name: start nfd-status-http-server.server for Ubuntu 
   shell: service nfd-status-http-server start
   when: (ansible_distribution == "Ubuntu" )
 
-- name: start nginx for Ubuntu 16.04
+- name: start nginx for Ubuntu 
   shell: service nginx start
   when: (ansible_distribution == "Ubuntu" )
 
