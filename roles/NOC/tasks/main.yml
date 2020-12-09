@@ -106,22 +106,22 @@
 #  run_once: true
 #  become: false
 
-- name: create NOC directories
-  file: path=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests state=directory owner={{ansible_user}} group={{ansible_user}} mode=0755
+#- name: create NOC directories
+#  file: path=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests state=directory owner={{ansible_user}} group={{ansible_user}} mode=0755
+#
+#- name: list copy testfiles for ping tests
+#  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests/node_list.txt  src=roles/node_link_db_gen/files/node_list.txt owner={{ansible_user}} group={{ansible_user}} mode=0644
+#
+#- name: neighbors copy testfiles for ping tests
+#  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests/node_neighbors.txt  src=roles/node_link_db_gen/files/node_neighbors.txt owner={{ansible_user}} group={{ansible_user}} mode=0644
+#
+#- name: prefix copy testfiles for ping tests
+#  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests/node_prefix.txt  src=roles/node_link_db_gen/files/node_prefix.txt owner={{ansible_user}} group={{ansible_user}} mode=0644
+#
 
-- name: list copy testfiles for ping tests
-  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests/node_list.txt  src=roles/node_link_db_gen/files/node_list.txt owner={{ansible_user}} group={{ansible_user}} mode=0644
 
-- name: neighbors copy testfiles for ping tests
-  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests/node_neighbors.txt  src=roles/node_link_db_gen/files/node_neighbors.txt owner={{ansible_user}} group={{ansible_user}} mode=0644
-
-- name: prefix copy testfiles for ping tests
-  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests/node_prefix.txt  src=roles/node_link_db_gen/files/node_prefix.txt owner={{ansible_user}} group={{ansible_user}} mode=0644
-
-
-
-- name: copy ndnping parallel test script
-  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests/./getTestbedDelays_ndnping_parallel.sh  src=roles/NOC/files/./getTestbedDelays_ndnping_parallel.sh owner={{ansible_user}} group={{ansible_user}} mode=0755
+#- name: copy ndnping parallel test script
+#  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests/./getTestbedDelays_ndnping_parallel.sh  src=roles/NOC/files/./getTestbedDelays_ndnping_parallel.sh owner={{ansible_user}} group={{ansible_user}} mode=0755
 
 #- name: copy ndnping parallel test prefix list
 #  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/ping_delay_tests/./full_prefix_list.txt  src=roles/NOC/files/./full_prefix_list.txt owner={{ansible_user}} group={{ansible_user}} mode=0644
@@ -232,7 +232,7 @@
 
 - name: install general ubuntu packages 
   apt:
-    name: ['build-essential', 'git', 'openssl', 'python-openssl', 'libffi-dev', 'python-cffi', 'libssl-dev', 'expat', 'libexpat-dev', 'libpcap-dev', 'gawk', 'texinfo', 'asciidoc', 'finger', 'software-properties-common', 'ntp', 'autoconf', 'libtool', 'python-dev', 'g++', 'autotools-dev', 'libicu-dev', 'libbz2-dev', 'sqlite3', 'pkg-config', 'libssl-dev', 'libsqlite3-dev', 'libcrypto++-dev', 'aptitude', 'python3-setuptools', 'python3-dev', 'python3-pip', 'python-pip', 'python-netaddr', 'fail2ban' , 'iperf', 'iperf3' , 'mongodb' ]
+    name: ['build-essential', 'git', 'openssl', 'python-openssl', 'libffi-dev', 'python-cffi', 'libssl-dev', 'expat', 'libexpat-dev', 'libpcap-dev', 'gawk', 'texinfo', 'asciidoc', 'finger', 'software-properties-common', 'ntp', 'autoconf', 'libtool', 'python-dev', 'g++', 'autotools-dev', 'libicu-dev', 'libbz2-dev', 'sqlite3', 'pkg-config', 'libssl-dev', 'libsqlite3-dev', 'libcrypto++-dev', 'aptitude', 'python3-setuptools', 'python3-dev', 'python3-pip', 'python-pip', 'python-netaddr', 'fail2ban' , 'iperf', 'iperf3' , 'mongodb' ,  'python-configparser' ]
     update_cache: yes
     autoclean: yes
     autoremove: yes
