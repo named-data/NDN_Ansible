@@ -1,9 +1,0 @@
-"CAIDA": {
-    "allowGuests": false,
-    "doNotSendOpRequests": false,
-    "doNotSendOpRequestsForGuests": false,
-    "email": "dea@caida.org",
-    "name": "Dan Andersen",
-    "site_emails": "caida.org",
-    "site_name": "Center for Applied Internet Data Analysis (CAIDA)",
-    "site_prefix": "/ndn/org/caida",

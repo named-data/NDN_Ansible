@@ -1,9 +1,0 @@
-"CAGLIARI": {
-    "allowGuests": false,
-    "doNotSendOpRequests": false,
-    "doNotSendOpRequestsForGuests": true,
-    "email": "cperra@ieee.org",
-    "name": "Cristian Perra",
-    "site_emails": ["unica.it", "diee.unica.it"],
-    "site_name": "Universita degli studi di Cagliari",
-    "site_prefix": "/ndn/it/unica",
