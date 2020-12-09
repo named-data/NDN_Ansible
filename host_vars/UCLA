@@ -6,9 +6,9 @@ host_ip: 131.179.196.48
 ethernet_device: eth0
 site: /edu/ucla
 default_prefix: /ndn/edu/ucla
-advertised_prefixes: [ndn/edu/ucla]
-routable_prefixes: [ndn/edu/ucla]
-router_name: cs/suns 
+advertised_prefixes: [/ndn/edu/ucla, /ndn/CA ]
+routable_prefixes: [/ndn/edu/ucla]
+router_name: suns 
 http_access: https
 memsize: 2
 neighbors:
