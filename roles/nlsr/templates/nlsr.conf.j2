@@ -257,12 +257,17 @@ security
 
     trust-anchor
     {
-      ;type any
-      type file
-      ;file-name "root.cert"
-      ;file-name "/etc/ndn/nlsr/keys/root.cert"
-      file-name "/etc/ndn/keys/ndn-testbed-root.ndncert.base64"
+      type dir
+      dir /etc/ndn/keys/anchors
     }
+    ;trust-anchor
+    ;{
+    ;  ;type any
+    ;  type file
+    ;  ;file-name "root.cert"
+    ;  ;file-name "/etc/ndn/nlsr/keys/root.cert"
+    ;  file-name "/etc/ndn/keys/ndn-testbed-root.ndncert.base64"
+    ;}
   }
 
   prefix-update-validator
@@ -306,14 +311,21 @@ security
       }
     }
 
+;    trust-anchor
+;    {
+;      ;type any
+;      type file
+;      ;file-name "site.cert"
+;      ;file-name "/etc/ndn/nlsr/keys/site.cert"
+;      file-name "/etc/ndn/keys/default.ndncert"
+;    }
+
     trust-anchor
     {
-      ;type any
-      type file
-      ;file-name "site.cert"
-      ;file-name "/etc/ndn/nlsr/keys/site.cert"
-      file-name "/etc/ndn/keys/default.ndncert"
+      type dir
+      dir /etc/ndn/keys/anchors
     }
+
   }
 
   ; cert-to-publish "root.cert"  ; optional, a file containing the root certificate

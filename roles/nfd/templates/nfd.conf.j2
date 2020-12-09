@@ -387,11 +387,23 @@ rib
      }
      trust-anchor
      {
-       type file
-       ;file-name keys/default.ndncert ; the file name, by default this file should be placed in the
-       file-name keys/ndn-testbed-root.ndncert.base64; the file name, by default this file should be placed in the
-                                      ; same folder as this config file.
+       type dir
+       dir /etc/ndn/keys/anchors
      }
+     ;trust-anchor
+     ;{
+     ;  type file
+     ;  ;file-name keys/ndn-testbed-root.ndncert.base64; the file name, by default this file should be placed in the
+     ;  file-name keys/ndn-testbed-root.ndncert.x3.base64; the file name, by default this file should be placed in the
+     ;                                 ; same folder as this config file.
+     ;}
+     ;trust-anchor
+     ;{
+     ;  type file
+     ;  ;file-name keys/ndn-testbed-root.ndncert.base64; the file name, by default this file should be placed in the
+     ;  file-name keys/ndn-testbed-root.ndncert.x2.base64; the file name, by default this file should be placed in the
+     ;                                 ; same folder as this config file.
+     ;}
      ; trust-anchor ; Can be repeated multiple times to specify multiple trust anchors
      ; {
      ;   type file
