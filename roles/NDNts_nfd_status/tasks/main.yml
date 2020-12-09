@@ -8,17 +8,20 @@
   file: path=/usr/share/ndn/n state=directory owner=root group=root mode=0755
 
 
+#- name: download tarball.txt to get URL for tarball
+#  #get_url: url=https://nfd-status-page.ndn.today/tarball.txt dest=/Users/jdd/Google\ Drive/NDN/NDN_CRI/NDN_Testbed/roles/NDNts_nfd_status/files/tarball.txt mode=0644
+#  #get_url: url=https://nfd-status-page.ndn.today/tarball.txt dest=roles/NDNts_nfd_status/files/tarball.txt mode=0644
+#  get_url: url=https://nfd-status-page.ndn.today/tarball.txt dest=/tmp/tarball.txt mode=0644
+#  delegate_to: 127.0.0.1
+#  when: ansible_distribution == "Ubuntu"
+#  ignore_errors: yes
+#  #vars:
+#  #  contents: "{{ lookup('file', '/tmp/tarball.txt') }}"
+#  #tasks:
+#  ##  debug: msg="the value of tarball.txt is {{ contents }}"
 - name: download tarball.txt to get URL for tarball
-  #get_url: url=https://nfd-status-page.ndn.today/tarball.txt dest=/Users/jdd/Google\ Drive/NDN/NDN_CRI/NDN_Testbed/roles/NDNts_nfd_status/files/tarball.txt mode=0644
-  #get_url: url=https://nfd-status-page.ndn.today/tarball.txt dest=roles/NDNts_nfd_status/files/tarball.txt mode=0644
-  get_url: url=https://nfd-status-page.ndn.today/tarball.txt dest=/tmp/tarball.txt mode=0644
+  command: curl -o /tmp/tarball.txt  https://nfd-status-page.ndn.today/tarball.txt 
   delegate_to: 127.0.0.1
-  when: ansible_distribution == "Ubuntu"
-  ignore_errors: yes
-  #vars:
-  #  contents: "{{ lookup('file', '/tmp/tarball.txt') }}"
-  #tasks:
-  ##  debug: msg="the value of tarball.txt is {{ contents }}"
 
 - name: get contents of file /tmp/tarball.txt
   vars:
