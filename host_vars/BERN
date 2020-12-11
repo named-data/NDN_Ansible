@@ -16,6 +16,7 @@ http_access: http
 # memsize: unknown
 memsize: 2
 neighbors: 
+  WU: {link_cost: 60}
   #AAU: {link_cost: 16}
   LACL: {link_cost: 18}
   LIP6: {link_cost: 18}
