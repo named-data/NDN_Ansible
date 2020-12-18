@@ -163,9 +163,9 @@
        - protobuf-devel
        - log4cxx.x86_64
 
-- name: remove ndn dev repository
-  apt_repository: repo='ppa:named-data/ppa-dev' state=absent
-  when: ansible_distribution == "Ubuntu" 
+#- name: remove ndn dev repository
+#  apt_repository: repo='ppa:named-data/ppa-dev' state=absent
+#  when: ansible_distribution == "Ubuntu" 
 
 #- name: add ndn dev repository
 #  apt_repository: repo='ppa:named-data/ppa-dev' state=present
@@ -237,6 +237,7 @@
     autoclean: yes
     autoremove: yes
   when: ansible_distribution == "Ubuntu" 
+  ignore_errors: yes
 
 - name: install general ubuntu packages 
   apt:
@@ -245,6 +246,7 @@
     autoclean: yes
     autoremove: yes
   when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
+  ignore_errors: yes
 
 #       - liblog4cxx10*
 
@@ -253,11 +255,33 @@
 #       - liblog4cxx10v5
 #         when {{ ansible_distribution_major_version }} == 16 
 
+# Remove ndn ppa
 - command: add-apt-repository -y -r ppa:named-data/ppa
   become: yes
+  ignore_errors: yes
 
-- command: add-apt-repository -y  ppa:named-data/ppa
+# Remove ndn ppa-dev
+- command: add-apt-repository -y -r ppa:named-data/ppa-dev
   become: yes
+  ignore_errors: yes
+
+# Add ndn ppa
+- command: add-apt-repository -u -y  ppa:named-data/ppa
+  become: yes
+  ignore_errors: yes
+
+# Add ndn ppa-dev
+#- command: add-apt-repository -u -y  ppa:named-data/ppa-dev
+#  become: yes
+#  ignore_errors: yes
+
+- command: apt-get -y update
+  become: yes
+  ignore_errors: yes
+
+- command: apt-get -y upgrade
+  become: yes
+  ignore_errors: yes
 
 #- name: remove Ashlesh experimental ndn repository
 #  #apt_repository: repo='ppa:agawande/named-data-exp' state=present
@@ -271,6 +295,7 @@
     autoclean: yes
     autoremove: yes
   when: ansible_distribution == "Ubuntu" 
+  ignore_errors: yes
 
 #- name: remove python3 stuff
 #  apt: 
@@ -289,28 +314,37 @@
 # looks like sometimes need to upgrade pyOpenSSL first before upgrading pip
 - command: python -m easy_install --upgrade pyOpenSSL
   become: yes
+  ignore_errors: yes
 
 - command: python3 -m pip install --upgrade pip
   become: yes
+  ignore_errors: yes
 
 - command: python -m pip install --upgrade pip
   become: yes
+  ignore_errors: yes
 
 - pip: name=dnspython state=latest executable=pip
+  ignore_errors: yes
 
 - pip: name=dnspython state=latest executable=pip3
+  ignore_errors: yes
 
 - pip: name=setuptools state=latest executable=pip3
+  ignore_errors: yes
 
 - pip: name=requests state=latest executable=pip3
+  ignore_errors: yes
 
 #- pip: name=requests,pyndn executable=/usr/local/bin/pip3
 
 #- pip: name=pyndn state=latest executable=/usr/local/bin/pip
 
 - pip: name=pyndn state=latest  executable=pip3 extra_args=--pre
+  ignore_errors: yes
 
 - pip: name=ndn-python-repo[mongodb] state=latest  executable=pip3 extra_args=--ignore-installed
+  ignore_errors: yes
 
 - name: copy ndnop-process-requests to TESTBED
   copy: dest=/usr/local/bin/ndnop-process-requests src=roles/NOC/files/ndnop-process-requests.testbed owner=root group=root mode=0755
