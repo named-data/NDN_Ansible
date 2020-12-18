@@ -13,6 +13,7 @@ router_name: comsci2
 http_access: http
 memsize: 8
 neighbors: 
+  MEMPHIS: {link_cost: 150}
   UUM: {link_cost: 42}
   #PKUSZ: {link_cost: 71}
   MSU: {link_cost: 3}

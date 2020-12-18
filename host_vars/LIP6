@@ -12,6 +12,7 @@ router_name: ndnhub
 http_access: https
 memsize: 4
 neighbors: 
+  SAVI: {link_cost: 100}
   QUB: {link_cost: 12}
   LACL: {link_cost: 4}
   BERN: {link_cost: 18}

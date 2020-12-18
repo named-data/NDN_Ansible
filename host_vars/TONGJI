@@ -16,7 +16,7 @@ memsize: 64
 neighbors: 
   #PKUSZ: {link_cost: 54}
   OSAKA: {link_cost: 63}
-  INDONESIA: {link_cost: 61}
+  #INDONESIA: {link_cost: 61}
   ANYANG: {link_cost: 54}
   WASEDA: {link_cost: 98}
   #CAIDA: {link_cost: 93}

@@ -12,6 +12,7 @@ router_name: titan
 http_access: https
 memsize: 4
 neighbors:
+  SRRU: {link_cost: 150}
   UASLP: {link_cost: 100}
   UFBA: {link_cost: 115}
   ARIZONA: {link_cost: 17}
