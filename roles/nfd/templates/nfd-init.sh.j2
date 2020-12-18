@@ -45,22 +45,10 @@ nfdc route add /ndn/edu/wustl/ndnstatus udp4://128.252.153.28:6363
 
 # Build the faces that NLSR will need:
   # {{ inventory_hostname}}  Neighbors: {{ neighbors }}
+
 {% for neighbor, data in neighbors.items() %}
 
-#iptables -A INPUT -s {{ hostvars[neighbor].host_ip }}  -j DROP
-
-# just in case an on-demand face was created since NFD started, destroy it. 
-# This is a temporary fix because an update of a face with mtu change does not currently work.
-#nfdc face destroy udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }}
-
-#{% if neighbor == "NEU" %}
-#nfdc face create udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }} persistency permanent 
-#{% else %}
-#nfdc face create udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }} persistency permanent mtu 1450
-#{% endif %}
 nfdc face create udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }} persistency permanent reliability on
-
-#iptables -D INPUT -s {{ hostvars[neighbor].host_ip }}  -j DROP
 
 {% endfor %}
 
