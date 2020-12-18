@@ -134,6 +134,7 @@
 # finish generating keys and certs for user nlsr
 - script: roles/nlsr/files/new_key_gen.sh "{{default_prefix}}" "ndnops"  "{{inventory_hostname}}" "{{router_name}}"
   ignore_errors: yes
+  notify: restart nlsr
 
 
 #- name: create log4cxx.conf
@@ -142,9 +143,15 @@
 
 - name: install chronosyn
   apt: name=libchronosync state=latest update_cache=yes
+  ignore_errors: yes
+
+- name: install psync
+  apt: name=libpsync state=latest update_cache=yes
+  ignore_errors: yes
 
 - name: install nlsr
   apt: name=nlsr state=latest update_cache=yes
+  ignore_errors: yes
 
 - command: systemctl enable nlsr.service
   become: yes
