@@ -3,6 +3,7 @@
 - name: install nfd-status-http-server
   apt: name=nfd-status-http-server state=latest update_cache=yes
   when: ansible_distribution == "Ubuntu" 
+  ignore_errors: yes
 
 - name: copy /lib/systemd/system/nfd-status-http-server.service
   copy: dest=/lib/systemd/system/nfd-status-http-server.service src=roles/nfd-status-http-server/files/nfd-status-http-server.service owner=root group=root mode=0644
@@ -36,22 +37,23 @@
 - name: purge apache2
   apt: name=apache2 state=absent update_cache=yes purge=yes
   when: ansible_distribution == "Ubuntu" 
+  ignore_errors: yes
 
-- name: Add key for nginx
-  apt_key:
-    url: http://nginx.org/keys/nginx_signing.key
-    state: present
+#- name: Add key for nginx
+#  apt_key:
+#    url: http://nginx.org/keys/nginx_signing.key
+#    state: present
 
-#- name: add nginx repository
-- apt_repository: 
-    repo: deb http://nginx.org/packages/mainlin/ubuntu/ xenial nginx
-    state: absent
-  when: ansible_distribution == "Ubuntu" 
+##- name: add nginx repository
+#- apt_repository: 
+#    repo: deb http://nginx.org/packages/mainlin/ubuntu/ xenial nginx
+#    state: absent
+#  when: ansible_distribution == "Ubuntu" 
 
-- apt_repository: 
-    repo: deb http://nginx.org/packages/ubuntu/ xenial nginx
-    state: present
-  when: ansible_distribution == "Ubuntu" 
+#- apt_repository: 
+#    repo: deb http://nginx.org/packages/ubuntu/ xenial nginx
+#    state: present
+#  when: ansible_distribution == "Ubuntu" 
 
 #- name: get nginx repo key
 #  get_url:
@@ -59,9 +61,9 @@
 #    dest: /tmp/nginx_signing.key
 #    mode: '0644'
 
-- name: install nginx
-  apt: name=nginx state=latest update_cache=yes
-  when: ansible_distribution == "Ubuntu" 
+#- name: install nginx
+#  apt: name=nginx state=latest update_cache=yes
+#  when: ansible_distribution == "Ubuntu" 
 
 - name: stop nginx for Ubuntu 
   shell: service nginx stop
