@@ -8,7 +8,8 @@
 - git:
     repo: https://github.com/yoursunny/ndn6-tools
     dest: /home/ndnops/ndn6-tools
-    version: 7d476edcb90204e6ba1206f71e8f0fde728af9eb
+    #version: 7d476edcb90204e6ba1206f71e8f0fde728af9eb
+    version: develop
     update: yes
 #    notify: restart serve-certs
 
@@ -21,9 +22,15 @@
 
 # set up systemd service file
 - name: copy serve-certs.service to /lib/systemd/system
-  command: cp /home/ndnops/ndn6-tools/serve-certs.service /lib/systemd/system
+  copy: src=roles/serve-certs/files/serve-certs.service dest=/lib/systemd/system/serve-certs.service
   become: yes
   notify: restart serve-certs
+
+## set up systemd service file
+#- name: copy serve-certs.service to /lib/systemd/system
+#  command: cp /home/ndnops/ndn6-tools/serve-certs.service /lib/systemd/system
+#  become: yes
+#  notify: restart serve-certs
 
 # enable serve-certs systemd service
 - name: enable serve-certs systemd service
