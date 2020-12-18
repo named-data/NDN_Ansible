@@ -2,7 +2,9 @@
 # tasks file for ndn-tools
 - name: install ndn-tools
   apt: name=ndn-tools state=latest update_cache=yes
+  ignore_errors: yes
 
 - name: install ndndump
   apt: name=ndndump state=latest
+  ignore_errors: yes
 

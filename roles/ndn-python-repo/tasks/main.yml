@@ -2,6 +2,7 @@
 # tasks file for ndn-python-repo
 
 - pip: name=ndn-python-repo state=latest executable=pip3
+  ignore_errors: yes
 
 - name: make ndn-python-repo required directories
   file: path=/var/lib/ndn/ndn-python-repo state=directory owner=ndn group=ndn mode=0755
@@ -49,26 +50,28 @@
 - name: erase root cert x2 from CS before inserting
   command: nfdc cs erase /ndn/KEY/e%9D%7F%A5%C5%81%10%7D/ndn/%FD%00%00%01%60qJQ%9B 
   become: yes
-  become_user: ndnsec
+  #become_user: ndnsec
 
 - name: erase root cert x3 from CS before inserting
   command: nfdc cs erase /ndn/KEY/%EC%F1L%8EQ%23%15%E0/ndn/%FD%00%00%01u%E6%7F2%10
   become: yes
-  become_user: ndnsec
+  #become_user: ndnsec
 
 - name: add root cert x2 to python repo 
   #command: ./examples/putfile.py -r {{default_prefix}} -f /etc/ndn/keys/root.cert -n  /ndn/KEY/e%9D%7F%A5%C5%81%10%7D/ndn/%FD%00%00%01%60qJQ%9B
   shell: base64 -d /etc/ndn/keys/anchors/ndn-testbed-root.ndncert.x2.base64 | nc -q 2 127.0.0.1 7378
   become: yes
-  become_user: ndnsec
+  #become_user: ndnsec
   args: 
     chdir: /home/ndnsec/ndn-python-repo
+  ignore_errors: yes
 
 - name: add root cert x3 to python repo 
   #command: ./examples/putfile.py -r {{default_prefix}} -f /etc/ndn/keys/root.cert -n  /ndn/KEY/e%9D%7F%A5%C5%81%10%7D/ndn/%FD%00%00%01%60qJQ%9B
   shell: base64 -d /etc/ndn/keys/anchors/ndn-testbed-root.ndncert.x3.base64 | nc -q 2 127.0.0.1 7378
   become: yes
-  become_user: ndnsec
+  #become_user: ndnsec
   args: 
     chdir: /home/ndnsec/ndn-python-repo
+  ignore_errors: yes
 

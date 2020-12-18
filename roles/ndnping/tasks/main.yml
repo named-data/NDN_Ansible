@@ -2,6 +2,7 @@
 # tasks file for ndnping
 - name: install ndnping
   apt: name=ndnping state=latest update_cache=yes
+  ignore_errors: yes
 
 # copy ndnping /lib/systemd/ conf file
 - name: create ndnping /lib/systemd conf file
