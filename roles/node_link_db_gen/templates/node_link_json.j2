@@ -1,6 +1,8 @@
+{
 {{'     '}}"neighbors": [
 {% for neighbor, data in neighbors.items() %}
     {% if loop.first %} {{'     '}} {%endif %} "{{ neighbor }}" {% if not loop.last %}, {%endif %}
 {% endfor %}
 {{''}}
 {{'     '}} ]
+}
