@@ -6,6 +6,7 @@ After=nfd.service
 [Service]
 Type=simple
 ExecStart=/usr/local/bin/ndn-python-repo -c /etc/ndn/ndn-python-repo.conf
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
