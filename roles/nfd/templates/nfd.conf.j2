@@ -333,56 +333,49 @@ rib
   
      rule
      {
-       id "RIB Registration Command Rule"
-       for interest                         ; rule for Interests (to validate CommandInterests)
+       id "rib register command"
+       for interest
        filter
        {
-         type name                          ; condition on interest name (w/o SignatureInfo/SignatureValue)
-         regex ^[<localhop><localhost>]<nfd><rib>[<register><unregister>]<><><>$
+         type name
+         regex ^<localhop><nfd><rib>[<register><unregister>]<>{3}$
        }
        checker
        {
          type customized
-         sig-type rsa-sha256                ; interest must have a rsa-sha256 signature
+         sig-type ecdsa-sha256
          key-locator
          {
-           type name                        ; key locator must be the certificate name of the
-                                            ; signing key
-           regex ^<>*<KEY><>$
-         }
-       }
-       checker
-       {
-         type customized
-         sig-type ecdsa-sha256                ; interest must have a ecdsa-sha256 signature
-         key-locator
-         {
-           type name                        ; key locator must be the certificate name of the
-                                            ; signing key
-           regex ^<>*<KEY><>$
+           type name
+           regex ^<>*<KEY><>{1,3}$
          }
        }
      }
      rule
      {
-       id "NDN Testbed Hierarchy Rule"
-       for data                             ; rule for Data (to validate NDN certificates)
+       id "hierarchy"
+       for data
        filter
        {
-         type name                          ; condition on data name
-         regex ^<>*<KEY><><><>$
+         type name
+         regex ^<>*<KEY><>{3}$
        }
        checker
        {
-         type hierarchical                  ; the certificate name of the signing key and
-                                            ; the data name must follow the hierarchical model
-         sig-type rsa-sha256                ; data must have a rsa-sha256 signature
-       }
-       checker
-       {
-         type hierarchical                  ; the certificate name of the signing key and
-                                            ; the data name must follow the hierarchical model
-         sig-type ecdsa-sha256              ; data must have a ecdsa-sha256 signature
+         type customized
+         sig-type ecdsa-sha256
+         key-locator
+         {
+           type name
+           hyper-relation
+           {
+             k-regex ^(<>*)<KEY><>{1,3}$
+             k-expand \\1
+             h-relation is-prefix-of
+             p-regex ^(<>*)$
+             p-expand \\1
+           }
+         }
        }
      }
      trust-anchor
