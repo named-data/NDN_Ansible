@@ -55,6 +55,12 @@ echo "SITE_CERT_EXPIRES: $SITE_CERT_EXPIRY" >> /usr/share/ndn/versions.txt
 #CERTBOT=`which certbot-auto`
 CERTBOT="/usr/local/bin/certbot-auto"
 
+if [ -n "$CERTBOT" -a -x $CERTBOT  ]
+then
+  XXX="ok"
+else
+  CERTBOT="/usr/local/bin/certbot"
+fi
 if [ -n "$CERTBOT" -a -x $CERTBOT ]
 then
   CERT_EXPIRY=`$CERTBOT  certificates 2> /dev/null | grep Expiry | awk '{print $3}'`
