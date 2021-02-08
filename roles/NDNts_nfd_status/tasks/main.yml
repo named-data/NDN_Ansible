@@ -22,7 +22,8 @@
 - name: download tarball.txt to get URL for tarball
   command: curl -o /tmp/tarball.txt  https://nfd-status-page.ndn.today/tarball.txt 
   delegate_to: 127.0.0.1
-  ignore_errors: yes
+  #ignore_errors: yes
+  become: no
 
 - name: get contents of file /tmp/tarball.txt
   vars:
