@@ -1,7 +1,8 @@
 ---
 
 # file: host_vars/SRRU
-ansible_host: comsci2.srru.ac.th
+#ansible_host: comsci2.srru.ac.th
+ansible_host: srru.testbed.named-data.net
 host_ip: 202.29.30.31
 ethernet_device: eth0
 ansible_user: ndnops2

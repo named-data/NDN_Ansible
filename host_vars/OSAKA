@@ -15,12 +15,12 @@ http_access: http
 memsize: 16
 neighbors: 
   UUM: {link_cost: 42}
-  CNIC: {link_cost: 45}
+  #CNIC: {link_cost: 45}
   #PKUSZ: {link_cost: 63}
   SRRU: {link_cost: 67}
   ANYANG: {link_cost: 36}
-  TONGJI: {link_cost: 63}
-  GOETTINGEN: {link_cost: 136}
+  #TONGJI: {link_cost: 63}
+  #GOETTINGEN: {link_cost: 136}
   WASEDA: {link_cost: 5}
   ARIZONA: {link_cost: 100}
 network_regions: [/ndn/jp/ac/osaka-u]

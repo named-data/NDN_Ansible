@@ -12,6 +12,7 @@ router_name: wundngw
 http_access: https
 memsize: 2
 neighbors: 
+  MML1: {link_cost: 75}
   BERN: {link_cost: 60}
   QUB: {link_cost: 60}
   WU2: {link_cost: 1}

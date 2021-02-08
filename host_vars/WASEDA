@@ -20,7 +20,7 @@ neighbors:
   #KISTI: {link_cost: 39}
   ANYANG: {link_cost: 40}
   ARIZONA: {link_cost: 75}
-  TONGJI: {link_cost: 98}
+  #TONGJI: {link_cost: 98}
   #BUPT: {link_cost: 48}
 network_regions: [/ndn/jp/waseda]
 #hr_radius: 19.3583257471934

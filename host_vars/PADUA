@@ -21,7 +21,7 @@ neighbors:
   AFA: {link_cost: 11}
   #PKUSZ: {link_cost: 170}
   MINHO: {link_cost: 26}
-  GOETTINGEN: {link_cost: 14}
+  #GOETTINGEN: {link_cost: 14}
   COPELABS: {link_cost: 24}
   URJC: {link_cost: 15}
   UIUC: {link_cost: 80}
