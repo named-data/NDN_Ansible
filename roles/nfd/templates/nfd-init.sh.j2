@@ -61,6 +61,7 @@ nfdc face destroy udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].
 #{% endif %}
 
 ## Use reliability everywhere. Leave it off to LACL until we have them update.
+## once LACL gets updated, need to run this again so all nodes go to LACL with reliability turned on
 #{% if  neighbor == "LACL" %}
 #nfdc face create udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }} persistency permanent mtu 1450 
 #{% else %}
