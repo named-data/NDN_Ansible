@@ -78,19 +78,21 @@
 #  copy: dest=/lib/systemd/system/nginx.service src=roles/nfd-status-http-server/files/nginx.service owner=root group=root mode=0644
 #  when: ansible_distribution == "Ubuntu" 
 
-- name: install certbot-auto from EFF
-  get_url: url=https://dl.eff.org/certbot-auto dest=/usr/local/bin/certbot-auto mode=0755
-  when: ansible_distribution == "Ubuntu" 
-  ignore_errors: yes
 
-- name: create certbotRun.sh
-  template: src=certbotRun.sh.j2 dest=/home/ndnops/certbotRun.sh  owner=root group=root mode="u=rwx,g=rx,o=rx"
-  when: ansible_distribution == "Ubuntu" 
 
-- name: run certbotRun.sh
-  shell: /home/ndnops/certbotRun.sh
-  when: ansible_distribution == "Ubuntu" 
-  ignore_errors: yes
+#- name: install certbot-auto from EFF
+#  get_url: url=https://dl.eff.org/certbot-auto dest=/usr/local/bin/certbot-auto mode=0755
+#  when: ansible_distribution == "Ubuntu" 
+#  ignore_errors: yes
+#
+#- name: create certbotRun.sh
+#  template: src=certbotRun.sh.j2 dest=/home/ndnops/certbotRun.sh  owner=root group=root mode="u=rwx,g=rx,o=rx"
+#  when: ansible_distribution == "Ubuntu" 
+#
+#- name: run certbotRun.sh
+#  shell: /home/ndnops/certbotRun.sh
+#  when: ansible_distribution == "Ubuntu" 
+#  ignore_errors: yes
 
 #- name: create /etc/nginx/sites-available/nfd
 #  template: src=nfd_site.j2 dest=/etc/nginx/sites-available/nfd  owner=root group=root mode="u=rw,g=r,o=r"
@@ -98,6 +100,14 @@
 #
 #- file: path=/etc/nginx/sites-enabled/nfd state=link  src=/etc/nginx/sites-available/nfd
 #  when: ansible_distribution == "Ubuntu"
+
+- name: remove /usr/local/bin/certbot-auto if present
+  file: path=/usr/local/bin/certbot-auto state=absent
+  when: (ansible_distribution == "Ubuntu")  
+
+- name: remove /usr/local/bin/certbot if present
+  file: path=/usr/local/bin/certbot state=absent
+  when: (ansible_distribution == "Ubuntu")  
 
 - name: remove /etc/nginx/conf.d/nfd.conf if present
   file: path=/etc/nginx/conf.d/nfd.conf state=absent
@@ -132,9 +142,12 @@
   when: (ansible_distribution == "Ubuntu") and (inventory_hostname == "TONGJI") 
 
 
-- cron: name="renew certbot" user="root" day="13,28" hour="1" minute="30" job="/usr/local/bin/certbot-auto renew --standalone --pre-hook \"service nfd-status-http-server stop; service nginx stop\" --post-hook \"service nfd-status-http-server start; service nginx start\" > /dev/null"
+- cron: name="renew certbot" state=absent user="root" day="13,28" hour="1" minute="30" job="/usr/local/bin/certbot-auto renew --standalone --pre-hook \"service nfd-status-http-server stop; service nginx stop\" --post-hook \"service nfd-status-http-server start; service nginx start\" > /dev/null"
 
-#- cron: name="renew certbot" user="root" day="28" hour="1" minute="30" job="/usr/local/bin/certbot-auto renew --standalone --pre-hook \"initctl stop nfd-status-http-server; service nginx stop\" --post-hook \"initctl start nfd-status-http-server; service nginx start\""
+
+#- cron: name="renew certbot" user="root" day="13,28" hour="1" minute="30" job="/usr/local/bin/certbot-auto renew --standalone --pre-hook \"service nfd-status-http-server stop; service nginx stop\" --post-hook \"service nfd-status-http-server start; service nginx start\" > /dev/null"
+#
+##- cron: name="renew certbot" user="root" day="28" hour="1" minute="30" job="/usr/local/bin/certbot-auto renew --standalone --pre-hook \"initctl stop nfd-status-http-server; service nginx stop\" --post-hook \"initctl start nfd-status-http-server; service nginx start\""
 #  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "14") 
 #
 #- cron: name="renew certbot" user="root" day="28" hour="1" minute="30" job="/usr/local/bin/certbot-auto renew --standalone --pre-hook \"systemctl stop nfd-status-http-server; service nginx stop\" --post-hook \"systemctl start nfd-status-http-server; service nginx start\""
