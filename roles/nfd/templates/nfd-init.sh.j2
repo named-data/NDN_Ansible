@@ -53,7 +53,21 @@ iptables -A INPUT -s {{ hostvars[neighbor].host_ip }}  -j DROP
 # This is a temporary fix because an update of a face with mtu change does not currently work.
 nfdc face destroy udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }}
 
-nfdc face create udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }} persistency permanent mtu 1450
+## Test reliability just between ARIZONA and WU
+#{% if ( inventory_hostname == "ARIZONA" and neighbor == "WU" ) or ( inventory_hostname == "WU" and neighbor == "ARIZONA" )%}
+#nfdc face create udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }} persistency permanent mtu 1450 reliability on
+#{% else %}
+#nfdc face create udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }} persistency permanent mtu 1450
+#{% endif %}
+
+## Use reliability everywhere. Leave it off to LACL until we have them update.
+#{% if  neighbor == "LACL" %}
+#nfdc face create udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }} persistency permanent mtu 1450 
+#{% else %}
+#nfdc face create udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }} persistency permanent mtu 1450 reliability on
+#{% endif %}
+
+nfdc face create udp4://{{ hostvars[neighbor].host_ip }}:{{ hostvars[neighbor].udp_port }} persistency permanent mtu 1450 reliability on
 
 iptables -D INPUT -s {{ hostvars[neighbor].host_ip }}  -j DROP
 
