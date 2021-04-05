@@ -258,17 +258,17 @@
 # Remove ndn ppa
 - command: add-apt-repository -y -r ppa:named-data/ppa
   become: yes
-  ignore_errors: yes
+#  ignore_errors: yes
 
 # Remove ndn ppa-dev
 - command: add-apt-repository -y -r ppa:named-data/ppa-dev
   become: yes
-  ignore_errors: yes
+#  ignore_errors: yes
 
 # Add ndn ppa
 - command: add-apt-repository -u -y  ppa:named-data/ppa
   become: yes
-  ignore_errors: yes
+#  ignore_errors: yes
 
 # Add ndn ppa-dev
 #- command: add-apt-repository -u -y  ppa:named-data/ppa-dev
@@ -277,11 +277,11 @@
 
 - command: apt-get -y update
   become: yes
-  ignore_errors: yes
+#  ignore_errors: yes
 
 - command: apt-get -y upgrade
   become: yes
-  ignore_errors: yes
+#  ignore_errors: yes
 
 #- name: remove Ashlesh experimental ndn repository
 #  #apt_repository: repo='ppa:agawande/named-data-exp' state=present
@@ -295,7 +295,7 @@
     autoclean: yes
     autoremove: yes
   when: ansible_distribution == "Ubuntu" 
-  ignore_errors: yes
+#  ignore_errors: yes
 
 #- name: remove python3 stuff
 #  apt: 
