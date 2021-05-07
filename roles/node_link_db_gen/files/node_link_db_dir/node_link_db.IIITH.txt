@@ -1,0 +1,7 @@
+node: IIITH
+IIITH hr_radius: 15.9760646783892
+IIITH hr_angle: 3.00582605076987
+link: IIITH - URJC cost: 90
+link: IIITH - PADUA cost: 90
+link: IIITH - MUMBAI_AWS cost: 40
+
