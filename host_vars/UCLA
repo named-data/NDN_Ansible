@@ -14,7 +14,7 @@ memsize: 2
 neighbors:
   ARIZONA: {link_cost: 25}
   WU: {link_cost: 30}
-  UCLACS: {link_cost: 1}
+  #UCLACS: {link_cost: 1}
   CSU: {link_cost: 16}
   MSU: {link_cost: 150}
   ANYANG: {link_cost: 100}

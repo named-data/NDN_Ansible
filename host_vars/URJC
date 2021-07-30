@@ -13,6 +13,7 @@ router_name: insula
 http_access: https
 memsize: 24
 neighbors: 
+  IIITH: {link_cost: 90}
   UNIVH2C: {link_cost: 52}
   AVEIRO: {link_cost: 15}
   CORUNA: {link_cost: 17}

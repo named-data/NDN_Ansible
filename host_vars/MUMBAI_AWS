@@ -16,6 +16,7 @@ router_name: ubuntu
 http_access: https
 memsize: 1
 neighbors: 
+  IIITH: {link_cost: 40}
   WU: {link_cost: 122}
   AFA: {link_cost: 72}
   UUM: {link_cost: 88}

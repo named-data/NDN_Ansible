@@ -13,6 +13,7 @@ router_name: tno-ndntestbed-bordernode
 http_access: http
 memsize: 4
 neighbors: 
+  DELFT: {link_cost: 2}
   MML2: {link_cost: 25}
   QUB: {link_cost: 15}
   #GOETTINGEN: {link_cost: 12}

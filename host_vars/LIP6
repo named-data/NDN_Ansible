@@ -12,6 +12,7 @@ router_name: ndnhub
 http_access: https
 memsize: 4
 neighbors: 
+  DELFT: {link_cost: 9}
   MML2: {link_cost: 35}
   SAVI: {link_cost: 100}
   QUB: {link_cost: 12}

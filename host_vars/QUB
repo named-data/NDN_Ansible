@@ -12,6 +12,7 @@ router_name: ndn
 http_access: https
 memsize: 8
 neighbors: 
+  DELFT: {link_cost: 15}
   WU: {link_cost: 60}
   NEU: {link_cost: 60}
   TNO: {link_cost: 15}
@@ -28,8 +29,8 @@ hr_radius: 17.8582321576696
 # default name is same as default_prefix
 supports_guest_certs: True
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
-operator_name: "Peter Maynard"
-operator_email: p.maynard@qub.ac.uk
+operator_name: "Paul McAllister"
+operator_email: P.McAllister@qub.ac.uk
 site_email_domain: ["qub.ac.uk"]
 allowGuests: true
 doNotSendOpRequests: false
