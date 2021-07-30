@@ -3,7 +3,6 @@
 NDNDEMO
 
 [ndngateways]
-
 # We need to get link costs for neighbors from somewhere but we want to make
 # sure that the cost is same for both endpoints. i.e. the WU/MEMPHIS link should
 # have the same cost on the WU end as on the MEMPHIS end.
@@ -11,6 +10,8 @@ NDNDEMO
 # WU needs extra strategy for ndndemo added in nfd-init.sh
 
 # Everything defined in host_vars/{name}, e.g. host_vars/WU contains all variables for node WU
+IIITH
+DELFT
 TNTECH
 MML1
 MML2
@@ -33,7 +34,7 @@ BERN
 #CAIDA
 COPELABS
 CSU
-GOETTINGEN
+#GOETTINGEN
 #INDONESIA
 #KISTI
 LIP6
@@ -54,7 +55,7 @@ TNO
 UASLP
 #UCI
 UCLA
-UCLACS
+#UCLACS
 UFBA
 UIUC
 URJC
@@ -68,6 +69,7 @@ WU2
 
 
 [all:vars]
+ansible_python_interpreter=/usr/bin/python3
 ansible_user=ndnops
 ansible_ssh_private_key_file=~/.ssh/id_rsa
 ndnNetwork=/ndn
