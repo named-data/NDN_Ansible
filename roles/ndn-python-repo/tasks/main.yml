@@ -34,8 +34,9 @@
 
 - name: copy mongodb.conf file 
   copy: dest=/etc/mongodb.conf src=roles/ndn-python-repo/files/mongodb.conf group=root mode=644
-  notify: restart mongodb
-  notify: restart ndn-python-repo
+  notify: 
+    - restart mongodb
+    - restart ndn-python-repo
 
 - name: create ndn-python-repo.conf
   template: src=ndn-python-repo.conf.j2 dest=/etc/ndn/ndn-python-repo.conf owner=ndn group=ndn mode=644
