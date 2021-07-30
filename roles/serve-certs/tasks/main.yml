@@ -11,6 +11,7 @@
     #version: 7d476edcb90204e6ba1206f71e8f0fde728af9eb
     version: develop
     update: yes
+  ignore_errors: yes
 #    notify: restart serve-certs
 
 # make install
