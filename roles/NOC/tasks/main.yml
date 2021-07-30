@@ -34,9 +34,145 @@
 #  copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/checkAndRestart_nlsr.sh  src=roles/NOC/files/checkAndRestart_nlsr.sh.16.04 owner={{ansible_user}} group={{ansible_user}} mode=0755
 #  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "16")
 
+- name: copy nginx apt sources.list.d files
+  copy: dest=/etc/apt/sources.list.d/nginx_org_packages_mainline_ubuntu.list src=roles/NOC/files/nginx_org_packages_mainline_ubuntu.list.20.04 mode=0644
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "20")
+
+- name: copy nginx apt sources.list.d files
+  copy: dest=/etc/apt/sources.list.d/nginx_org_packages_mainline_ubuntu.list.distUpgrade src=roles/NOC/files/nginx_org_packages_mainline_ubuntu.list.distUpgrade.20.04 mode=644
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "20")
+
+- name: copy nginx apt sources.list.d files
+  copy: dest=/etc/apt/sources.list.d/nginx_org_packages_ubuntu.list.distUpgrade src=roles/NOC/files/nginx_org_packages_ubuntu.list.distUpgrade.20.04 mode=644
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "20")
+
+
 - name: copy checkAndRestart_nlsr.sh to NOC/bin
   copy: dest=/home/{{ansible_user}}/ndn-ops/NOC/bin/checkAndRestart_nlsr.sh  src=roles/NOC/files/checkAndRestart_nlsr.sh.14.04 owner={{ansible_user}} group={{ansible_user}} mode=0755
   when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "14")
+
+- name: make sure /etc/cron.allow exists
+  file:
+    path: "/etc/cron.allow"
+    state: touch
+  become: yes
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "20")
+
+
+# users root, ndnops, {{ansible_user}}, and ndnsec should have permission to use crontabs
+#- name: check whether root has permission to create crontab
+#  shell: 'grep root /etc/cron.allow'
+#  register: user_status
+#  failed_when: "user_status.rc == 2"
+#  changed_when: false
+#  become: yes
+#  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "20")
+
+#- name: Add root to /etc/cron.allow
+#  shell: 'echo root | tee -a /etc/cron.allow'
+#  when:  user_status.rc == 1
+#  become: yes
+#  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "20")
+
+
+- name: check whether root has permission to create crontab
+  become: yes
+  lineinfile:
+    path: /etc/cron.allow
+    line: "root"
+    state: present
+  check_mode: yes
+  register: presence
+
+- name: Add root to /etc/cron.allow
+  lineinfile:
+    path: /etc/cron.allow
+    line: "root"
+
+- name: check whether ndnops has permission to create crontab
+  become: yes
+  lineinfile:
+    path: /etc/cron.allow
+    line: "ndnops"
+    state: present
+  check_mode: yes
+  register: presence
+
+- name: Add ndnops to /etc/cron.allow
+  lineinfile:
+    path: /etc/cron.allow
+    line: "ndnops"
+
+- name: check whether ndnsec has permission to create crontab
+  become: yes
+  lineinfile:
+    path: /etc/cron.allow
+    line: "ndnsec"
+    state: present
+  check_mode: yes
+  register: presence
+
+- name: Add ndnsec to /etc/cron.allow
+  lineinfile:
+    path: /etc/cron.allow
+    line: "ndnsec"
+
+- name: check whether ansible_user {{ansible_user}} has permission to create crontab
+  become: yes
+  lineinfile:
+    path: /etc/cron.allow
+    line: "{{ansible_user}}"
+    state: present
+  check_mode: yes
+  register: presence
+
+- name: Add {{ansible_user}} to /etc/cron.allow
+  lineinfile:
+    path: /etc/cron.allow
+    line: "{{ansible_user}}"
+
+
+#- name: check whether ndnops has permission to create crontab
+#  shell: 'grep ndnops /etc/cron.allow'
+#  register: user_status
+#  failed_when: "user_status.rc == 2"
+#  changed_when: false
+#  become: yes
+#  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "20")
+
+#- name: Add ndnops to /etc/cron.allow
+#  shell: 'echo ndnops | tee -a /etc/cron.allow'
+#  when:  user_status.rc == 1
+#  become: yes
+#  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "20")
+
+#- name: check whether ndnsec has permission to create crontab
+#  shell: 'grep ndnsec /etc/cron.allow'
+#  register: user_status
+#  failed_when: "user_status.rc == 2"
+#  changed_when: false
+#  become: yes
+#  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "20")
+#
+#- name: Add ndnsec to /etc/cron.allow
+#  shell: 'echo ndnsec | tee -a /etc/cron.allow'
+#  when:  user_status.rc == 1
+#  become: yes
+#  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "20")
+
+#- name: check whether ansible_user has permission to create crontab
+#  shell: 'grep "{{ansible_user}}" /etc/cron.allow'
+#  register: user_status
+#  failed_when: "user_status.rc == 2"
+#  changed_when: false
+#  become: yes
+#  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "20")
+
+#- name: Add {{ansible_user}} to /etc/cron.allow
+#  shell: 'echo {{ansible_user}} | tee -a /etc/cron.allow'
+#  when:  user_status.rc == 1
+#  become: yes
+#  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "20")
 
 - cron: name="check and restart nlsr" state="absent" user="{{ansible_user}}" minute="*/30" job="/home/{{ansible_user}}/ndn-ops/NOC/bin/checkAndRestart_nlsr.sh  "
 
@@ -232,11 +368,47 @@
 
 - name: install general ubuntu packages 
   apt:
-    name: ['build-essential', 'git', 'openssl', 'python-openssl', 'libffi-dev', 'python-cffi', 'libssl-dev', 'expat', 'libexpat-dev', 'libpcap-dev', 'gawk', 'texinfo', 'asciidoc', 'finger', 'software-properties-common', 'ntp', 'autoconf', 'libtool', 'python-dev', 'g++', 'autotools-dev', 'libicu-dev', 'libbz2-dev', 'sqlite3', 'pkg-config', 'libssl-dev', 'libsqlite3-dev', 'libcrypto++-dev', 'aptitude', 'python3-setuptools', 'python3-dev', 'python3-pip', 'python-pip', 'python-netaddr', 'fail2ban' , 'iperf', 'iperf3' , 'mongodb' ,  'python-configparser' , 'python-certbot-nginx']
+    name: ['build-essential', 'git', 'openssl', 'python-openssl', 'libffi-dev', 'python-cffi', 'libssl-dev', 'expat', 'libexpat-dev', 'libpcap-dev', 'gawk', 'texinfo', 'asciidoc', 'finger', 'software-properties-common', 'ntp', 'autoconf', 'libtool', 'python-dev', 'g++', 'autotools-dev', 'libicu-dev', 'libbz2-dev', 'sqlite3', 'pkg-config', 'libssl-dev', 'libsqlite3-dev', 'libcrypto++-dev', 'aptitude', 'python3-setuptools', 'python3-pkg-resources', 'python3-dev', 'python3-pip', 'python-netaddr', 'fail2ban' , 'iperf', 'iperf3' , 'mongodb' ,  'python-configparser' , 'nginx', 'screen' ]
     update_cache: yes
     autoclean: yes
     autoremove: yes
   when: ansible_distribution == "Ubuntu" 
+#  ignore_errors: yes
+
+- name: install python-certbot-nginx for Ubuntu 18.04
+  apt:
+    name: ['python-certbot-nginx']
+    update_cache: yes
+    autoclean: yes
+    autoremove: yes
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "18"
+  ignore_errors: yes
+
+- name: install python3-certbot-nginx for Ubuntu 20.04
+  apt:
+    name: ['python3-certbot-nginx']
+    update_cache: yes
+    autoclean: yes
+    autoremove: yes
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "20"
+  ignore_errors: yes
+
+- name: install python3-pip for Ubuntu 20.04
+  apt:
+    name: ['python3-pip']
+    update_cache: yes
+    autoclean: yes
+    autoremove: yes
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "20"
+  ignore_errors: yes
+
+- name: install python-pip
+  apt:
+    name: ['python-pip']
+    update_cache: yes
+    autoclean: yes
+    autoremove: yes
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "18"
   ignore_errors: yes
 
 - name: install general ubuntu packages 
@@ -315,6 +487,22 @@
 - command: python -m easy_install --upgrade pyOpenSSL
   become: yes
   ignore_errors: yes
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "18"
+
+# looks like sometimes need to upgrade pyOpenSSL first before upgrading pip
+#- command: python3 -m easy_install --upgrade pyOpenSSL
+#  become: yes
+#  ignore_errors: yes
+#  when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "20"
+
+- name: update pyOpenSSL and pyndn
+  pip: 
+    name: 
+      - pip
+      - setuptools
+      - pyOpenSSL
+      - pyndn
+    state: latest
 
 - command: python3 -m pip install --upgrade pip
   become: yes
@@ -323,6 +511,12 @@
 - command: python -m pip install --upgrade pip
   become: yes
   ignore_errors: yes
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "18"
+
+- command: python3 -m pip3 install --upgrade pip3
+  become: yes
+  ignore_errors: yes
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "20"
 
 - pip: name=dnspython state=latest executable=pip
   ignore_errors: yes
