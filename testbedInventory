@@ -1,4 +1,14 @@
 # ndndemo support.
+[nightlybuilds]
+ARIZONA
+MEMPHIS
+WU
+
+[ppabuilds]
+ARIZONA
+MEMPHIS
+WU
+
 [ndndemo]
 NDNDEMO
 
