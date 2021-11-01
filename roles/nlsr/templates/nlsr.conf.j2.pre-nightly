@@ -166,7 +166,7 @@ security
       checker
       {
         type customized
-        sig-type ecdsa-sha256
+        sig-type rsa-sha256
         key-locator
         {
           type name
@@ -194,7 +194,7 @@ security
       checker
       {
         type customized
-        sig-type ecdsa-sha256
+        sig-type rsa-sha256
         key-locator
         {
           type name
@@ -223,7 +223,7 @@ security
       checker
       {
         type customized
-        sig-type ecdsa-sha256
+        sig-type rsa-sha256
         key-locator
         {
           type name
@@ -251,7 +251,7 @@ security
       checker
       {
         type hierarchical
-        sig-type ecdsa-sha256
+        sig-type rsa-sha256
       }
     }
 
@@ -286,7 +286,7 @@ security
       checker
       {
         type customized
-        sig-type ecdsa-sha256
+        sig-type rsa-sha256
         key-locator
         {
           type name
@@ -307,7 +307,7 @@ security
       checker
       {
         type hierarchical
-        sig-type ecdsa-sha256
+        sig-type rsa-sha256
       }
     }
 

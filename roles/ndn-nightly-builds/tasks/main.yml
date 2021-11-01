@@ -1,0 +1,39 @@
+---
+# tasks file for ndn-nightly-builds---
+
+- name: JDD purge ndn packages (ndn-cxx, nfd, ndnsec)
+  apt:
+    name: ['ndn-cxx', 'ndn-cxx-dev', 'nfd', 'ndnsec', 'nlsr', 'libndn-cxx', 'libndn-cxx-dev', 'libndn-cxx-dbg' , 'libpsync', 'ndn-autoconfig-server','ndn-dissect', 'ndn-tools', 'ndnchunks', 'ndndump', 'ndnpeek', 'ndnping', 'repo-ng' , 'nfd-status-http-server' ]
+    update_cache: yes
+    autoclean: yes
+    autoremove: yes
+    purge: yes
+    state: absent
+  when: ansible_distribution == "Ubuntu" 
+
+# Remove ndn ppa
+- command: add-apt-repository -y -r ppa:named-data/ppa
+  become: yes
+
+# Remove ndn ppa-dev
+- command: add-apt-repository -y -r ppa:named-data/ppa-dev
+  become: yes
+
+- name: remove all named-data sources lists
+  shell: rm -f /etc/apt/sources.list.d/*named-data-*.list*
+
+- name: add /etc/apt/sources.list.d/nfd-nightly.list
+  copy: dest=/etc/apt/sources.list.d/nfd-nightly.list src=roles/ndn-nightly-builds/files/ubuntu_20.04_sources.list mode=644 
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "20")
+
+- name: JDD install ndn packages (nfd, ndnsec)
+  apt:
+    name: ['nfd', 'ndnsec', 'nlsr', 'libndn-cxx', 'libndn-cxx-dev', 'libndn-cxx-dbg', 'libpsync', 'ndn-autoconfig-server','ndn-dissect', 'ndn-tools', 'ndnchunks', 'ndndump', 'ndnpeek', 'ndnping', 'repo-ng' , 'nfd-status-http-server' ]
+    #name: ['ndn-cxx', 'ndn-cxx-dev', 'nfd', 'ndnsec']
+    update_cache: yes
+    autoclean: yes
+    autoremove: yes
+    state: latest
+  when: ansible_distribution == "Ubuntu" 
+
+

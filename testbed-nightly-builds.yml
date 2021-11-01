@@ -1,0 +1,103 @@
+---
+
+#- name: install ndn nightly builds
+#  hosts: nightlybuilds
+#  remote_user: ndnops
+#  become: yes
+#
+#  roles:
+#  - {role: 'ndn-nightly-builds', tags: 'ndn-nightly-builds'}
+#
+#- name: install ndn ppa builds
+#  hosts: ppabuilds
+#  remote_user: ndnops
+#  become: yes
+#
+#  roles:
+#  - {role: 'ndn-ppa', tags: 'ndn-ppa'}
+#
+
+- name: install ndn gateways (Ubuntu)
+  #hosts: ndngateways 
+  hosts: nightlybuilds 
+  remote_user: ndnops
+  become: yes
+
+
+  roles: 
+#  - {role: 'prep_0.6.0', tags: 'prep_0.6.0'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "prep_0.6.0"
+  - {role: 'NOC', tags: 'NOC'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "NOC"
+  - {role: 'ndn-nightly-builds', tags: 'ndn-nightly-builds'}
+  - {role: 'ndncert-ca', tags: 'ndncert-ca'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndncert-ca"
+  - {role: 'ndn-cxx', tags: 'ndn-cxx'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndn-cxx"
+  - {role: 'nfd', tags: 'nfd'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "nfd"
+  - {role: 'ndnsec', tags: 'ndnsec'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnsec"
+  - {role: 'ndnping', tags: 'ndnping'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnping"
+  - {role: 'nlsr', tags: 'nlsr'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "nlsr"
+  - {role: 'nfd-status-http-server', tags: 'nfd-status-http-server'} 
+  - {role: 'NDNts_nfd_status', tags: 'NDNts_nfd_status'} 
+  - {role: 'ndn-autoconfig-server', tags: 'ndn-autoconfig-server'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndn-autoconfig-server"
+  - {role: 'repo-ng', tags: 'repo-ng'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "repo-ng"
+  - {role: 'ndn-python-repo', tags: 'ndn-python-repo'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndn-python-repo"
+  - {role: 'ndn-tools', tags: 'ndn-tools'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndn-tools"
+  - {role: 'nfd-autoreg', tags: 'nfd-autoreg'} 
+  - {role: 'serve-certs', tags: 'serve-certs'} 
+
+#  - {role: 'ndnmap-data-collector', tags: 'ndnmap-data-collector'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnmap-data-collector"
+#  - {role: 'ndnTestbedDataCollector', tags: 'ndnTestbedDataCollector'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnTestbedDataCollector"
+
+- name: install ndn gateways (RHEL)
+  hosts: ndngateways_rhel 
+  remote_user: ndnops
+  become: yes
+
+
+  roles: 
+  - {role: 'NOC', tags: 'NOC'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "NOC"
+  - {role: 'boost-from-source', tags: 'boost-from-source'}
+  - {role: 'ndn-cxx-from-source', tags: 'ndn-cxx-from-source'}
+  - {role: 'nfd-from-source', tags: 'nfd-from-source'} 
+  - {role: 'ndn-tools-from-source', tags: 'ndn-tools-from-source'}
+  - {role: 'ndnsec', tags: 'ndnsec'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnsec"
+  - {role: 'nlsr-from-source', tags: 'nlsr-from-source'}
+  - {role: 'ndnping-from-source', tags: 'ndnping-from-source'}
+  - {role: 'nfd-status-http-server', tags: 'nfd-status-http-server'}
+  - ndn-autoconfig-server
+  - {role: 'repo-ng-from-source', tags: 'repo-ng-from-source'}
+#  - ndnmap-data-collector
+  - {role: 'ndnTestbedDataCollector', tags: 'ndnTestbedDataCollector'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnTestbedDataCollector"
+#  - {role: 'ndn-utils', tags: 'ndn-utils'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndn-utils"
+  - {role: 'nfd-autoreg', tags: 'nfd-autoreg'} 
+
+
+- name: install ndndemo
+  hosts: ndndemo
+  remote_user: jdd
+  become: yes
+
+  roles:
+  - {role: 'cacti', tags: 'cacti'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "cacti"
+
+#
+#  roles:
+#  - nfd
+
+- name: install RedHat Enterprise Linux ndn gateways from source
+  hosts: ndn_rhel
+  remote_user: ndnops
+  become: yes
+#
+  roles:
+  - NOC
+  - ndn-cxx-from-source
+  - nfd-from-source
+  - ndn-tools-from-source
+  - ndnsec
+  - nlsr-from-source
+  - nfd-status-http-server
+  - ndn-autoconfig-server
+  - repo-ng-from-source
+#  - ndnmap-data-collector
+  - ndnTestbedDataCollector
+  - {role: 'nfd-autoreg', tags: 'nfd-autoreg'} 
+

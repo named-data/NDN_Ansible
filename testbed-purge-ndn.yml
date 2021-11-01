@@ -1,0 +1,10 @@
+---
+
+- name: purge ndn packages
+  hosts: nightlybuilds
+  remote_user: ndnops
+  become: yes
+
+  roles:
+  - {role: 'ndn-purge', tags: 'ndn-purge'}
+
