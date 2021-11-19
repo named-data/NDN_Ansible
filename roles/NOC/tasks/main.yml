@@ -368,10 +368,10 @@
 
 - name: install general ubuntu packages 
   apt:
-    name: ['build-essential', 'git', 'openssl', 'python-openssl', 'libffi-dev', 'python-cffi', 'libssl-dev', 'expat', 'libexpat-dev', 'libpcap-dev', 'gawk', 'texinfo', 'asciidoc', 'finger', 'software-properties-common', 'ntp', 'autoconf', 'libtool', 'python-dev', 'g++', 'autotools-dev', 'libicu-dev', 'libbz2-dev', 'sqlite3', 'pkg-config', 'libssl-dev', 'libsqlite3-dev', 'libcrypto++-dev', 'aptitude', 'python3-setuptools', 'python3-pkg-resources', 'python3-dev', 'python3-pip', 'python-netaddr', 'fail2ban' , 'iperf', 'iperf3' , 'mongodb' ,  'python-configparser' , 'nginx', 'screen' ]
+    name: ['build-essential', 'git', 'openssl', 'python-openssl', 'libffi-dev', 'python-cffi', 'libssl-dev', 'expat', 'libexpat-dev', 'libpcap-dev', 'gawk', 'texinfo', 'asciidoc', 'finger', 'software-properties-common', 'ntp', 'autoconf', 'libtool', 'python-dev', 'g++', 'autotools-dev', 'libicu-dev', 'libbz2-dev', 'sqlite3', 'pkg-config', 'libssl-dev', 'libsqlite3-dev', 'libcrypto++-dev', 'aptitude', 'python3-setuptools', 'python3-pkg-resources', 'python3-dev', 'python3-pip', 'python-netaddr', 'fail2ban' , 'iperf', 'iperf3' , 'mongodb' ,  'python-configparser' , 'nginx', 'screen' , 'systemd-timesyncd' ]
     update_cache: yes
     autoclean: yes
-    autoremove: yes
+    autoremove: no
   when: ansible_distribution == "Ubuntu" 
 #  ignore_errors: yes
 
@@ -427,47 +427,47 @@
 #       - liblog4cxx10v5
 #         when {{ ansible_distribution_major_version }} == 16 
 
-# Remove ndn ppa
-- command: add-apt-repository -y -r ppa:named-data/ppa
-  become: yes
-#  ignore_errors: yes
-
-# Remove ndn ppa-dev
-- command: add-apt-repository -y -r ppa:named-data/ppa-dev
-  become: yes
-#  ignore_errors: yes
-
-# Add ndn ppa
-- command: add-apt-repository -u -y  ppa:named-data/ppa
-  become: yes
-#  ignore_errors: yes
-
-# Add ndn ppa-dev
-#- command: add-apt-repository -u -y  ppa:named-data/ppa-dev
+## Remove ndn ppa
+#- command: add-apt-repository -y -r ppa:named-data/ppa
 #  become: yes
-#  ignore_errors: yes
-
-- command: apt-get -y update
-  become: yes
-#  ignore_errors: yes
-
-- command: apt-get -y upgrade
-  become: yes
-#  ignore_errors: yes
-
-#- name: remove Ashlesh experimental ndn repository
-#  #apt_repository: repo='ppa:agawande/named-data-exp' state=present
-#  apt_repository: repo='ppa:agawande/named-data-exp' state=absent
+##  ignore_errors: yes
+#
+## Remove ndn ppa-dev
+#- command: add-apt-repository -y -r ppa:named-data/ppa-dev
+#  become: yes
+##  ignore_errors: yes
+#
+## Add ndn ppa
+#- command: add-apt-repository -u -y  ppa:named-data/ppa
+#  become: yes
+##  ignore_errors: yes
+#
+## Add ndn ppa-dev
+##- command: add-apt-repository -u -y  ppa:named-data/ppa-dev
+##  become: yes
+##  ignore_errors: yes
+#
+#- command: apt-get -y update
+#  become: yes
+##  ignore_errors: yes
+#
+#- command: apt-get -y upgrade
+#  become: yes
+##  ignore_errors: yes
+#
+##- name: remove Ashlesh experimental ndn repository
+##  #apt_repository: repo='ppa:agawande/named-data-exp' state=present
+##  apt_repository: repo='ppa:agawande/named-data-exp' state=absent
+##  when: ansible_distribution == "Ubuntu" 
+#
+#- name: install basic ndn packages (libndn-cxx, nfd, ndnsec)
+#  apt:
+#    name: ['libndn-cxx', 'libndn-cxx-dev', 'nfd', 'ndnsec']
+#    update_cache: yes
+#    autoclean: yes
+#    autoremove: yes
 #  when: ansible_distribution == "Ubuntu" 
-
-- name: install basic ndn packages (ndn-cxx, nfd, ndnsec)
-  apt:
-    name: ['ndn-cxx', 'ndn-cxx-dev', 'nfd', 'ndnsec']
-    update_cache: yes
-    autoclean: yes
-    autoremove: yes
-  when: ansible_distribution == "Ubuntu" 
-#  ignore_errors: yes
+##  ignore_errors: yes
 
 #- name: remove python3 stuff
 #  apt: 
