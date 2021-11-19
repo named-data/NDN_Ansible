@@ -6,10 +6,25 @@
     name: ['ndn-cxx', 'ndn-cxx-dev', 'nfd', 'ndnsec', 'nlsr', 'libndn-cxx', 'libndn-cxx-dev', 'libndn-cxx-dbg' , 'libpsync', 'ndn-autoconfig-server','ndn-dissect', 'ndn-tools', 'ndnchunks', 'ndndump', 'ndnpeek', 'ndnping', 'repo-ng' , 'nfd-status-http-server' ]
     update_cache: yes
     autoclean: yes
-    autoremove: yes
+    autoremove: no
     purge: yes
     state: absent
   when: ansible_distribution == "Ubuntu" 
+
+# disable serve-certs systemd service
+- name: disable serve-certs systemd service
+  systemd: 
+    name: serve-certs.service
+    enabled: no
+    masked: no
+  ignore_errors: yes
+
+# make uninstall on ndn6-tools
+- make:
+    chdir: /home/ndnops/ndn6-tools
+    target: uninstall
+  become: yes
+  ignore_errors: yes
 
 # Remove ndn ppa
 - command: add-apt-repository -y -r ppa:named-data/ppa
@@ -20,7 +35,7 @@
   become: yes
 
 - name: remove all named-data sources lists
-  shell: rm -f /etc/apt/sources.list.d/*named-data-*.list*
+  shell: rm -f /etc/apt/sources.list.d/*named*data*.list*
 
 - name: add /etc/apt/sources.list.d/nfd-nightly.list
   copy: dest=/etc/apt/sources.list.d/nfd-nightly.list src=roles/ndn-nightly-builds/files/ubuntu_20.04_sources.list mode=644 
@@ -28,7 +43,7 @@
 
 - name: JDD install ndn packages (nfd, ndnsec)
   apt:
-    name: ['nfd', 'ndnsec', 'nlsr', 'libndn-cxx', 'libndn-cxx-dev', 'libndn-cxx-dbg', 'libpsync', 'ndn-autoconfig-server','ndn-dissect', 'ndn-tools', 'ndnchunks', 'ndndump', 'ndnpeek', 'ndnping', 'repo-ng' , 'nfd-status-http-server' ]
+    name: ['nfd', 'ndnsec', 'nlsr', 'libndn-cxx', 'libndn-cxx-dev', 'libndn-cxx-dbg', 'libpsync', 'ndn-autoconfig-server','ndn-dissect', 'ndn-tools', 'ndnchunks', 'ndndump', 'ndnpeek', 'ndnping', 'repo-ng' , 'nfd-status-http-server', 'ndn6-tools' ]
     #name: ['ndn-cxx', 'ndn-cxx-dev', 'nfd', 'ndnsec']
     update_cache: yes
     autoclean: yes
@@ -36,4 +51,16 @@
     state: latest
   when: ansible_distribution == "Ubuntu" 
 
+# enable ndn6-serve-certs systemd service
+- name: enable ndn6-serve-certs systemd service
+  systemd: 
+    name: ndn6-serve-certs.service
+    enabled: yes
+    state: started
+    masked: no
+
+# now remove the nightly list so we don't get nodes out of sync or potentially troublesome versions installed from nightly/weekly
+- name: remove nightly sources list
+  file: path=/etc/apt/sources.list.d/nfd-nightly.list state=absent
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "20")
 
