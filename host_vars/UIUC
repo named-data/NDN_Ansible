@@ -13,7 +13,7 @@ http_access: https
 memsize: 8
 neighbors: 
   MICHIGAN: {link_cost: 5}
-  CSU: {link_cost: 14}
+  #CSU: {link_cost: 14}
   #NIST: {link_cost: 12}
   WU: {link_cost: 9}
   PADUA: {link_cost: 80}

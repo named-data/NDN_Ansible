@@ -16,7 +16,7 @@ neighbors:
   UASLP: {link_cost: 32}
   #UCLACS: {link_cost: 25}
   UCLA: {link_cost: 25}
-  CSU: {link_cost: 18}
+  #CSU: {link_cost: 18}
   MEMPHIS: {link_cost: 17}
   WU: {link_cost: 33}
   WASEDA: {link_cost: 75}

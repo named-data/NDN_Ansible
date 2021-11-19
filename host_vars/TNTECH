@@ -15,7 +15,7 @@ neighbors:
   MEMPHIS: {link_cost: 22}
   UIUC: {link_cost: 20}
   WU: {link_cost: 20}
-  CSU: {link_cost: 25}
+  #CSU: {link_cost: 25}
   MINHO: {link_cost: 80}
 network_regions: [/ndn/edu/tntech]
 #hr_radius: 16.8198026585051
