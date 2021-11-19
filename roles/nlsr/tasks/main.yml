@@ -141,9 +141,9 @@
 #  copy: dest=/etc/ndn/nlsr/log4cxx.conf src=roles/nlsr/files/log4cxx.conf owner=root group=root mode=0644
 #  notify: restart nlsr
 
-- name: install chronosyn
-  apt: name=libchronosync state=latest update_cache=yes
-  ignore_errors: yes
+#- name: install chronosyn
+#  apt: name=libchronosync state=latest update_cache=yes
+#  ignore_errors: yes
 
 - name: install psync
   apt: name=libpsync state=latest update_cache=yes
