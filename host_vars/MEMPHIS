@@ -18,7 +18,7 @@ neighbors:
   UFBA: {link_cost: 115}
   ARIZONA: {link_cost: 17}
   WU: {link_cost: 17}
-  WU2: {link_cost: 17}
+  #WU2: {link_cost: 17}
   MICHIGAN: {link_cost: 12}
   NEU: {link_cost: 21}
 network_regions: [/ndn/edu/memphis]

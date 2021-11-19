@@ -16,7 +16,7 @@ neighbors:
   MML1: {link_cost: 75}
   BERN: {link_cost: 60}
   QUB: {link_cost: 60}
-  WU2: {link_cost: 1}
+  #WU2: {link_cost: 1}
   MUMBAI_AWS: {link_cost: 122}
   AVEIRO: {link_cost: 75}
   UNIVH2C: {link_cost: 75}
