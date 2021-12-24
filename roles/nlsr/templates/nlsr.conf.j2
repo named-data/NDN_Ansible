@@ -94,7 +94,7 @@ neighbors
    {
        name {{ ndnNetwork }}{{hostvars[neighbor].site }}/%C1.Router/{{ hostvars[neighbor].router_name }}
        ;face-uri  udp4://{{ hostvars[neighbor].ansible_host }}
-       face-uri  udp4://{{ hostvars[neighbor].host_ip }}
+       face-uri  udp4://{{ hostvars[neighbor].host_ip}}:{{hostvars[neighbor].udp_port}}
        link-cost {{ data['link_cost'] }}
    }
 {% endfor %}
