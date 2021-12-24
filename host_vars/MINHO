@@ -32,4 +32,4 @@ site_email_domain: ["di.minho.pt", "alunos.uminho.pt"]
 allowGuests: false
 doNotSendOpRequests: false
 doNotSendOpRequestsForGuests: false
-site_name: "University of Mihno, Portugal"
+site_name: "University of Minho, Portugal"
