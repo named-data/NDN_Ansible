@@ -29,10 +29,11 @@ hr_angle: 3.64135
 hr_radius: 19.6533
 #cert_url: http://ndncert.named-data.net/cert/get/?name=%2Fndn%2FKEY%2Fth%2Fac%2Fmsu%2Fksk-1479486847708%2FID-CERT%2F%25FD%2500%2500%2501X%258D%2506%25D2%25C8
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
+supports_guest_certs: False
 operator_name: "Somnuk Puangpronpitag"
 operator_email: somnuk.p@msu.ac.th
 site_email_domain: ["msu.ac.th"]
-allowGuests: true
+allowGuests: false
 doNotSendOpRequests: false
 doNotSendOpRequestsForGuests: true
 site_name: "Mahasarakham University, Thailand"
