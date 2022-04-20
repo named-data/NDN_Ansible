@@ -20,7 +20,7 @@ neighbors:
   #GOETTINGEN: {link_cost: 10}
   #NTNU: {link_cost: 30}
   PADUA: {link_cost: 9}
-  LIP6: {link_cost: 7}
+  #LIP6: {link_cost: 7}
   URJC: {link_cost: 14}
 network_regions: [/ndn/ch/unibas]
 #hr_radius: 13.2717666496574

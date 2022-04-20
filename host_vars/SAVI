@@ -15,7 +15,7 @@ memsize: 8
 neighbors: 
   NEU: {link_cost: 15}
   MICHIGAN: {link_cost: 15}
-  LIP6: {link_cost: 100}
+  #LIP6: {link_cost: 100}
 network_regions: [/ndn/ca/utoronto]
 # AS239
 # 239     4.04925822902179        19.5605045917211

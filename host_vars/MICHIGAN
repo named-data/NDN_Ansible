@@ -19,7 +19,7 @@ neighbors:
   UIUC: {link_cost: 5}
   MEMPHIS: {link_cost: 12}
   NEU: {link_cost: 14}
-  LIP6: {link_cost: 69}
+  #LIP6: {link_cost: 69}
 network_regions: [/ndn/edu/umich]
 #hr_radius: 17.7738038607456
 #hr_angle: 2.98018269081901

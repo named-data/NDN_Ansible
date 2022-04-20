@@ -12,8 +12,9 @@ router_name: mmlab12
 http_access: https
 memsize: 2
 neighbors: 
-  LIP6: {link_cost: 35}
+  #LIP6: {link_cost: 35}
   TNO: {link_cost: 25}
+  DELFT: {link_cost: 26}
 network_regions: [/ndn/gr/edu/mmlab1]
 # AS8611 (192.251.232.0/22 (Athens University of Economics and Business))
 # AS5408 (192.251.0.0/16 (National Infrastructures for Research and Technology S.A.))

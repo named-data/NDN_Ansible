@@ -14,7 +14,7 @@ http_access: http
 memsize: 2
 neighbors: 
   BERN: {link_cost: 18}
-  LIP6: {link_cost: 4}
+  #LIP6: {link_cost: 4}
   #SYSTEMX: {link_cost: 4}
   UNIVH2C: {link_cost: 50}
 network_regions: [/ndn/fr/lacl]

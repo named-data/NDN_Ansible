@@ -18,8 +18,9 @@ neighbors:
   TNO: {link_cost: 2}
   QUB: {link_cost: 15}
   #GOETTINGEN: {link_cost: 12}
-  LIP6: {link_cost: 9}
+  #LIP6: {link_cost: 9}
   WU: {link_cost: 60}
+  MML2: {link_cost: 26}
 network_regions: [/ndn/nl/delft]
 # AS1128
 #hr_radius: 12.0148443703157

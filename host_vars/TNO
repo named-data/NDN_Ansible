@@ -17,7 +17,7 @@ neighbors:
   MML2: {link_cost: 25}
   QUB: {link_cost: 15}
   #GOETTINGEN: {link_cost: 12}
-  LIP6: {link_cost: 9}
+  #LIP6: {link_cost: 9}
   BASEL: {link_cost: 14}
   MSU: {link_cost: 120}
 network_regions: [/ndn/nl/tno]
