@@ -1,0 +1,3 @@
+---
+- name: create site conf 
+  local_action: template src=site-ca.conf.j2 dest=roles/ndncert-site-ca-demo/files/ca-{{inventory_hostname}}.conf

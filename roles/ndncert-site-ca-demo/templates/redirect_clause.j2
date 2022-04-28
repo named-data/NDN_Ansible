@@ -1,0 +1,9 @@
+{% for email_domain in site_email_domain %}
+    {
+      "ca-prefix": "/ndncert-demo{{site}}",
+      "certificate": "{% include "files/ndncert-site-ca-demo." + inventory_hostname + ".signed.cert.txt" %}",
+      "predicate-type": "inst-email",
+      "predicate-param": "{{email_domain}}"
+    }{% if not loop.last %},{% endif %}
+
+{% endfor %}

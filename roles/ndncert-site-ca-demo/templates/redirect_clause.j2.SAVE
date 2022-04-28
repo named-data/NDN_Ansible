@@ -1,0 +1,9 @@
+{% for email_domain in site_email_domain %}
+    {
+      "ca-prefix": "/ndncert-demo{{site}}",
+      "certificate": "Bv0BOQc3CAxuZG5jZXJ0LWRlbW8IA2VkdQgFd3VzdGwIA0tFWQgIYFZGE7ZDntoIAk5BNggAAAF/OAXfFBQJGAECGQQANu6AFVswWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQ4DhsSZU1cMYMvD3d1rg7oXkKRW5R3N5G2vaIOt95Kz6Xw4GRiG06vjSX1i+IQi4x5Kls06SG+w8hmXLDSFZQaFk4bAQMcHwcdCAxuZG5jZXJ0LWRlbW8IA0tFWQgI92c9QI8lJGr9AP0m/QD+DzIwMjIwMjI2VDIxNTMwNP0A/w8yMDIzMDIyNlQyMTUzMDMXRjBEAiBY8DHeJmCxDrgREXhKaAVHuyXioo99XGaU+LcUgTXZfgIgK+G3BirOJs4rRSiTY3xj0e5IP5cAJ6DOPftDxaDg7+o=",
+      "predicate-type": "inst-email",
+      "predicate-param": "{{email_domain}}"
+    }{% if not loop.last %},{% endif %}
+
+{% endfor %}

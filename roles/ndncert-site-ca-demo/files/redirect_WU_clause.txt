@@ -1,0 +1,6 @@
+    {
+      "ca-prefix": "/ndncert-demo/edu/wustl",
+      "certificate": "Bv0BOQc3CAxuZG5jZXJ0LWRlbW8IA2VkdQgFd3VzdGwIA0tFWQgI6vIZbUzeY1kIAk5BNggAAAF/UVb6lhQJGAECGQQANu6AFVswWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAT14Mj+CpWkbVGg750CslsDRLhFAGFV7Xcdo9vDtj+wOZVI/YKQZkuySAHOc7TBi5y0yOb64cFVVJuuRtiIbtyaFk4bAQMcHwcdCAxuZG5jZXJ0LWRlbW8IA0tFWQgI92c9QI8lJGr9AP0m/QD+DzIwMjIwMzAzVDE5NTIxMP0A/w8yMDIzMDMwM1QxOTUyMDkXRjBEAiBeZdwjMMOwIKiwIxBwnr3JUlbRo4OWJkSc5OrQO18yYAIgMLwHpLAKwPnTbwA+d1XqbYI6Fu4YoahAUDi9p2VP5l0=",
+      "predicate-type": "inst-email",
+      "predicate-param": "wustl.edu"
+    }

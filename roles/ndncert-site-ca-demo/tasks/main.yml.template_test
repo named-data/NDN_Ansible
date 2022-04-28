@@ -1,0 +1,3 @@
+---
+- name: create WU redirect close
+  local_action: template src=redirect_clause.j2 dest=roles/ndncert-site-ca-demo/files/redirect_{{inventory_hostname}}_clause.txt

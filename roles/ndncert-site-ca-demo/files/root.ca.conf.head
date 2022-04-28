@@ -1,0 +1,19 @@
+{
+  "ca-prefix": "/ndncert-demo",
+  "ca-info": "NDN Testbed NDNCERT CA (Demo)",
+  "max-validity-period": "1296000",
+  "max-suffix-length": "5",
+  "probe-parameters":
+  [
+    { "probe-parameter-key": "email" }
+  ],
+  "name-assignment":
+  {
+    "inst-email": "/nonexist"
+  },
+  "supported-challenges":
+  [
+    { "challenge": "email" }
+  ],
+ "redirect-to":
+  [

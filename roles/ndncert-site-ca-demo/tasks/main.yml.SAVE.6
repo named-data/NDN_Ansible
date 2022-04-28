@@ -1,0 +1,112 @@
+---
+# tasks file for ndncert-site-ca-demo
+
+# Create ndnops/ndncert-site-ca-demo
+- name: create ndncert-site-ca-demo directory
+  file: path=/home/{{ansible_user}}/ndncert-site-ca-demo  state=directory owner={{ansible_user}} group={{ansible_user}} mode=0755
+
+# Create /var/lib/ndn/ndncert-ca 
+- name: create /var/lib/ndn/ndncert-ca directory
+  file: path=/var/lib/ndn/ndncert-ca  state=directory owner=ndn group=ndn mode=0755
+
+# Generate Key on Site
+# sudo HOME=/var/lib/ndn/ndncert-ca -u ndn ndnsec key-gen /ndncert-demo/edu/wustl > /tmp/ndncert-demo.edu.wustl.csr
+- name: Generate site key
+  shell: ndnsec key-gen /ndncert-demo{{site}} > /home/{{ansible_user}}/ndncert-site-ca-demo/ndncert-demo.csr
+  become_user: ndn
+  environment: 
+    HOME: /var/lib/ndn/ndncert-ca 
+
+# Copy CSR back 
+- fetch:
+    src: /home/{{ansible_user}}/ndncert-site-ca-demo/ndncert-demo.csr
+    dest: roles/ndncert-site-ca-demo/files/ndncert-site-ca-demo.{{site}}.csr 
+    flat: yes
+  ignore_errors: yes
+
+
+# Copy CSR to UCLA
+- name: copy site csr to UCLA for signing
+    copy: src=roles/ndncert-site-ca-demo/files/ndncert-site-ca-demo.{{site}}.csr dest=/home/{{ansible_user}}/ndncert-ca-demo/ndncert-site-ca-demo.{{site}}.csr
+    become_user: ndnops
+    delegate_to: UCLA
+
+# Sign cert on UCLA
+#  sudo HOME=/var/lib/ndncert-ca -u ndn ndnsec cert-gen -s /ndncert-demo ~ndnops/ndncert-demo.edu.wustl.csr > ndncert-demo.edu.wustl.signed.cert
+- name: sign cert on UCLA
+  shell: ndnsec cert-gen -s /ndncert-demo /home/{{ansible_user}}/ndncert-ca-demo/ndncert-site-ca-demo.{{site}}.csr  > /home/{{ansible_user}}/ndncert-ca-demo/ndncert-site-ca-demo.{{site}}.signed.cert
+  become_user: ndn
+  delegate_to: UCLA
+  environment: 
+    HOME: /var/lib/ndncert-ca 
+
+# Copy signed cert back from UCLA
+- fetch:
+    src: /home/{{ansible_user}}/ndncert-ca-demo/ndncert-site-ca-demo.{{site}}.signed.cert
+    dest: roles/ndncert-site-ca-demo/files/ndncert-site-ca-demo.{{site}}.signed.cert
+    flat: yes
+    delegate_to: UCLA
+  ignore_errors: yes
+
+# Copy signed cert to Site
+- name: copy signed cert to Site
+    copy: src=roles/ndncert-site-ca-demo/files/ndncert-site-ca-demo.{{site}}.signed.cert dest=/home/{{ansible_user}}/ndncert-ca-demo/ndncert-site-ca-demo.{{site}}.signed.cert
+    become_user: ndnops
+
+# Install signed cert on Site
+# sudo HOME=/var/lib/ndn/ndncert-ca -u ndn ndnsec cert-install -K ndncert-demo.edu.wustl.signed.cert
+- name: install signed cert
+  command: ndnsec cert-install -K  /home/{{ansible_user}}/ndncert-ca-demo/ndncert-site-ca-demo.{{site}}.signed.cert
+  become_user: ndn
+  environment: 
+    HOME: /var/lib/ndn/ndncert-ca 
+
+# Generate one line cert text
+# command for taking cert and making it one line: ndnsec cert-dump -f ndncert-demo.edu.wustl.signed.cert  | tr -d '\n'
+- name: generate one line cert text for use in root ndncert ca conf file
+  shell: ndnsec cert-dump -f  /home/{{ansible_user}}/ndncert-ca-demo/ndncert-site-ca-demo.{{site}}.signed.cert > /home/{{ansible_user}}/ndncert-ca-demo/ndncert-site-ca-demo.{{site}}.signed.cert.text
+
+# Copy one line cert text file
+- fetch:
+    src: /home/{{ansible_user}}/ndncert-ca-demo/ndncert-site-ca-demo.{{site}}.signed.cert.text
+    dest: roles/ndncert-site-ca-demo/files/ndncert-site-ca-demo.{{site}}.signed.cert.txt 
+    flat: yes
+  ignore_errors: yes
+
+# Add Site redirect config to root CA conf file on UCLA. (Update conf here and push it to UCLA)
+# remember that we need one entry per email domain!!!!
+# probably what we should do is generate all the components locally, combine them into a new conf file and the
+# push that out to UCLA
+- name: create site redirect clause
+  local_action: template src=redirect_clause.j2 dest=roles/ndncert-site-ca-demo/files/redirect_{{inventory_hostname}}_clause.txt
+
+# Create site conf file
+- name: create site conf 
+  local_action: template src=site-ca.conf.j2 dest=roles/ndncert-site-ca-demo/files/ca-{{inventory_hostname}}.conf
+
+# Copy site conf file to Site
+- name: copy site CA conf file to site
+    copy: src=roles/ndncert-site-ca-demo/files/ca-{{inventory_hostname}}.conf dest=/usr/local/etc/ndncert/
+    become_user: root
+
+# Create site systemd service file
+- name: create site systemd service file
+  local_action: template src=site-ca-systemd.service.j2 dest=roles/ndncert-site-ca-demo/files/ndncert-ca-{{inventory_hostname}}.service
+
+# Copy site conf file to Site
+- name: copy site systemd service file to site
+    copy: src=roles/ndncert-site-ca-demo/files/ndncert-ca-{{inventory_hostname}}.service dest=/etc/systemd/system/
+    become_user: root
+
+# Set up mail proxy on Site
+# apt install sendmail mailutils
+# sudo mkdir -p /etc/mail/authinfo
+# sudo chmod 700 /etc/mail/authinfo
+# push /etc/mail/authinfo/gmail-smtp-auth to Site
+# sudo makemap hash /etc/mail/authinfo/gmail-smtp-auth < /etc/mail/authinfo/gmail-smtp-auth
+
+# Add SMART_HOST section to /etc/mail/sendmail.mc
+
+# make -C /etc/mail
+
+# UCLA needs to announce prefix for /ndncert-demo

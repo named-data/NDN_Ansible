@@ -1,0 +1,6 @@
+---
+- name: create site conf 
+  local_action: template src=site-ca.conf.j2 dest=roles/ndncert-site-ca-demo/files/ca-{{inventory_hostname}}.conf
+
+- name: create site systemd service file
+  local_action: template src=site-ca-systemd.service.j2 dest=roles/ndncert-site-ca-demo/files/ndncert-ca-{{inventory_hostname}}.service

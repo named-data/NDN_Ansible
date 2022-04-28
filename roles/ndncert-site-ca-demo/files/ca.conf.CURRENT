@@ -1,0 +1,45 @@
+{
+  "ca-prefix": "/ndncert-demo",
+  "ca-info": "NDN Testbed NDNCERT CA (Demo)",
+  "max-validity-period": "1296000",
+  "max-suffix-length": "5",
+  "probe-parameters":
+  [
+    { "probe-parameter-key": "email" }
+  ],
+  "name-assignment":
+  {
+    "inst-email": "/nonexist"
+  },
+  "supported-challenges":
+  [
+    { "challenge": "email" }
+  ],
+ "redirect-to":
+  [
+    {
+      "ca-prefix": "/ndncert-demo/edu/wustl",
+      "certificate": "Bv0BOQc3CAxuZG5jZXJ0LWRlbW8IA2VkdQgFd3VzdGwIA0tFWQgIYFZGE7ZDntoIAk5BNggAAAF/OAXfFBQJGAECGQQANu6AFVswWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQ4DhsSZU1cMYMvD3d1rg7oXkKRW5R3N5G2vaIOt95Kz6Xw4GRiG06vjSX1i+IQi4x5Kls06SG+w8hmXLDSFZQaFk4bAQMcHwcdCAxuZG5jZXJ0LWRlbW8IA0tFWQgI92c9QI8lJGr9AP0m/QD+DzIwMjIwMjI2VDIxNTMwNP0A/w8yMDIzMDIyNlQyMTUzMDMXRjBEAiBY8DHeJmCxDrgREXhKaAVHuyXioo99XGaU+LcUgTXZfgIgK+G3BirOJs4rRSiTY3xj0e5IP5cAJ6DOPftDxaDg7+o=",
+      "predicate-type": "inst-email",
+      "predicate-param": "wustl.edu"
+    },
+    {
+      "ca-prefix": "/ndncert-demo/edu/ucla",
+      "certificate": "Bv0BOQc2CAxuZG5jZXJ0LWRlbW8IA2VkdQgEdWNsYQgDS0VZCAjBeWDRh8q65wgCTkE2CAAAAX7Yu2w/FAkYAQIZBAA27oAVWzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABO9uhSG/sW1aoym5CP+qZYiVXSyDydq3gDxQO4jK6HccSIKPZaYS1VkgR0Lg23tUoIoMkc0yBNyzo6FCkhCGcFwWThsBAxwfBx0IDG5kbmNlcnQtZGVtbwgDS0VZCAj3Zz1AjyUkav0A/Sb9AP4PMjAyMjAyMDhUMDk0NzQ5/QD/DzIwMjMwMjA4VDA5NDc0OBdHMEUCICyXPIGzfyGgI4iHYWB0NZc7EBQEeYlk/8sHpx7U0WjfAiEA7CW71eLflWMO4yCR186EIhctTjm2iM+p/H2EzM3Ei+o=",
+      "predicate-type": "inst-email",
+      "predicate-param": "cs.ucla.edu"
+    },
+    {
+      "ca-prefix": "/ndncert-demo/edu/ucla",
+      "certificate": "Bv0BOQc2CAxuZG5jZXJ0LWRlbW8IA2VkdQgEdWNsYQgDS0VZCAjBeWDRh8q65wgCTkE2CAAAAX7Yu2w/FAkYAQIZBAA27oAVWzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABO9uhSG/sW1aoym5CP+qZYiVXSyDydq3gDxQO4jK6HccSIKPZaYS1VkgR0Lg23tUoIoMkc0yBNyzo6FCkhCGcFwWThsBAxwfBx0IDG5kbmNlcnQtZGVtbwgDS0VZCAj3Zz1AjyUkav0A/Sb9AP4PMjAyMjAyMDhUMDk0NzQ5/QD/DzIwMjMwMjA4VDA5NDc0OBdHMEUCICyXPIGzfyGgI4iHYWB0NZc7EBQEeYlk/8sHpx7U0WjfAiEA7CW71eLflWMO4yCR186EIhctTjm2iM+p/H2EzM3Ei+o=",
+      "predicate-type": "inst-email",
+      "predicate-param": "ucla.edu"
+    },
+    {
+      "ca-prefix": "/ndncert-demo/gov/nist",
+      "certificate": "Bv0BOQc2CAxuZG5jZXJ0LWRlbW8IA2dvdggEbmlzdAgDS0VZCAhMfBsmU682nggCTkE2CAAAAX7fn5wVFAkYAQIZBAA27oAVWzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABAJFkYYUMcIbpcc4WVi79zZtd24zaYE8RrxIFJ5+Ey/sWC68JZfLDC45iYfDDVCf2ffTApN90iXEqdiGLdxPdjQWThsBAxwfBx0IDG5kbmNlcnQtZGVtbwgDS0VZCAj3Zz1AjyUkav0A/Sb9AP4PMjAyMjAyMDlUMTc1NDQ3/QD/DzIwMjMwMjA5VDE3NTQ0NhdHMEUCIQCTpNsz5uEwwBYSZu7o4RIWsvdbVYl/c8yFlscfN3bAygIgJCrFtSlTvirbBQOmruZSLRr+mii4UGpGdOrgD+r7Z0U=",
+      "predicate-type": "inst-email",
+      "predicate-param": "nist.gov"
+    }
+  ]
+}

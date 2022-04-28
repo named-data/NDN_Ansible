@@ -1,0 +1,9 @@
+---
+# tasks file for ndncert-site-ca-demo
+# Copy CSR to UCLA
+- name: copy site csr to UCLA for signing
+  shell: 'echo $HOME > /tmp/home.test'
+  become_user: ndn
+  delegate_to: UCLA
+  environment:
+    HOME: /var/lib/ndn/ndncert-ca
