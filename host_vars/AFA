@@ -13,7 +13,7 @@ default_prefix: /ndn/it/afasystems
 advertised_prefixes: [/ndn/it/afasystems]
 routable_prefixes: [/ndn/it/afasystems]
 router_name: ndn 
-http_access: https
+http_access: http
 memsize: 4
 neighbors: 
   AVEIRO: {link_cost: 45}
