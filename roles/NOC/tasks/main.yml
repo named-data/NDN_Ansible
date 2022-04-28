@@ -59,7 +59,7 @@
   when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "20")
 
 
-# users root, ndnops, {{ansible_user}}, and ndnsec should have permission to use crontabs
+# users root, {{ansible_user}}, {{ansible_user}}, and ndnsec should have permission to use crontabs
 #- name: check whether root has permission to create crontab
 #  shell: 'grep root /etc/cron.allow'
 #  register: user_status
@@ -89,19 +89,19 @@
     path: /etc/cron.allow
     line: "root"
 
-- name: check whether ndnops has permission to create crontab
+- name: check whether {{ansible_user}} has permission to create crontab
   become: yes
   lineinfile:
     path: /etc/cron.allow
-    line: "ndnops"
+    line: "{{ansible_user}}"
     state: present
   check_mode: yes
   register: presence
 
-- name: Add ndnops to /etc/cron.allow
+- name: Add {{ansible_user}} to /etc/cron.allow
   lineinfile:
     path: /etc/cron.allow
-    line: "ndnops"
+    line: "{{ansible_user}}"
 
 - name: check whether ndnsec has permission to create crontab
   become: yes
@@ -132,16 +132,16 @@
     line: "{{ansible_user}}"
 
 
-#- name: check whether ndnops has permission to create crontab
-#  shell: 'grep ndnops /etc/cron.allow'
+#- name: check whether {{ansible_user}} has permission to create crontab
+#  shell: 'grep {{ansible_user}} /etc/cron.allow'
 #  register: user_status
 #  failed_when: "user_status.rc == 2"
 #  changed_when: false
 #  become: yes
 #  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "20")
 
-#- name: Add ndnops to /etc/cron.allow
-#  shell: 'echo ndnops | tee -a /etc/cron.allow'
+#- name: Add {{ansible_user}} to /etc/cron.allow
+#  shell: 'echo {{ansible_user}} | tee -a /etc/cron.allow'
 #  when:  user_status.rc == 1
 #  become: yes
 #  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version  == "20")

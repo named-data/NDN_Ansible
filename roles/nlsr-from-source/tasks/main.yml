@@ -85,10 +85,10 @@
   become: false
 
 - debug:
-    msg: "about to do key_gen2.sh {{default_prefix}} ndnops {{inventory_hostname}} {{router_name}}"
+    msg: "about to do key_gen2.sh {{default_prefix}} {{ansible_user}} {{inventory_hostname}} {{router_name}}"
 
 # finish generating keys and certs for user nlsr
-- script: roles/nlsr/files/key_gen2.sh "{{default_prefix}}" "ndnops"  "{{inventory_hostname}}" "{{router_name}}"
+- script: roles/nlsr/files/key_gen2.sh "{{default_prefix}}" "{{ansible_user}}"  "{{inventory_hostname}}" "{{router_name}}"
   #register: keygen2
   ignore_errors: yes
 

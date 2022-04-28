@@ -21,7 +21,7 @@
 
 # make uninstall on ndn6-tools
 - make:
-    chdir: /home/ndnops/ndn6-tools
+    chdir: /home/{{ansible_user}}/ndn6-tools
     target: uninstall
   become: yes
   ignore_errors: yes

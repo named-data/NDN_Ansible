@@ -21,8 +21,8 @@
   file: path=/var/log/ndn/nfd.log state=touch owner=syslog group=adm mode=0644
   when: (ansible_distribution == "Ubuntu" )
 
-#- cron: name="log rotate" user="ndnops" hour="1" minute="1" job="/home/ndnops/ndn-ops/NOC/logRotation/rotateLogs.sh  "
-- cron: name="log rotate" state="absent" user="ndnops" minute="28" job="/home/ndnops/ndn-ops/NOC/bin/rotateLogs.sh  "
+#- cron: name="log rotate" user="{{ansible_user}}" hour="1" minute="1" job="/home/{{ansible_user}}/ndn-ops/NOC/logRotation/rotateLogs.sh  "
+- cron: name="log rotate" state="absent" user="{{ansible_user}}" minute="28" job="/home/{{ansible_user}}/ndn-ops/NOC/bin/rotateLogs.sh  "
 
 - name: copy logrotate conf file for nfd
   copy: dest=/etc/logrotate.d/nfd  src=roles/nfd/files/logrotate.nfd owner=root group=root mode=0644

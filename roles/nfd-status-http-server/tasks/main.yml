@@ -86,11 +86,11 @@
 #  ignore_errors: yes
 #
 #- name: create certbotRun.sh
-#  template: src=certbotRun.sh.j2 dest=/home/ndnops/certbotRun.sh  owner=root group=root mode="u=rwx,g=rx,o=rx"
+#  template: src=certbotRun.sh.j2 dest=/home/{{ansible_user}}/certbotRun.sh  owner=root group=root mode="u=rwx,g=rx,o=rx"
 #  when: ansible_distribution == "Ubuntu" 
 #
 #- name: run certbotRun.sh
-#  shell: /home/ndnops/certbotRun.sh
+#  shell: /home/{{ansible_user}}/certbotRun.sh
 #  when: ansible_distribution == "Ubuntu" 
 #  ignore_errors: yes
 

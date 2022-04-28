@@ -15,7 +15,7 @@
 - file: path=/var/lib/ndn state=directory owner=ndn group=ndn mode=0755
 - file: path=/var/log/ndn state=directory owner=ndn group=ndn mode=0755
 
-- cron: name="log rotate" user="ndnops" hour="1" minute="1" job="/home/ndnops/ndn-ops/NOC/logRotation/rotateLogs.sh  "
+- cron: name="log rotate" user="{{ansible_user}}" hour="1" minute="1" job="/home/{{ansible_user}}/ndn-ops/NOC/logRotation/rotateLogs.sh  "
 
 #- name: install NFD from source
 #  apt: name=nfd state=latest update_cache=yes

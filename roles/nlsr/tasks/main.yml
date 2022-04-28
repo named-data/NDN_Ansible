@@ -25,8 +25,8 @@
   file: path=/var/log/ndn/nlsr/nlsr.log state=touch owner=syslog group=adm mode=0644
   when: (ansible_distribution == "Ubuntu" )
 
-#- cron: name="log rotate" user="ndnops" hour="1" minute="1" job="/home/ndnops/ndn-ops/NOC/logRotation/rotateLogs.sh  "
-- cron: name="log rotate" state="absent" user="ndnops" minute="28" job="/home/ndnops/ndn-ops/NOC/bin/rotateLogs.sh  "
+#- cron: name="log rotate" user="{{ansible_user}}" hour="1" minute="1" job="/home/{{ansible_user}}/ndn-ops/NOC/logRotation/rotateLogs.sh  "
+- cron: name="log rotate" state="absent" user="{{ansible_user}}" minute="28" job="/home/{{ansible_user}}/ndn-ops/NOC/bin/rotateLogs.sh  "
 
 - name: copy logrotate conf file for nlsr
   copy: dest=/etc/logrotate.d/nlsr  src=roles/nlsr/files/logrotate.nlsr owner=root group=root mode=0644
@@ -129,10 +129,10 @@
 #  become: false
 
 #- debug:
-#    msg: "about to do key_gen2.sh {{default_prefix}} ndnops {{inventory_hostname}} {{router_name}}"
+#    msg: "about to do key_gen2.sh {{default_prefix}} {{ansible_user}} {{inventory_hostname}} {{router_name}}"
 
 # finish generating keys and certs for user nlsr
-- script: roles/nlsr/files/new_key_gen.sh "{{default_prefix}}" "ndnops"  "{{inventory_hostname}}" "{{router_name}}"
+- script: roles/nlsr/files/new_key_gen.sh "{{default_prefix}}" "{{ansible_user}}"  "{{inventory_hostname}}" "{{router_name}}"
   ignore_errors: yes
   notify: restart nlsr
 
