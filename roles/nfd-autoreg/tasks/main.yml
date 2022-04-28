@@ -1,9 +1,9 @@
 ---
 # tasks file for nfd-autoreg
-- name: install nfd-autoreg
-  apt: name=nfd-autoreg state=latest update_cache=yes
-  when: ansible_distribution == "Ubuntu"
-  ignore_errors: yes
+#- name: install nfd-autoreg
+#  apt: name=nfd-autoreg state=latest update_cache=yes
+#  when: ansible_distribution == "Ubuntu"
+#  ignore_errors: yes
 
 - name: create /var/lib/ndn/nfd-autoreg
   file: path=/var/lib/ndn/nfd-autoreg state=directory owner=ndn group=ndn mode=0755
