@@ -25,7 +25,7 @@ BindsTo=nfd.service
 After=nfd.service
 
 [Service]
-Environment=HOME=/var/lib/ndn/nlsr NDN_LOG=nlsr.*=DEBUG
+Environment=HOME=/var/lib/ndn/nlsr NDN_LOG=nlsr.*=INFO
 User=nlsr
 Group=nlsr
 ExecStart=/usr/bin/nlsr -f /etc/ndn/nlsr/nlsr.conf
