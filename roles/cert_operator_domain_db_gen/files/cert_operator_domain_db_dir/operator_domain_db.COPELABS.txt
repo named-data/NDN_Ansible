@@ -4,6 +4,6 @@
     "doNotSendOpRequestsForGuests": false,
     "email": "p4035@ulusofona.pt",
     "name": "Paulo Mendes",
-    "site_emails": "ulosofona.pt",
+    "site_emails": ["ulosofona.pt"],
     "site_name": "Cognition and People-centric Computing Labs (COPELABS), Portugal",
     "site_prefix": "/ndn/pt/ulusofona/copelabs",

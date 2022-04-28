@@ -4,6 +4,6 @@
     "doNotSendOpRequestsForGuests": true,
     "email": "jdd@wustl.edu",
     "name": "John DeHart",
-    "site_emails": "",
+    "site_emails": [],
     "site_name": "MUMBAI AWS",
     "site_prefix": "/ndn/aws/mumbai",

@@ -1,5 +1,5 @@
 "MSU": {
-    "allowGuests": true,
+    "allowGuests": false,
     "doNotSendOpRequests": false,
     "doNotSendOpRequestsForGuests": true,
     "email": "somnuk.p@msu.ac.th",

@@ -5,5 +5,5 @@
     "email": "id5540@alunos.uminho.pt",
     "name": "Ertugrul Dogruluk",
     "site_emails": ["di.minho.pt", "alunos.uminho.pt"],
-    "site_name": "University of Mihno, Portugal",
+    "site_name": "University of Minho, Portugal",
     "site_prefix": "/ndn/pt/uminho",
