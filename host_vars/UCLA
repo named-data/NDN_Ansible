@@ -6,7 +6,7 @@ host_ip: 131.179.196.48
 ethernet_device: eth0
 site: /edu/ucla
 default_prefix: /ndn/edu/ucla
-advertised_prefixes: [/ndn/edu/ucla, /ndn/CA ]
+advertised_prefixes: [/ndncert-demo, /ndn/edu/ucla, /ndn/CA ]
 routable_prefixes: [/ndn/edu/ucla]
 router_name: suns 
 http_access: https
@@ -28,8 +28,12 @@ supports_guest_certs: True
 nlsr_version: 4c66119046e21c503a5c5dfb9cc478d360c65a10
 operator_name: "Tianyuan Yu"
 operator_email: royu29@g.ucla.edu
+# g.ucla.edu is a UCLA redirect for student gmail addresses.
 site_email_domain: ["g.ucla.edu", "ucla.edu", "cs.ucla.edu", "engineering.ucla.edu"]
 allowGuests: true
 doNotSendOpRequests: false
 doNotSendOpRequestsForGuests: true
+#proxy_site_ca_list: [NIST,FIU]
+#proxy_site_list: [/nist/gov,/edu/fiu]
+#proxy_site_email_domains_lists: [[nist.gov],[fiu.edu]]
 site_name: "University of California, Los Angeles"
