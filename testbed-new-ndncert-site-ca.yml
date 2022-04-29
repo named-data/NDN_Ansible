@@ -1,0 +1,18 @@
+---
+
+#- name: install a new ndncert-site-ca including site key
+#  hosts: nightlybuilds
+#  remote_user: ndnops
+#  become: yes
+#
+
+- name: install a new ndncert-site-ca including site key
+  hosts: ppabuilds 
+  remote_user: ndnops
+  become: yes
+
+
+  roles: 
+  - {role: 'ndncert-site-key-generation', tags: 'ndncert-site-key-generation'}  # 
+  - {role: 'ndncert-site-ca', tags: 'ndncert-site-ca'}  # 
+

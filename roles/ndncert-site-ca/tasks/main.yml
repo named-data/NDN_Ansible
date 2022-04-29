@@ -1,0 +1,90 @@
+---
+# tasks file for ndncert-site-ca
+
+# Create {{ansible_user}}/ndncert-site-ca
+- name: create ndncert-site-ca directory
+  file: path=/home/{{ansible_user}}/ndncert-site-ca  state=directory owner="{{ansible_user}}" group="{{ansible_user}}" mode=0755
+
+# Create /var/lib/ndn/ndncert-ca
+- name: create /var/lib/ndn/ndncert-ca directory
+  file: path=/var/lib/ndn/ndncert-ca  state=directory owner=ndn group=ndn mode=0755
+
+# Create site conf file
+- name: create site conf
+  local_action: template src=site-ca.conf.j2 dest=roles/ndncert-site-ca/files/ca-{{inventory_hostname}}.conf
+  become: false
+
+# Copy site conf file to Site
+- name: copy site CA conf file to site
+  copy: src=roles/ndncert-site-ca/files/ca-{{inventory_hostname}}.conf dest=/usr/local/etc/ndncert/ mode=644
+  become_user: root
+
+# Create site systemd service file
+- name: create site systemd service file
+  local_action: template src=site-ca-systemd.service.j2 dest=roles/ndncert-site-ca/files/ndncert-ca-{{inventory_hostname}}.service
+  become: false
+
+# Copy site systemd service file to Site
+- name: copy site systemd service file to site
+  copy: src=roles/ndncert-site-ca/files/ndncert-ca-{{inventory_hostname}}.service dest=/etc/systemd/system/
+  become_user: root
+
+# Set up mail proxy on Site
+# apt install sendmail mailutils
+- name: install sendmail and mailutils
+  apt:
+    name: ['sendmail', 'mailutils']
+
+# sudo mkdir -p /etc/mail/authinfo
+# sudo chmod 700 /etc/mail/authinfo
+- name: create /etc/mail/authinfo directory
+  file: path=/etc/mail/authinfo  state=directory owner=root group=root  mode=0700
+
+# push /etc/mail/authinfo/gmail-smtp-auth to Site
+- name: copy gmail-smtp-auth to site
+  copy: src=roles/ndncert-site-ca/files/gmail-smtp-auth dest=/etc/mail/authinfo owner=root group=root mode=640
+  become_user: root
+
+# sudo makemap hash /etc/mail/authinfo/gmail-smtp-auth < /etc/mail/authinfo/gmail-smtp-auth
+- name: makemap hash
+  shell: makemap hash /etc/mail/authinfo/gmail-smtp-auth < /etc/mail/authinfo/gmail-smtp-auth
+  become_user: root
+
+# Add SMART_HOST section to /etc/mail/sendmail.mc
+- name: Add SMART_HOST section to /etc/mail/sendmail.mc
+  blockinfile:
+    dest: /etc/mail/sendmail.mc
+    marker: "dnl ## {mark} ANSIBLE MANAGED BLOCK for ndncert"
+    insertbefore: 'dnl # Default Mailer setup'
+    block: |
+      dnl # Defining Gmail Smarthost for sendmail
+      define(`SMART_HOST',`[smtp.gmail.com]')dnl
+      define(`RELAY_MAILER_ARGS', `TCP $h 587')dnl
+      define(`ESMTP_MAILER_ARGS', `TCP $h 587')dnl
+      define(`confAUTH_OPTIONS', `A p')dnl
+      TRUST_AUTH_MECH(`EXTERNAL DIGEST-MD5 CRAM-MD5 LOGIN PLAIN')dnl
+      define(`confAUTH_MECHANISMS', `EXTERNAL GSSAPI DIGEST-MD5 CRAM-MD5 LOGIN PLAIN')dnl
+      FEATURE(`authinfo',`hash -o /etc/mail/authinfo/gmail-smtp-auth.db')dnl
+    backup: yes
+
+# make -C /etc/mail
+- name: make -C /etc/mail
+  make:
+    chdir: /etc/mail
+
+# need ndncert-send-email.conf Arizona needed the gmail specific one so lets go with that.
+# push ../files/ndncert-mail.conf to /usr/local/etc/ndncert/ndncert-mail.conf  to Site
+- name: copy gmail-smtp-auth to site
+  copy: src=roles/ndncert-site-ca/files/ndncert-mail.conf  dest=/usr/local/etc/ndncert/ndncert-mail.conf owner=ndn group=root mode=400
+  become_user: root
+
+# Start ndncert site ca service
+- name: start ndncert-ca-{{inventory_hostname}}
+  service: name=ndncert-ca-{{inventory_hostname}} state=started enabled=yes
+
+
+# And what do we need to do about getting certs served out of the python repos
+
+# UCLA needs to announce prefix for /ndncert
+# this has been added to UCLA's host_vars in its advertised_prefixes
+

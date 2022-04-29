@@ -1,0 +1,17 @@
+---
+
+#- name: install a new ndncert-ca including root key
+#  hosts: nightlybuilds
+#  remote_user: ndnops
+#  become: yes
+#
+
+- name: install a new ndncert-ca including root key
+  hosts: ppabuilds 
+  remote_user: ndnops
+  become: yes
+
+
+  roles: 
+  - {role: 'ndncert-ca', tags: 'ndncert-ca'}  # 
+

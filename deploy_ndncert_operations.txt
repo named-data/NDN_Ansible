@@ -1,0 +1,7 @@
+
+testbed-build-ndncert-from-source
+
+testbed-new-root-ca.yml (the first time. after that is successful, run this one: testbed-refresh-root-ca.yml)
+testbed-new-ndncert-site-ca.yml (the first time. after that is successful, run this one: testbed-refresh-ndncert-site-ca.yml)
+
+testbed-refresh-root-ca.yml (this will regenerate the root conf file from the info for the sites and restart root CA)

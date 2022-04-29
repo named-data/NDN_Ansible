@@ -1,0 +1,41 @@
+---
+# tasks file for ndncert-root-key-generation
+
+#- name: test vars
+#  vars:
+#    certVersion: x4
+#
+#- debug:
+#    msg: 
+#     - "certVersion: '{{certVersion}}'"
+
+
+# Create {{ansible_user}}/ndncert-ca
+#- name: test vars
+#  - hosts: UCLA
+#    vars:
+#      certVersion: x4
+#
+#    file: path=/home/{{ansible_user}}/ndncert-ca-"{{certVersion}}"  state=directory owner="{{ansible_user}}" group="{{ansible_user}}" mode=0755
+#    debug:
+#        msg: "debug: certVersion: {{certVersion}}"
+
+- name: "Set variables"
+  set_fact:
+    certCreationYearMonth: 2204
+
+- debug:
+    msg: "certCreationYearMonth: {{certCreationYearMonth}}"
+
+
+- name: create diretory
+  file: path=/home/{{ansible_user}}/ndncert-ca-{{certCreationYearMonth}}  state=directory owner="{{ansible_user}}" group="{{ansible_user}}" mode=0755
+
+# roles/ansible_variables/tasks/main.yml
+- name: "Set variables"
+  set_fact:
+    certCreationYearMonth: "x4"
+    user_permissions: "rwx"
+
+- debug:
+    msg: "The user '{{ certCreationYearMonth }}' has permissions '{{ user_permissions }}'"

@@ -1,0 +1,41 @@
+---
+# tasks file for ndncert-root-key-generation
+
+- name: "Set variables"
+  set_fact:
+    certCreationYearMonth: 2204
+
+# Create {{ansible_user}}/ndncert-ca
+- name: create ndncert-ca directory on 
+  file: path=/home/{{ansible_user}}/ndncert-ca  state=directory owner="{{ansible_user}}" group="{{ansible_user}}" mode=0755
+
+# Generate self-signed certificate for a new Root CA
+- name: Generate new Root key
+  shell: ndnsec key-gen -te /ndn > /tmp/ndncert-ca.{{certCreationYearMonth}.csr
+  become_user: ndn
+  environment:
+    HOME: /var/lib/ndn/ndncert-ca
+
+- name: Generate new Root cert
+  shell: ndnsec cert-gen -E 20261231235959 -I 'fullname NDN Testbed Root {{certCreationYearMonth}' -i /ndn -r /tmp/ndncert-ca.{{certCreationYearMonth}.csr > /tmp/ndncert-ca.{{certCreationYearMonth}.cert
+  become_user: ndn
+  environment:
+    HOME: /var/lib/ndn/ndncert-ca
+
+- name: Copy root csr
+  shell: cp /tmp/ndncert-ca.{{certCreationYearMonth}.csr  /home/{{ansible_user}}/ndncert-ca/
+  become_user: "{{ansible_user}}"
+
+- name: Copy root cert
+  shell: cp /tmp/ndncert-ca.{{certCreationYearMonth}.cert  /home/{{ansible_user}}/ndncert-ca/
+  become_user: "{{ansible_user}}"
+
+- name: Remove root csr from /tmp
+  shell: rm /tmp/ndncert-ca.{{certCreationYearMonth}.csr
+  become_user: root
+
+- name: Remove root cert from /tmp
+  shell: rm /tmp/ndncert-ca.{{certCreationYearMonth}.cert
+  become_user: root
+
+
