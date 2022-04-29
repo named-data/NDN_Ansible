@@ -4,7 +4,7 @@ Description=Certificate Management Identity Management Service for NDN (root)
 [Service]
 Environment=HOME=%S/ndn/ndncert-ca
 Environment=NDN_LOG=*=TRACE
-ExecStart=/usr/local/bin/ndncert-ca-server -c /usr/local/etc/ndncert/ca.conf -r -H 127.0.0.1 -P 7378
+ExecStart=/usr/local/bin/ndncert-ca-server -c /usr/local/etc/ndncert/rootCA.conf -r -H 127.0.0.1 -P 7378
 User=ndn
 StateDirectory=ndn/ndncert-ca
 Restart=on-failure

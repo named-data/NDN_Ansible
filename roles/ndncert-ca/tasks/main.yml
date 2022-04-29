@@ -78,5 +78,5 @@
 
 # Start ndncert root ca service
 - name: start ndncert-ca-root
-  service: name=ndncert-ca-root state=started enabled=yes
+  service: name=ndncert-ca-root.service state=started enabled=yes
 

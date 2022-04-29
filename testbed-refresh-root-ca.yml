@@ -6,7 +6,7 @@
 #  become: yes
 #
 
-- name: install a new ndncert-ca including root key
+- name: update ndncert-ca 
   hosts: ppabuilds 
   remote_user: ndnops
   become: yes

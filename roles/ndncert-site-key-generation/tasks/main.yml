@@ -1,11 +1,19 @@
 ---
 # tasks file for ndncert-site-key-generation
 
+# Create {{ansible_user}}/ndncert-site-ca
+- name: create ndncert-site-ca directory
+  file: path=/home/{{ansible_user}}/ndncert-site-ca  state=directory owner="{{ansible_user}}" group="{{ansible_user}}" mode=0755
+
+# Create /var/lib/ndn/ndncert-ca
+- name: create /var/lib/ndn/ndncert-ca directory
+  file: path=/var/lib/ndn/ndncert-ca  state=directory owner=ndn group=ndn mode=0755
+
 # Generate Key on Site
 # HOW DO WE TELL IF WE NEED TO DO THIS OR NOT? We don't always want to generate a new key
 # EXAMPLE: sudo HOME=/var/lib/ndn/ndncert-ca -u ndn ndnsec key-gen /ndn/edu/wustl > /tmp/ndn.edu.wustl.csr
 - name: Generate site key
-  shell: ndnsec key-gen /ndncert{{site}} > /tmp/ndncert.csr
+  shell: ndnsec key-gen /ndn{{site}} > /tmp/ndncert.csr
   become_user: ndn
   environment:
     HOME: /var/lib/ndn/ndncert-ca
@@ -38,13 +46,13 @@
   delegate_to: UCLA
 
 # Sign cert on UCLA
-#  sudo HOME=/var/lib/ndncert-ca -u ndn ndnsec cert-gen -s /ndncert ~{{ansible_user}}/ndncert.edu.wustl.csr > ndncert.edu.wustl.signed.cert
+#  sudo HOME=/var/lib/ndn/ndncert-ca -u ndn ndnsec cert-gen -s /ndncert ~{{ansible_user}}/ndncert.edu.wustl.csr > ndncert.edu.wustl.signed.cert
 - name: sign cert on UCLA
   shell: ndnsec cert-gen -s /ndn /home/{{ansible_user}}/ndncert-ca/ndncert-site-ca.{{inventory_hostname}}.csr  > /tmp/ndncert-site-ca.{{inventory_hostname}}.signed.cert
   become_user: ndn
   delegate_to: UCLA
   environment:
-    HOME: /var/lib/ndncert-ca
+    HOME: /var/lib/ndn/ndncert-ca
 
 - name: Copy signed cert on UCLA
   shell: cp /tmp/ndncert-site-ca.{{inventory_hostname}}.signed.cert /home/{{ansible_user}}/ndncert-ca/ndncert-site-ca.{{inventory_hostname}}.signed.cert
@@ -68,7 +76,7 @@
   copy: src=roles/ndncert-site-key-generation/files/ndncert-site-ca.{{inventory_hostname}}.signed.cert dest=/home/{{ansible_user}}/ndncert-site-ca/ndncert-site-ca.{{inventory_hostname}}.signed.cert mode=644
   become_user: "{{ansible_user}}"
 
-i# Install signed cert on Site
+# Install signed cert on Site
 # sudo HOME=/var/lib/ndn/ndncert-ca -u ndn ndnsec cert-install -K ndncert.edu.wustl.signed.cert
 - name: install signed cert
   command: ndnsec cert-install -K  /home/{{ansible_user}}/ndncert-site-ca/ndncert-site-ca.{{inventory_hostname}}.signed.cert
@@ -93,6 +101,7 @@ i# Install signed cert on Site
 # probably what we should do is generate all the components locally, combine them into a new conf file and the
 # push that out to UCLA
 - name: create site redirect clause
-  local_action: template src=redirect_clause.j2 dest=roles/ndncert-site-key-generation/files/redirect_{{inventory_hostname}}_clause.txt
+  #local_action: template src=redirect_clause.j2 dest=roles/ndncert-site-key-generation/files/redirect_{{inventory_hostname}}_clause.txt
+  local_action: template src=redirect_clause.j2 dest=roles/ndncert-ca/files/redirect_{{inventory_hostname}}_clause.txt
   become: false
 
