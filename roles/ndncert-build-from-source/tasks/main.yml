@@ -1,0 +1,31 @@
+---
+# tasks file for ndncert-build-from-source
+
+# install ndncert from source
+- git:
+    repo: https://github.com/UCLA-IRL/ndncert
+    dest: /home/{{ansible_user}}/ndncert
+    version: master
+    update: yes
+  become_user: "{{ansible_user}}"
+  ignore_errors: no
+
+# configure ndncert from source
+- command: ./waf configure
+  args:
+    chdir: /home/{{ansible_user}}/ndncert
+  become_user: "{{ansible_user}}"
+
+# build ndncert from source
+- command: ./waf
+  args:
+    chdir: /home/{{ansible_user}}/ndncert
+  become_user: "{{ansible_user}}"
+
+# install ndncert from source
+- command: ./waf install
+  args:
+    chdir: /home/{{ansible_user}}/ndncert
+  become_user: root
+
+
