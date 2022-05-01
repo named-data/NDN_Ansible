@@ -22,6 +22,12 @@
   environment:
     HOME: /var/lib/ndn/ndncert-ca
 
+- name: Install new Root cert
+  shell: ndnsec cert-install -K /tmp/ndncert-ca.{{certCreationYearMonth}}.cert
+  become_user: ndn
+  environment:
+    HOME: /var/lib/ndn/ndncert-ca
+
 - name: Copy root csr
   shell: cp /tmp/ndncert-ca.{{certCreationYearMonth}}.csr  /home/{{ansible_user}}/ndncert-ca/
   become_user: "{{ansible_user}}"
