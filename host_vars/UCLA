@@ -12,6 +12,7 @@ router_name: suns
 http_access: https
 memsize: 2
 neighbors:
+  SAVI: {link_cost: 40}
   ARIZONA: {link_cost: 25}
   WU: {link_cost: 30}
   #UCLACS: {link_cost: 1}

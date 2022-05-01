@@ -13,6 +13,7 @@ router_name: ndnrtr
 http_access: https
 memsize: 8
 neighbors: 
+  UCLA: {link_cost: 40}
   NEU: {link_cost: 15}
   MICHIGAN: {link_cost: 15}
   #LIP6: {link_cost: 100}
