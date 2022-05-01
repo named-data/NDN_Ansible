@@ -49,6 +49,9 @@
 - name: copy root key X3
   copy: dest=/etc/ndn/keys/anchors/ndn-testbed-root.ndncert.x3.base64 src=roles/nfd/files/ndn-testbed-root.ndncert.x3.base64 owner=root group=root mode=0644
 
+- name: copy root key 2204
+  copy: dest=/etc/ndn/keys/anchors/ndn-testbed-root.ndncert.2204.base64 src=roles/nfd/files/ndn-testbed-root.ndncert.2204.base64 owner=root group=root mode=0644
+
 #- name: copy openmhealth key
 #  copy: dest=/etc/ndn/keys/openmhealth.cert src=roles/nfd/files/openmhealth.cert owner=root group=root mode=0644
 
