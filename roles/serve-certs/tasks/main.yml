@@ -52,6 +52,11 @@
   become: yes
   notify: restart serve-certs
 
+- name: copy 2204 root cert to /var/lib/ndn/serve-certs
+  command: cp /etc/ndn/keys/anchors/ndn-testbed-root.ndncert.2204.base64 /var/lib/ndn/serve-certs/ndn-testbed-root.2204.ndncert
+  become: yes
+  notify: restart serve-certs
+
 - name: chown all cert files to be ndn.ndn
   file:
     path: /var/lib/ndn/serve-certs/
