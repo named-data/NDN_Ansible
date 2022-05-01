@@ -76,6 +76,11 @@
   copy: src=roles/ndncert-site-key-generation/files/ndncert-site-ca.{{inventory_hostname}}.signed.cert dest=/home/{{ansible_user}}/ndncert-site-ca/ndncert-site-ca.{{inventory_hostname}}.signed.cert mode=644
   become_user: "{{ansible_user}}"
 
+# set up signed cert to be served by serve-certs
+- name: copy signed cert to serve-certs
+  copy: src=roles/ndncert-site-key-generation/files/ndncert-site-ca.{{inventory_hostname}}.signed.cert dest=/var/lib/ndn/serve-certs/ndncert-site-ca.{{inventory_hostname}}.signed.ndncert mode=644
+  become_user: "{{ansible_user}}"
+
 # Install signed cert on Site
 # sudo HOME=/var/lib/ndn/ndncert-ca -u ndn ndnsec cert-install -K ndncert.edu.wustl.signed.cert
 - name: install signed cert
