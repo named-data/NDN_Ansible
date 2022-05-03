@@ -14,7 +14,10 @@ memsize: 2
 neighbors: 
   URJC: {link_cost: 90}
   PADUA: {link_cost: 90}
-  MUMBAI_AWS: {link_cost: 40}
+  WU: {link_cost: 122}
+  UUM: {link_cost: 88}
+  #MUMBAI_AWS: {link_cost: 40}
+  AFA: {link_cost: 72}
 network_regions: [/ndn/in/ac/iiith]
 # AS55824 3.00582605076987        15.9760646783892
 hr_angle: 3.00582605076987

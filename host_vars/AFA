@@ -18,7 +18,8 @@ memsize: 4
 neighbors: 
   AVEIRO: {link_cost: 45}
   #CAGLIARI: {link_cost: 25}
-  MUMBAI_AWS: {link_cost: 72}
+  #MUMBAI_AWS: {link_cost: 72}
+  IIITH: {link_cost: 72}
   PADUA: {link_cost: 11}
   COPELABS: {link_cost: 36}
   BERN: {link_cost: 15}
