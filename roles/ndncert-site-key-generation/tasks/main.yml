@@ -34,29 +34,29 @@
   ignore_errors: yes
 
 
-# Create {{ansible_user}}/ndncert-ca
+# Create ndnops/ndncert-ca
 - name: create ndncert-ca directory on UCLA
-  file: path=/home/{{ansible_user}}/ndncert-ca  state=directory owner="{{ansible_user}}" group="{{ansible_user}}" mode=0755
+  file: path=/home/ndnops/ndncert-ca  state=directory owner="ndnops" group="ndnops" mode=0755
   delegate_to: UCLA
 
 # Copy CSR to UCLA
 - name: copy site csr to UCLA for signing
-  copy: src=roles/ndncert-site-key-generation/files/ndncert-site-ca.{{site}}.csr dest=/home/{{ansible_user}}/ndncert-ca/ndncert-site-ca.{{inventory_hostname}}.csr mode=644
-  become_user: "{{ansible_user}}"
+  copy: src=roles/ndncert-site-key-generation/files/ndncert-site-ca.{{site}}.csr dest=/home/ndnops/ndncert-ca/ndncert-site-ca.{{inventory_hostname}}.csr mode=644
+  become_user: ndnops
   delegate_to: UCLA
 
 # Sign cert on UCLA
 #  sudo HOME=/var/lib/ndn/ndncert-ca -u ndn ndnsec cert-gen -s /ndncert ~{{ansible_user}}/ndncert.edu.wustl.csr > ndncert.edu.wustl.signed.cert
 - name: sign cert on UCLA
-  shell: ndnsec cert-gen -s /ndn /home/{{ansible_user}}/ndncert-ca/ndncert-site-ca.{{inventory_hostname}}.csr  > /tmp/ndncert-site-ca.{{inventory_hostname}}.signed.cert
+  shell: ndnsec cert-gen -s /ndn /home/ndnops/ndncert-ca/ndncert-site-ca.{{inventory_hostname}}.csr  > /tmp/ndncert-site-ca.{{inventory_hostname}}.signed.cert
   become_user: ndn
   delegate_to: UCLA
   environment:
     HOME: /var/lib/ndn/ndncert-ca
 
 - name: Copy signed cert on UCLA
-  shell: cp /tmp/ndncert-site-ca.{{inventory_hostname}}.signed.cert /home/{{ansible_user}}/ndncert-ca/ndncert-site-ca.{{inventory_hostname}}.signed.cert
-  become_user: "{{ansible_user}}"
+  shell: cp /tmp/ndncert-site-ca.{{inventory_hostname}}.signed.cert /home/ndnops/ndncert-ca/ndncert-site-ca.{{inventory_hostname}}.signed.cert
+  become_user: ndnops
   delegate_to: UCLA
 
 - name: Remove signed cert on UCLA from /tmp
@@ -66,7 +66,7 @@
 
 # Copy signed cert back from UCLA
 - fetch:
-    src: /home/{{ansible_user}}/ndncert-ca/ndncert-site-ca.{{inventory_hostname}}.signed.cert
+    src: /home/ndnops/ndncert-ca/ndncert-site-ca.{{inventory_hostname}}.signed.cert
     dest: roles/ndncert-site-key-generation/files/ndncert-site-ca.{{inventory_hostname}}.signed.cert
     flat: yes
   delegate_to: UCLA
@@ -77,9 +77,9 @@
   become_user: "{{ansible_user}}"
 
 # set up signed cert to be served by serve-certs
-- name: copy signed cert to serve-certs
-  copy: src=roles/ndncert-site-key-generation/files/ndncert-site-ca.{{inventory_hostname}}.signed.cert dest=/var/lib/ndn/serve-certs/ndncert-site-ca.{{inventory_hostname}}.signed.ndncert mode=644
-  become_user: "{{ansible_user}}"
+- name: set up signed cert to serve-certs
+  copy: src=roles/ndncert-site-key-generation/files/ndncert-site-ca.{{inventory_hostname}}.signed.cert dest=/var/lib/ndn/serve-certs/ndncert-site-ca.{{inventory_hostname}}.signed.ndncert mode=644 owner=ndn group=ndn
+  become_user: root
 
 # Install signed cert on Site
 # sudo HOME=/var/lib/ndn/ndncert-ca -u ndn ndnsec cert-install -K ndncert.edu.wustl.signed.cert
