@@ -4,7 +4,12 @@ Description=Certificate Management Identity Management Service for NDN (root)
 [Service]
 Environment=HOME=%S/ndn/ndncert-ca
 Environment=NDN_LOG=*=TRACE
-ExecStart=/usr/local/bin/ndncert-ca-server -c /usr/local/etc/ndncert/rootCA.conf -r -H 127.0.0.1 -P 7378
+# Run with no repo
+ExecStart=/usr/local/bin/ndncert-ca-server -c /usr/local/etc/ndncert/rootCA.conf 
+# Run with repo-ng
+#ExecStart=/usr/local/bin/ndncert-ca-server -c /usr/local/etc/ndncert/rootCA.conf -r -H 127.0.0.1 -P 7376
+# Run with no ndn-python-repo
+#ExecStart=/usr/local/bin/ndncert-ca-server -c /usr/local/etc/ndncert/rootCA.conf -r -H 127.0.0.1 -P 7378
 User=ndn
 StateDirectory=ndn/ndncert-ca
 Restart=on-failure
