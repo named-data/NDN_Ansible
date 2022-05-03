@@ -2,7 +2,7 @@
     {
       "ca-prefix": "/ndn{{site}}",
       "certificate": "{% include "files/ndncert-site-ca." + inventory_hostname + ".signed.cert.txt" %}",
-      "policy-type": "inst-email",
+      "policy-type": "email",
       "policy-param": "{{email_domain}}"
     }{% if not loop.last %},{% endif %}
 
