@@ -18,3 +18,9 @@ Actual commands for site CA for WU broken into components:
 ansible-playbook  -i testbedInventory --limit="WU" testbed-build-ndncert-from-source.yml
 ansible-playbook  -i testbedInventory --limit="WU" --tags="ndncert-site-key-generation" testbed-new-ndncert-site-ca.yml
 ansible-playbook  -i testbedInventory --limit="WU" --tags="ndncert-site-ca" testbed-new-ndncert-site-ca.yml
+
+Commands to set up testbed anchors and serve-certs to serve them:
+ansible-playbook -i testbedInventory --limit="WU" --tags="nfd,serve-certs" testbed-ppa-builds.yml
+
+After everything else is done, we need to refresh the UCLA root CA:
+ansible-playbook  -i testbedInventory --limit="UCLA" --tags="ndncert-ca" testbed-new-root-ca.yml
