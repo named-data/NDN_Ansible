@@ -26,9 +26,9 @@
 
   roles: 
 #  - {role: 'prep_0.6.0', tags: 'prep_0.6.0'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "prep_0.6.0"
-  - {role: 'ndncert-site-ca-demo', tags: 'ndncert-site-ca-demo'}  # 
   - {role: 'NOC', tags: 'NOC'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "NOC"
   - {role: 'ndn-ppa', tags: 'ndn-ppa'}
+  - {role: 'ndncert-site-ca', tags: 'ndncert-site-ca'}  # 
   - {role: 'ndncert-ca', tags: 'ndncert-ca'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndncert-ca"
   - {role: 'ndn-cxx', tags: 'ndn-cxx'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndn-cxx"
   - {role: 'nfd', tags: 'nfd'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "nfd"
