@@ -22,10 +22,15 @@ sudo rm -rf /var/lib/ndn/nlsr/.ndn
 if [ ! -s /etc/ndn/nlsr/keys/operator.cert ]
 then
   sudo su - nlsr -c "export HOME=/var/lib/ndn/nlsr/; ndnsec-key-gen -n ${PREFIX}/%C1.Operator/${OPERATOR} > ~nlsr/unsigned_operator.cert"
-  sudo su - ndnsec -c "ndnsec-cert-gen -S 201803010000 -E 20280301000 -s ${PREFIX} -r ~nlsr/unsigned_operator.cert > /tmp/operator.cert"
+  # Using old legacy CA:
+  #sudo su - ndnsec -c "ndnsec-cert-gen -S 201803010000 -E 20280301000 -s ${PREFIX} -r ~nlsr/unsigned_operator.cert > /tmp/operator.cert"
+  # Using new ndncert-ca:
+  sudo su - root -c "export HOME=/var/lib/ndn/ndncert-ca/; ndnsec-cert-gen -S 202204010000 -E 20320401000 -s ${PREFIX} -r ~nlsr/unsigned_operator.cert > /tmp/operator.cert"
+  sudo su - root -c "chown nlsr.nlsr /tmp/operator.cert"
+
   sudo su - nlsr -c "cp /tmp/operator.cert /etc/ndn/nlsr/keys/operator.cert"
   sudo su - nlsr -c "export HOME=/var/lib/ndn/nlsr/; ndnsec-cert-install -f /etc/ndn/nlsr/keys/operator.cert"
-  sudo su - ndnsec -c "rm /tmp/operator.cert"
+  sudo su - nlsr -c "rm /tmp/operator.cert"
 fi
 
 #if [ ! -s /etc/ndn/nlsr/keys/operator.cert ]
