@@ -3,7 +3,7 @@
 
 # install ndncert from source
 - git:
-    repo: https://github.com/UCLA-IRL/ndncert
+    repo: https://github.com/named-data/ndncert
     dest: /home/{{ansible_user}}/ndncert
     version: master
     update: yes
