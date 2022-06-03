@@ -315,11 +315,17 @@
 #  apt_repository: repo='ppa:named-data/ppa' state=present
 #  when: ansible_distribution == "Ubuntu" 
 
-- command: apt-get -y update
-  become: yes
+#- command: apt-get -y update
+#  become: yes
+#
+#- command: apt-get -y upgrade
+#  become: yes
 
-- command: apt-get -y upgrade
-  become: yes
+#- name: do apt update and upgrade
+#  apt:
+#    update_cache: yes
+#    upgrade: yes
+#    autoremove: yes
 
 #- name: install general ubuntu packages 
 #  when: ansible_distribution == "Ubuntu" 
