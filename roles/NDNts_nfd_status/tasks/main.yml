@@ -19,27 +19,39 @@
 #  #  contents: "{{ lookup('file', '/tmp/tarball.txt') }}"
 #  #tasks:
 #  ##  debug: msg="the value of tarball.txt is {{ contents }}"
-- name: download tarball.txt to get URL for tarball
-  command: curl -o /tmp/tarball.txt  https://nfd-status-page.ndn.today/tarball.txt 
-  delegate_to: 127.0.0.1
-  #ignore_errors: yes
-  become: no
+#- name: download tarball.txt to get URL for tarball
+#  command: curl -o /tmp/tarball.txt  https://nfd-status-page.ndn.today/tarball.txt 
+#  delegate_to: 127.0.0.1
+#  #ignore_errors: yes
+#  become: no
+#
+#- name: get contents of file /tmp/tarball.txt
+#  vars:
+#    contents: "{{ lookup('file', '/tmp/tarball.txt') }}"
+#  debug: msg="the value of tarball.txt is {{ contents }}"
+#
+#- name: download tarball specified in tarball.txt
+#  vars:
+#    contents: "{{ lookup('file', '/tmp/tarball.txt') }}"
+#  get_url: url=https://nfd-status-page.ndn.today/{{ contents }} dest=/usr/share/ndn//{{ contents }}  mode=0644
+#  ignore_errors: yes
+#
+#- name: unarchive tarball
+#  vars:
+#    contents: "{{ lookup('file', '/tmp/tarball.txt') }}"
+#  unarchive: remote_src=true src=/usr/share/ndn/{{ contents }} dest=/usr/share/ndn/n
+#  ignore_errors: yes
 
-- name: get contents of file /tmp/tarball.txt
-  vars:
-    contents: "{{ lookup('file', '/tmp/tarball.txt') }}"
-  debug: msg="the value of tarball.txt is {{ contents }}"
-
-- name: download tarball specified in tarball.txt
-  vars:
-    contents: "{{ lookup('file', '/tmp/tarball.txt') }}"
-  get_url: url=https://nfd-status-page.ndn.today/{{ contents }} dest=/usr/share/ndn//{{ contents }}  mode=0644
+- name: download tarball from  https://nfd-status-page.ndn.today/NDNts-NFD-status-page.txz
+  get_url: 
+    url: https://nfd-status-page.ndn.today/NDNts-NFD-status-page.txz 
+    dest: /usr/share/ndn//NDNts-NFD-status-page.txz  
+    mode: '0644'
   ignore_errors: yes
 
 - name: unarchive tarball
   vars:
-    contents: "{{ lookup('file', '/tmp/tarball.txt') }}"
-  unarchive: remote_src=true src=/usr/share/ndn/{{ contents }} dest=/usr/share/ndn/n
+  unarchive: remote_src=true src=/usr/share/ndn/NDNts-NFD-status-page.txz dest=/usr/share/ndn/n
   ignore_errors: yes
 
 #- name: "copy tarball.txt file contents into variable"
