@@ -24,6 +24,7 @@ neighbors:
   #CNIC: {link_cost: 33}
   UCLA: {link_cost: 100}
 network_regions: [/ndn/kr/anyang]
+# AS9270
 #hr_radius: 14.3378634978013
 #hr_angle: 2.99956859361519
 hr_angle: 2.99956

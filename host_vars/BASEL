@@ -23,6 +23,7 @@ neighbors:
   #LIP6: {link_cost: 7}
   URJC: {link_cost: 14}
 network_regions: [/ndn/ch/unibas]
+# AS559 same as BERN
 #hr_radius: 13.2717666496574
 ##hr_angle: 2.41932700603969
 #hr_angle: 2.41932

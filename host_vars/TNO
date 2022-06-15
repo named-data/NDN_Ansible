@@ -21,6 +21,8 @@ neighbors:
   BASEL: {link_cost: 14}
   MSU: {link_cost: 120}
 network_regions: [/ndn/nl/tno]
+# AS1103
+# 1103    2.46031061259707        12.0148443703157
 #hr_radius: 12.0148443703157
 #hr_angle: 2.46031061259707
 hr_angle: 2.46031

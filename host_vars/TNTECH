@@ -18,6 +18,8 @@ neighbors:
   #CSU: {link_cost: 25}
   MINHO: {link_cost: 80}
 network_regions: [/ndn/edu/tntech]
+# AS19331
+# 19331   3.3731030873888 16.8198026585051
 #hr_radius: 16.8198026585051
 #hr_angle: 3.3731030873888
 hr_angle: 3.3731030873888

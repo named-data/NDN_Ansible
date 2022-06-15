@@ -23,6 +23,11 @@ neighbors:
   TNO: {link_cost: 120}
   ANYANG: {link_cost: 70}
 network_regions: [/ndn/th/ac/msu]
+# AS4621
+# 4621    3.63761863675582        12.8769009681331
+# AS9562
+# 9562    3.64135462555066        19.6533436173325
+
 #hr_radius: 19.6533436173325
 #hr_angle: 3.64135462555066
 hr_angle: 3.64135

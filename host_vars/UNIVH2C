@@ -22,6 +22,8 @@ neighbors:
   #CAGLIARI: {link_cost: 50}
   URJC: {link_cost: 52}
 network_regions: [/ndn/ma/univh2c]
+# AS30983
+# 30983   3.03408110440034        15.7232000669204
 #hr_radius: 15.7232000669204
 #hr_angle: 3.03408110440034
 hr_angle: 3.03408

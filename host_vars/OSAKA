@@ -24,6 +24,8 @@ neighbors:
   WASEDA: {link_cost: 5}
   ARIZONA: {link_cost: 100}
 network_regions: [/ndn/jp/ac/osaka-u]
+# AS4730
+# 4730    3.53687143597719        19.357383439933
 #hr_radius: 19.357383439933
 #hr_angle: 3.53687143597719
 hr_angle: 3.53687

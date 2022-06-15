@@ -19,6 +19,8 @@ neighbors:
   URJC: {link_cost: 13}
   PADUA: {link_cost: 26}
 network_regions: [/ndn/pt/uminho]
+# AS1930
+# 1930    2.62082874954162        16.2060358549513
 #hr_radius: 16.2060358549513
 ##hr_angle: 2.62082874954162
 #hr_angle: 2.62083

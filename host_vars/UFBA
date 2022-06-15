@@ -22,6 +22,8 @@ neighbors:
   COPELABS: {link_cost: 145}
   #INDONESIA: {link_cost: 200}
 network_regions: [/ndn/br/ufba]
+# AS53164
+# 53164   3.51917186014577        18.4689630609209
 #hr_radius: 29.2553552716
 #hr_angle: 3.51898188093184
 hr_angle: 3.51898

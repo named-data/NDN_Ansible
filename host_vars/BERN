@@ -23,6 +23,7 @@ neighbors:
   BASEL: {link_cost: 2}
   AFA: {link_cost: 15}
 network_regions: [/ndn/ch/unibe]
+# AS559 same as BASEL
 #hr_radius: 13.2717666496574
 ##hr_angle: 2.41932700603969
 #hr_angle: 2.41933

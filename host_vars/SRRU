@@ -24,6 +24,8 @@ neighbors:
   #INDONESIA: {link_cost: 32}
   #PADUA: {link_cost: 126}
 network_regions: [/ndn/th/ac/srru]
+# AS4621
+# 4621    3.63761863675582        12.8769009681331
 #hr_radius: 12.8769009681331
 #hr_angle: 3.63761863675582
 hr_angle: 3.63761

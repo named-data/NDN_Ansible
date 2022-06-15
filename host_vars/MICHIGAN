@@ -21,6 +21,8 @@ neighbors:
   NEU: {link_cost: 14}
   #LIP6: {link_cost: 69}
 network_regions: [/ndn/edu/umich]
+# AS237
+# 237     2.98058671268335        13.2000544095641
 #hr_radius: 17.7738038607456
 #hr_angle: 2.98018269081901
 hr_angle: 2.98018

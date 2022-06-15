@@ -17,6 +17,8 @@ neighbors:
   ARIZONA: {link_cost: 32}
   MEMPHIS: {link_cost: 100}
 network_regions: [/ndn/mx/uaslp]
+# AS22884
+# 22884   2.96457404506567        18.2295502581383
 # AS17072	2.96488127257358	19.0473935893716
 #hr_radius: 19.0473935893716
 #hr_angle: 2.96488127257358

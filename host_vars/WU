@@ -31,6 +31,12 @@ neighbors:
   MEMPHIS: {link_cost: 17}
   UIUC: {link_cost: 9}
 network_regions: [/ndn/edu/wustl]
+# AS2552
+# not in file
+
+# 25887   4.31067173953721        19.426848571939
+# AS25887 St Louis Internet2 Access Consortium LLC
+
 #hr_radius: 19.426848571939
 #hr_angle: 4.31067173953721
 hr_angle: 4.31067
