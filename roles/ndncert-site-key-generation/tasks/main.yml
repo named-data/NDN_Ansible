@@ -9,6 +9,14 @@
 - name: create /var/lib/ndn/ndncert-ca directory
   file: path=/var/lib/ndn/ndncert-ca  state=directory owner=ndn group=ndn mode=0755
 
+- name: recursively set file ownerships on /var/lib/ndn/ndncert-ca
+  ansible.builtin.file:
+    path: /var/lib/ndn/ndncert-ca
+    state: directory
+    owner: ndn
+    group: ndn
+    recurse: yes
+
 # Generate Key on Site
 # HOW DO WE TELL IF WE NEED TO DO THIS OR NOT? We don't always want to generate a new key
 # EXAMPLE: sudo HOME=/var/lib/ndn/ndncert-ca -u ndn ndnsec key-gen /ndn/edu/wustl > /tmp/ndn.edu.wustl.csr
