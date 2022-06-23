@@ -9,7 +9,7 @@ default_prefix: /ndn/pt/it/av
 advertised_prefixes: [/ndn/pt/it/av]
 routable_prefixes: [/ndn/pt/it/av]
 router_name: selficn 
-http_access: http
+http_access: https
 memsize: 4
 neighbors: 
   WU: {link_cost: 75}
