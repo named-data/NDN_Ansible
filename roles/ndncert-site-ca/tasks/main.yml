@@ -13,6 +13,7 @@
 - name: create site conf
   local_action: template src=site-ca.conf.j2 dest=roles/ndncert-site-ca/files/ca-{{inventory_hostname}}.conf
   become: false
+  notify:  restart ndncert-site-ca
 
 # Copy site conf file to Site
 - name: copy site CA conf file to site
@@ -21,12 +22,12 @@
 
 # Create site systemd service file
 - name: create site systemd service file
-  local_action: template src=site-ca-systemd.service.j2 dest=roles/ndncert-site-ca/files/ndncert-ca-{{inventory_hostname}}.service
+  local_action: template src=site-ca-systemd.service.j2 dest=roles/ndncert-site-ca/files/ndncert-ca-{{inventory_hostname}}.service mode=0644
   become: false
 
 # Copy site systemd service file to Site
 - name: copy site systemd service file to site
-  copy: src=roles/ndncert-site-ca/files/ndncert-ca-{{inventory_hostname}}.service dest=/etc/systemd/system/
+  copy: src=roles/ndncert-site-ca/files/ndncert-ca-{{inventory_hostname}}.service dest=/etc/systemd/system/ mode=644
   become_user: root
 
 # Set up mail proxy on Site

@@ -1,2 +1,4 @@
 ---
 # handlers file for ndncert-site-ca
+- name: restart ndncert-site-ca
+  service: name=ndncert-ca-{{inventory_hostname}} state=restarted
