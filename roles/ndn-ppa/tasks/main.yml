@@ -1,15 +1,15 @@
 ---
 # tasks file for ndn-ppa
 
-- name: purge ndn packages (ndn-cxx, nfd, ndnsec)
-  apt:
-    name: ['ndn-cxx', 'ndn-cxx-dev', 'nfd', 'ndnsec', 'nlsr', 'libndn-cxx', 'libndn-cxx-dev', 'libndn-cxx-dbg', 'libpsync', 'ndn-autoconfig-server','ndn-dissect', 'ndn-tools', 'ndnchunks', 'ndndump', 'ndnpeek', 'ndnping', 'repo-ng' , 'nfd-status-http-server' ]
-    update_cache: yes
-    autoclean: yes
-    autoremove: yes
-    purge: yes
-    state: absent
-  when: ansible_distribution == "Ubuntu" 
+#- name: purge ndn packages (ndn-cxx, nfd, ndnsec)
+#  apt:
+#    name: ['ndn-cxx', 'ndn-cxx-dev', 'nfd', 'ndnsec', 'nlsr', 'libndn-cxx', 'libndn-cxx-dev', 'libndn-cxx-dbg', 'libpsync', 'ndn-autoconfig-server','ndn-dissect', 'ndn-tools', 'ndnchunks', 'ndndump', 'ndnpeek', 'ndnping', 'repo-ng' , 'nfd-status-http-server' ]
+#    update_cache: yes
+#    autoclean: yes
+#    autoremove: yes
+#    purge: yes
+#    state: absent
+#  when: ansible_distribution == "Ubuntu" 
 
 - name: Remove ndn nightly sources list if present
   shell: rm -f /etc/apt/sources.list.d/nfd-nightly.list

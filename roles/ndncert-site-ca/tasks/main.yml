@@ -80,7 +80,7 @@
   become_user: root
 
 # Start ndncert site ca service
-- name: start ndncert-ca-{{inventory_hostname}}
+- name: start ndncert-ca
   service: name=ndncert-ca-{{inventory_hostname}} state=started enabled=yes
 
 
