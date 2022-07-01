@@ -1,14 +1,4 @@
 
-testbed-build-ndncert-from-source
-
-testbed-new-root-ca.yml (the first time. after that is successful, run this one: testbed-refresh-root-ca.yml)
-testbed-new-ndncert-site-ca.yml (the first time. after that is successful, run this one: testbed-refresh-ndncert-site-ca.yml)
-
-testbed-refresh-root-ca.yml (this will regenerate the root conf file from the info for the sites and restart root CA)
-
-
-
-
 Actual commands for root CA broken into components:
 ansible-playbook  -i testbedInventory --limit="UCLA" testbed-build-ndncert-from-source.yml
 ansible-playbook  -i testbedInventory --limit="UCLA" --tags="ndncert-root-key-generation" testbed-new-root-ca.yml
