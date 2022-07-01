@@ -44,7 +44,7 @@
   - {role: 'nfd-autoreg', tags: 'nfd-autoreg'} 
   - {role: 'serve-certs', tags: 'serve-certs'} 
 
-  - {role: 'ndnmap-data-collector', tags: 'ndnmap-data-collector'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnmap-data-collector"
+#  - {role: 'ndnmap-data-collector', tags: 'ndnmap-data-collector'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnmap-data-collector"
 #  - {role: 'ndnTestbedDataCollector', tags: 'ndnTestbedDataCollector'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "ndnTestbedDataCollector"
 
 - name: install ndn gateways (RHEL)
@@ -71,13 +71,13 @@
   - {role: 'nfd-autoreg', tags: 'nfd-autoreg'} 
 
 
-- name: install ndndemo
-  hosts: ndndemo
-  remote_user: jdd
-  become: yes
-
-  roles:
-  - {role: 'cacti', tags: 'cacti'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "cacti"
+#- name: install ndndemo
+#  hosts: ndndemo
+#  remote_user: jdd
+#  become: yes
+#
+#  roles:
+#  - {role: 'cacti', tags: 'cacti'}  # to use the tag, do this:   > ansible-playbook -i testbedInventory --tags "cacti"
 
 #
 #  roles:
