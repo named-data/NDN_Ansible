@@ -375,7 +375,7 @@
 - name: install general ubuntu packages 
   apt:
     #name: ['build-essential', 'git', 'openssl', 'python-openssl', 'libffi-dev', 'python-cffi', 'libssl-dev', 'expat', 'libexpat-dev', 'libpcap-dev', 'gawk', 'texinfo', 'asciidoc', 'finger', 'software-properties-common', 'ntp', 'autoconf', 'libtool', 'python-dev', 'g++', 'autotools-dev', 'libicu-dev', 'libbz2-dev', 'sqlite3', 'pkg-config', 'libssl-dev', 'libsqlite3-dev', 'libcrypto++-dev', 'aptitude', 'python3-setuptools', 'python3-pkg-resources', 'python3-dev', 'python3-pip', 'python-netaddr', 'fail2ban' , 'iperf', 'iperf3' , 'mongodb' ,  'python-configparser' , 'nginx', 'screen' , 'systemd-timesyncd' ]
-    name: ['build-essential', 'git', 'openssl', 'python-openssl', 'libffi-dev', 'python-cffi', 'libssl-dev', 'expat', 'libexpat-dev', 'libpcap-dev', 'gawk', 'texinfo', 'asciidoc', 'finger', 'software-properties-common', 'autoconf', 'libtool', 'python-dev', 'g++', 'autotools-dev', 'libicu-dev', 'libbz2-dev', 'sqlite3', 'pkg-config', 'libssl-dev', 'libsqlite3-dev', 'libcrypto++-dev', 'aptitude', 'python3-setuptools', 'python3-pkg-resources', 'python3-dev', 'python3-pip', 'python-netaddr', 'fail2ban' , 'iperf', 'iperf3' , 'mongodb' ,  'python-configparser' , 'nginx', 'screen' , 'systemd-timesyncd' ]
+    name: ['build-essential', 'git', 'openssl', 'python-openssl', 'libffi-dev', 'python-cffi', 'libssl-dev', 'expat', 'libexpat-dev', 'libpcap-dev', 'gawk', 'texinfo', 'asciidoc', 'finger', 'software-properties-common', 'autoconf', 'libtool', 'python-dev', 'g++', 'autotools-dev', 'libicu-dev', 'libbz2-dev', 'sqlite3', 'pkg-config', 'libssl-dev', 'libsqlite3-dev', 'libcrypto++-dev', 'aptitude', 'python3-setuptools', 'python3-pkg-resources', 'python3-dev', 'python3-pip', 'python-netaddr', 'fail2ban' , 'iperf', 'iperf3' , 'mongodb' ,  'python-configparser' , 'screen' , 'systemd-timesyncd' ]
     update_cache: yes
     autoclean: yes
     autoremove: no
@@ -393,7 +393,7 @@
 
 - name: install python3-certbot-nginx for Ubuntu 20.04
   apt:
-    name: ['python3-certbot-nginx']
+    name: ['python3-certbot-nginx', 'nginx', 'certbot']
     update_cache: yes
     autoclean: yes
     autoremove: yes
