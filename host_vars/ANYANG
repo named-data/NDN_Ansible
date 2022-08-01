@@ -13,6 +13,7 @@ router_name: anyanghub
 http_access: https
 memsize: 48
 neighbors: 
+  ITB: {link_cost: 42}
   #GIST: {link_cost: 4}
   SRRU: {link_cost: 57}
   MSU: {link_cost: 70}

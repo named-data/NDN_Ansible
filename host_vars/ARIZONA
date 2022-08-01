@@ -13,6 +13,7 @@ router_name: hobo
 http_access: https
 memsize: 8
 neighbors: 
+  ITB: {link_cost: 132}
   UASLP: {link_cost: 32}
   #UCLACS: {link_cost: 25}
   UCLA: {link_cost: 25}

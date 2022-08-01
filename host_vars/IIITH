@@ -12,6 +12,7 @@ router_name: ndntestbed
 http_access: https
 memsize: 2
 neighbors: 
+  ITB: {link_cost: 40}
   URJC: {link_cost: 90}
   PADUA: {link_cost: 90}
   WU: {link_cost: 122}
