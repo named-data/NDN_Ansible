@@ -83,6 +83,7 @@ NDNDEMO
 # WU needs extra strategy for ndndemo added in nfd-init.sh
 
 # Everything defined in host_vars/{name}, e.g. host_vars/WU contains all variables for node WU
+ITB
 IIITH
 DELFT
 MML1
