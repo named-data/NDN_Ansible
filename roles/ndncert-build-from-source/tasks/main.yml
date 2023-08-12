@@ -5,8 +5,8 @@
 - git:
     repo: https://github.com/named-data/ndncert
     dest: /home/{{ansible_user}}/ndncert
-    version: master
-    update: yes
+    version: baa5a9af116c5c30727539be8e6f23d3527c4dcb
+    # update: yes
   become_user: "{{ansible_user}}"
   ignore_errors: no
 

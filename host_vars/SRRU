@@ -5,7 +5,7 @@
 ansible_host: srru.testbed.named-data.net
 host_ip: 202.29.30.31
 ethernet_device: eth0
-ansible_user: ndnops2
+ansible_user: ndnops
 site: /th/ac/srru
 default_prefix: /ndn/th/ac/srru 
 advertised_prefixes: [/ndn/th/ac/srru]

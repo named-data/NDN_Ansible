@@ -79,9 +79,9 @@
   copy: src=roles/ndncert-site-ca/files/ndncert-mail.conf  dest=/usr/local/etc/ndncert/ndncert-mail.conf owner=ndn group=root mode=400
   become_user: root
 
-# Start ndncert site ca service
-- name: start ndncert-ca
-  service: name=ndncert-ca-{{inventory_hostname}} state=started enabled=yes
+# Restart ndncert site ca service
+- name: restart ndncert-ca
+  service: name=ndncert-ca-{{inventory_hostname}} state=restarted enabled=yes
 
 
 # And what do we need to do about getting certs served out of the python repos

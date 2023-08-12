@@ -2,7 +2,7 @@
 
 # file: host_vars/QUB
 ansible_host: ndn.qub.ac.uk
-host_ip: 80.76.206.92
+host_ip: 51.148.47.242
 ethernet_device: ens160
 site: /uk/ac/qub
 default_prefix: /ndn/uk/ac/qub 
