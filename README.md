@@ -1,3 +1,7 @@
+# Deprecated
+
+New testbed repo: https://github.com/named-data/testbed
+
 # NDN_Ansible
 Ansible management for NDN Testbed
 
